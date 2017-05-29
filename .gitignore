@@ -1,0 +1,14 @@
+*.pdf
+*.png
+*.svg
+*.tmp
+*.aux
+*.tmp
+*.bbl
+*.tif
+data/
+
+*.DS_store
+*.DS_Store
+**ipynb_checkpoints**
+*.pyc
