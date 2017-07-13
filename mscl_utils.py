@@ -513,8 +513,11 @@ def show_connections(fname, image, data, title=None, bar_length=10,
                 c_x = d.iloc[i]['label_cent_x']
                 c_y = d.iloc[i]['label_cent_y']
                 # Plot the connections.
-                plt.plot((m_x, c_x), (m_y, c_y), 'o-', ms=3, lw=1,
+                plt.plot((m_x, c_x), (m_y, c_y), '-', ms=3, lw=1,
                          color=colors[g])
+                plt.plot(m_x, m_y, 'o', ms=3, lw=1, color=colors[g])
+                plt.plot(c_x, c_y, 'o', ms=3, markerfacecolor='w',
+                         markeredgecolor=colors[g], markeredgewidth=1)
 
         # Format the axes
         plt.xticks([])
@@ -546,7 +549,8 @@ def set_plotting_style(return_colors=True):
           'grid.color': '#ffffff',
           'mathtext.fontset': 'stixsans',
           'mathtext.sf': 'sans',
-          'legend.frameon': True}
+          'legend.frameon': True,
+          'figure.figsize': (8,6)}
     plt.rc('text.latex', preamble=r'\usepackage{sfmath}')
     plt.rc('mathtext', fontset='stixsans', sf='sans')
     sns.set_style('darkgrid', rc=rc)
