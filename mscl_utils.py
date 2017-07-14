@@ -543,6 +543,7 @@ def set_plotting_style(return_colors=True):
     rc = {'lines.linewidth': 2,
           'axes.facecolor': '#E3DCD0',
           'xtick.labelsize': 'large',
+          'ytick.labelsize': 'large',
           'font.family': 'Lucida Sans Unicode',
           'grid.linestyle': ':',
           'grid.linewidth': 0.85,
@@ -550,7 +551,9 @@ def set_plotting_style(return_colors=True):
           'mathtext.fontset': 'stixsans',
           'mathtext.sf': 'sans',
           'legend.frameon': True,
-          'figure.figsize': (8,6)}
+          'figure.figsize': (8, 6),
+          'figure.dpi': 150}
+
     plt.rc('text.latex', preamble=r'\usepackage{sfmath}')
     plt.rc('mathtext', fontset='stixsans', sf='sans')
     sns.set_style('darkgrid', rc=rc)
