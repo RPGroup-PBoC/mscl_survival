@@ -12,3 +12,5 @@ data/unclean*
 **ipynb_checkpoints**
 *.pyc
 __pycache__
+*.key
+*.ai
