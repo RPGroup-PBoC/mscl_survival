@@ -1,0 +1,12 @@
+# Date: 20170503
+# RBS Modification: sd2
+# Shock Rate: 0.2Hz
+# Purpose: Process shock data from 20170503
+# This experiment was conducted by shocking E. coli cells in which all seven
+# mechanosensitive channel genes were removed from the chromosome. A single
+# copy of mscL was introduced into the chromosome with the RBS modification
+# sd2. These cells were hypo-osmotically shocked by flowing LB broth
+# lacking sodium chloride at a rate of 0.2Hz monitored by the presence of
+# and osmo-sensitive dye. Cells were manually marked for survivorship.
+# Survivors were defined as those cells which were able to undergo two division
+# events after the shock had taken place.

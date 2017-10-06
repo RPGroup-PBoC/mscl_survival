@@ -10,21 +10,216 @@ import skimage.morphology
 import skimage.segmentation
 import skimage.filters
 import scipy.ndimage
+import os
+
+import bokeh.plotting
+import cairosvg
 
 import pandas as pd
 import xmltodict
 import json
 
 
-def contour_seg(image, level=0.3, selem='default', perim_bounds=(5, 25),
-                ip_dist=0.160, return_conts=False):
+# Image processing utilities.
+def compute_mean_bg(phase_image, fluo_image, method='isodata', obj_dark=True):
+    """
+    Computes the mean background fluorescence of the inverted segmentation
+    mask.
+
+    Parameters
+    ----------
+    phase_image : 2d-array, int or float.
+        The phase contrast image used for generating the inverse segmentation
+        mask. If this image is not a float with pixel values in (0, 1), it
+        will be renormalized.
+    fluo_image : 2d-array, int
+        The fluorescence image used to calculate the mean pixel value. If
+        flatfield correction is necessary, it should be done before this
+        sending to this function.
+    method: string, ['otsu', 'yen', 'li', 'isodata'], default 'isodata'
+        Automated thresholding method to use. Default is 'isodata' method.
+    obj_dark : bool, default True
+        If True, objects will be **darker** than the automatically generated
+        threshold value. If False, objects are deemed to be brighter.
+
+    Returns
+    -------
+    mean_bg: float
+        The mean background fluorescence of the image.
+    """
+
+    # Ensure that the image is renormalized.
+    if (phase_image > 1.0).any():
+        phase_image = (phase_image - phase_image.min()) /\
+                      (phase_image.max() - phase_image.min())
+    # Perform the background subtraction.
+    im_blur = skimage.filters.gaussian(phase_image, sigma=50)
+    im_sub = phase_image - im_blur
+
+    # Determine the method to use.
+    methods = {'otsu': skimage.filters.threshold_otsu,
+               'yen': skimage.filters.threshold_yen,
+               'li': skimage.filters.threshold_li,
+               'isodata': skimage.filters.threshold_isodata}
+
+    # Determine the threshold value.
+    thresh_val = methods[method](im_sub)
+
+    # Generate the inverted segmentation mask and dilate.
+    if obj_dark is True:
+        im_thresh = im_sub < thresh_val
+    else:
+        im_thresh = im_sub > thresh_val
+
+    selem = skimage.morphology.disk(20)
+    im_dil = skimage.morphology.dilation(im_thresh, selem=selem)
+
+    # Mask onto the fluroescence image and compute the mean background value.
+    mean_bg = np.mean(fluo_image[im_dil < 1])
+    return mean_bg
+
+
+def median_flatfield(image_stack, medfilter=True, selem='default',
+                     return_profile=False):
+    """
+    Computes a illumination profile from the median of all images
+    and corrects each individual image.
+
+    Parameters
+    ----------
+    image_stack: scikit-image ImageCollection
+        Series of images to correct. The illumination profile is created
+        from computing the median filter of all images in this collection.
+    medfilter: bool, default True
+        If True, each individiual image will be prefiltered using a median
+        filter with  a given selem.
+    selem : string or structure, default 3x3 square
+        Structural element to use for the median filtering. Default  is
+        a 3x3 pixel square.
+    return_profile: bool, default False
+        If True, the illumination profiled image will be returned.
+
+    Returns
+    -------
+    ff_ims : list of 2d-array
+        Flatfield corrected images.
+    med_im : 2d-array
+        Illumination profile produced from the median of all images in
+        image stack.
+    """
+
+    # Determine if the prefiltering should be performed.
+    if medfilter is True:
+
+        # Define the structural element.
+        if selem is 'default':
+            selem = skimage.morphology.square(3)
+        image_stack = [scipy.ndimage.median_filter(
+            im, footprint=selem) for im in image_stack]
+
+    # Compute the median filtered image.
+    med_im = np.median(image_stack, axis=0)
+
+    # Perform the correction.
+    ff_ims = [(i / med_im) * np.mean(med_im) for i in image_stack]
+
+    if return_profile is True:
+        return [ff_ims, med_im]
+    else:
+        return ff_ims
+
+# Generate the flat-field illumination using a GFP slide standard.
+# #################
+
+
+def average_stack(im, median_filt=True):
+    """
+    Computes an average image from a provided array of images.
+
+    Parameters
+    ----------
+    im : list or arrays of 2d-arrays
+        Stack of images to be filtered.
+    median_filt : bool
+        If True, each image will be median filtered before averaging.
+        Median filtering is performed using a 3x3 square structural element.
+
+    Returns
+    -------
+    im_avg : 2d-array
+        averaged image with a type of int.
+    """
+
+    # Determine if the images should be median filtered.
+    if median_filt is True:
+        selem = skimage.morphology.square(3)
+        im_filt = [scipy.ndimage.median_filter(i, footprint=selem) for i in im]
+    else:
+        im = im_filt
+
+    # Generate and empty image to store the averaged image.
+    im_avg = np.zeros_like(im[0]).astype(int)
+    for i in im:
+        im_avg += i
+    im_avg = im_avg / len(im)
+    return im_avg
+
+
+def generate_flatfield(im, im_field, median_filt=True):
+    """
+    Corrects illumination of a given image using a dark image and an image of
+    the flat illumination.
+
+    Parameters
+    ----------
+    im : 2d-array
+        Image to be flattened.
+    im_field: 2d-array
+        Average image of fluorescence illumination.
+    median_filt : bool
+        If True, the image to be corrected will be median filtered with a
+        3x3 square structural element.
+
+    Returns
+    -------
+    im_flat : 2d-array
+        Image corrected for uneven fluorescence illumination. This is performed
+        as
+
+        im_flat = (im  / im_field ) * mean(im_field)
+
+    Raises
+    ------
+    RuntimeError
+        Thrown if bright image and dark image are approximately equal. This
+        will result in a division by zero.
+    """
+    # Compute the mean field value.
+    mean_diff = np.mean(im_field)
+
+    if median_filt is True:
+        selem = skimage.morphology.square(3)
+        im_filt = scipy.ndimage.median_filter(im, footprint=selem)
+    else:
+        im_filt = im
+
+    # Compute and return the flattened image.
+    im_flat = (im_filt / im_field) * mean_diff
+    return im_flat
+
+# for segmentation.
+
+
+def contour_seg(image, level=0.3, selem='default', perim_bounds=(5, 1E3),
+                ip_dist=0.160, ecc_bounds=(0.7, 1), area_bounds=(1, 50),
+                return_conts=False, min_int=0.2):
     """
     Identifies contours around dark objects in a phase contrast image.
 
     Parameters
     ----------
     image: 2d-array
-        Phase contrast image of interest. This shoul
+        Phase contrast image of interest.
     level: float
         Level at which to draw contours on black top-hat filtered image.
         Default value is 0.3.
@@ -38,6 +233,11 @@ def contour_seg(image, level=0.3, selem='default', perim_bounds=(5, 25),
     ip_dist : float
         Interpixel distance of the image in units of microns per pixel. The
         default value is 0.160 microns per pixel.
+    area_bounds : tuple of float
+        Upper and lower bounds for selected object areas. These should be
+        given in units of square microns.
+    ecc_bounds : tuple of float
+        Bounds for object eccentricity. Default values are between 0.5 and 1.0.
     return_conts : bool
         If True, the x and y coordinates of the individual contours will be
         returned. Default value is False
@@ -80,8 +280,8 @@ def contour_seg(image, level=0.3, selem='default', perim_bounds=(5, 25),
         perim = 0
         for j in range(len(c) - 1):
             # Compute the distance between points.
-            distance = np.sqrt((c[j+1, 0] - c[j, 0])**2 +
-                               (c[j+1, 1] - c[j, 1])**2)
+            distance = np.sqrt((c[j + 1, 0] - c[j, 0])**2 +
+                               (c[j + 1, 1] - c[j, 1])**2)
             perim += distance * ip_dist
 
         # Test if the perimeter is allowed by the user defined bounds.
@@ -96,68 +296,25 @@ def contour_seg(image, level=0.3, selem='default', perim_bounds=(5, 25),
     # Fill and label the objects.
     objs_fill = scipy.ndimage.binary_fill_holes(objs)
     objs_fill = skimage.morphology.remove_small_objects(objs_fill)
-    objs_border = skimage.segmentation.clear_border(objs_fill)
-    im_lab = skimage.measure.label(objs_border)
+    im_lab = skimage.measure.label(objs_fill)
+
+    # Apply filters.
+    approved_obj = np.zeros_like(im_lab)
+    props = skimage.measure.regionprops(im_lab, image)
+    for prop in props:
+        area = prop.area * ip_dist**2
+        ecc = prop.eccentricity
+        if (area < area_bounds[1]) & (area > area_bounds[0]) &\
+            (ecc < ecc_bounds[1]) & (ecc > ecc_bounds[0]) &\
+                (prop.mean_intensity < min_int):
+            approved_obj += (im_lab == prop.label)
+    im_lab = skimage.measure.label(approved_obj)
+
     if return_conts is True:
         return conts, im_lab
     else:
         return im_lab
 
-
-def threshold_seg(image, area_bounds=(1, 20), ip_dist=0.16,
-                  blur_radius=30):
-    """
-    Segments dark objects in a phase contrast image using the
-    Otsu thresholding algorithm.
-
-    Parameters
-    ----------
-    image : 2d-array
-        Phase contrast image to be segmented.
-    area_bounds : tuple
-        Lower and upper area bounds for filtering objects by area.
-        This should be in units of square microns. Default values
-        are 0.5 and 20 square microns for the lower and upper
-        bounds respectively.
-    ip_dist : float
-        Interpixel distance of the image. This should be in units
-        of microns per pixel. Default value is 0.16 microns per pixel.
-    blur_radius : int
-        Radius for the gaussian blur performed during background
-        subtraction. This is in units of pixels. Default value is
-        30 pixels.
-
-    Returns
-    -------
-    im_lab : 2d-array of int
-        The final segmentation mask with individually labeled objects.
-    """
-    # Make sure the image is normalized.
-    if image.max() > 1:
-        image = (image - image.min()) / (image.max() - image.min())
-
-    # Perform the background subtraction.
-    im_blur = skimage.filters.gaussian(image, blur_radius)
-    im_sub = image - im_blur
-
-    # Threshold using Otsu's method.
-    # thresh = skimage.filters.threshold_otsu(im_sub)
-    thresh = -0.1
-    im_thresh = im_sub < thresh
-
-    # Fill the holes and filter by area.
-    im_fill = scipy.ndimage.binary_fill_holes(im_thresh)
-    im_lab = skimage.measure.label(im_fill)
-    props = skimage.measure.regionprops(im_lab)
-    obj = np.zeros_like(im_thresh)
-    for prop in props:
-        area = prop.area * ip_dist**2
-        if (area > area_bounds[0]) & (area < area_bounds[1]):
-            obj += (im_lab == prop.label)
-
-    # Relabel and return.
-    im_lab = skimage.measure.label(obj)
-    return im_lab
 
 def marker_parse(fname, type_dict={1: False, 2: True}):
     """
@@ -182,7 +339,7 @@ def marker_parse(fname, type_dict={1: False, 2: True}):
         positions = xmltodict.parse(f.read())
 
     # Extract only the marker data.
-    markers =  positions['CellCounter_Marker_File']['Marker_Data']['Marker_Type']
+    markers = positions['CellCounter_Marker_File']['Marker_Data']['Marker_Type']
 
     # Find the total number of types and loop through them to make data frames.
     dfs = []
@@ -209,7 +366,7 @@ def marker_parse(fname, type_dict={1: False, 2: True}):
 
 
 def link_markers(markers, seg_mask, fluo_image, ip_dist=0.160,
-                 return_coords=False, inplace=False,
+                 return_coords=False, max_dist=5,
                  position_labels=('x_pos', 'y_pos')):
     """
     Maps markers from one image to centroids of segmented objects from
@@ -235,9 +392,8 @@ def link_markers(markers, seg_mask, fluo_image, ip_dist=0.160,
         If True, the paired coordinates will be returned as a tuple. It
         will have the form ((mark_x, mark_y), (cent_x, cent_y)). Default
         value is False.
-    inplace : bool
-        If True, the markers DataFrame will be updated in place with the
-        paired mask label and intensity if the fluorescence image is given.
+    max_dist : float
+        Maximum distance to keep. Default Value is 5 microns.
     position_labels :  tuple of str
         Labels of position markers in the markers DataFrame in the order
         of x position and y position. Default is `x_pos` and `y_pos`.
@@ -265,42 +421,52 @@ def link_markers(markers, seg_mask, fluo_image, ip_dist=0.160,
 
     # Set up a list to store the coordinates and duplicate the df.
     coords = []
-    df = markers.copy(deep=True)
+    if type(markers) == str:
+        df = pd.DataFrame([intensity, area]).T
+        df.columns = ['intensity', 'area']
+        df.insert(np.shape(df)[1], 'dist', 0)
+        df.insert(0, 'label_cent_y', 0)
+        df.insert(0, 'label_cent_x', 0)
+        df.insert(0, 'mask_label', labels)
+        df.insert(0, 'y_pos', 0)
+        df.insert(0, 'x_pos', 0)
+        df.insert(0, 'survival', False)
+        return df
 
-    # Compute the minimum distances.
-    for i in range(len(markers)):
-        distances = []
-        x = markers.iloc[i][position_labels[0]]
-        y = markers.iloc[i][position_labels[1]]
+    else:
+        df = markers.copy(deep=True)
 
-        # Loop through each centroid and find the minimum distance.
-        for c in centroids:
-            distances.append(np.sqrt((x - c[1])**2 + (y - c[0])**2))
+        # Compute the minimum distances.
+        for i in range(len(markers)):
+            distances = []
+            x = markers.iloc[i][position_labels[0]]
+            y = markers.iloc[i][position_labels[1]]
 
-        # Find the index with the minimum distance.
-        min_ind = np.argmin(distances)
-        coords.append(((x, y),
-                       (centroids[min_ind][1], centroids[min_ind][0])))
+            # Loop through each centroid and find the minimum distance.
+            for c in centroids:
+                dist = np.sqrt((x - c[1])**2 + (y - c[0])**2)
+                distances.append(dist)
+            if len(distances) == 0:
+                df.set_value(i, 'dist', 1E6)
+                pass
+            else:
+                # Find the index with the minimum distance.
+                min_ind = np.argmin(distances)
+                coords.append(((x, y),
+                               (centroids[min_ind][1], centroids[min_ind][0])))
 
-        # Determine if a new DataFrame should be made or not.
-        # There should be a better way to do this -- will spruce up later.
-        if inplace is False:
-            # Update the data frame.
-            df.set_value(i, 'mask_label', labels[min_ind])
-            df.set_value(i, 'label_cent_x', centroids[min_ind][1])
-            df.set_value(i, 'label_cent_y', centroids[min_ind][0])
-            df.set_value(i, 'intensity', intensity[min_ind])
-            df.set_value(i, 'area', area[min_ind])
+                # Determine if a new DataFrame should be made or not.
+                # TODO: Make do this by generating a dictionary and appending
+                # to an existing dataframe.
+                df.set_value(i, 'mask_label', labels[min_ind])
+                df.set_value(i, 'label_cent_x', centroids[min_ind][1])
+                df.set_value(i, 'label_cent_y', centroids[min_ind][0])
+                df.set_value(i, 'intensity', intensity[min_ind])
+                df.set_value(i, 'area', area[min_ind])
+                df.set_value(i, 'dist', distances[min_ind])
 
-        else:
-            markers.set_value(i, 'mask_label', labels[min_ind])
-            markers.set_value(i, 'label_cent_x', centroids[min_ind][1])
-            markers.set_value(i, 'label_cent_y', centroids[min_ind][0])
-            markers.set_value(i, 'intensity', intensity[min_ind])
-            markers.set_value(i, 'area', area[min_ind])
-
-    # Figure out what to return.
-    if inplace is False:
+        # Apply the distance filter.
+        df = df[df['dist'] <= (max_dist / ip_dist)]
         if return_coords is True:
             return df, coords
         else:
@@ -332,10 +498,6 @@ def scrape_metadata(fname, channels=('Brightfield', 'GFP'), return_date=True):
     # Open the metadata file.
     with open(fname, 'r') as f:
         metadata = json.load(f)
-
-    # Get the date from the Summary field.
-    date = metadata['Summary']['Date'].split('-')
-    date = ''.join(date)
 
     # Get a list of the keys in the metadata file.
     keys = metadata.keys()
@@ -370,6 +532,9 @@ def scrape_metadata(fname, channels=('Brightfield', 'GFP'), return_date=True):
                 pass
 
     if return_date is True:
+        # Get the date from the Summary field.
+        date = metadata['Summary']['Date'].split('-')
+        date = ''.join(date)
         exposure['date'] = date
     return exposure
 
@@ -451,6 +616,8 @@ def save_seg(fname, image, mask, fill_contours=True, ip_dist=0.160,
         plt.close()
     return fig
 
+# TODO: Rewrite this with a  Bokeh backend.
+
 
 def show_connections(fname, image, data, title=None, bar_length=10,
                      ip_dist=0.16):
@@ -530,6 +697,7 @@ def show_connections(fname, image, data, title=None, bar_length=10,
     return fig
 
 
+# Plotting utilities
 def set_plotting_style(return_colors=True):
     """
     Sets the plotting style.
@@ -563,3 +731,92 @@ def set_plotting_style(return_colors=True):
 
     if return_colors:
         return colors
+
+
+# For Bokeh Styling.
+def bokeh_boiler(**kwargs):
+    # Make a bokeh figure axis.
+    if kwargs is not None:
+        p = bokeh.plotting.figure(**kwargs)
+    else:
+        p = bokeh.plotting.figure()
+
+    # Apply the styling to the figure axis.
+    p.background_fill_color = '#E3DCD0'
+    p.grid.grid_line_color = '#FFFFFF'
+    p.grid.grid_line_dash = 'dotted'
+    p.grid.grid_line_width = 2
+    p.axis.minor_tick_line_color = None
+    p.axis.major_tick_line_color = None
+    p.axis.axis_line_color = None
+    p.axis.axis_label_text_font = 'Lucida Sans Unicode'
+    p.axis.major_label_text_font = 'Lucida Sans Unicode'
+    p.axis.axis_label_text_font_style = 'normal'
+    p.axis.axis_label_text_font_size = '13pt'
+    p.axis.major_label_text_font_size = '10pt'
+    p.axis.axis_label_text_color = '#3c3c3c'
+    p.axis.axis_label_standoff = 3
+    p.output_backend = 'svg'
+    return p
+
+
+def bokeh_to_pdf(p, fname):
+    bokeh.io.export_svgs(p, '._tmp.svg')
+    cairosvg.svg2pdf(url='./._tmp.svg', write_to=fname)
+    os.remove('./._tmp.svg')
+    print('Saved bokeh figure as {0}'.format(fname))
+
+
+# For bokeh image display. Shamelessly taken from Justin Bois.
+def bokeh_imshow(im, color_mapper=None, plot_height=400, length_units='pixels',
+                 interpixel_distance=1.0, return_glyph=False):
+    """
+    Display an image in a Bokeh figure.
+
+    Parameters
+    ----------
+    im : 2-dimensional Numpy array
+        Intensity image to be displayed.
+    color_mapper : bokeh.models.LinearColorMapper instance, default None
+        Mapping of intensity to color. Default is 256-level Viridis.
+    plot_height : int
+        Height of the plot in pixels. The width is scaled so that the
+        x and y distance between pixels is the same.
+    length_units : str, default 'pixels'
+        The units of length in the image.
+    interpixel_distance : float, default 1.0
+        Interpixel distance in units of `length_units`.
+    return_glyph : book, default False
+        If True, the image GlyphRenderer is also returned.
+
+    Returns
+    -------
+    output : bokeh.plotting.figure instance
+        Bokeh plot with image displayed.
+    """
+    # Get shape, dimensions
+    n, m = im.shape
+    dw = m * interpixel_distance
+    dh = n * interpixel_distance
+
+    # Set up figure with appropriate dimensions
+    plot_width = int(m / n * plot_height)
+    kwargs = {'plot_height': plot_height, 'plot_width': plot_width,
+              'x_range': [0, dw], 'y_range': [0, dh],
+              'x_axis_label': length_units, 'y_axis_label': length_units,
+              'tools': 'pan, box_zoom, wheel_zoom, reset, resize'}
+    p = bokeh_boiler(**kwargs)
+
+    # Set color mapper; we'll do Viridis with 256 levels by default
+    if color_mapper is None:
+        color_mapper = bokeh.models.LinearColorMapper(
+            bokeh.palettes.viridis(256))
+
+    # Display the image
+    im_bokeh = p.image(image=[im[::-1, :]], x=0, y=0, dw=dw, dh=dh,
+                       color_mapper=color_mapper)
+
+    if return_glyph is True:
+        return p, im_bokeh
+    else:
+        return p

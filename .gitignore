@@ -1,14 +1,14 @@
 *.pdf
-*.png
 *.svg
 *.tmp
 *.aux
 *.tmp
 *.bbl
 *.tif
-data/
-
+data/images/
+data/unclean*
 *.DS_store
 *.DS_Store
 **ipynb_checkpoints**
 *.pyc
+__pycache__
