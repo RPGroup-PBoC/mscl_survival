@@ -20,7 +20,10 @@ import xmltodict
 import json
 
 
-# Image processing utilities.
+# ----------------------------------------------------------------------------
+# Image Processing and Marker Linking Utilities
+# ----------------------------------------------------------------------------
+
 def compute_mean_bg(phase_image, fluo_image, method='isodata', obj_dark=True):
     """
     Computes the mean background fluorescence of the inverted segmentation
@@ -127,9 +130,6 @@ def median_flatfield(image_stack, medfilter=True, selem='default',
         return [ff_ims, med_im]
     else:
         return ff_ims
-
-# Generate the flat-field illumination using a GFP slide standard.
-# #################
 
 
 def average_stack(im, median_filt=True):
@@ -538,6 +538,10 @@ def scrape_metadata(fname, channels=('Brightfield', 'GFP'), return_date=True):
         exposure['date'] = date
     return exposure
 
+# ---------------------------------------------------------------------------
+# Plotting utilities using Bokeh and Matplotlib
+# ---------------------------------------------------------------------------
+
 
 def save_seg(fname, image, mask, fill_contours=True, ip_dist=0.160,
              bar_length=10, title=None, colormap='hls'):
@@ -744,8 +748,8 @@ def bokeh_boiler(**kwargs):
     # Apply the styling to the figure axis.
     p.background_fill_color = '#E3DCD0'
     p.grid.grid_line_color = '#FFFFFF'
-    p.grid.grid_line_dash = 'dotted'
-    p.grid.grid_line_width = 2
+    # p.grid.grid_line_dash = 'dotted'
+    p.grid.grid_line_width = 0.75
     p.axis.minor_tick_line_color = None
     p.axis.major_tick_line_color = None
     p.axis.axis_line_color = None
@@ -820,3 +824,216 @@ def bokeh_imshow(im, color_mapper=None, plot_height=400, length_units='pixels',
         return p, im_bokeh
     else:
         return p
+
+
+# ---------------------------------------------------------------------------
+# MCMC and Other Inferencial Utilities
+# ---------------------------------------------------------------------------
+def density_binning(data, groupby='shock_group', channel_bin=10, min_cells=20,
+                    channel_key='channel_density', survival_key='survival'):
+    """
+    Bins survival data by a given channel density.
+
+    Parameters
+    ----------
+    data : pandas DataFrame
+        DataFrame containing data with computed channel density,
+        survival classifier, and shock speed designation.
+    groupby : list of strings.
+        Keys by which to group the survival data. Default is 'shock_group'
+    channel_bin : float or int
+        Bin width for channel density. Default is 10 channels per unit area.
+    min_cells : int
+        Minimum number of cells to consider for each bin.
+    channel_key : string
+        Column name for channel density. Default is 'channel_density'.
+    survival_key : string
+        Column name for survival identifier. Default is 'survival'.
+
+    Returns:
+    --------
+    bin_data : pandas DataFrame
+        Data frame with binned data.
+    """
+
+    # Set the bounds for the bins.
+    lower_bound = 0
+    upper_bound = int(data[channel_key].max())
+    bins = np.arange(lower_bound, upper_bound + channel_bin, channel_bin)
+
+    # Sort the data by channel density
+    sorted_data = data.sort_values(by=channel_key)
+
+    # Partition into the bins.
+    bin_numbers = []
+    sorted_data['bin_number'] = 0
+    sorted_data.reset_index(inplace=True)
+    bin_val = 0
+    for i in tqdm_notebook(range(1, len(bins)), desc='Assigning bin numbers'):
+        num_cells = 0
+        for j in range(len(sorted_data)):
+            _rho = sorted_data.iloc[j]['channel_density']
+            if (_rho > bins[i - 1]) & (_rho < bins[i]):
+                sorted_data.set_value(col='bin_number', value=bin_val, index=j)
+                num_cells += 1
+        if num_cells > 0:
+            bin_val += 1
+
+    # Ensure that the bin numbering scheme is sequential.
+    bin_data = sorted_data.copy()
+    grouped = bin_data.groupby(groupby)
+    for g, d in grouped:
+        seq_change = {}
+        bin_nos = d['bin_number'].unique()
+        for i, b in enumerate(bin_nos):
+            bin_data.loc[(bin_data['bin_number'] == b) &
+                         (bin_data[groupby] == g), 'bin_number'] = i
+
+    # Regroup the data and congeal bins to a minimum cell number.
+    grouped = bin_data.groupby(groupby)
+    for g, d in grouped:
+        # Group by bin number.
+        _grouped = d.groupby('bin_number')[survival_key].count()
+
+        # Find those less than the minimum cell number.
+        bin_counts = _grouped.to_dict()
+        low_bins = _grouped[_grouped < min_cells].to_dict()
+
+        # Get just the bin numbers.
+        bin_nos = list(low_bins.keys())
+
+        # Identify the edges of sequential bins with low cell counts.
+        sequential = np.where(np.diff(bin_nos) > 1)[0]
+        if (len(sequential) == 0) & (len(bin_nos) != 0):
+            paired = [bin_nos]
+        else:
+            # Split them into pairs using fancy indexing.
+            paired = ([bin_nos[sequential[j - 1] + 1:sequential[j] + 1]
+                       for j in range(len(sequential))])
+            paired[0] = bin_nos[:sequential[0] + 1]
+            paired.append(bin_nos[sequential[-1] + 1:])
+
+        # Loop through each pair and determine if they can meet the minimum.
+        change_bins = {}
+        for i, pair in enumerate(paired):
+            summed = np.sum([bin_counts[p] for p in pair])
+            if len(pair) == 1:
+                change_bins[pair[0]] = pair[0] - 1
+            elif summed >= min_cells:
+                for z in pair:
+                    change_bins[z] = pair[0]
+            else:
+                if i < (len(paired) - 1):
+                    ind = int(len(pair) / 2)
+                    for z in pair[:ind]:
+                        change_bins[z] = pair[0] - 1
+                    for z in pair[ind:]:
+                        change_bins[z] = pair[0] + 1
+                else:
+                    for z in pair:
+                        change_bins[z] = pair[0] - 1
+
+        # Loop through the changed bins and change the value of the bin number
+        # in the original dataframe.
+        keys = change_bins.keys()
+        for key in keys:
+            bin_data.loc[(bin_data['shock_group'] == g) &
+                         (bin_data['bin_number'] == key),
+                         'bin_number'] = change_bins[key]
+    return bin_data
+
+
+def compute_survival_stats(df):
+    """
+    Computes the statistics of survival probabilitiy, number of cells, and
+    binomial error given a dataframe with binned events. This should be used
+    as an apply function on a pandas groupby method.
+    """
+    def binomial_probability(df):
+        n = np.sum(df == True)
+        N = len(df)
+        return n / N
+
+    def binomial_err(df):
+        n = np.sum(df == True)
+        N = len(df)
+        return np.sqrt(n * (N - n) / N**3)
+
+    stats_dict = dict(prob=binomial_probability(df['survival']),
+                      err=binomial_err(df['survival']),
+                      mean_chan=df['channel_density'].mean(),
+                      n_cells=len(df), n_suv=np.sum(df['survival']))
+    return pd.Series(stats_dict)
+
+
+def trace_to_df(trace, model):
+    """
+    Converts the trace from a pymc3 sampler to a
+    Pandas DataFrame.
+    """
+    def compute_logp(chain):
+        """
+        Computes the log probability of the provided trace
+        at a given chain.
+        """
+        names = trace.varnames
+        var_dict = {}
+        for n in names:
+            var_dict[n] = trace.get_values(n, chains=chain)
+        sample_df = pd.DataFrame(var_dict)
+
+        logp = [model.logp(sample_df.iloc[step]
+                           ) for step in range(len(sample_df))]
+        return logp
+
+    chains = trace.chains
+    for c in tqdm(chains, desc='Processing chains'):
+        logp = compute_logp(c)
+        if c == 0:
+            df = pm.trace_to_dataframe(trace, chains=c)
+            df.insert(np.shape(df)[1], 'logp', logp)
+        else:
+            _df = pm.trace_to_dataframe(trace, chains=c)
+            _df.insert(np.shape(_df)[1], 'logp', logp)
+            df.append(_df, ignore_index=True)
+
+    return df
+
+
+def compute_mcmc_statistics(df, ignore_vars='logp'):
+    """
+    Computes the mode and highest probability density (hpd)
+    of the parameters in a given dataframe.
+    """
+    # Set up the multi indexing.
+    var_names = np.array(df.keys())
+    if ignore_vars is not None:
+        var_names = var_names[var_names != ignore_vars]
+
+    # Generate arrays for indexing and zip as tuples.
+    names = [var for var in var_names] * 3
+    stats = ['mode', 'hpd_min', 'hpd_max']
+    stats = np.array([[s] * len(var_names) for s in stats]).flatten()
+    tuples = list(zip(*[names, stats]))
+
+    # Define the index.
+    index = pd.MultiIndex.from_tuples(tuples, names=['var', 'stat'])
+
+    # Determine the mode for each
+    mode_ind = np.argmax(df['logp'])
+    stat_vals = [df.iloc[mode_ind][var] for var in var_names]
+    # Compute the min and max vals of the HPD.
+    hpd_min, hpd_max = [], []
+    for i, var in enumerate(var_names):
+        _min, _max = hpd(df[var], 0.95)
+        hpd_min.append(_min)
+        hpd_max.append(_max)
+    for _ in hpd_min:
+        stat_vals.append(_)
+    for _ in hpd_max:
+        stat_vals.append(_)
+
+    # Add them to the array for the multiindex
+    flat_vals = np.array([stat_vals]).flatten()
+    var_stats = pd.Series(flat_vals, index=index)
+    return var_stats

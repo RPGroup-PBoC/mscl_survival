@@ -83,7 +83,6 @@ for i, ph in tqdm.tqdm(enumerate(phase_ims), desc='processing images',
                 if m_pos == ph_pos:
                     _markers = mscl.marker_parse(m)
                     _df = mscl.link_markers(_markers, seg, ff_ims[i])
-                    _df['flow_rate'] = FLOW_RATE
                     _df.drop(['x_pos', 'y_pos', 'mask_label', 'label_cent_x',
                               'label_cent_y', 'dist'], axis=1, inplace=True)
                 else:
@@ -101,6 +100,7 @@ for i, ph in tqdm.tqdm(enumerate(phase_ims), desc='processing images',
             _df = pd.DataFrame(dict(intensity=intensity, area=area))
 
         # Insert the other necessary information.
+        _df['flow_rate'] = float(FLOW_RATE)
         _df['date'] = DATE
         _df['rbs'] = RBS
         _df['mean_bg'] = mean_bg

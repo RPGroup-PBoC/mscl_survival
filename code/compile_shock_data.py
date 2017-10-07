@@ -23,7 +23,7 @@ def main():
     # Make new rescaled intensity column based off of the longest exposure.
     df['rescaled_intensity'] = (df['intensity'] - df['mean_bg']) *\
         df['exposure_ms'].max() / df['exposure_ms']
-    df.to_csv('../data/csv/compiled_shock_data.csv')
+    df.to_csv('../data/csv/compiled_shock_data.csv', index=False)
 
 
 if __name__ == '__main__':
