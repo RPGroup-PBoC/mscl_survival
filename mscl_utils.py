@@ -714,17 +714,19 @@ def set_plotting_style(return_colors=True):
     """
     rc = {'lines.linewidth': 2,
           'axes.facecolor': '#E3DCD0',
-          'xtick.labelsize': 'large',
-          'ytick.labelsize': 'large',
+          #   'xtick.labelsize': 'large',
+          #   'ytick.labelsize': 'large',
           'font.family': 'Lucida Sans Unicode',
-          'grid.linestyle': ':',
-          'grid.linewidth': 0.85,
+          'grid.linestyle': '-',
+          'grid.linewidth': 0.5,
+          'grid.alpha': 0.75,
           'grid.color': '#ffffff',
           'mathtext.fontset': 'stixsans',
           'mathtext.sf': 'sans',
           'legend.frameon': True,
-          'figure.figsize': (8, 6),
-          'figure.dpi': 150}
+          'legend.facecolor': '#FFEDCE',
+          #   'figure.figsize': (8, 6),
+          'figure.dpi': 300}
 
     plt.rc('text.latex', preamble=r'\usepackage{sfmath}')
     plt.rc('mathtext', fontset='stixsans', sf='sans')
@@ -829,6 +831,27 @@ def bokeh_imshow(im, color_mapper=None, plot_height=400, length_units='pixels',
 # ---------------------------------------------------------------------------
 # MCMC and Other Inferencial Utilities
 # ---------------------------------------------------------------------------
+def ecdf(data):
+    """
+    Computes the empirical cumulative distribution function of a data set.
+
+    Parameters
+    ----------
+    data: pandas Series, Slice, or 1d-array.
+        Data set from which the ECDF will be computed. This must be
+        one-dimensional
+
+    Returns
+    -------
+    x, y : 1d-arrays
+        x is the sorted values.
+        y is the fractional representation of each value.
+    """
+
+    x, y = np.sort(data), np.arange(0, len(data), 1) / len(data)
+    return (x, y)
+
+
 def density_binning(data, groupby='shock_group', channel_bin=10, min_cells=20,
                     channel_key='channel_density', survival_key='survival'):
     """
@@ -865,19 +888,13 @@ def density_binning(data, groupby='shock_group', channel_bin=10, min_cells=20,
     sorted_data = data.sort_values(by=channel_key)
 
     # Partition into the bins.
-    bin_numbers = []
     sorted_data['bin_number'] = 0
     sorted_data.reset_index(inplace=True)
-    bin_val = 0
-    for i in tqdm_notebook(range(1, len(bins)), desc='Assigning bin numbers'):
-        num_cells = 0
-        for j in range(len(sorted_data)):
-            _rho = sorted_data.iloc[j]['channel_density']
-            if (_rho > bins[i - 1]) & (_rho < bins[i]):
-                sorted_data.set_value(col='bin_number', value=bin_val, index=j)
-                num_cells += 1
-        if num_cells > 0:
-            bin_val += 1
+    for i in range(1, len(bins) - 1):
+        # Assign bin numbers based on channel density
+        inds = (sorted_data['channel_density'] >= bins[i - 1]
+                ) & (sorted_data['channel_density'] < bins[i + 1])
+        sorted_data.loc[inds,  'bin_number'] = i
 
     # Ensure that the bin numbering scheme is sequential.
     bin_data = sorted_data.copy()
@@ -907,43 +924,44 @@ def density_binning(data, groupby='shock_group', channel_bin=10, min_cells=20,
         if (len(sequential) == 0) & (len(bin_nos) != 0):
             paired = [bin_nos]
         else:
-            # Split them into pairs using fancy indexing.
-            paired = ([bin_nos[sequential[j - 1] + 1:sequential[j] + 1]
-                       for j in range(len(sequential))])
-            paired[0] = bin_nos[:sequential[0] + 1]
+            # Need to do fancy indexing here so it returns even single bins.
+            paired = [bin_nos[:sequential[0] + 1]]
+            _paired = ([bin_nos[sequential[j - 1] + 1:sequential[j] + 1]
+                        for j in range(1, len(sequential))])
+            for _p in _paired:
+                paired.append(_p)
             paired.append(bin_nos[sequential[-1] + 1:])
 
         # Loop through each pair and determine if they can meet the minimum.
         change_bins = {}
+
         for i, pair in enumerate(paired):
-            summed = np.sum([bin_counts[p] for p in pair])
-            if len(pair) == 1:
-                change_bins[pair[0]] = pair[0] - 1
-            elif summed >= min_cells:
-                for z in pair:
-                    change_bins[z] = pair[0]
-            else:
-                if i < (len(paired) - 1):
-                    ind = int(len(pair) / 2)
-                    for z in pair[:ind]:
-                        change_bins[z] = pair[0] - 1
-                    for z in pair[ind:]:
-                        change_bins[z] = pair[0] + 1
+            if len(pair) > 1:
+                summed = np.sum([bin_counts[p] for p in pair])
+                if summed >= min_cells:
+                    for z in pair:
+                        change_bins[z] = pair[0]
                 else:
                     for z in pair:
                         change_bins[z] = pair[0] - 1
+            else:
+                # Deal with edge cases of first and last bin.
+                if pair[0] == 1:
+                    change_bins[pair[0]] = pair[0] + 1
+                elif pair[0] == sorted_data['bin_number'].max():
+                    change_bins[pair[0]] = pair[0] - 1
 
         # Loop through the changed bins and change the value of the bin number
         # in the original dataframe.
         keys = change_bins.keys()
         for key in keys:
-            bin_data.loc[(bin_data['shock_group'] == g) &
+            bin_data.loc[(bin_data[groupby] == g) &
                          (bin_data['bin_number'] == key),
                          'bin_number'] = change_bins[key]
     return bin_data
 
 
-def compute_survival_stats(df):
+def compute_survival_stats(df, groupby=['shock_group', 'bin_number']):
     """
     Computes the statistics of survival probabilitiy, number of cells, and
     binomial error given a dataframe with binned events. This should be used
@@ -959,11 +977,14 @@ def compute_survival_stats(df):
         N = len(df)
         return np.sqrt(n * (N - n) / N**3)
 
-    stats_dict = dict(prob=binomial_probability(df['survival']),
-                      err=binomial_err(df['survival']),
-                      mean_chan=df['channel_density'].mean(),
-                      n_cells=len(df), n_suv=np.sum(df['survival']))
-    return pd.Series(stats_dict)
+    def _compute_stats(df):
+        stats_dict = dict(prob=binomial_probability(df['survival']),
+                          err=binomial_err(df['survival']),
+                          mean_chan=df['channel_density'].mean(),
+                          n_cells=len(df), n_suv=np.sum(df['survival']))
+        return pd.Series(stats_dict)
+    grouped = df.groupby(groupby).apply(_compute_stats)
+    return pd.DataFrame(grouped).reset_index()
 
 
 def trace_to_df(trace, model):
