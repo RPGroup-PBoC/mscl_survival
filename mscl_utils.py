@@ -1,4 +1,5 @@
 import numpy as np
+import theano.tensor as tt
 import matplotlib.pyplot as plt
 import seaborn as sns
 import glob
@@ -19,10 +20,13 @@ import pandas as pd
 import xmltodict
 import json
 
+import pymc3 as pm
+import scipy.optimize
 
 # ----------------------------------------------------------------------------
 # Image Processing and Marker Linking Utilities
 # ----------------------------------------------------------------------------
+
 
 def compute_mean_bg(phase_image, fluo_image, method='isodata', obj_dark=True):
     """
@@ -987,6 +991,15 @@ def compute_survival_stats(df, groupby=['shock_group', 'bin_number']):
     return pd.DataFrame(grouped).reset_index()
 
 
+def theano_logistic(val):
+    """
+    Computes the logistic function using Theano. Logistic function is
+    defined as
+        logistic = (1 + e^(-val))^-1
+    """
+    return (1 + tt.exp(-val))**-1
+
+
 def trace_to_df(trace, model):
     """
     Converts the trace from a pymc3 sampler to a
@@ -1008,7 +1021,7 @@ def trace_to_df(trace, model):
         return logp
 
     chains = trace.chains
-    for c in tqdm(chains, desc='Processing chains'):
+    for c in chains:
         logp = compute_logp(c)
         if c == 0:
             df = pm.trace_to_dataframe(trace, chains=c)
@@ -1019,6 +1032,98 @@ def trace_to_df(trace, model):
             df.append(_df, ignore_index=True)
 
     return df
+
+
+def hpd(trace, mass_frac):
+    """
+    Returns highest probability density region given by
+    a set of samples.
+    Parameters
+    ----------
+    trace : array
+        1D array of MCMC samples for a single variable
+    mass_frac : float with 0 < mass_frac <= 1
+        The fraction of the probability to be included in
+        the HPD.  For hreple, `massfrac` = 0.95 gives a
+        95% HPD.
+
+    Returns
+    -------
+    output : array, shape (2,)
+        The bounds of the HPD
+
+    Notes
+    -----
+    We thank Justin Bois (BBE, Caltech) for developing this function.
+    http://bebi103.caltech.edu/2015/tutorials/l06_credible_regions.html
+    """
+    # Get sorted list
+    d = np.sort(np.copy(trace))
+
+    # Number of total samples taken
+    n = len(trace)
+
+    # Get number of samples that should be included in HPD
+    n_samples = np.floor(mass_frac * n).astype(int)
+
+    # Get width (in units of data) of all intervals with n_samples samples
+    int_width = d[n_samples:] - d[:n - n_samples]
+
+    # Pick out minimal interval
+    min_int = np.argmin(int_width)
+
+    # Return interval
+    return np.array([d[min_int], d[min_int + n_samples]])
+
+
+# #################
+# MCMC Utilities
+# #################
+
+# #################
+def mcmc_cred_region(iptg, flatchain, R, epsilon_r,
+                     mass_frac=.95, epsilon=4.5):
+    '''
+    This function takes every element in the MCMC flatchain and computes
+    the fold-change for each iptg concentration returning at the end the
+    indicated mass_frac fraction of the fold change.
+
+    Parameters
+    ----------
+    iptg : array-like.
+        iptg concentrations on which evaluate the fold change
+    flatchain : array-like.
+        MCMC traces for the two MWC parameteres.
+        flatchain[:,0] = ea flat-chain
+        flatchain[:,1] = ei flat-chain
+    R : float.
+        Mean repressor copy number.
+    epsilon_r : float.
+        Repressor binding energy.
+    mass_frac : float with 0 < mass_frac <= 1
+        The fraction of the probability to be included in
+        the HPD.  For example, `massfrac` = 0.95 gives a
+        95% HPD.
+    epsilon : float.
+        Energy difference between active and inactive state.
+
+    Returns
+    -------
+    cred_region : array-like
+        array of 2 x len(iptg) with the upper and the lower fold-change HPD
+        bound for each iptg concentration
+    '''
+    # initialize the array to save the credible region
+    cred_region = np.zeros([2, len(iptg)])
+
+    # loop through iptg concentrations, compute all the fold changes and
+    # save the HPD for each concentration
+    for i, c in enumerate(iptg):
+        fc = fold_change_log(c, flatchain[:, 0], flatchain[:, 1], epsilon,
+                             R, epsilon_r)
+        cred_region[:, i] = hpd(fc, mass_frac)
+
+    return cred_region
 
 
 def compute_mcmc_statistics(df, ignore_vars='logp'):
