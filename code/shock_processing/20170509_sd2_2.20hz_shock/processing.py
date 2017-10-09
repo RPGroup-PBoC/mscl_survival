@@ -79,6 +79,10 @@ for i, ph in tqdm.tqdm(enumerate(phase_ims), desc='processing images',
         if EXP.lower() == 'shock':
             _markers = mscl.marker_parse(markers[i])
             _df = mscl.link_markers(_markers, seg, ff_ims[i])
+            if i == rand:
+                mscl.show_connections(
+                    'output/{0}_{1}_example_connections.png'.format(
+                        DATE, RBS), ph, _df)
             _df['flow_rate'] = float(FLOW_RATE)
             _df.drop(['x_pos', 'y_pos', 'mask_label', 'label_cent_x',
                       'label_cent_y', 'dist'], axis=1, inplace=True)
