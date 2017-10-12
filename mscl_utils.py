@@ -716,10 +716,7 @@ def set_plotting_style(return_colors=True):
         If True, this will also return a palette of eight color-blind safe
         colors with the hideous yellow replaced by 'dusty purple.'
     """
-    rc = {'lines.linewidth': 2,
-          'axes.facecolor': '#E3DCD0',
-          #   'xtick.labelsize': 'large',
-          #   'ytick.labelsize': 'large',
+    rc = {'axes.facecolor': '#E3DCD0',
           'font.family': 'Lucida Sans Unicode',
           'grid.linestyle': '-',
           'grid.linewidth': 0.5,
@@ -729,13 +726,12 @@ def set_plotting_style(return_colors=True):
           'mathtext.sf': 'sans',
           'legend.frameon': True,
           'legend.facecolor': '#FFEDCE',
-          #   'figure.figsize': (8, 6),
-          'figure.dpi': 300}
+          'figure.dpi': 100}
 
     plt.rc('text.latex', preamble=r'\usepackage{sfmath}')
     plt.rc('mathtext', fontset='stixsans', sf='sans')
     sns.set_style('darkgrid', rc=rc)
-    sns.set_context('paper', rc=rc)
+    # sns.set_context('paper', rc=rc)
     colors = sns.color_palette('colorblind', n_colors=8)
     colors[4] = sns.xkcd_palette(['dusty purple'])[0]
 
