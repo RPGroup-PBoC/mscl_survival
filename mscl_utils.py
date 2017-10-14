@@ -726,7 +726,7 @@ def set_plotting_style(return_colors=True):
           'mathtext.sf': 'sans',
           'legend.frameon': True,
           'legend.facecolor': '#FFEDCE',
-          'figure.dpi': 100}
+          'figure.dpi': 75}
 
     plt.rc('text.latex', preamble=r'\usepackage{sfmath}')
     plt.rc('mathtext', fontset='stixsans', sf='sans')
