@@ -4,20 +4,18 @@ import numpy as np
 import warnings
 
 # Define the experiment paramters
-DATE = 20171012
-BASENAME = 'sfGFP_6ngmL'
+DATE = 20171017
+BASENAME = 'sfGFP_10ngmL'
 missing_channel = 2
-num_timepoints = 28
-num_positions = 9
+num_timepoints = 26
+num_positions =14
 # ---------------------------------------------------------------------------
 # Shouldn't need to change anything below here.
 # ---------------------------------------------------------------------------
-data_dir = '../../../data/images/{0}_{1}_dilution/growth'.format(
-    DATE, BASENAME)
+data_dir = '../../../data/images/{0}_{1}_dilution/growth'.format(DATE, BASENAME)
 
 # Loop through each time point.
 for i in range(num_positions):
-    print(i)
     for j in range(num_timepoints):
         im_files = glob.glob(
             '{0}/*t{1:05d}*xy{2:03d}*c*.tif'.format(data_dir, j, i))
