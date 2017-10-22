@@ -762,7 +762,7 @@ def bokeh_boiler(**kwargs):
     p.axis.major_label_text_font_size = '10pt'
     p.axis.axis_label_text_color = '#3c3c3c'
     p.axis.axis_label_standoff = 3
-    p.output_backend = 'svg'
+    # p.output_backend = 'svg'
     return p
 
 
