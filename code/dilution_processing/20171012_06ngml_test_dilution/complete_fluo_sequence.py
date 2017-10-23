@@ -12,7 +12,7 @@ num_positions = 9
 # ---------------------------------------------------------------------------
 # Shouldn't need to change anything below here.
 # ---------------------------------------------------------------------------
-data_dir = '../../../data/images/{0}_{1}_dilution/growth'.format(
+data_dir = '../../../data/images/{0}_{1}_dilution'.format(
     DATE, BASENAME)
 
 # Loop through each time point.

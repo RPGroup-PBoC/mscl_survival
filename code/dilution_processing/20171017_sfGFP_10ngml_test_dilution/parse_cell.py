@@ -99,6 +99,7 @@ for g, d in grouped:
                      'summed_int': summed}
         dilution_df = dilution_df.append(cell_dict, ignore_index=True)
 # Save the dataframes.
+auto_df.to_csv('../../../data/{0}_auto_supersegger_output.csv', index=False)
 growth_df.to_csv('../../../data/{0}_supersegger_output.csv', index=False)
 # %%
 %matplotlib inline
