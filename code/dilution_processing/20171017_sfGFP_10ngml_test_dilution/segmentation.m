@@ -8,6 +8,7 @@ samples = {'autofluorescence', 'growth'};
 CONST = loadConstants('60XCaulob');
 CONST.trackFoci.numSpots = 0;
 CONST.align.ALIGN_FLAG = 1;
+CONST.trackOpti.REMOVE_STRAY = 1;
 cleanFlag = 1;
 for i=1:length(samples)
     statement = ['Beginning segmentaton ', num2str(i), ' out of ',...
