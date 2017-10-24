@@ -89,3 +89,7 @@ for p in positions:
 # Determine if originals should be kept.
 if keep_origs is False:
     shutil.rmtree('{0}autoflurescence/originals'.format(data_dir))
+
+
+# %%  And finally, for the fluorescenct slide images.
+# This will generate an average.
