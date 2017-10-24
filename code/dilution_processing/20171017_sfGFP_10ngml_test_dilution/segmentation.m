@@ -6,6 +6,7 @@ DATE = '20171017';
 BASENAME = 'sfGFP_10ngmL';
 samples = {'autofluorescence', 'growth'};
 CONST = loadConstants('60XCaulob');
+CONST.parallel.PARALLEL_FLAG = 0;
 CONST.trackFoci.numSpots = 0;
 CONST.align.ALIGN_FLAG = 1;
 CONST.trackOpti.REMOVE_STRAY = 1;

@@ -1,6 +1,10 @@
 import glob
 import os
 import shutil
+import skimage.io
+import mscl_utils as mscl
+import skimage.io
+import numpy as np
 
 # Define the experiment parameters.
 DATE = 20171017
@@ -8,16 +12,25 @@ BASENAME = 'sfGFP_10ngmL'
 channels = ['Brightfield', 'GFP']
 channel_dict = {'Brightfield': 1, 'GFP': 2}
 keep_origs = True
-
+generate_flatfield = True
 # ----------------------------------------------------------------------------
 # Nothing below here should change.
 # ----------------------------------------------------------------------------
 data_dir = '../../../data/images/{0}_{1}_dilution/'.format(DATE, BASENAME)
 
-# Scrape positions.
-positions = glob.glob('{0}Pos*/'.format(data_dir))
+# Assemble the mean illumination image if appropriate.
+if generate_flatfield is True:
+    # Load the slide images.
+    slide_ims = glob.glob(
+        '{0}{1}_fluorescent_slide/Pos*/*.tif'.format(data_dir, DATE))
+    ims = skimage.io.ImageCollection(slide_ims)
+    mean_im = mscl.average_stack(ims)
+    flatfield = {'Brightfield': False,  'GFP': True}
+else:
+    flatfield = {'Brightfield': False, 'GFP': False}
 
-# Loop through positions and grab file names.
+# Scrape positions.
+positions = glob.glob('{0}20171017_growth/Pos*/'.format(data_dir))
 for p in positions:
     # Parse the position.
     xy = '{0:03d}'.format(int(p.split('/')[-2].split('s')[1]))
@@ -34,7 +47,13 @@ for p in positions:
             # Define the new name and copy.
             new_name = '{0}_{1}_t{2:05d}xy{3:03d}c{4}.tif'.format(
                 DATE, BASENAME, int(t), int(xy), channel_dict[ch])
-            shutil.copy(f, '{0}{1}'.format(data_dir, new_name))
+            if flatfield[ch] is True:
+                im = skimage.io.imread(f)
+                ff_im = mscl.generate_flatfield(im, mean_im,
+                                                median_filt=False)
+                skimage.io.imsave('{0}{1}'.format(data_dir, new_name), ff_im)
+            else:
+                shutil.copy(f, '{0}{1}'.format(data_dir, new_name))
 
     # Rename and save the metadata files.
     mfiles = glob.glob('{0}metadata.txt'.format(p))
@@ -72,12 +91,18 @@ for p in positions:
             # Parse the relevant info
             _, t, c, _ = f.split('/')[-1].split('_')
 
-            # Define the new name and copy.
+            # Define the new name.
             new_name = '{0}_{1}_autofluorescence_t{2:05d}xy{3:03d}c{4}.tif'.format(
                 DATE, BASENAME, int(t), int(xy), channel_dict[ch])
-
-            shutil.copy(
-                f, '{0}autofluorescence/{1}'.format(data_dir, new_name))
+            if flatfield[ch] is True:
+                im = skimage.io.imread(f)
+                ff_im = mscl.generate_flatfield(im, mean_im,
+                                                median_filt=False)
+                skimage.io.imsave(
+                    '{0}autofluorescence/{1}'.format(data_dir, new_name), ff_im)
+            else:
+                shutil.copy(
+                    f, '{0}autofluorescence/{1}'.format(data_dir, new_name))
 
 if os.path.isdir('{0}autofluorescence/originals'.format(data_dir)) is False:
     os.mkdir('{0}autofluorescence/originals'.format(data_dir))
@@ -89,7 +114,3 @@ for p in positions:
 # Determine if originals should be kept.
 if keep_origs is False:
     shutil.rmtree('{0}autoflurescence/originals'.format(data_dir))
-
-
-# %%  And finally, for the fluorescenct slide images.
-# This will generate an average.
