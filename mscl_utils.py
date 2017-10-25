@@ -814,9 +814,12 @@ def bokeh_imshow(im, color_mapper=None, plot_height=400, length_units='pixels',
     p = bokeh_boiler(**kwargs)
 
     # Set color mapper; we'll do Viridis with 256 levels by default
-    if color_mapper is None:
+    if color_mapper is None or color_mapper is 'viridis':
         color_mapper = bokeh.models.LinearColorMapper(
             bokeh.palettes.viridis(256))
+    if color_mapper is 'Greys_r':
+        color_mapper = bokeh.models.LinearColorMapper(
+            bokeh.palettes.Greys_r(256))
 
     # Display the image
     im_bokeh = p.image(image=[im[::-1, :]], x=0, y=0, dw=dw, dh=dh,
@@ -828,9 +831,37 @@ def bokeh_imshow(im, color_mapper=None, plot_height=400, length_units='pixels',
         return p
 
 
+def image_boiler(image, length_units='pixels', ip_dist=1.0,
+                 plot_height=500):
+    nrows, ncols = image.shape
+    dw = nrows * ip_dist
+    dh = ncols * ip_dist
+    plot_width = int(nrows / ncols * plot_height)
+    kwargs = {'plot_height': plot_height, 'plot_width': plot_width,
+              'x_range': [0, dw], 'y_range': [0, dh],
+              'x_axis_label': length_units, 'y_axis_label': length_units,
+              'tools': 'pan, box_zoom, wheel_zoom, reset_resize'}
+    p = bokeh_boiler(**kwargs)
+    return p
+
+
+def bokeh_image(image, canvas, colormapper=None, length_units='pixels',
+                ip_dist=1.0):
+    # Get the image shape.
+    rows, cols = image.shape()
+    width = rows * ip_dist
+    height = cols * ip_dist
+
+    if color_mapper is None:
+        im_bokeh
+    p_im = p.image(image=[im[::-1, :]], x=0, y=0, dw=width, dh=height,
+                   color_mapper=color_mapper)
+
 # ---------------------------------------------------------------------------
 # MCMC and Other Inferencial Utilities
 # ---------------------------------------------------------------------------
+
+
 def ecdf(data):
     """
     Computes the empirical cumulative distribution function of a data set.
@@ -1075,51 +1106,6 @@ def hpd(trace, mass_frac):
 # #################
 # MCMC Utilities
 # #################
-
-# #################
-def mcmc_cred_region(iptg, flatchain, R, epsilon_r,
-                     mass_frac=.95, epsilon=4.5):
-    '''
-    This function takes every element in the MCMC flatchain and computes
-    the fold-change for each iptg concentration returning at the end the
-    indicated mass_frac fraction of the fold change.
-
-    Parameters
-    ----------
-    iptg : array-like.
-        iptg concentrations on which evaluate the fold change
-    flatchain : array-like.
-        MCMC traces for the two MWC parameteres.
-        flatchain[:,0] = ea flat-chain
-        flatchain[:,1] = ei flat-chain
-    R : float.
-        Mean repressor copy number.
-    epsilon_r : float.
-        Repressor binding energy.
-    mass_frac : float with 0 < mass_frac <= 1
-        The fraction of the probability to be included in
-        the HPD.  For example, `massfrac` = 0.95 gives a
-        95% HPD.
-    epsilon : float.
-        Energy difference between active and inactive state.
-
-    Returns
-    -------
-    cred_region : array-like
-        array of 2 x len(iptg) with the upper and the lower fold-change HPD
-        bound for each iptg concentration
-    '''
-    # initialize the array to save the credible region
-    cred_region = np.zeros([2, len(iptg)])
-
-    # loop through iptg concentrations, compute all the fold changes and
-    # save the HPD for each concentration
-    for i, c in enumerate(iptg):
-        fc = fold_change_log(c, flatchain[:, 0], flatchain[:, 1], epsilon,
-                             R, epsilon_r)
-        cred_region[:, i] = hpd(fc, mass_frac)
-
-    return cred_region
 
 
 def compute_mcmc_statistics(df, ignore_vars='logp'):
