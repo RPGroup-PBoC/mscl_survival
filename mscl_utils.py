@@ -11,6 +11,7 @@ import skimage.morphology
 import skimage.segmentation
 import skimage.filters
 import scipy.ndimage
+from scipy.signal import gaussian, convolve
 import os
 
 import bokeh.plotting
@@ -857,9 +858,140 @@ def bokeh_image(image, canvas, colormapper=None, length_units='pixels',
     p_im = p.image(image=[im[::-1, :]], x=0, y=0, dw=width, dh=height,
                    color_mapper=color_mapper)
 
+
 # ---------------------------------------------------------------------------
 # MCMC and Other Inferencial Utilities
 # ---------------------------------------------------------------------------
+
+# Stolen from the pymc3 code base.
+def fast_kde(x):
+    """
+    A fft-based Gaussian kernel density estimate (KDE) for computing
+    the KDE on a regular grid.
+    The code was adapted from https://github.com/mfouesneau/faststats
+    Parameters
+    ----------
+    x : Numpy array or list
+    Returns
+    -------
+    grid: A gridded 1D KDE of the input points (x).
+    xmin: minimum value of x
+    xmax: maximum value of x
+    """
+    x = np.array(x, dtype=float)
+    x = x[~np.isnan(x)]
+    x = x[~np.isinf(x)]
+    n = len(x)
+    nx = 200
+
+    # add small jitter in case input values are the same
+    x += np.random.uniform(-1E-12, 1E-12, size=n)
+    xmin, xmax = np.min(x), np.max(x)
+
+    # compute histogram
+    bins = np.linspace(xmin, xmax, nx)
+    xyi = np.digitize(x, bins)
+    dx = (xmax - xmin) / (nx - 1)
+    grid = np.histogram(x, bins=nx)[0]
+
+    # Scaling factor for bandwidth
+    scotts_factor = n ** (-0.2)
+    # Determine the bandwidth using Scott's rule
+    std_x = np.std(xyi)
+    kern_nx = int(np.round(scotts_factor * 2 * np.pi * std_x))
+
+    # Evaluate the gaussian function on the kernel grid
+    kernel = np.reshape(gaussian(kern_nx, scotts_factor * std_x), kern_nx)
+
+    # Compute the KDE
+    # use symmetric padding to correct for data boundaries in the kde
+    npad = np.min((nx, 2 * kern_nx))
+
+    grid = np.concatenate([grid[npad: 0: -1], grid, grid[nx: nx - npad: -1]])
+    grid = convolve(grid, kernel, mode='same')[npad: npad + nx]
+
+    norm_factor = n * dx * (2 * np.pi * std_x ** 2 * scotts_factor ** 2) ** 0.5
+
+    grid = grid / norm_factor
+
+    return grid, xmin, xmax
+
+
+def bokeh_traceplot(trace, varnames=None, dist_type='ecdf', **kwargs):
+    # Extract only the vars provided.
+    if varnames is not None:
+        if type(varnames) is str:
+            varnames = list(varnames)
+        plot_vars = varnames
+    else:
+         # Get the number of vars.
+        _varnames = trace.varnames
+        # Ignore transformed variables.
+        plot_vars = [v for v in _varnames if '_interval_' not in v]
+
+    # Get the number of chains used.
+    chains = trace.chains
+    if len(chains) > 20:
+        colors = bokeh.palettes.viridis(256)
+    else:
+        colors = bokeh.palettes.Category20_20
+    if len(chains) == 1:
+        lw = 2
+        alpha = 1
+    else:
+        lw = 0.5
+        alpha = 0.8
+    canvases = []
+
+    for i, var in enumerate(plot_vars):
+        # Set up the two figures.
+        hover = bokeh.models.HoverTool(tooltips=[])
+        p_dist = bokeh.plotting.figure(height=200, width=400,
+                                       title='posterior distribution for {0}'.format(
+                                           var),
+                                       x_axis_label='{0}'.format(var), tools=['crosshair', 'wheel_zoom',
+                                                                              'box_zoom', 'reset', hover])
+
+        hover = bokeh.models.HoverTool(tooltips=[])
+        p_trace = bokeh.plotting.figure(height=200, width=400,
+                                        title='sampler trace for {0}'.format(
+                                            var),
+                                        x_axis_label='step number', y_axis_label='parameter value',
+                                        tools=['wheel_zoom', 'crosshair', 'box_zoom', 'reset', hover])
+
+        for j, ch in enumerate(chains):
+            trace_values = trace.get_values(var, chains=ch)
+
+            if len(np.shape(trace_values)) == 1:
+                trace_values = [trace_values]
+
+            for k, t in enumerate(trace_values):
+                steps = np.arange(0, len(t), 1)
+                # Determine the distribution type.
+
+                if dist_type is 'ecdf':
+                    x, y = np.sort(t), np.arange(0, len(t), 1) / len(t)
+                    y_axis_label = "ECDF"
+
+                elif dist_type is 'kde':
+                    y, x_min, x_max = fast_kde(t)
+                    x = np.linspace(x_min, x_max, len(y))
+                    y_axis_label = "density estimate"
+
+                data = {'x': x, 'y': y, 'ch': [ch]}
+
+                p_dist.line(
+                    x=x, y=y,  color=colors[j], line_width=2, hover_line_color='firebrick')
+                p_trace.line(steps, t,  color='slategray', line_width=lw,
+                             alpha=alpha, hover_line_color='firebrick')
+
+        p_dist.yaxis.axis_label = y_axis_label
+        canvases.append([p_dist, p_trace])
+
+    # Assemble the layout.
+    layout = bokeh.layouts.gridplot(canvases)
+    bokeh.io.show(layout)
+    return layout
 
 
 def ecdf(data):
