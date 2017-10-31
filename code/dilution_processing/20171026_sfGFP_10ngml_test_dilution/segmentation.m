@@ -1,10 +1,10 @@
 % Segment the autofluorescence and the original images using SuperSegger
-% in MATLAB.
+% in MATLAB
 
 % Define the experiment parameters.
 DATE = '20171026';
 BASENAME = 'sfGFP_10ngmL';
-samples = {'growth'};
+samples = {'auto'}; %'growth'};
 CONST = loadConstants('60XCaulob');
 CONST.parallel.PARALLEL_FLAG = 0;
 CONST.trackFoci.numSpots = 0;
