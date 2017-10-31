@@ -52,7 +52,7 @@ class GammaApproxBinomial(pm.Continuous):
         self.p = p = pm.theanof.floatX(tt.as_tensor_variable(p))
 
         # Define the testvals.
-        self.mean = ntot * p
+        self.mean = n * p
 
     def logp(self, value):
         p = self.p
