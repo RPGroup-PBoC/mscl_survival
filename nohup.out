@@ -1,0 +1,889 @@
+[I 20:19:03.289 NotebookApp] [nb_conda_kernels] enabled, 4 kernels found
+[W 20:19:03.605 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 20:19:03.767 NotebookApp] [nb_anacondacloud] enabled
+[I 20:19:03.772 NotebookApp] [nb_conda] enabled
+[I 20:19:03.887 NotebookApp] ✓ nbpresent HTML export ENABLED
+[W 20:19:03.887 NotebookApp] ✗ nbpresent PDF export DISABLED: No module named 'nbbrowserpdf'
+[I 20:19:03.892 NotebookApp] Serving notebooks from local directory: /home/gchure/git/mscl
+[I 20:19:03.892 NotebookApp] 0 active kernels 
+[I 20:19:03.892 NotebookApp] The Jupyter Notebook is running at: http://[all ip addresses on your system]:11200/
+[I 20:19:03.892 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 20:19:12.927 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 20:19:12.929 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 20:19:13.067 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 20:19:13.068 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[W 20:19:14.612 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024160931 (131.215.2.184) 9.46ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 20:19:14.798 NotebookApp] 404 GET /api/kernels/57493b57-ea7a-4b20-a358-4f0eea3cc937/channels?session_id=48E0B750913147E69823F7C622D398A8 (131.215.2.184): Kernel does not exist: 57493b57-ea7a-4b20-a358-4f0eea3cc937
+[W 20:19:14.799 NotebookApp] 404 GET /api/kernels/57493b57-ea7a-4b20-a358-4f0eea3cc937/channels?session_id=48E0B750913147E69823F7C622D398A8 (131.215.2.184) 9.76ms referer=None
+[W 20:19:14.855 NotebookApp] Notebook code/calibration_factor_parameter_estimation.ipynb is not trusted
+[W 20:19:14.895 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 2.23ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 20:19:15.579 NotebookApp] Kernel started: f103ba27-a4be-4c4c-9469-206741f08c1d
+[W 20:19:15.659 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.2.184) 4.37ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 20:19:46.814 NotebookApp] Replacing stale connection: 57493b57-ea7a-4b20-a358-4f0eea3cc937:48E0B750913147E69823F7C622D398A8
+[I 20:21:09.254 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 20:21:15.565 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 20:21:27.734 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 20:21:27.908 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 20:21:28.073 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 20:21:28.265 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 20:21:28.408 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 20:23:15.558 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 20:25:15.554 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 20:27:46.738 NotebookApp] WebSocket ping timeout after 119998 ms.
+[E 20:27:46.937 NotebookApp] Uncaught exception GET /api/kernels/f103ba27-a4be-4c4c-9469-206741f08c1d/channels?session_id=D45BDA5DFFBA40F38AC2DC780267C404 (131.215.2.184)
+    HTTPServerRequest(protocol='http', host='delbruck.caltech.edu:11200', method='GET', uri='/api/kernels/f103ba27-a4be-4c4c-9469-206741f08c1d/channels?session_id=D45BDA5DFFBA40F38AC2DC780267C404', version='HTTP/1.1', remote_ip='131.215.2.184', headers={'Upgrade': 'websocket', 'Connection': 'Upgrade', 'Host': 'delbruck.caltech.edu:11200', 'Origin': 'http://delbruck.caltech.edu:11200', 'Cookie': 'username-delbruck-caltech-edu-11200="2|1:0|10:1508886578|35:username-delbruck-caltech-edu-11200|44:NDg2OWU2M2MyY2VhNGQzZThmYjJiYTJmMjk4ZTc5YWI=|4c4effa9a2b7b28128aedeb63cf454be746679968563cb10811ee5dab5859f5e"; _ga=GA1.2.1493209699.1475441224; _gid=GA1.2.558987591.1508861382; username-delbruck-caltech-edu-11202="2|1:0|10:1507951049|35:username-delbruck-caltech-edu-11202|44:NzEzODFmM2MyZTQwNGNjY2FhZTM4NGM5ODMyMzA1ZGU=|45514432f5e46130076672c95ca97d9edcfedf737f395d979b3c2663152dd5d1"; _xsrf=2|f023a987|5d10a807c2543186191c80441effe076|1507950694; __unam=27ba962-157bb6120f6-3837ede1-21; _snow_id.c5a5=02019c8d-c682-49a0-b17d-9371c047914a.1496934793.2.1496937317.1496934793.2d59544a-d4b5-4537-854e-d6a919697528; mp_b56bea2001155a653f22d45280077df4_mixpanel=%7B%22distinct_id%22%3A%20%2215c7c26ecde90c-0c00d7bc1cb53c-1d401925-13c680-15c7c26ecdf949%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; s_fid=4413020CE6DDF34F-1EBC5BADA77E9F36; __qca=P0-1499457421-1483649992643', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Sec-Websocket-Key': '7CZ6ksEmSaaG/DvqjKiTbg==', 'Sec-Websocket-Version': '13', 'Sec-Websocket-Extensions': 'x-webkit-deflate-frame', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Safari/604.1.38'})
+    Traceback (most recent call last):
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/web.py", line 1425, in _stack_context_handle_exception
+        raise_exc_info((type, value, traceback))
+      File "<string>", line 3, in raise_exc_info
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 314, in wrapped
+        ret = fn(*args, **kwargs)
+      File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 191, in <lambda>
+        self.on_recv(lambda msg: callback(self, msg), copy=copy)
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/services/kernels/handlers.py", line 373, in _on_zmq_reply
+        super(ZMQChannelsHandler, self)._on_zmq_reply(stream, msg)
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/base/zmqhandlers.py", line 258, in _on_zmq_reply
+        self.write_message(msg, binary=isinstance(msg, bytes))
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/websocket.py", line 210, in write_message
+        raise WebSocketClosedError()
+    tornado.websocket.WebSocketClosedError
+[I 07:33:49.190 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 07:34:21.939 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 3.42ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 07:34:22.070 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.2.184) 1.63ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 07:36:22.671 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 07:42:22.691 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 07:46:22.682 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:04:22.802 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:08:22.830 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:10:22.894 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:12:22.912 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:14:22.905 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:16:22.970 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:18:22.960 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:18:37.173 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 08:20:22.946 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:22:22.945 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:30:22.856 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:32:22.885 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:06:48.115 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:20:38.737 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:22:38.702 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:24:38.757 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:26:38.718 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:28:38.690 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:30:39.052 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:33:26.755 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:37:24.767 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:40:01.321 NotebookApp] 302 GET / (131.215.248.148) 0.79ms
+[I 09:40:01.337 NotebookApp] 302 GET /tree? (131.215.248.148) 1.62ms
+[I 09:40:08.361 NotebookApp] 302 POST /login?next=%2Ftree%3F (131.215.248.148) 1.74ms
+[I 09:40:08.410 NotebookApp] 302 POST /login?next=%2Ftree%3F (131.215.248.148) 1.59ms
+[W 09:40:11.310 NotebookApp] 404 GET /clusters?_=1508949608887 (131.215.248.148) 2.32ms referer=http://delbruck.caltech.edu:11200/tree?
+[W 09:40:13.600 NotebookApp] 404 GET /clusters?_=1508949613409 (131.215.248.148) 1.82ms referer=http://delbruck.caltech.edu:11200/tree/code
+[W 09:40:16.117 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.248.148) 2.53ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 09:40:16.400 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.248.148) 2.49ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 09:40:24.786 NotebookApp] New terminal with automatic name: 1
+[I 09:41:13.677 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:42:30.546 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 09:42:45.523 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 09:42:47.446 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[W 09:53:26.259 NotebookApp] 404 GET /clusters?_=1508950404162 (131.215.248.148) 2.62ms referer=http://delbruck.caltech.edu:11200/tree/code
+[W 09:53:30.398 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.248.148) 2.48ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 09:57:25.740 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 09:57:26.842 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 09:57:27.565 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 09:57:35.257 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 10:01:04.320 NotebookApp] WebSocket ping timeout after 117764 ms.
+[E 10:01:04.323 NotebookApp] Uncaught exception GET /api/kernels/f103ba27-a4be-4c4c-9469-206741f08c1d/channels?session_id=C12A27781229485C8AB579145E115F21 (131.215.248.148)
+    HTTPServerRequest(protocol='http', host='delbruck.caltech.edu:11200', method='GET', uri='/api/kernels/f103ba27-a4be-4c4c-9469-206741f08c1d/channels?session_id=C12A27781229485C8AB579145E115F21', version='HTTP/1.1', remote_ip='131.215.248.148', headers={'Upgrade': 'websocket', 'Connection': 'Upgrade', 'Host': 'delbruck.caltech.edu:11200', 'Origin': 'http://delbruck.caltech.edu:11200', 'Cookie': 'username-delbruck-caltech-edu-11200="2|1:0|10:1508949608|35:username-delbruck-caltech-edu-11200|44:NWQ3YjQ5ZjliZmRjNDIzYzhlMmI0MDgwYWFiY2ExM2U=|ce183f25ec9dfb964dd45df30b17217ae5a04c1996898765400641b41c5eab28"; _xsrf=2|25a7ef78|4c969c8d09ae3b99950eb5e618b354c7|1508949601; _ga=GA1.2.1333097474.1389148185', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Sec-Websocket-Key': 'j2nG12EYYwbjjRml+3VxQw==', 'Sec-Websocket-Version': '13', 'Sec-Websocket-Extensions': 'x-webkit-deflate-frame', 'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 11_0_3 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A432 Safari/604.1'})
+    Traceback (most recent call last):
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/web.py", line 1425, in _stack_context_handle_exception
+        raise_exc_info((type, value, traceback))
+      File "<string>", line 3, in raise_exc_info
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 314, in wrapped
+        ret = fn(*args, **kwargs)
+      File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 191, in <lambda>
+        self.on_recv(lambda msg: callback(self, msg), copy=copy)
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/services/kernels/handlers.py", line 373, in _on_zmq_reply
+        super(ZMQChannelsHandler, self)._on_zmq_reply(stream, msg)
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/base/zmqhandlers.py", line 258, in _on_zmq_reply
+        self.write_message(msg, binary=isinstance(msg, bytes))
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/websocket.py", line 210, in write_message
+        raise WebSocketClosedError()
+    tornado.websocket.WebSocketClosedError
+[W 10:52:15.160 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 2.83ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 10:52:15.676 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.2.184) 2.65ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 10:52:51.203 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 10:52:52.694 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 10:52:52.883 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 10:52:53.059 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 10:54:16.535 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:04:16.544 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:12:21.574 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 11:12:21.733 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 11:12:21.910 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 11:17:39.916 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 11:17:44.320 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 2.91ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 11:17:44.683 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.2.184) 1.74ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 11:19:45.497 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:21:45.487 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:23:45.485 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:25:45.475 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:27:45.466 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:29:45.473 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:31:45.523 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:32:35.012 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 11:33:45.465 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:35:45.507 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 11:35:49.396 NotebookApp] Kernel restarted: f103ba27-a4be-4c4c-9469-206741f08c1d
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/__main__.py", line 3, in <module>
+    app.launch_new_instance()
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 657, in launch_instance
+    app.initialize(argv)
+  File "<decorator-gen-120>", line 2, in initialize
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 87, in catch_config_error
+    return method(app, *args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 445, in initialize
+    self.init_sockets()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 235, in init_sockets
+    self.shell_port = self._bind_socket(self.shell_socket, self.shell_port)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 177, in _bind_socket
+    s.bind("tcp://%s:%i" % (self.ip, port))
+  File "zmq/backend/cython/socket.pyx", line 495, in zmq.backend.cython.socket.Socket.bind (zmq/backend/cython/socket.c:5653)
+  File "zmq/backend/cython/checkrc.pxd", line 25, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/socket.c:10014)
+zmq.error.ZMQError: Address already in use
+[I 11:35:52.396 NotebookApp] KernelRestarter: restarting kernel (1/5)
+[I 11:35:53.175 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 183, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 142, in _get_module_details
+    return _get_module_details(pkg_main_name, error)
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 109, in _get_module_details
+    __import__(pkg_name)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/__init__.py", line 2, in <module>
+    from .connect import *
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/connect.py", line 13, in <module>
+    from IPython.core.profiledir import ProfileDir
+  File "/opt/anaconda/lib/python3.6/site-packages/IPython/__init__.py", line 49, in <module>
+    from .terminal.embed import embed
+  File "/opt/anaconda/lib/python3.6/site-packages/IPython/terminal/embed.py", line 15, in <module>
+    from IPython.core.magic import Magics, magics_class, line_magic
+  File "/opt/anaconda/lib/python3.6/site-packages/IPython/core/magic.py", line 22, in <module>
+    from IPython.core import oinspect
+  File "/opt/anaconda/lib/python3.6/site-packages/IPython/core/oinspect.py", line 48, in <module>
+    from pygments.lexers import PythonLexer
+  File "/opt/anaconda/lib/python3.6/site-packages/pygments/lexers/__init__.py", line 20, in <module>
+    from pygments.plugin import find_plugin_lexers
+  File "/opt/anaconda/lib/python3.6/site-packages/pygments/plugin.py", line 39, in <module>
+    import pkg_resources
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 950, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 646, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 616, in _load_backward_compatible
+  File "/opt/anaconda/lib/python3.6/site-packages/setuptools-27.2.0-py3.6.egg/pkg_resources/__init__.py", line 2985, in <module>
+  File "/opt/anaconda/lib/python3.6/site-packages/setuptools-27.2.0-py3.6.egg/pkg_resources/__init__.py", line 2971, in _call_aside
+  File "/opt/anaconda/lib/python3.6/site-packages/setuptools-27.2.0-py3.6.egg/pkg_resources/__init__.py", line 2998, in _initialize_master_working_set
+  File "/opt/anaconda/lib/python3.6/site-packages/setuptools-27.2.0-py3.6.egg/pkg_resources/__init__.py", line 651, in _build_master
+  File "/opt/anaconda/lib/python3.6/site-packages/setuptools-27.2.0-py3.6.egg/pkg_resources/__init__.py", line 644, in __init__
+  File "/opt/anaconda/lib/python3.6/site-packages/setuptools-27.2.0-py3.6.egg/pkg_resources/__init__.py", line 701, in add_entry
+  File "/opt/anaconda/lib/python3.6/site-packages/setuptools-27.2.0-py3.6.egg/pkg_resources/__init__.py", line 787, in add
+KeyboardInterrupt
+[I 11:35:53.376 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 11:35:53.620 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 11:35:53.987 NotebookApp] Kernel interrupted: f103ba27-a4be-4c4c-9469-206741f08c1d
+[I 11:35:55.411 NotebookApp] KernelRestarter: restarting kernel (2/5)
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/__main__.py", line 3, in <module>
+    app.launch_new_instance()
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 657, in launch_instance
+    app.initialize(argv)
+  File "<decorator-gen-120>", line 2, in initialize
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 87, in catch_config_error
+    return method(app, *args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 445, in initialize
+    self.init_sockets()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 235, in init_sockets
+    self.shell_port = self._bind_socket(self.shell_socket, self.shell_port)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 177, in _bind_socket
+    s.bind("tcp://%s:%i" % (self.ip, port))
+  File "zmq/backend/cython/socket.pyx", line 495, in zmq.backend.cython.socket.Socket.bind (zmq/backend/cython/socket.c:5653)
+  File "zmq/backend/cython/checkrc.pxd", line 25, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/socket.c:10014)
+zmq.error.ZMQError: Address already in use
+[I 11:35:58.427 NotebookApp] KernelRestarter: restarting kernel (3/5)
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/__main__.py", line 3, in <module>
+    app.launch_new_instance()
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 657, in launch_instance
+    app.initialize(argv)
+  File "<decorator-gen-120>", line 2, in initialize
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 87, in catch_config_error
+    return method(app, *args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 445, in initialize
+    self.init_sockets()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 235, in init_sockets
+    self.shell_port = self._bind_socket(self.shell_socket, self.shell_port)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 177, in _bind_socket
+    s.bind("tcp://%s:%i" % (self.ip, port))
+  File "zmq/backend/cython/socket.pyx", line 495, in zmq.backend.cython.socket.Socket.bind (zmq/backend/cython/socket.c:5653)
+  File "zmq/backend/cython/checkrc.pxd", line 25, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/socket.c:10014)
+zmq.error.ZMQError: Address already in use
+[I 11:36:01.440 NotebookApp] KernelRestarter: restarting kernel (4/5)
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/__main__.py", line 3, in <module>
+    app.launch_new_instance()
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 657, in launch_instance
+    app.initialize(argv)
+  File "<decorator-gen-120>", line 2, in initialize
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 87, in catch_config_error
+    return method(app, *args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 445, in initialize
+    self.init_sockets()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 235, in init_sockets
+    self.shell_port = self._bind_socket(self.shell_socket, self.shell_port)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 177, in _bind_socket
+    s.bind("tcp://%s:%i" % (self.ip, port))
+  File "zmq/backend/cython/socket.pyx", line 495, in zmq.backend.cython.socket.Socket.bind (zmq/backend/cython/socket.c:5653)
+  File "zmq/backend/cython/checkrc.pxd", line 25, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/socket.c:10014)
+zmq.error.ZMQError: Address already in use
+[W 11:36:04.464 NotebookApp] KernelRestarter: restart failed
+[W 11:36:04.464 NotebookApp] Kernel f103ba27-a4be-4c4c-9469-206741f08c1d died, removing from map.
+[W 11:36:04.464 NotebookApp] Restarting kernel failed: f103ba27-a4be-4c4c-9469-206741f08c1d
+[E 11:36:04.465 NotebookApp] Exception restarting kernel
+    Traceback (most recent call last):
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/services/kernels/handlers.py", line 88, in post
+        yield gen.maybe_future(km.restart_kernel(kernel_id))
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/gen.py", line 1015, in run
+        value = future.result()
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/concurrent.py", line 237, in result
+        raise_exc_info(self._exc_info)
+      File "<string>", line 3, in raise_exc_info
+    RuntimeError: Restart failed
+[E 11:36:04.468 NotebookApp] {
+      "Host": "delbruck.caltech.edu:11200",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|f023a987|5d10a807c2543186191c80441effe076|1507950694",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept-Language": "en-us",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Origin": "http://delbruck.caltech.edu:11200",
+      "Content-Length": "0",
+      "Connection": "keep-alive",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Safari/604.1.38",
+      "Referer": "http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb",
+      "Cookie": "username-delbruck-caltech-edu-11200=\"2|1:0|10:1508886578|35:username-delbruck-caltech-edu-11200|44:NDg2OWU2M2MyY2VhNGQzZThmYjJiYTJmMjk4ZTc5YWI=|4c4effa9a2b7b28128aedeb63cf454be746679968563cb10811ee5dab5859f5e\"; _ga=GA1.2.1493209699.1475441224; username-delbruck-caltech-edu-11202=\"2|1:0|10:1507951049|35:username-delbruck-caltech-edu-11202|44:NzEzODFmM2MyZTQwNGNjY2FhZTM4NGM5ODMyMzA1ZGU=|45514432f5e46130076672c95ca97d9edcfedf737f395d979b3c2663152dd5d1\"; _xsrf=2|f023a987|5d10a807c2543186191c80441effe076|1507950694; __unam=27ba962-157bb6120f6-3837ede1-21; _snow_id.c5a5=02019c8d-c682-49a0-b17d-9371c047914a.1496934793.2.1496937317.1496934793.2d59544a-d4b5-4537-854e-d6a919697528; mp_b56bea2001155a653f22d45280077df4_mixpanel=%7B%22distinct_id%22%3A%20%2215c7c26ecde90c-0c00d7bc1cb53c-1d401925-13c680-15c7c26ecdf949%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; s_fid=4413020CE6DDF34F-1EBC5BADA77E9F36; __qca=P0-1499457421-1483649992643"
+    }
+[E 11:36:04.468 NotebookApp] 500 POST /api/kernels/f103ba27-a4be-4c4c-9469-206741f08c1d/restart (131.215.2.184) 16143.79ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 11:36:38.579 NotebookApp] Kernel does not exist: f103ba27-a4be-4c4c-9469-206741f08c1d
+[W 11:36:38.580 NotebookApp] 404 POST /api/kernels/f103ba27-a4be-4c4c-9469-206741f08c1d/interrupt (131.215.2.184) 2.54ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 11:36:38.771 NotebookApp] Kernel does not exist: f103ba27-a4be-4c4c-9469-206741f08c1d
+[W 11:36:38.772 NotebookApp] 404 POST /api/kernels/f103ba27-a4be-4c4c-9469-206741f08c1d/interrupt (131.215.2.184) 1.98ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 11:36:39.170 NotebookApp] Kernel does not exist: f103ba27-a4be-4c4c-9469-206741f08c1d
+[W 11:36:39.171 NotebookApp] 404 POST /api/kernels/f103ba27-a4be-4c4c-9469-206741f08c1d/interrupt (131.215.2.184) 2.17ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 11:36:43.339 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 11:36:47.601 NotebookApp] 404 GET /clusters?_=1508956605847 (131.215.2.184) 2.24ms referer=http://delbruck.caltech.edu:11200/tree
+[W 11:36:49.027 NotebookApp] 404 GET /clusters?_=1508956608951 (131.215.2.184) 2.13ms referer=http://delbruck.caltech.edu:11200/tree/code
+[W 11:36:51.684 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 2.91ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 11:36:52.602 NotebookApp] Kernel started: 4c985a68-42f1-4753-a4e7-0d52399f899a
+[I 11:38:12.571 NotebookApp] Kernel interrupted: 4c985a68-42f1-4753-a4e7-0d52399f899a
+[I 11:38:12.944 NotebookApp] Kernel interrupted: 4c985a68-42f1-4753-a4e7-0d52399f899a
+[I 11:38:13.073 NotebookApp] Kernel interrupted: 4c985a68-42f1-4753-a4e7-0d52399f899a
+ERROR:tornado.general:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 414, in _run_callback
+    callback(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 275, in null_wrapper
+    return fn(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 276, in dispatcher
+    return self.dispatch_shell(stream, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 228, in dispatch_shell
+    handler(stream, idents, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 412, in execute_request
+    self._abort_queues()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 628, in _abort_queues
+    self._abort_queue(stream)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 651, in _abort_queue
+    poller.poll(50)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/sugar/poll.py", line 99, in poll
+    return zmq_poll(self.sockets, timeout=timeout)
+  File "zmq/backend/cython/_poll.pyx", line 116, in zmq.backend.cython._poll.zmq_poll (zmq/backend/cython/_poll.c:2036)
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/_poll.c:2418)
+KeyboardInterrupt
+ERROR:tornado.general:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 440, in _handle_events
+    self._handle_recv()
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 472, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 414, in _run_callback
+    callback(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 275, in null_wrapper
+    return fn(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 276, in dispatcher
+    return self.dispatch_shell(stream, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 228, in dispatch_shell
+    handler(stream, idents, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 412, in execute_request
+    self._abort_queues()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 628, in _abort_queues
+    self._abort_queue(stream)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 651, in _abort_queue
+    poller.poll(50)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/sugar/poll.py", line 99, in poll
+    return zmq_poll(self.sockets, timeout=timeout)
+  File "zmq/backend/cython/_poll.pyx", line 116, in zmq.backend.cython._poll.zmq_poll (zmq/backend/cython/_poll.c:2036)
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/_poll.c:2418)
+KeyboardInterrupt
+[I 11:38:16.602 NotebookApp] KernelRestarter: restarting kernel (1/5)
+WARNING:root:kernel 4c985a68-42f1-4753-a4e7-0d52399f899a restarted
+[I 11:38:52.699 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 19:55:17.598 NotebookApp] 302 GET / (131.215.2.184) 1.65ms
+[W 19:55:19.063 NotebookApp] 404 GET /clusters?_=1509072917770 (131.215.2.184) 1.55ms referer=http://delbruck.caltech.edu:11200/tree?
+[W 19:55:22.013 NotebookApp] 404 GET /clusters?_=1509072921935 (131.215.2.184) 1.41ms referer=http://delbruck.caltech.edu:11200/tree/code
+[W 19:55:24.268 NotebookApp] Notebook code/calibration_factor_parameter_estimation.ipynb is not trusted
+[W 19:55:24.407 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 2.04ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 19:55:24.442 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.2.184) 1.76ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 19:57:25.185 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 19:57:25.186 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 20:01:25.253 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 20:01:25.254 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 20:05:25.242 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 20:05:25.243 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 20:07:25.210 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 20:07:25.211 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 20:09:25.201 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 20:09:25.202 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[W 20:41:25.114 NotebookApp] WebSocket ping timeout after 119994 ms.
+[W 22:40:55.376 NotebookApp] WebSocket ping timeout after 119979 ms.
+[I 09:32:59.673 NotebookApp] 302 GET / (131.215.2.184) 1.03ms
+[W 09:33:01.134 NotebookApp] 404 GET /clusters?_=1509121979856 (131.215.2.184) 1.50ms referer=http://delbruck.caltech.edu:11200/tree?
+[W 09:33:04.008 NotebookApp] 404 GET /clusters?_=1509121983931 (131.215.2.184) 1.40ms referer=http://delbruck.caltech.edu:11200/tree/code
+[W 09:33:04.933 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.2.184) 1.53ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 09:33:04.935 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 1.50ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 09:33:05.266 NotebookApp] Notebook code/calibration_factor_parameter_estimation.ipynb is not trusted
+[I 09:35:06.293 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 09:35:06.294 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 10:09:08.336 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 10:09:08.337 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 11:17:34.035 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 11:17:34.036 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 11:26:45.624 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 11:26:45.625 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 11:52:36.352 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 11:52:36.353 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 11:56:18.013 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 11:56:18.014 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 11:58:18.028 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 11:58:18.029 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 12:27:56.159 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 12:27:56.159 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 12:37:16.434 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 12:37:16.435 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 13:55:45.929 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 13:55:45.930 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:02:46.541 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:02:46.542 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:10:46.503 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:10:46.504 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:12:46.537 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:12:46.538 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:14:46.505 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:14:46.507 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:16:46.519 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:16:46.520 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:22:46.872 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:22:46.873 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:24:46.874 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:24:46.875 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:26:46.877 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:26:46.878 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 14:28:46.869 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 14:28:46.870 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 15:12:37.849 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 15:12:37.850 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 15:51:42.328 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 15:51:42.329 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:05:33.770 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:05:33.771 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:07:33.763 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:07:33.764 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:09:33.760 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:09:33.761 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:11:33.757 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:11:33.758 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:13:33.755 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:13:33.756 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:15:33.761 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:15:33.762 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:17:06.064 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:17:06.065 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:17:06.625 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:17:06.626 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:17:07.106 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:17:07.107 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[W 16:17:10.491 NotebookApp] Notebook code/calibration_factor_parameter_estimation.ipynb is not trusted
+[W 16:17:11.897 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 2.81ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[W 16:17:11.952 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.2.184) 3.35ms referer=http://delbruck.caltech.edu:11200/notebooks/code/calibration_factor_parameter_estimation.ipynb
+[I 16:19:12.675 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:19:12.677 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:21:12.672 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:21:12.673 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:23:12.845 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:23:12.846 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:25:12.804 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:25:12.806 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:27:12.780 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:27:12.781 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:29:12.772 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:29:12.774 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:31:12.775 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:31:12.776 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:33:12.762 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:33:12.763 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:35:12.768 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:35:12.769 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:37:12.759 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:37:12.760 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:39:12.757 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:39:12.758 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:43:38.778 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:43:38.779 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:45:38.774 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:45:38.775 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[W 16:46:05.517 NotebookApp] 404 GET /clusters?_=1509147964058 (131.215.2.184) 1.82ms referer=http://delbruck.caltech.edu:11200/tree/code/sandbox
+[W 16:46:11.147 NotebookApp] Notebook code/analysis.ipynb is not trusted
+[W 16:46:11.283 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.2.184) 2.14ms referer=http://delbruck.caltech.edu:11200/notebooks/code/analysis.ipynb
+[I 16:46:12.013 NotebookApp] Kernel started: fac3b70b-cb5c-4705-99c7-4f8f39b6fd95
+[W 16:46:12.018 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.2.184) 2.90ms referer=http://delbruck.caltech.edu:11200/notebooks/code/analysis.ipynb
+[I 16:48:12.092 NotebookApp] Saving file at /code/analysis.ipynb
+[W 16:48:12.094 NotebookApp] Saving untrusted notebook code/analysis.ipynb
+[I 16:49:42.806 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:49:42.807 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 16:52:08.541 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 16:52:08.542 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 17:09:41.670 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[W 17:09:41.671 NotebookApp] Saving untrusted notebook code/calibration_factor_parameter_estimation.ipynb
+[I 17:17:00.968 NotebookApp] Kernel restarted: 4c985a68-42f1-4753-a4e7-0d52399f899a
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/opt/anaconda/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/__main__.py", line 3, in <module>
+    app.launch_new_instance()
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 657, in launch_instance
+    app.initialize(argv)
+  File "<decorator-gen-120>", line 2, in initialize
+  File "/opt/anaconda/lib/python3.6/site-packages/traitlets/config/application.py", line 87, in catch_config_error
+    return method(app, *args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 445, in initialize
+    self.init_sockets()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 235, in init_sockets
+    self.shell_port = self._bind_socket(self.shell_socket, self.shell_port)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelapp.py", line 177, in _bind_socket
+    s.bind("tcp://%s:%i" % (self.ip, port))
+  File "zmq/backend/cython/socket.pyx", line 495, in zmq.backend.cython.socket.Socket.bind (zmq/backend/cython/socket.c:5653)
+  File "zmq/backend/cython/checkrc.pxd", line 25, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/socket.c:10014)
+zmq.error.ZMQError: Address already in use
+[I 17:17:03.968 NotebookApp] KernelRestarter: restarting kernel (1/5)
+[I 17:17:39.312 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 17:19:39.309 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 17:49:55.478 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 18:14:11.284 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 18:24:03.876 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 19:00:13.438 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 19:27:59.530 NotebookApp] Saving file at /code/calibration_factor_parameter_estimation.ipynb
+[I 08:14:42.706 NotebookApp] 302 GET / (131.215.248.198) 1.65ms
+[W 08:14:44.564 NotebookApp] 404 GET /apple-touch-icon-precomposed.png (131.215.248.198) 3.88ms referer=None
+[W 08:14:44.578 NotebookApp] 404 GET /apple-touch-icon.png (131.215.248.198) 3.03ms referer=None
+[W 08:14:44.830 NotebookApp] 404 GET /clusters?_=1509376484508 (131.215.248.198) 3.41ms referer=http://delbruck.caltech.edu:11200/tree?
+[W 20:08:23.387 NotebookApp] 404 GET /clusters?_=1509419301150 (131.215.248.137) 3.10ms referer=http://delbruck.caltech.edu:11200/tree?
+[I 20:08:41.933 NotebookApp] [nb_conda_kernels] enabled, 4 kernels found
+[W 20:08:42.253 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 20:08:42.254 NotebookApp] The port 11200 is already in use, trying another port.
+[I 20:08:42.414 NotebookApp] [nb_anacondacloud] enabled
+[I 20:08:42.419 NotebookApp] [nb_conda] enabled
+[I 20:08:42.532 NotebookApp] ✓ nbpresent HTML export ENABLED
+[W 20:08:42.532 NotebookApp] ✗ nbpresent PDF export DISABLED: No module named 'nbbrowserpdf'
+[I 20:08:42.537 NotebookApp] Serving notebooks from local directory: /home/gchure/git/mscl
+[I 20:08:42.537 NotebookApp] 0 active kernels 
+[I 20:08:42.537 NotebookApp] The Jupyter Notebook is running at: http://[all ip addresses on your system]:11201/
+[I 20:08:42.537 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 20:08:46.058 NotebookApp] 404 GET /clusters?_=1509419325889 (131.215.248.137) 2.58ms referer=http://delbruck.caltech.edu:11200/tree/code
+[W 20:08:55.534 NotebookApp] Notebook code/dilution_experiment_controls.ipynb is not trusted
+[W 20:08:55.676 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.248.137) 1.81ms referer=http://delbruck.caltech.edu:11200/notebooks/code/dilution_experiment_controls.ipynb
+[W 20:08:55.765 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.248.137) 3.41ms referer=http://delbruck.caltech.edu:11200/notebooks/code/dilution_experiment_controls.ipynb
+[I 20:09:08.105 NotebookApp] Kernel started: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:11:12.703 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:11:12.705 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:13:11.393 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:13:11.395 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:13:20.128 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:13:21.021 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:13:21.404 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:14:28.663 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:14:28.984 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:15:05.227 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:15:05.364 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:15:05.557 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:15:05.732 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:15:05.940 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:15:06.137 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:15:11.376 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:15:11.377 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:17:11.277 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:17:11.279 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:19:10.868 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:19:10.870 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:21:10.959 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:21:10.961 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:23:10.803 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:23:10.805 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:24:48.460 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:24:48.654 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:24:48.786 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+ERROR:tornado.general:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 414, in _run_callback
+    callback(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 275, in null_wrapper
+    return fn(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 276, in dispatcher
+    return self.dispatch_shell(stream, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 228, in dispatch_shell
+    handler(stream, idents, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 412, in execute_request
+    self._abort_queues()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 628, in _abort_queues
+    self._abort_queue(stream)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 651, in _abort_queue
+    poller.poll(50)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/sugar/poll.py", line 99, in poll
+    return zmq_poll(self.sockets, timeout=timeout)
+  File "zmq/backend/cython/_poll.pyx", line 116, in zmq.backend.cython._poll.zmq_poll (zmq/backend/cython/_poll.c:2036)
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/_poll.c:2418)
+KeyboardInterrupt
+ERROR:tornado.general:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 440, in _handle_events
+    self._handle_recv()
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 472, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 414, in _run_callback
+    callback(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 275, in null_wrapper
+    return fn(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 276, in dispatcher
+    return self.dispatch_shell(stream, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 228, in dispatch_shell
+    handler(stream, idents, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 412, in execute_request
+    self._abort_queues()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 628, in _abort_queues
+    self._abort_queue(stream)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 651, in _abort_queue
+    poller.poll(50)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/sugar/poll.py", line 99, in poll
+    return zmq_poll(self.sockets, timeout=timeout)
+  File "zmq/backend/cython/_poll.pyx", line 116, in zmq.backend.cython._poll.zmq_poll (zmq/backend/cython/_poll.c:2036)
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/_poll.c:2418)
+KeyboardInterrupt
+[I 20:24:48.868 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:24:49.033 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:24:49.177 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:24:49.299 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:24:53.105 NotebookApp] KernelRestarter: restarting kernel (1/5)
+WARNING:root:kernel 26c02243-d43c-4109-9962-b1c8fb83cb2b restarted
+[I 20:25:11.573 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:25:11.575 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:27:14.941 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:27:14.943 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 20:27:23.255 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:27:23.675 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:27:24.036 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 20:27:56.056 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 20:27:56.058 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[W 20:30:39.286 NotebookApp] WebSocket ping timeout after 119950 ms.
+[E 20:30:41.170 NotebookApp] Uncaught exception GET /api/kernels/26c02243-d43c-4109-9962-b1c8fb83cb2b/channels?session_id=A6FE3E25F24F49888531F2CF5900B7B2 (131.215.248.137)
+    HTTPServerRequest(protocol='http', host='delbruck.caltech.edu:11200', method='GET', uri='/api/kernels/26c02243-d43c-4109-9962-b1c8fb83cb2b/channels?session_id=A6FE3E25F24F49888531F2CF5900B7B2', version='HTTP/1.1', remote_ip='131.215.248.137', headers={'Upgrade': 'websocket', 'Connection': 'Upgrade', 'Host': 'delbruck.caltech.edu:11200', 'Origin': 'http://delbruck.caltech.edu:11200', 'Cookie': '_ga=GA1.2.1493209699.1475441224; _gid=GA1.2.929117135.1509384582; username-delbruck-caltech-edu-11200="2|1:0|10:1508886578|35:username-delbruck-caltech-edu-11200|44:NDg2OWU2M2MyY2VhNGQzZThmYjJiYTJmMjk4ZTc5YWI=|4c4effa9a2b7b28128aedeb63cf454be746679968563cb10811ee5dab5859f5e"; username-delbruck-caltech-edu-11202="2|1:0|10:1507951049|35:username-delbruck-caltech-edu-11202|44:NzEzODFmM2MyZTQwNGNjY2FhZTM4NGM5ODMyMzA1ZGU=|45514432f5e46130076672c95ca97d9edcfedf737f395d979b3c2663152dd5d1"; _xsrf=2|f023a987|5d10a807c2543186191c80441effe076|1507950694; __unam=27ba962-157bb6120f6-3837ede1-21; _snow_id.c5a5=02019c8d-c682-49a0-b17d-9371c047914a.1496934793.2.1496937317.1496934793.2d59544a-d4b5-4537-854e-d6a919697528; mp_b56bea2001155a653f22d45280077df4_mixpanel=%7B%22distinct_id%22%3A%20%2215c7c26ecde90c-0c00d7bc1cb53c-1d401925-13c680-15c7c26ecdf949%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; s_fid=4413020CE6DDF34F-1EBC5BADA77E9F36; __qca=P0-1499457421-1483649992643', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Sec-Websocket-Key': 'Cpxj+0H70D+U3pGKrp00uw==', 'Sec-Websocket-Version': '13', 'Sec-Websocket-Extensions': 'x-webkit-deflate-frame', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Safari/604.1.38'})
+    Traceback (most recent call last):
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/web.py", line 1425, in _stack_context_handle_exception
+        raise_exc_info((type, value, traceback))
+      File "<string>", line 3, in raise_exc_info
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 314, in wrapped
+        ret = fn(*args, **kwargs)
+      File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 191, in <lambda>
+        self.on_recv(lambda msg: callback(self, msg), copy=copy)
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/services/kernels/handlers.py", line 373, in _on_zmq_reply
+        super(ZMQChannelsHandler, self)._on_zmq_reply(stream, msg)
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/base/zmqhandlers.py", line 258, in _on_zmq_reply
+        self.write_message(msg, binary=isinstance(msg, bytes))
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/websocket.py", line 210, in write_message
+        raise WebSocketClosedError()
+    tornado.websocket.WebSocketClosedError
+[I 23:08:23.344 NotebookApp] 302 GET / (131.215.248.177) 2.10ms
+[I 23:08:37.622 NotebookApp] 302 GET / (131.215.248.177) 1.02ms
+[W 23:08:38.104 NotebookApp] Notebook code/dilution_experiment_controls.ipynb is not trusted
+[W 23:08:38.250 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.248.177) 1.63ms referer=http://delbruck.caltech.edu:11200/notebooks/code/dilution_experiment_controls.ipynb
+[W 23:08:38.444 NotebookApp] 404 GET /nbextensions/vim_binding.js?v=20171024201903 (131.215.248.177) 3.26ms referer=http://delbruck.caltech.edu:11200/notebooks/code/dilution_experiment_controls.ipynb
+[W 23:08:38.449 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.248.177) 1.54ms referer=http://delbruck.caltech.edu:11200/notebooks/code/dilution_experiment_controls.ipynb
+[W 23:08:38.552 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20171024201903 (131.215.248.177) 2.84ms referer=http://delbruck.caltech.edu:11200/notebooks/code/dilution_experiment_controls.ipynb
+[W 23:08:38.743 NotebookApp] Notebook code/dilution_experiment_controls.ipynb is not trusted
+[W 23:08:38.887 NotebookApp] 404 GET /clusters?_=1509430117758 (131.215.248.177) 1.44ms referer=http://delbruck.caltech.edu:11200/tree?
+[I 23:09:06.004 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 23:09:06.266 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 23:09:15.500 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 23:09:15.679 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 23:09:15.830 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 23:09:16.068 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 23:10:43.681 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:10:43.684 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:12:43.660 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:12:43.662 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:14:37.724 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 23:14:38.067 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 23:14:44.429 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:14:44.430 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:16:43.714 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:16:43.716 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:18:44.112 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:18:44.114 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:20:43.677 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:20:43.680 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:22:43.708 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:22:43.710 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:24:43.724 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:24:43.726 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:26:44.019 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:26:44.021 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:28:47.145 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:28:47.148 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:32:17.724 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:32:17.726 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:36:27.190 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:36:27.192 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:39:10.815 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:39:10.818 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:45:50.194 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:45:50.197 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:52:30.193 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:52:30.195 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 23:59:10.916 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 23:59:10.919 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:05:50.465 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:05:50.467 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:12:30.256 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:12:30.258 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:19:10.438 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:19:10.440 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:25:50.204 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:25:50.207 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:32:30.103 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:32:30.105 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:39:15.151 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:39:15.153 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:45:50.325 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:45:50.328 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:52:30.165 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:52:30.167 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 00:59:10.365 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 00:59:10.367 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 01:05:50.442 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 01:05:50.445 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 01:12:30.168 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 01:12:30.170 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 01:19:10.350 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 01:19:10.351 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 01:25:50.002 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 01:25:50.004 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[W 01:29:41.872 NotebookApp] WebSocket ping timeout after 118688 ms.
+[W 01:41:40.691 NotebookApp] WebSocket ping timeout after 119906 ms.
+[W 06:23:19.285 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 06:23:20.887 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[E 06:23:20.915 NotebookApp] Uncaught exception GET /api/kernels/26c02243-d43c-4109-9962-b1c8fb83cb2b/channels?session_id=4AEB5C4D59FF4342A73A7F8266639079 (131.215.248.177)
+    HTTPServerRequest(protocol='http', host='delbruck.caltech.edu:11200', method='GET', uri='/api/kernels/26c02243-d43c-4109-9962-b1c8fb83cb2b/channels?session_id=4AEB5C4D59FF4342A73A7F8266639079', version='HTTP/1.1', remote_ip='131.215.248.177', headers={'Upgrade': 'websocket', 'Connection': 'Upgrade', 'Host': 'delbruck.caltech.edu:11200', 'Origin': 'http://delbruck.caltech.edu:11200', 'Cookie': '_ga=GA1.2.1493209699.1475441224; _gid=GA1.2.929117135.1509384582; username-delbruck-caltech-edu-11200="2|1:0|10:1508886578|35:username-delbruck-caltech-edu-11200|44:NDg2OWU2M2MyY2VhNGQzZThmYjJiYTJmMjk4ZTc5YWI=|4c4effa9a2b7b28128aedeb63cf454be746679968563cb10811ee5dab5859f5e"; username-delbruck-caltech-edu-11202="2|1:0|10:1507951049|35:username-delbruck-caltech-edu-11202|44:NzEzODFmM2MyZTQwNGNjY2FhZTM4NGM5ODMyMzA1ZGU=|45514432f5e46130076672c95ca97d9edcfedf737f395d979b3c2663152dd5d1"; _xsrf=2|f023a987|5d10a807c2543186191c80441effe076|1507950694; __unam=27ba962-157bb6120f6-3837ede1-21; _snow_id.c5a5=02019c8d-c682-49a0-b17d-9371c047914a.1496934793.2.1496937317.1496934793.2d59544a-d4b5-4537-854e-d6a919697528; mp_b56bea2001155a653f22d45280077df4_mixpanel=%7B%22distinct_id%22%3A%20%2215c7c26ecde90c-0c00d7bc1cb53c-1d401925-13c680-15c7c26ecdf949%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; s_fid=4413020CE6DDF34F-1EBC5BADA77E9F36; __qca=P0-1499457421-1483649992643', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Sec-Websocket-Key': 'FNfqGIqP4Ty0p4I94ThN9Q==', 'Sec-Websocket-Version': '13', 'Sec-Websocket-Extensions': 'x-webkit-deflate-frame', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Safari/604.1.38'})
+    Traceback (most recent call last):
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/web.py", line 1425, in _stack_context_handle_exception
+        raise_exc_info((type, value, traceback))
+      File "<string>", line 3, in raise_exc_info
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 314, in wrapped
+        ret = fn(*args, **kwargs)
+      File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 191, in <lambda>
+        self.on_recv(lambda msg: callback(self, msg), copy=copy)
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/services/kernels/handlers.py", line 373, in _on_zmq_reply
+        super(ZMQChannelsHandler, self)._on_zmq_reply(stream, msg)
+      File "/opt/anaconda/lib/python3.6/site-packages/notebook/base/zmqhandlers.py", line 258, in _on_zmq_reply
+        self.write_message(msg, binary=isinstance(msg, bytes))
+      File "/opt/anaconda/lib/python3.6/site-packages/tornado/websocket.py", line 210, in write_message
+        raise WebSocketClosedError()
+    tornado.websocket.WebSocketClosedError
+[I 06:23:21.740 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:23:22.199 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:23:31.427 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 06:23:31.429 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 06:24:13.359 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:24:13.572 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:24:13.780 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:25:31.846 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 06:25:31.847 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 06:26:17.237 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:17.444 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:17.628 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:17.856 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:18.060 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:18.259 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:18.472 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:18.640 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:18.849 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:19.035 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:19.228 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:19.410 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:19.608 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:19.805 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:26:20.030 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 06:27:31.658 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 06:27:31.659 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[W 06:29:22.811 NotebookApp] WebSocket ping timeout after 112628 ms.
+[W 07:13:05.735 NotebookApp] WebSocket ping timeout after 90000 ms.
+[W 07:13:05.739 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 07:25:20.475 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:25:20.648 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:25:20.810 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:25:20.971 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:25:21.162 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:29:27.167 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:29:27.327 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:30:59.352 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:30:59.354 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:32:59.340 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:32:59.342 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:34:59.310 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:34:59.311 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:36:59.306 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:36:59.307 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:38:59.310 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:38:59.312 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:40:26.268 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:40:26.387 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+ERROR:tornado.general:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 414, in _run_callback
+    callback(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 275, in null_wrapper
+    return fn(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 276, in dispatcher
+    return self.dispatch_shell(stream, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 228, in dispatch_shell
+    handler(stream, idents, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 412, in execute_request
+    self._abort_queues()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 628, in _abort_queues
+    self._abort_queue(stream)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 651, in _abort_queue
+    poller.poll(50)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/sugar/poll.py", line 99, in poll
+    return zmq_poll(self.sockets, timeout=timeout)
+  File "zmq/backend/cython/_poll.pyx", line 116, in zmq.backend.cython._poll.zmq_poll (zmq/backend/cython/_poll.c:2036)
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/_poll.c:2418)
+KeyboardInterrupt
+ERROR:tornado.general:Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 440, in _handle_events
+    self._handle_recv()
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 472, in _handle_recv
+    self._run_callback(callback, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/eventloop/zmqstream.py", line 414, in _run_callback
+    callback(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/tornado/stack_context.py", line 275, in null_wrapper
+    return fn(*args, **kwargs)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 276, in dispatcher
+    return self.dispatch_shell(stream, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 228, in dispatch_shell
+    handler(stream, idents, msg)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 412, in execute_request
+    self._abort_queues()
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 628, in _abort_queues
+    self._abort_queue(stream)
+  File "/opt/anaconda/lib/python3.6/site-packages/ipykernel/kernelbase.py", line 651, in _abort_queue
+    poller.poll(50)
+  File "/opt/anaconda/lib/python3.6/site-packages/zmq/sugar/poll.py", line 99, in poll
+    return zmq_poll(self.sockets, timeout=timeout)
+  File "zmq/backend/cython/_poll.pyx", line 116, in zmq.backend.cython._poll.zmq_poll (zmq/backend/cython/_poll.c:2036)
+  File "zmq/backend/cython/checkrc.pxd", line 12, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/_poll.c:2418)
+KeyboardInterrupt
+[I 07:40:32.121 NotebookApp] KernelRestarter: restarting kernel (1/5)
+WARNING:root:kernel 26c02243-d43c-4109-9962-b1c8fb83cb2b restarted
+[I 07:40:59.302 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:40:59.304 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:42:59.300 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:42:59.301 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:44:59.299 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:44:59.300 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:46:59.338 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:46:59.341 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:47:34.389 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:47:34.578 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:47:35.044 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:48:59.302 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:48:59.304 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:50:59.324 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:50:59.326 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:52:23.143 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:52:23.321 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:52:23.495 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:52:46.848 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:52:47.038 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:52:47.183 NotebookApp] Kernel interrupted: 26c02243-d43c-4109-9962-b1c8fb83cb2b
+[I 07:52:59.294 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:52:59.296 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:54:59.286 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:54:59.287 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:56:59.296 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:56:59.298 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 07:58:59.284 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 07:58:59.286 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:00:59.314 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:00:59.316 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:02:59.280 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:02:59.281 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:04:59.274 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:04:59.275 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:06:59.286 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:06:59.288 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:08:59.275 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:08:59.277 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:10:59.267 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:10:59.269 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:12:59.272 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:12:59.273 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:14:59.267 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:14:59.269 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:16:59.268 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:16:59.269 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:18:59.250 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:18:59.251 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:20:59.247 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:20:59.249 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:23:04.679 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:23:04.681 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:25:04.708 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:25:04.710 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
+[I 08:25:17.219 NotebookApp] Saving file at /code/dilution_experiment_controls.ipynb
+[W 08:25:17.221 NotebookApp] Saving untrusted notebook code/dilution_experiment_controls.ipynb
