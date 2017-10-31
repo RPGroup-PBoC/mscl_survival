@@ -24,8 +24,8 @@ class MarginalizedNormal(pm.Continuous):
 
     def logp(self, values):
         k = values.shape[-1]
-        mu_array = self.mu_array
-        return -0.5 * k * tt.log(tt.sum((values - mu_array)**2))
+        mu = self.mu
+        return -0.5 * k * tt.log(tt.sum((values - mu)**2))
 
 
 class GammaApproxBinomial(pm.Continuous):
@@ -50,6 +50,9 @@ class GammaApproxBinomial(pm.Continuous):
         super(GammaApproxBinomial, self).__init__(*args, **kwargs)
         self.n = n = pm.theanof.floatX(tt.as_tensor_variable(n))
         self.p = p = pm.theanof.floatX(tt.as_tensor_variable(p))
+
+        # Define the testvals.
+        self.mean = ntot * p
 
     def logp(self, value):
         p = self.p
