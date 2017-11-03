@@ -14,3 +14,4 @@ data/unclean*
 __pycache__
 *.key
 *.ai
+*egg*
