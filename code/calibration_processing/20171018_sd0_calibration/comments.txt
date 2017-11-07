@@ -1,0 +1,8 @@
+# Date: 20171018
+# RBS Modification: sd0
+# Shock Rate: None
+# Purpose: Process intensity data from 20171018
+# This experiment was conducted by shocking E. coli cells in which all seven
+# mechanosensitive channel genes were removed from the chromosome. A single
+# copy of mscL was introduced into the chromosome with the RBS modification
+# sd0.
