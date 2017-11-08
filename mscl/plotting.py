@@ -2,6 +2,9 @@ import bokeh.io
 import bokeh.plotting
 import bokeh.layouts
 import bokeh.palettes
+import skimage.io
+import skimage.measure
+import seaborn as sns
 import numpy as np
 import cairosvg
 import os
