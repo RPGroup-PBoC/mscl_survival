@@ -28,7 +28,6 @@ import scipy.optimize
 # Image Processing and Marker Linking Utilities
 # ----------------------------------------------------------------------------
 
-
 def compute_mean_bg(phase_image, fluo_image, method='isodata', obj_dark=True):
     """
     Computes the mean background fluorescence of the inverted segmentation
