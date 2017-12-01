@@ -654,3 +654,77 @@ def scrape_metadata(fname, channels=('Brightfield', 'GFP'), return_date=True):
         date = ''.join(date)
         exposure['date'] = date
     return exposure
+
+
+# Image segmentation for photobleaching
+def normalize_image(im, sub_bg=True):
+    """
+    Rescales the values of an image between 0 and 1. Can also perform a
+    background subtraction.
+
+    Parameters
+    ----------
+    im : 2d-array
+        Image to be normalized.
+    sub_bg: bool, default True.
+        If True, a gaussian background subtraction is performed with
+        a small sd.
+    Returns
+    -------
+    im_norm : 2d-array
+        Normalized image. If sub_bg is True, these values are on
+        the domain [-1, 1]. If sub_bg is False, values are on [0, 1]
+    """
+    im_norm = (im - im.min()) / (im.max() - im.min())
+    if sub_bg is True:
+        im_blur = skimage.filters.gaussian(im_norm, sigma=5)
+        im_norm = im_norm - im_blur
+    return im_norm
+
+
+def threshold_phase(im, min_int=0.15):
+    """
+    Performs an intensity based segmentation of a phase contrast image.
+    This function uses Otsu's method to determine the threshold value.
+
+    Parameters
+    ----------
+    im: 2d-array
+        Image to be segmented. Desired objects in this image are assumed
+        to be dark.
+    min_int : float
+        The maximum mean pixel intensity of a segmented object. This
+        value must be between 0 and 1. Default is 0.15
+
+    Returns
+    -------
+    mask: 2d-array, int
+        Segmented image with labeled regions.
+    """
+
+    # Preprocess the phase image.
+    im_sub = normalize_image(im)
+    im_float = normalize_image(im, sub_bg=False)
+
+    # Use Otsu's method.
+    thresh = skimage.filters.threshold_otsu(im_sub)
+
+    # Clean initial segmentation.
+    seg = skimage.segmentation.clear_border(im_sub < thresh)
+    seg = skimage.morphology.remove_small_objects(seg)
+    mask = skimage.measure.label(seg)
+
+    # Oversegment to correct for slight drift.
+    selem = skimage.morphology.disk(2)
+    mask = skimage.morphology.dilation(mask, selem)
+    lab = skimage.measure.label(mask)
+
+    # Impose minimum intensity filter.
+    props = skimage.measure.regionprops(lab, im_float)
+    final_im = np.zeros_like(mask)
+    for prop in props:
+        mean_int = prop.min_intensity
+        if mean_int <= min_int:
+            final_im += (lab == prop.label)
+    mask = skimage.measure.label(final_im)
+    return mask

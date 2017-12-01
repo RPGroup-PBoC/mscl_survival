@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
+import statsmodels.tools.numdiff as smnd
+import scipy.optimize
 import glob
+
+
+def ecdf(data):
+    return np.sort(data), np.arange(0, len(data)) / len(data)
 
 
 def density_binning(data, groupby='shock_group', bin_width=10,
@@ -138,3 +144,96 @@ def compute_survival_stats(df, groupby=['shock_group', 'bin_number']):
         return pd.Series(stats_dict)
     grouped = df.groupby(groupby).apply(_compute_stats)
     return pd.DataFrame(grouped).reset_index()
+
+
+def deterministic_log_post(alpha, I1, I2, p=0.5, neg=True):
+    """
+    Computes the log posterior for the deterministic measurement
+    of the calibration factor α.
+
+    Parmeters
+    ---------
+    alpha : float or int
+        The calibration factor in units of A.U per molecule. This parameter
+        must be positive.
+    I1, I2 : arrays of floats or ints.
+        The intensities of the two daugher cells. Each should be provided
+        individually as 1d-arrays.
+    p : float
+        The probability of partitioning proteins into the first daughter cell.
+        Defalt value is 0.5.
+    neg : bool
+        If True, the negative log posterior will be returned.
+
+    Returns
+    -------
+    log_post: 1d-array
+        The value of the log posterior at a given value of α.
+    """
+    # Ensure positivity of samples.
+    if alpha < 0:
+        return -np.inf
+    if p < 0 or p > 1:
+        raise RuntimeError('p must be between 0 and 1.')
+
+    # Set the prior
+    k = len(I1)
+    prior = -k * np.log(alpha)
+
+    # Determine the protein copy numbers deterministically.
+    n1 = I1 / alpha
+    n2 = I2 / alpha
+    ntot = n1 + n2
+
+    # Compute the binomial coefficient using log gamma functions.
+    binom = scipy.special.gammaln(ntot + 1).sum() -\
+        scipy.special.gammaln(n1 + 1).sum() - \
+        scipy.special.gammaln(n2 + 1).sum()
+
+    # Compute the probability factor of the binomial.
+    prob = n1.sum() * np.log(p) + n2.sum() * np.log(1 - p)
+
+    # Determine if the negative log posterior is desired.
+    if neg is True:
+        prefactor = -1
+    else:
+        prefactor = 1
+
+    # Return the desired quantity.
+    return prefactor * (prior + prob + binom)
+
+
+def estimate_calibration_factor(I1, I2, p=0.5):
+    """
+    Estimates the optimal value of α for a given data set by minimization.
+
+    Parameters
+    ----------
+    I1, I2 : 1d-arrays
+        The intensities of the two daughter cells. These should be provided
+        individually as 1d-arrays.
+    p : float
+        The probability of paritioning into the first daughter cell. Default
+        value is even, 0.5.
+
+    Returns
+    -------
+    alpha_opt : float
+        Best-fit value for the value of α in units of A.U. per molecule.
+    sd : float
+        The standard deviation of the the gaussian approximation of the
+        posterior.
+    """
+
+    # Minimize the negative log posterior.
+    popt = scipy.optimize.minimize_scalar(deterministic_log_post,
+                                          args=(I1, I2, p, True))
+    alpha_opt = popt.x
+
+    # Compute the hessian.
+    hess = smnd.approx_hess([alpha_opt], deterministic_log_post,
+                            args=(I1, I2, p, False))
+    cov = -np.linalg.inv(hess)
+    sd = np.sqrt(cov[0])
+
+    return [alpha_opt, sd[0]]

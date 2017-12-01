@@ -141,7 +141,7 @@ def imshow(im, color_mapper=None, plot_height=400, length_units='pixels',
     kwargs = {'plot_height': plot_height, 'plot_width': plot_width,
               'x_range': [0, dw], 'y_range': [0, dh],
               'x_axis_label': length_units, 'y_axis_label': length_units,
-              'tools': 'pan, box_zoom, wheel_zoom, reset, resize'}
+              'tools': 'pan, box_zoom, wheel_zoom, reset'}
     p = boilerplate(**kwargs)
 
     # Set color mapper; we'll do Viridis with 256 levels by default
