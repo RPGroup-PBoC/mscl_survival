@@ -15,6 +15,7 @@ colors = mscl.plotting.set_plotting_style()
 DATE = 20171129
 BASE_STRAIN = 'sfGFP_10ngmL'
 EXPOSURE_MS = 100
+ATC_CONC = 10
 
 
 # ---------------------------------------------------------------------------
@@ -57,7 +58,7 @@ positions = glob.glob(data_dir)
 # Loop through each position and generate the DataFrame.
 dfs = []
 for i, pos in enumerate(positions):
-    print(i)
+
     # Figure out the position number.
     num = int(pos.split('xy')[-1])
 
@@ -80,27 +81,28 @@ bleach = pd.read_csv(
 
 # Extract the parameters.
 bg = bleach[bleach['parameter'] == 'bg']['mode'].values[0]
-gfp_beta = bleach[bleach['parameter'] == 'gfp_beta']['mode'].values[0]
-gfp_tau = bleach[bleach['parameter'] == 'gfp_tau']['mode'].values[0]
-auto_beta = bleach[bleach['parameter'] == 'auto_beta']['mode'].values[0]
-auto_tau = bleach[bleach['parameter'] == 'auto_tau']['mode'].values[0]
-auto_tau
+tau_1 = bleach[bleach['parameter'] == 'tau_1']['mode'].values[0]
+tau_2 = bleach[bleach['parameter'] == 'tau_2']['mode'].values[0]
+beta_1 = bleach[bleach['parameter'] == 'beta_1']['mode'].values[0]
+beta_2 = bleach[bleach['parameter'] == 'beta_2']['mode'].values[0]
+
 # Correct the death fluorescence based on the number of exposures.
 expo = dilution_df['num_exposures'] * EXPOSURE_MS / 1e3
 
-bleaching_fraction = bg + gfp_beta * np.exp(-expo / gfp_tau) +\
-    auto_beta * np.exp(-expo / auto_tau)
-dilution_df.loc[:, 'corrected_fluo'] = dilution_df.loc[:,
-                                                       'death_fluo'] / bleaching_fraction
+bleaching_fraction = bg + beta_1 * \
+    np.exp(-expo / tau_1) + beta_2 * np.exp(-expo / tau_2)
+dilution_df.loc[:, 'corrected_fluo'] = (
+    dilution_df.loc[:, 'death_fluo'] - mean_auto) / bleaching_fraction
+
 # Correct for the mean autofluorescence.
-dilution_df['corrected_fluo'] -= mean_auto
 
 # Save the dataframe.
 dilution_df.to_csv('output/{0}_{1}_lineages.csv'.format(DATE, BASE_STRAIN))
 
 #%% Plot and save the initial intensity disribution.
 auto_x, auto_y = mscl.stats.ecdf(auto_df['birth_fluo'])
-founders = dilution_df.loc[dilution_df['birth'] == 1]['corrected_fluo']
+founders = dilution_df.loc[dilution_df['birth']
+                           == 1]['corrected_fluo'] + mean_auto
 dil_x, dil_y = mscl.stats.ecdf(founders)
 fig, ax = plt.subplots(1, 1)
 ax.set_xlabel(' intensity [a.u.]')
@@ -109,13 +111,10 @@ _ = ax.step(auto_x, auto_y, color='dodgerblue', label='autofluorescence')
 _ = ax.vlines(mean_auto, 0, 1.0, color='tomato', lw=3, alpha=0.5,
               label='mean autofluorescence value')
 _ = ax.step(dil_x, dil_y, color='tomato', label='dilution distribution')
-plt.tight_layout()
-plt.savefig('output/{0}_{1}ngmL_fluorescence_distribution.png'.format(
-    DATE, ATC_CONC), bbox_inches='tight')
 plt.legend()
 plt.tight_layout()
-plt.savefig('output/{0}_{1}ngmL_dilution_strain_distribution.png'.format(
-    DATE, ATC_CONC), bbox_inches='tight')
+plt.savefig('output/{0}_{1}_dilution_strain_distribution.png'.format(
+    DATE, BASE_STRAIN), bbox_inches='tight')
 
 
 # -----------------------------------------------------------------------------
@@ -147,7 +146,7 @@ for g, d in grouped:
 # Plot the conservation
 # compute the expected linear trend.
 theo = np.linspace(np.min(mother), np.max(mother), 300)
-fig, ax = plt.subplots(1, 1)
+fig, ax = plt.subplots(1, 1, figsize=(8, 6))
 ax.set_xlabel('mother fluorescence [a.u.]')
 ax.set_ylabel('summed daughter fluorescence [a.u.]')
 ax.plot(mother, summed, 'o', color='slategray', alpha=0.5, label='data', ms=1)
@@ -190,6 +189,7 @@ popt = mscl.stats.estimate_calibration_factor(I1, I2)
 sister_df.loc[:, ['cal_factor', 'cal_sd']] = popt
 sister_df.to_csv(
     'output/{0}_{1}_calibration_factor.csv'.format(DATE, BASE_STRAIN), index=False)
+
 # Generate the fit.
 min_sum = np.round(np.log10(sister_df['summed_int'].min()))
 max_sum = np.round(np.log10(sister_df['summed_int'].max()))
@@ -228,6 +228,7 @@ _ = ax.plot(Itot_range, fit, color='dodgerblue', label='fit', lw=1)
 _ = ax.fill_between(Itot_range, extrema[0], extrema[1], color='dodgerblue',
                     alpha=0.5, label='__nolegend__')
 _ = ax.legend()
+ax.set_title('α = {0} ± {1} a.u. / mol.'.format(int(popt[0]), int(popt[1])))
 plt.tight_layout()
 plt.savefig('output/{0}_{1}_calibration_factor.png'.format(DATE, BASE_STRAIN),
             bbox_inches='tight')
