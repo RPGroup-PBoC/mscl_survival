@@ -12,7 +12,7 @@ eng = m.start_matlab()
 colors = mscl.plotting.set_plotting_style()
 
 # Set the experimental parameters.
-DATE = 20171130
+DATE = 20171026
 BASE_STRAIN = 'sfGFP_10ngmL'
 EXPOSURE_MS = 100
 ATC_CONC = 10
@@ -25,7 +25,7 @@ ATC_CONC = 10
 # Define the directory containing the autofluorescence samples.
 root_dir = '../../../data/images/{0}_{1}_dilution/'.format(DATE, BASE_STRAIN)
 
-auto_dir = '{0}autofluorescence/xy*'.format(root_dir)
+auto_dir = '{0}auto/xy*'.format(root_dir)
 auto_positions = glob.glob(auto_dir)
 
 # Loop through each position and parse the cell files.

@@ -39,7 +39,7 @@ for i, nom in enumerate(tqdm(SAMPLE_NAMES)):
     cell_counter = 0
     for j, pos in enumerate(tqdm(files, desc='Processing positions')):
         # Load the images
-        fluo_files = glob.glob('{0}/*GFP*.tif'.format(pos))
+        fluo_files = np.sort(glob.glob('{0}/*GFP*.tif'.format(pos)))
         bf = glob.glob('{0}/*Brightfield*.tif'.format(pos))
         fluo_ims = skimage.io.ImageCollection(fluo_files)
         bf_im = skimage.io.imread(bf[0])
@@ -130,7 +130,7 @@ beta_2 = fit_stats[fit_stats['parameter'] == 'beta_2']['mode'].values[0]
 bg = fit_stats[fit_stats['parameter'] == 'bg']['mode'].values[0]
 
 # Plot the fit.
-time_range = np.linspace(0, 100, 1000)
+time_range = np.linspace(0, 5, 1000)
 fit = bg + beta_1 * np.exp(-time_range / tau_1) + \
     beta_2 * np.exp(-time_range / tau_2)
 fig, ax = plt.subplots(1, 1)

@@ -76,6 +76,7 @@ dilution_df = pd.concat(dfs, axis=0)
 # CORRECT FOR PHOTOBLEACHING
 # -----------------------------------------------------------------------------
 #%%
+
 bleach = pd.read_csv(
     'output/{0}_{1}_bleaching_constants.csv'.format(DATE, BASE_STRAIN))
 
@@ -92,7 +93,7 @@ expo = dilution_df['num_exposures'] * EXPOSURE_MS / 1e3
 bleaching_fraction = bg + beta_1 * \
     np.exp(-expo / tau_1) + beta_2 * np.exp(-expo / tau_2)
 dilution_df.loc[:, 'corrected_fluo'] = (
-    dilution_df.loc[:, 'death_fluo'] - mean_auto) / bleaching_fraction
+    dilution_df.loc[:, 'death_fluo']) / bleaching_fraction
 
 # Correct for the mean autofluorescence.
 
@@ -102,7 +103,7 @@ dilution_df.to_csv('output/{0}_{1}_lineages.csv'.format(DATE, BASE_STRAIN))
 #%% Plot and save the initial intensity disribution.
 auto_x, auto_y = mscl.stats.ecdf(auto_df['birth_fluo'])
 founders = dilution_df.loc[dilution_df['birth']
-                           == 1]['corrected_fluo'] + mean_auto
+                           == 1]['birth_fluo']
 dil_x, dil_y = mscl.stats.ecdf(founders)
 fig, ax = plt.subplots(1, 1)
 ax.set_xlabel(' intensity [a.u.]')
@@ -146,7 +147,7 @@ for g, d in grouped:
 # Plot the conservation
 # compute the expected linear trend.
 theo = np.linspace(np.min(mother), np.max(mother), 300)
-fig, ax = plt.subplots(1, 1)
+fig, ax = plt.subplots(1, 1, figsize=(8, 6))
 ax.set_xlabel('mother fluorescence [a.u.]')
 ax.set_ylabel('summed daughter fluorescence [a.u.]')
 ax.plot(mother, summed, 'o', color='slategray', alpha=0.5, label='data', ms=1)

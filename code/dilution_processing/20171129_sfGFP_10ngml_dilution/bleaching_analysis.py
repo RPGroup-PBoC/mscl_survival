@@ -63,7 +63,7 @@ for i, nom in enumerate(tqdm(SAMPLE_NAMES)):
                 label = z + cell_counter
                 elapsed_time = k * EXPOSURE_MS / 1E3
                 cell_dict = dict(strain=nom, cell_id=label,
-                                 total_intensity=total_intensity,
+                                 total_intensity=total_intensity - area * mean_bg,
                                  elapsed_time_s=elapsed_time,
                                  mean_bg=mean_bg, date=DATE, area=area)
                 bleaching_df = bleaching_df.append(
