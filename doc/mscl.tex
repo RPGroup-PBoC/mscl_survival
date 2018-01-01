@@ -1,0 +1,35 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage[
+	aboveskip=1pt,
+	labelfont=bf,
+	labelsep=period,
+	justification=raggedright,
+	singlelinecheck=off
+]{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{color}
+\usepackage[
+	backend=bibtex,
+	bibencoding=ascii,
+	style=authoryear,
+	sorting=nyt, 		% Sort globally by year, name, title
+	url=false, 			% Do not show url in reference
+	doi=false, 			% Do not show doi in reference
+	isbn=false, 		% Do not show isbn link in reference
+	eprint=false, 		% Do not show eprint link in reference
+	maxcitenames=2, 	% After two authors use et al. for inline citations
+	maxbibnames=9, 		% Include up to 9 names in citation
+	sortcites=false, 	% Do not sort citations to be sorted manually
+	firstinits=true 	% References using first name initials only
+]{biblatex}
+
+
+
+
+\begin{document}
+
+\include{section_methods}
+
+\end{document}
