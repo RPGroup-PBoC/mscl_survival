@@ -52,14 +52,14 @@ def cell_to_dict(file, eng, add_props=None, excluded_props=None):
 
     # Define the values of interest.
     vals = ['birth', 'death', 'divide', 'ID', 'motherID', 'sisterID',
-            'daughter_1_ID', 'daughter_2_ID', 'birth_fluo', 'death_fluo']
+            'daughter_1_ID', 'daughter_2_ID', 'birth_fluo', 'death_fluo', 'birth_area', 'death_area']
 
     # Load the mat file using MATLAB.
     eng.workspace['f'] = file
     mat = eng.eval('load(f)')
 
     # Assemble the dictionary for constant properties.
-    cell_dict = {v: mat[v] for v in vals[:-4]}
+    cell_dict = {v: mat[v] for v in vals[:-6]}
     daughters = np.array(mat['daughterID'])
 
     # Determine  if daughters were produced. If not, change ID to NaN.
@@ -74,13 +74,17 @@ def cell_to_dict(file, eng, add_props=None, excluded_props=None):
     try:
         fluo = [mat['CellA'][i]['fl1']['sum']
                 for i, _ in enumerate(mat['CellA'])]
-        nonzero = [f for f in fluo if f != 0]
+        nonzero = np.where(np.array(fluo) > 0)[0]
         num_exposures = len(nonzero)
-        cell_dict['birth_fluo'] = nonzero[0]
-        cell_dict['death_fluo'] = nonzero[-1]
+        cell_dict['birth_fluo'] = fluo[nonzero.min()]
+        cell_dict['death_fluo'] = fluo[nonzero.max()]
+        cell_dict['birth_area'] = mat['CellA'][nonzero.min()]['coord']['A']
+        cell_dict['death_area'] = mat['CellA'][nonzero.max()]['coord']['A']
     except:
         cell_dict['birth_fluo'] = 0
         cell_dict['death_fluo'] = 0
+        cell_dict['birth_area'] = mat['CellA'][0]['coord']['A']
+        cell_dict['death_area'] = mat['CellA'][-1]['coord']['A']
         num_exposures = 0
     cell_dict['num_exposures'] = num_exposures
     # Deal with exclusion and addition of props.
@@ -99,12 +103,14 @@ def cell_to_dict(file, eng, add_props=None, excluded_props=None):
     return cell_dict
 
 
-def parse_cell_files(files, eng, **kwargs):
+def parse_cell_files(files, eng, verbose=False, **kwargs):
     """
     Executes cell_to_dict across a list of files and returns a Pandas DataFrame.
     """
     if type(files) is not list:
         raise TypeError("'files' is type {0} not list.".format(type(files)))
+    if verbose:
+        files = tqdm.tqdm(files)
     for i, f in enumerate(files):
         cell_dict = cell_to_dict(f, eng, **kwargs)
         if i == 0:

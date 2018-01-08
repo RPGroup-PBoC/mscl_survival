@@ -203,6 +203,44 @@ def deterministic_log_post(alpha, I1, I2, p=0.5, neg=True):
     return prefactor * (prior + prob + binom)
 
 
+def log_posterior_biexp(params, time, data, neg=True):
+    """
+    Computes the log posterior for a single exponential decay.
+
+    Parameters
+    ----------
+    params : list or tuple
+        The parameter values for the model. These should be in the
+        order of beta, I_0_1, tau_1, I_0_2, tau_2.
+    time: list or 1d-array
+        The time points overwhich the bleaching occurs.
+    data : list or 1d-array
+        The bleaching data
+    neg : bool
+        If True, the negative log posterior is returned. Default is True.
+
+    Returns
+    -------
+    log_post : float
+        The value of the log posterior given the parameter inputs.
+    """
+    if neg is True:
+        prefactor = -1
+    else:
+        prefactor = 1
+
+    if (params < 0).any():
+        return prefactor * -np.inf
+
+    beta, I_0_1, tau_1, I_0_2, tau_2 = params
+
+    k = len(data)
+    mu = beta + I_0_1 * np.exp(-time / tau_1) + I_0_2 * np.exp(-time / tau_2)
+    log_post = -np.log(tau_1) - np.log(tau_2) - (k / 2) * \
+        np.log(np.sum((mu - data)**2))
+    return prefactor * log_post
+
+
 def estimate_calibration_factor(I1, I2, p=0.5):
     """
     Estimates the optimal value of α for a given data set by minimization.
