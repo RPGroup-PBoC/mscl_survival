@@ -4,7 +4,7 @@
 % Define the experiment parameters.
 DATE = '20180105';
 BASENAME = 'sfGFP_20ngmL';
-samples = {'autofluorescence', 'growth', 'mlg910'};
+samples = {'autofluorescence', 'growth'};
 CONST = loadConstants('60XCaulob');
 CONST.parallel.PARALLEL_FLAG = 1;
 CONST.trackFoci.numSpots = 0;
@@ -17,7 +17,7 @@ for i=1:length(samples)
     disp(statement)
     % Define the data directory.
     directory = ['../../../data/images/', DATE, '_', BASENAME,...
-        '_dilution/', samples{i}, '/'];
+        '_dilution/reprocessing/', samples{i}, '/'];
 
     % Begin the segmentation.
     BatchSuperSeggerOpti(directory, 1, cleanFlag, CONST);
