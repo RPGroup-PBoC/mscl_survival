@@ -41,9 +41,15 @@ def set_plotting_style(return_colors=True):
     plt.rc('text.latex', preamble=r'\usepackage{sfmath}')
     plt.rc('mathtext', fontset='stixsans', sf='sans')
     sns.set_style('darkgrid', rc=rc)
-    colors = sns.color_palette('colorblind', n_colors=8)
-    colors[4] = sns.xkcd_palette(['dusty purple'])[0]
-
+    # colors = sns.color_palette('colorblind', n_colors=8)
+    # colors[4] = sns.xkcd_palette(['dusty purple'])[0]
+    colors = {'green': '#7AA974', 'light_green': '#BFD598',
+              'pale_green': '#DCECCB', 'yellow': '#EAC264',
+              'light_yellow': '#F3DAA9', 'pale_yellow': '#FFEDCE',
+              'blue': '#738FC1', 'light_blue': '#A9BFE3',
+              'pale_blue': '#C9D7EE', 'red': '#D56C55', 'light_red': '#E8B19D',
+              'pale_red': '#F1D4C9', 'purple': '#AB85AC',
+              'light_purple': '#D4C2D9'}
     if return_colors:
         return colors
 
