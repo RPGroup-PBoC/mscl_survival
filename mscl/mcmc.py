@@ -1,142 +1,136 @@
-import pymc3 as pm
-import theano.tensor as tt
 import numpy as np
+import os
+import pickle
+import pystan
 import pandas as pd
 
 
-def _log_prior_trace(trace, model):
+def load_StanModel(model_name, save_compiled=True):
     """
-    Computes the contribution of the log prior to the log posterior.
+    Checks for a compiled Stan model given a model name and saves one if it
+    does not exist.
 
     Parameters
     ----------
-    trace : PyMC3 trace object.
-        Trace from the PyMC3 sampling.
-    model : PyMC3 model object
-        Model under which the sampling was performed
+    model_name : str
+        Name of the Stan model. This should end with `.stan`.
+    save_compiled: bool
+        If True and the compiled model does *not* exist, a compiled version
+        will be saved as a `.pkl` file.
 
     Returns
     -------
-    log_prior_vals : nd-array
-        Array of log-prior values computed elementwise for each point in the
-        trace.
+    stan_model : pystan.StanModel instance
+        The compiled stan model.
 
     Notes
     -----
-    This function was modified from one produced by Justin Bois.
-    http://bebi103.caltech.edu
+    This function looks for all Stan models in the root `code` folder
+    of this repository.
     """
-    # Iterate through each trace.
-    try:
-        points = trace.points()
-    except:
-        points = trace
 
-    # Get the unobserved variables.
-    priors = [var.logp for var in model.unobserved_RVs if type(
-        var) == pymc3.model.FreeRV]
+    if len(model_name.split('/')[-1].split('.')) != 2:
+        raise ValueError("The model name must end in .stan or .stn.")
 
-    def logp_vals(pt):
-        if len(model.unobserved_RVs) == 0:
-            return pm.theanof.floatX(np.array([]), dtype='d')
+    # Look for the compiled form of the model.
+    compiled_name = model_name.split('/')[-1].split('.')[0]
+    if os.path.exists('../{}.pkl'.format(compiled_name)) == True:
+        print('Loading compiled model...')
+        with open('../{}.pkl'.format(compiled_name), 'rb') as f:
+            sm = pickle.load(f)
+        print('Model loaded!')
+    else:
+        print('Could not find compiled code! Compiling now...')
+        sm = pystan.StanModel(model_name)
+        print('Compilation complete!')
+        if save_compiled == True:
+            print('Saving compiled model...')
+            with open('../{}.pkl'.format(compiled_name), 'wb') as f:
+                pickle.dump(sm, f)
+            print('Model saved!')
+    return sm
 
-        return np.array([logp(pt) for logp in priors])
 
-    # Compute the logp for each value of the prior.
-    log_prior = (logp_vals(pt) for pt in points)
-    return np.stack(log_prior)
-
-
-def _log_post_trace(trace, model):
-    R"""
-    Computes the log posterior of a PyMC3 sampling trace.
+def chains_to_dataframe(fit, var_names=None):
+    """
+    Converts the generated traces from MCMC sampling to a tidy
+    pandas DataFrame.
 
     Parameters
     ----------
-    trace : PyMC3 trace object
-        Trace from MCMC sampling
-    model: PyMC3 model object
-        Model under which the sampling was performed.
-
-    Returns
-    -------
-    log_post : nd-array
-        Array of log posterior values computed elementwise for each point in
-        the trace
-
-    Notes
-    -----
-    This function was modified from one produced by Justin Bois
-    http://bebi103.caltech.edu
-    """
-
-    # Compute the log likelihood. Note this is improperly named in PyMC3.
-    log_like = pm.stats._log_post_trace(trace, model).sum(axis=1)
-
-    # Compute the log prior
-    log_prior = _log_prior_trace(trace, model)
-
-    return (log_piror.sum(axis=1) + log_like)
-
-
-def trace_to_dataframe(trace, model):
-    R"""
-    Converts a PyMC3 sampling trace object to a pandas DataFrame
-
-    Parameters
-    ----------
-    trace, model: PyMC3 sampling objects.
-        The MCMC sampling trace and the model context.
+    fit : pystan sampling output
+        The raw MCMC output.
+    var_names : list of str
+        Names of desired parameters. If `None`, all parameters will be
+        returned.
 
     Returns
     -------
     df : pandas DataFrame
-        A tidy data frame containing the sampling trace for each variable  and
-        the computed log posterior at each point.
+        Pandas DataFrame containing all samples from the MCMC.
     """
 
-    # Use the Pymc3 utilitity.
-    df = pm.trace_to_dataframe(trace)
+    data_out = fit.extract()
+    if var_names is None:
+        var_names = data_out.keys()
 
-    # Include the log prop
-    df['logp'] = _log_post_trace(trace, model)
+    if 'lp__' not in var_names:
+        var_names.append('lp__')
+
+    for v in var_names:
+        if v not in data_out.keys():
+            raise ValueError("Parameter `{}` not found in index.".format(v))
+
+    df = pd.DataFrame([])
+    for k in var_names:
+        shape = np.shape(data_out[k])
+        if len(np.shape(data_out[k])) == 1:
+            df.insert(0, k, data_out[k])
+        else:
+            for n in range(shape[1]):
+                df.insert(0, '{}__{}'.format(k, n), data_out[k][:, n])
+    df = df.rename(index=str, columns={'lp__': 'log_post'})
     return df
 
 
-def trace_to_dataframe(trace, model):
-    """
-    Converts a PyMC3 sampling trace object to a pandas DataFrame
-    """
-
-    # Use the Pymc3 utilitity.
-    df = pm.trace_to_dataframe(trace)
-
-    # Include the log prop
-    df['logp'] = pm.stats._log_post_trace(trace, model).sum(axis=1)
-    return df
-
-
-def compute_statistics(df, varnames=None, logprob_name='logp'):
+def compute_statistics(df, var_names=None, logprob_name='log_post'):
     """
     Computes the mode, hpd_min, and hpd_max from a pandas DataFrame. The value
     of the log posterior must be included in the DataFrame.
+
+    Parameters
+    ----------
+    df : pandas DataFrame
+        Dataframe containing MCMC samples and log posterior.
+    var_names : list of str
+        Name of variables desired. If None, all parameters will be
+        returned.
+    logprob_name : str
+        Name of the log posterior column.
+
+    Returns
+    -------
+    stat_df : pandas DataFrame
+        DataFrame containing the mode, hpd_min, and hpd_max for each
+        parameter in var_names.
     """
 
     # Get the vars we care about.
-    if varnames is None:
-        varnames = [v for v in df.keys() if v is not 'logp']
+    if var_names == None:
+        var_names = [v for v in df.keys() if v is not logprob_name]
 
     # Find the max of the log posterior.
     ind = np.argmax(df[logprob_name])
     if type(ind) is not int:
-        ind = ind[0]
+        ind = int(ind[0])
 
     # Instantiate the dataframe for the parameters.
     stat_df = pd.DataFrame([], columns=['parameter', 'mode', 'hpd_min',
                                         'hpd_max'])
-    for v in varnames:
+    for v in var_names:
         mode = df.iloc[ind][v]
-        hpd_min, hpd_max = compute_hpd(df[v].values, mass_frac=0.95)
+        hpd_min, hpd_max = compute_hpd(
+            df[v].values.astype(float), mass_frac=0.95)
         stat_dict = dict(parameter=v, mode=mode, hpd_min=hpd_min,
                          hpd_max=hpd_max)
         stat_df = stat_df.append(stat_dict, ignore_index=True)
@@ -185,151 +179,3 @@ def compute_hpd(trace, mass_frac):
 
     # Return interval
     return np.array([d[min_int], d[min_int + n_samples]])
-
-
-def logistic(val):
-    """
-    Computes the logistic function using Theano. Logistic function is
-    defined as
-        logistic = (1 + e^(-val))^-1
-    """
-    return (1 + tt.exp(-val))**-1
-
-
-class MarginalizedNormal(pm.Continuous):
-    """
-    A bivariate Normal distribution after marginalization of sigma.
-
-    g(µ, k| y) = ((y - μ)^2)^(-k/2)
-
-    Parameters
-    ----------
-    mu : PyMC3 RV object
-        The mean of the components of the distribution.
-
-    """
-
-    def __init__(self, mu=None, *args, **kwargs):
-        super(MarginalizedNormal, self).__init__(*args, **kwargs)
-        self.mu = mu = pm.theanof.floatX(tt.as_tensor_variable(mu))
-        self.median = mu
-        self.mode = mu
-        self.mean = mu
-
-    def logp(self, values):
-        k = values.shape[-1]
-        mu = self.mu
-        return -0.5 * k * tt.log(tt.sum((values - mu)**2))
-
-
-class GammaApproxBinomial(pm.Continuous):
-    """
-    An approximation of the Binomial distribution where the Binomial
-    coefficient is calculated via gamma functions,
-
-    n! = nΓ(n) = Γ(n + 1)
-
-    Parameters
-    ----------
-    n, p : PyMC3 RV objects
-        The number of Bernoulli trials (n) and the probability of success
-        (p). Probability must be on the range p in [0, 1]
-    """
-
-    def __init__(self, n=None, p=None, *args, **kwargs):
-
-        # Ensure parameters are defined and properly bounded.
-        if n is None or p is None:
-            raise RuntimeError('vars {0} and {1} must be defined'.format(n, p))
-        super(GammaApproxBinomial, self).__init__(*args, **kwargs)
-        self.n = n = pm.theanof.floatX(tt.as_tensor_variable(n))
-        self.p = p = pm.theanof.floatX(tt.as_tensor_variable(p))
-
-        # Define the testvals.
-        self.mean = n * p
-
-    def logp(self, value):
-        p = self.p
-        n = self.n
-        binomial_coeff = tt.gammaln(n + 1) - tt.gammaln(value + 1) -\
-            tt.gammaln(n - value + 1)
-        prob = value * tt.log(p) + (n - value) * tt.log(1 - p)
-        return binomial_coeff + prob
-
-
-class Jeffreys(pm.Continuous):
-    """
-    Jeffreys prior for a scale parameter.
-
-    Parameters
-    ----------
-    lower : float, > 0
-        Minimum value the variable can take.
-    upper : float, > `lower`
-        Maximum value the variable can take.
-    Returns
-    -------
-    output : pymc3 distribution
-        Distribution for Jeffreys prior.
-
-    Notes
-    -----
-    This class was adopted from Justin Bois
-    github.com/justinbois/bebi103
-    """
-
-    def __init__(self, lower=None, upper=None, transform='interval',
-                 *args, **kwargs):
-        # Check inputs
-        if lower is None or upper is None:
-            raise RuntimeError('`lower` and `upper` must be provided.')
-
-        if transform == 'interval':
-            transform = pm.distributions.transforms.interval(lower, upper)
-        super(Jeffreys, self).__init__(transform=transform, *args, **kwargs)
-        self.lower = lower = pm.theanof.floatX(tt.as_tensor_variable(lower))
-        self.upper = upper = pm.theanof.floatX(tt.as_tensor_variable(upper))
-
-        self.mean = (upper - lower) / tt.log(upper / lower)
-        self.median = tt.sqrt(lower * upper)
-        self.mode = lower
-
-    def logp(self, value):
-        lower = self.lower
-        upper = self.upper
-        return pm.distributions.dist_math.bound(
-            -tt.log(tt.log(upper / lower)) - tt.log(value),
-            value >= lower, value <= upper)
-
-
-def ReparameterizedNormal(name=None, mu=None, sd=None, shape=1):
-    """
-    A reparameterized normal distribution.
-
-    Parameters
-    ----------
-    name :  string
-        The name of the RV. The reparameterized version will have this name prepended with "offset_"
-    mu : float
-        Mean of the normal distribution.
-    sd: float
-        The standard deviation if the distribtion.
-    shape : int
-        The shape of the RV. Default is 1
-    """
-    if name is None:
-        raise RuntimeError("`name` must be provided.")
-    if mu is None:
-        raise RuntimeError("`mu` must be provided.")
-    if sd is None:
-        raise RuntimeError("`sd` must be provided.")
-    if type(name) is not str:
-        raise TypeError(
-            "expected type(name) to be string, got {0}.".format(type(name)))
-
-    # Compute the offset.
-    offset_var = pm.Normal('offset_{0}'.format(name), mu=0, sd=1, shape=shape)
-
-    # Define the reparameterized variable.
-    var = pm.Deterministic(name, mu + offset_var * sd)
-    return var

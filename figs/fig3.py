@@ -14,16 +14,15 @@ shock_data = pd.read_csv('../data/csv/compiled_shock_data.csv')
 cal_data = pd.read_csv('../data/csv/compiled_calibration_data.csv')
 
 # Remove 10sd1 and frag1
-shock_data = shock_data[(shock_data['rbs'] != '10sd1') & (shock_data['date'] != 20170525)
-                        & (shock_data['date'] != 20170502)]
+shock_data = shock_data[(shock_data['date'] != 20170525)
+                        & (shock_data['rbs'] != '10sd1')]
 cal_data = cal_data[(cal_data['rbs'] != 'frag1') &
-                    (cal_data['rbs'] != '10sd1')]
+                    (cal_data['rbs'] != '10sd1') & (cal_data['rbs'] != 'sd0')]
 
 # Merge the two data sets together.
 shock_data.loc[:, 'class'] = 'shock'
 cal_data.loc[:, 'class'] = 'calibration'
 data = pd.concat([shock_data, cal_data], ignore_index=True)
-
 # Convert the RBS identifiers to uppercase.
 rbs = list(data['rbs'].values)
 new_rbs = [r.upper() for r in rbs]
@@ -49,6 +48,7 @@ data.loc[:, 'relative_intensity'] = data['rescaled_intensity'] / \
 data.loc[:, 'chan_per_cell'] = (
     data['rescaled_intensity'] * mean_area) / candle
 
+data.to_csv('../data/csv/compiled_data.csv', index=False)
 # Separate the cells by survivors and fatalities.
 surv = data[data['survival'] == True]
 fatal = data[data['survival'] == False]
@@ -75,10 +75,10 @@ chan_order = data[data['class'] == 'shock'].groupby(
     ['rbs'])['chan_per_cell'].mean().sort_values()[::-1].index
 shock_exp = data[data['class'] == 'shock']
 
+
 #%% Set up the plots.
 fig = plt.figure(figsize=(6.5, 5))
 gs = gridspec.GridSpec(2, 2)
-
 ax0 = plt.subplot(gs[0, 0])
 ax1 = plt.subplot(gs[0, 1])
 ax2 = plt.subplot(gs[1, :])
@@ -90,7 +90,7 @@ _ = sns.stripplot(x='rbs', y='relative_intensity', data=data, order=intensity_or
                   marker='.', color='k', size=1, ax=ax0, jitter=True)
 
 # Add a marker for the candle strain.
-ax0.vlines(2, ax0.get_ylim()[0], ax0.get_ylim()[1],
+ax0.vlines(1, ax0.get_ylim()[0], ax0.get_ylim()[1],
            color=color['pale_yellow'], lw=20, alpha=0.75, zorder=0)
 
 # Plot the shock data boxplots
@@ -131,12 +131,11 @@ for a in [ax0, ax1, ax2]:
 plt.tight_layout()
 
 # Save the figure as PDF and PNG.
-plt.savefig('fig3.pdf', bbox_inches='tight', dpi=300)
-plt.savefig('fig3.png', bbox_inches='tight', dpi=300)
+plt.savefig('fig3_mod.pdf', bbox_inches='tight', dpi=300)
+plt.savefig('fig3_mod.png', bbox_inches='tight', dpi=300)
 
 
 # %% Figure 4 - Logistic Regression.
-
 # Separate data by slow and fast.
 ident = {True: 'fast', False: 'slow'}
 group = [ident[i >= 1.0] for i in shock_exp['flow_rate'].values]
@@ -148,7 +147,7 @@ with pm.Model() as slow_model:
                             data=shock_exp[(shock_exp['shock_group'] == 'slow') &
                                            (shock_exp['chan_per_cell'] <= 700)],
                             family=pm.families.Binomial())
-    trace = pm.sample(draws=5000, tune=5000, njobs=4)
+    trace = pm.sample(draws=10000, tune=10000, njobs=4)
     slow_trace = mscl.mcmc.trace_to_dataframe(trace, slow_model)
     slow_stats = mscl.mcmc.compute_statistics(slow_trace)
 
@@ -157,23 +156,16 @@ with pm.Model() as fast_model:
     pm.glm.GLM.from_formula('survival ~ chan_per_cell',
                             data=shock_exp[shock_exp['shock_group'] == 'fast'],
                             family=pm.families.Binomial())
-    trace = pm.sample(draws=5000, tune=5000, njobs=4)
+    trace = pm.sample(draws=10000, tune=10000, njobs=4)
     fast_trace = mscl.mcmc.trace_to_dataframe(trace, fast_model)
     fast_stats = mscl.mcmc.compute_statistics(fast_trace)
 
-with pm.Model() as two_dim_model:
-    pm.glm.GLM.from_formula('survival ~ chan_per_cell + flow_rate',
-                            data=shock_exp, family=pm.families.Binomial())
-    trace = pm.sample(draws=5000, tune=5000, njobs=4)
-    two_dim_trace = mscl.mcmc.trace_to_dataframe(trace, two_dim_model)
-    two_dim_stats = mscl.mcmc.compute_statistics(two_dim_trace)
 
 # %%
-
 # Compute the logistic regression curves for the slow and fast groups.
 slow_beta_0, slow_beta_1 = slow_stats['mode'].values
 fast_beta_0, fast_beta_1 = fast_stats['mode'].values
-chan_range = np.linspace(0, 800, 200)
+chan_range = np.linspace(0, 800, 100)
 slow_prob = (1 + np.exp(slow_beta_0 + slow_beta_1 * chan_range))**-1
 fast_prob = (1 + np.exp(fast_beta_0 + fast_beta_1 * chan_range))**-1
 
@@ -195,109 +187,91 @@ slow_exp = shock_exp[(shock_exp['shock_group'] == 'slow')
                      & (shock_exp['chan_per_cell'] <= 700)]
 fast_exp = shock_exp[shock_exp['shock_group'] == 'fast']
 
-# Jitter them around 0 and 1.
-slow_plot = slow_exp['survival'].values.astype(
+#%% Jitter them around 0 and 1.
+slow_exp.loc[:, 'y'] = slow_exp['survival'].values.astype(
     int) - np.random.normal(loc=0, scale=0.01, size=len(slow_exp))
-fast_plot = fast_exp['survival'].values.astype(
+fast_exp.loc[:, 'y'] = fast_exp['survival'].values.astype(
     int) - np.random.normal(loc=0, scale=0.01, size=len(fast_exp))
 
-# %% Set up the rug plots.
-fig, ax = plt.subplots(1, 2, figsize=(6.5, 3))
+# %%  Figure with appropriate rug plots
+fig = plt.figure(figsize=(6.5, 3.5))
+gs = gridspec.GridSpec(3, 2, height_ratios=[0.5, 8, 0.5])
+ax = [plt.subplot(gs[i, j]) for i in range(3) for j in range(2)]
+ax[0].set_title('slow shock (< 1.0 Hz)', backgroundcolor=color['pale_yellow'],
+                fontsize=8)
+ax[1].set_title('fast shock (≥ 1.0 Hz)', backgroundcolor=color['pale_yellow'],
+                fontsize=8)
 
-ax[0].set_xlabel('channels per cell', fontsize=8)
-ax[1].set_xlabel('channels per cell', fontsize=8)
-ax[0].set_ylabel('survival probability', fontsize=8)
-ax[1].set_ylabel('survival probability', fontsize=8)
-ax[0].set_title(r'slow shock (< 1.0 Hz)', backgroundcolor=color['pale_yellow'],
-                y=1.01, fontsize=8)
-ax[1].set_title(r'fast shock (≥ 1.0 Hz)', backgroundcolor=color['pale_yellow'],
-                y=1.01, fontsize=8)
+# Set the special axes requirements for the rug plots
+for i in (0, 1):
+    ax[i].set_axis_off()
+for a in ax:
+    a.tick_params(labelsize=8)
+ax[2].set_xticklabels([])
+ax[3].set_xticklabels([])
 
 
-# Plot the data points.
-_ = ax[0].plot(slow_exp['chan_per_cell'], slow_plot, 'k+', ms=1.5, alpha=0.5,
-               label='individual cells')
-_ = ax[1].plot(fast_exp['chan_per_cell'], fast_plot, 'k+', ms=1.5, alpha=0.5)
+# Plot the survival and death cells on the appropriate rug plots
+for j, exp in enumerate([slow_exp, fast_exp]):
+    pos = j % 2
+    for i in (0, 1):
+        if i == 0:
+            grp = True
+            a = ax[0 + pos]
+        else:
+            grp = False
+            a = ax[4 + pos]
+        _g = exp[exp['survival'] == grp]
+        _ = a.plot(_g['chan_per_cell'], _g['y'], 'k.', ms=1.5, alpha=0.2)
 
+# Properly format the axes labels.
+for i in (0, 1, 4, 5):
+    ax[i].set_xlim([0, 800])
+    ax[i].set_xticks([0, 200, 400, 600, 800])
+
+    if (i == 4) or (i == 5):
+        ax[i].set_xticks([0, 200, 400, 600, 800])
+        ax[i].set_yticklabels([])
+        ax[i].set_facecolor('#FFFFFF')
+        ax[i].set_xlabel('channels per cell', fontsize=8)
 
 # Plot the regression curves.
-_ = ax[0].plot(chan_range, slow_prob, color=color['red'],
+_ = ax[2].plot(chan_range, slow_prob, color=color['red'],
                label='logistic regression')
 
-_ = ax[1].plot(chan_range, fast_prob, color=color['blue'])
+_ = ax[3].plot(chan_range, fast_prob, color=color['blue'])
 
 
 # Fill in the credible regions.
-_ = ax[0].fill_between(chan_range, slow_cred_region[0, :], slow_cred_region[1, :],
+_ = ax[2].fill_between(chan_range, slow_cred_region[0, :], slow_cred_region[1, :],
                        color=color['light_red'], alpha=0.5)
 
-_ = ax[0].plot(chan_range, slow_cred_region[0, :],
+_ = ax[2].plot(chan_range, slow_cred_region[0, :],
                color=color['red'], lw=0.75, alpha=0.8)
-_ = ax[0].plot(chan_range, slow_cred_region[1, :],
+_ = ax[2].plot(chan_range, slow_cred_region[1, :],
                color=color['red'], lw=0.75, alpha=0.8)
 
-_ = ax[1].fill_between(chan_range, fast_cred_region[0, :], fast_cred_region[1, :],
+_ = ax[3].fill_between(chan_range, fast_cred_region[0, :], fast_cred_region[1, :],
                        color=color['light_blue'], alpha=0.5)
-_ = ax[1].plot(chan_range, fast_cred_region[0, :],
+_ = ax[3].plot(chan_range, fast_cred_region[0, :],
                color=color['blue'], lw=0.75, alpha=0.6)
-_ = ax[1].plot(chan_range, fast_cred_region[1, :],
+_ = ax[3].plot(chan_range, fast_cred_region[1, :],
                color=color['blue'], lw=0.75, alpha=0.6)
 
-for a in ax:
-    a.tick_params(labelsize=8)
-    a.set_xlim([0, 800])
+# Properly set the limits for the regression curves
+for i in (2, 3):
+    ax[i].set_ylim([0, 1])
+    ax[i].set_xlim([0, 800])
+    ax[i].set_ylabel('survival probability', fontsize=8)
+plt.subplots_adjust(hspace=0, wspace=0.25)
 
-ax[0].text(-0.17, 1.04, '(A)', fontsize=10, transform=ax[0].transAxes)
-ax[1].text(-0.17, 1.04, '(B)', fontsize=10, transform=ax[1].transAxes)
-plt.tight_layout()
+# Add the appropriate text labels.
+ax[0].text(-0.2, 1.5, '(A)', fontsize=10, transform=ax[0].transAxes)
+ax[1].text(-0.2, 1.5, '(B)', fontsize=10, transform=ax[1].transAxes)
 plt.savefig('fig4.pdf', bbox_inches='tight')
 plt.savefig('fig4.png', bbox_inches='tight')
 
 # %%
-shock_exp.loc[:, 'bin_number'] = 0
-bins = np.arange(0, 800, 100)
-dfs = []
-for i in range(1, len(bins)):
-    sub_set = shock_exp[(shock_exp['chan_per_cell'] >= bins[i - 1])
-                        & (shock_exp['chan_per_cell'] < bins[i])]
-    sub_set.loc[:, 'bin_number'] = i
-    dfs.append(sub_set)
 
-binned_df = pd.concat(dfs, ignore_index=True)
-
-# %%
-fig, ax = plt.subplots()
-grouped = binned_df.groupby('bin_number')
-for g, d in grouped:
-    mean_chan = d['chan_per_cell'].mean()
-    _grouped = d.groupby('flow_rate')
-    surv_prob = []
-    flow_rate = []
-    for _g, _d in _grouped:
-        _surv = _d['survival'].sum() / len(_d)
-        surv_prob.append(_surv)
-        flow_rate.append(_g)
-    ax.plot(flow_rate, surv_prob, 's-', label=mean_chan)
-# ax.set_xscale('log')
-ax.legend()
-
-
-# %%
-fig, ax = plt.subplots(4, 3)
-ax = ax.ravel()
-for a in ax:
-    a.set_ylim([-0.01, 1.01])
-    a.set_xlim([0, 500])
-    a.tick_params(labelsize=8)
-sorted_df = binned_df.sort_values('flow_rate')
-axes = {a: b for b, a in enumerate(sorted_df['flow_rate'].unique())}
-grouped = sorted_df.groupby('flow_rate')
-
-for g, d in grouped:
-    surv = d['survival'].values.astype(
-        int) - np.random.normal(loc=0, scale=0.01, size=len(d))
-    ax[axes[g]].plot(d['chan_per_cell'], surv, 'k.')
-    ax[axes[g]].set_title('{0} hz'.format(g), fontsize=8)
-
-shock_exp[shock_exp['flow_rate'] == 0.02]
-plt.tight_layout()
+sel = shock_data[shock_data['date'] == 20170418]
+len(sel)
