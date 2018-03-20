@@ -13,7 +13,7 @@
 
 data {
     int<lower=0> N; // Total number of sample measurements.
-    int<lower=0, upper=1> survival[N]; // Categorial input vector.
+    int<lower=0, upper=1> output[N]; // Categorial input vector.
     vector<lower=0>[N] num_channel;  // Computed effective channel number.
     vector<lower=0>[N] channel_err; // Statistical error in channel number.
     }

@@ -106,3 +106,37 @@ for a in ax:
 plt.subplots_adjust(hspace=0.01, wspace=0.3)
 plt.savefig('figS{}.png'.format(FIG_NO), bbox_inches='tight')
 plt.savefig('figS{}.pdf'.format(FIG_NO), bbox_inches='tight')
+
+
+#%% -- Bivariate regression --------------
+# Compile the stan model.
+sm = pystan.StanModel('../code/bivariate_logistic_regression.stan')
+data_dict = {'N': len(shock_data), 'predictor_1': shock_data['chan_per_cell'],
+             'predictor_2': shock_data['flow_rate'],
+             'output': shock_data['survival'].astype(int)}
+# Sample and convert the traces to a dataframe
+bivariate_traces = sm.sampling(data=data_dict, iter=5000, chains=4)
+bivariate_df = mscl.mcmc.chains_to_dataframe(bivariate_traces)
+
+# Compute the means for all coefficients.
+_, beta_2, beta_1, beta_0 = np.mean(bivariate_df).values
+
+#%% Set up the grid
+chan_range = np.linspace(0, 800, 500)
+shock_range = np.linspace(0, 3, 500)
+X, Y = np.meshgrid(chan_range, shock_range)
+p_survival = (1 + np.exp(-(beta_0 + beta_1 * X + beta_2 * Y)))**-1
+
+# plt.imshow(p_survival)
+fig, ax = plt.subplots(1, 1, fig)
+contour = ax.contourf(X, Y, p_survival, cmap='Greens_r')
+ax.set_yscale('log')
+
+survs = shock_data[shock_data['survival'] == True]
+deaths = shock_data[shock_data['survival'] == False]
+# plt.clabel(contour, inline=1, fontsize=8)
+ax.plot(survs['chan_per_cell'], survs['flow_rate'], '.', color=colors['blue'],
+        alpha=0.5)
+ax.plot(deaths['chan_per_cell'], deaths['flow_rate'], '.', color=colors['red'],
+        alpha=0.5)
+plt.colorbar(contour, ax=ax)
