@@ -10,30 +10,46 @@ import mscl.plotting
 import mscl.mcmc
 
 colors = mscl.plotting.set_plotting_style()
+
 %matplotlib inline
 # Define and load stan model.
-STAN_MODEL = '../heirarchical_logistic_regression.stan'
-sm = mscl.mcmc.load_StanModel(STAN_MODEL)
+STAN_MODEL = '../stan/heirarchical_logistic_regression.stan'
+sm = stan.StanModel(STAN_MODEL)
 
 # Load and isolate shock data
-data = pd.read_csv('../../data/csv/compiled_data.csv')
-shock_data = data[data['class'] == 'shock'].copy()
+data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
+shock_data = data[data['experiment'] == 'shock'].copy()
 
-# Separate by shock speed.
-shock_data.loc[shock_data['flow_rate'] >= 1.0, 'shock_speed'] = 'fast'
-shock_data.loc[shock_data['flow_rate'] < 1.0, 'shock_speed'] = 'slow'
 
 #%% Group by flow class and sample.
+
+
+# --------------------------------------------------------------------------
+# WARNING: ADD TEMPORARY DATA FOR ZERO CHANNELS -- MUST BE FIXED:
+# _________________________________________________________________________
 trace_df = []
-grouped = shock_data.groupby('shock_speed')
+grouped = shock_data.groupby('shock_class')
 for g, d in grouped:
+
+    chan = list(d['effective_channels'].values)
+    chan_err = list(d['effective_channel_err'].values)
+    surv = list(d['survival'].values)
+
+    for i in range(100):
+        chan.append(0)
+        chan_err.append(1E-9)
+        if np.random.rand() < 1E-3:
+            surv.append(1)
+        else:
+            surv.append(0)
+
     # Sample the model.
-    data_dict = {'N': len(d), 'num_channel': d['chan_per_cell'],
-                 'channel_err': 0.15 * d['chan_per_cell'],
-                 'survival': d['survival'].astype(int)}
+    data_dict = {'N': len(surv), 'predictor': chan,
+                 'predictor_err': chan_err,
+                 'output': surv}
     trace = sm.sampling(data=data_dict, iter=2000, chains=4)
     # Convert traces to dataframe.
-    _df = mscl.mcmc.chains_to_dataframe(trace, var_names=['alpha', 'beta'])
+    _df = mscl.mcmc.chains_to_dataframe(trace, var_names=['beta_0', 'beta_1'])
     _df.insert(0, 'shock_speed', g)
     trace_df.append(_df)
 
