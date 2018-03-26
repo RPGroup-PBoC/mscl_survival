@@ -33,8 +33,11 @@ for s in samples:
     prob_survival[s] = (1 + np.exp(-beta_0 - beta_1 * chan_range))**-1
     _cred = np.zeros((2, len(chan_range)))
 
+    print(s, (np.log(9) - beta_0) / beta_1)
+
     # Compute the credible regions.
     beta_0, beta_1 = samp['beta_0'].values, samp['beta_1'].values
+    print(s, mscl.mcmc.compute_hpd((np.log(9) - beta_0) / beta_1, 0.95))
     for i, c in enumerate(chan_range):
         _prob = (1 + np.exp(-beta_0 - beta_1 * c))**-1
         _cred[:, i] = mscl.mcmc.compute_hpd(_prob, mass_frac=0.95)
@@ -80,7 +83,7 @@ for i in (0, 1, 4, 5):
         ax[i].set_xticks([0, 200, 400, 600, 800])
         ax[i].set_yticklabels([])
         ax[i].set_facecolor('#FFFFFF')
-        ax[i].set_xlabel('channels per cell', fontsize=8)
+        ax[i].set_xlabel('effective channel number', fontsize=8)
 
 # Plot the regression curves.
 _ = ax[2].plot(chan_range, prob_survival['slow'], color=color['red'],
@@ -102,8 +105,6 @@ _ = ax[3].plot(chan_range, cred_regions['fast'][0, :],
                color=color['blue'], lw=0.75, alpha=0.6)
 _ = ax[3].plot(chan_range, cred_regions['fast'][1, :],
                color=color['blue'], lw=0.75, alpha=0.6)
-
-
 # Properly set the limits for the regression curves
 for i in (2, 3):
     ax[i].set_ylim([0, 1])
@@ -112,7 +113,7 @@ for i in (2, 3):
 plt.subplots_adjust(hspace=0, wspace=0.25)
 
 # Add the appropriate text labels.
-ax[0].text(-0.2, 1.5, '(A)', fontsize=10, transform=ax[0].transAxes)
-ax[1].text(-0.2, 1.5, '(B)', fontsize=10, transform=ax[1].transAxes)
-plt.savefig('../figs/fig{}.pdf'.format(FIG_N), bbox_inches='tight')
-plt.savefig('../figs/fig{}.png'.format(FIG_NO), bbox_inches='tight')
+ax[0].text(-0.2, 1.5, '(A)', fontsize=8, transform=ax[0].transAxes)
+ax[1].text(-0.2, 1.5, '(B)', fontsize=8, transform=ax[1].transAxes)
+plt.savefig('../../figs/fig{}.pdf'.format(FIG_NO), bbox_inches='tight')
+plt.savefig('../../figs/fig{}.png'.format(FIG_NO), bbox_inches='tight')

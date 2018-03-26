@@ -35,7 +35,7 @@ for g, d in grouped:
     chan_err = list(d['effective_channel_err'].values)
     surv = list(d['survival'].values)
 
-    for i in range(100):
+    for i in range(300):
         chan.append(0)
         chan_err.append(1E-9)
         if np.random.rand() < 1E-3:

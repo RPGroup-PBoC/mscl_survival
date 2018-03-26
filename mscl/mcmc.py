@@ -72,10 +72,11 @@ def chains_to_dataframe(fit, var_names=None):
 
     data_out = fit.extract()
     if var_names is None:
-        var_names = data_out.keys()
-
-    if 'lp__' not in var_names:
-        var_names.append('lp__')
+        _v = var_names = data_out.keys()
+        var_names = []
+        for v in _v:
+            if v != 'lp__':
+                var_names.append(v)
 
     for v in var_names:
         if v not in data_out.keys():
@@ -89,11 +90,16 @@ def chains_to_dataframe(fit, var_names=None):
         else:
             for n in range(shape[1]):
                 df.insert(0, '{}__{}'.format(k, n), data_out[k][:, n])
-    df = df.rename(index=str, columns={'lp__': 'log_post'})
+
+    # Compute the logp
+    logp = [fit.log_prob([data_out[v][i] for v in var_names])
+            for i in range(len(df))]
+    df.insert(0, 'logp', logp)
+
     return df
 
 
-def compute_statistics(df, var_names=None, logprob_name='log_post'):
+def compute_statistics(df, var_names=None, logprob_name='logp'):
     """
     Computes the mode, hpd_min, and hpd_max from a pandas DataFrame. The value
     of the log posterior must be included in the DataFrame.

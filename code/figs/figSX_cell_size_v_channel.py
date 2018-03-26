@@ -18,6 +18,8 @@ shock_data = data[data['experiment'] == 'shock']
 
 # Look only at MLG 910 for channel counts.
 mlg910 = data[data['rbs'] == 'mlg910']
+cal = np.mean(mlg910['scaled_intensity'] * mlg910['area']) / 348
+
 grouped = shock_data.groupby('survival')
 
 # Set up the axis
@@ -27,7 +29,7 @@ for a in ax:
     a.yaxis.set_tick_params(labelsize=8)
     a.set_xlabel('projected cell area [µm$^2$]', fontsize=8)
     a.set_yscale('log')
-    a.set_ylim([5, 5E3])
+    a.set_ylim([5, 1E4])
 
 
 # Labels and titles
@@ -37,19 +39,19 @@ ax[1].set_title('effective channel count', fontsize=8,
                 backgroundcolor='#FFEDCE', y=1.05)
 ax[0].set_ylabel('total channels per cell', fontsize=8)
 ax[1].set_ylabel('effective channels per cell', fontsize=8)
-fig.text(0, 0.92, '(A)', fontsize=8)
-fig.text(0.5, 0.92, '(B)', fontsize=8)
+fig.text(0, 0.92, '(B)', fontsize=8)
+fig.text(0.5, 0.92, '(C)', fontsize=8)
 
 # Plotting
 color_dict = {True: colors['green'], False: colors['purple']}
 label_dict = {True: 'survival', False: 'death'}
 for g, d in grouped:
-    _ = ax[0].plot(d['area'], d['area'] * d['scaled_intensity'] * CAL, '.',
+    _ = ax[0].plot(d['area'], d['scaled_intensity'] * d['area'] / cal, '.',
                    color=color_dict[g], ms=4, alpha=0.5, label=label_dict[g])
     _ = ax[1].plot(d['area'], d['effective_channels'], '.', color=color_dict[g],
                    ms=4, alpha=0.5, label=label_dict[g])
 _ = ax[0].legend(fontsize=8)
 
 plt.tight_layout()
-plt.savefig('../figs/figSX{}.pdf'.format(FIG_NO), bbox_inches='tight')
-plt.savefig('../figs/figSX{}.png'.format(FIG_NO), bbox_inches='tight')
+plt.savefig('../../figs/figSX{}.svg'.format(FIG_NO), bbox_inches='tight')
+# plt.savefig('../figs/figSX{}.png'.format(FIG_NO), bbox_inches='tight')
