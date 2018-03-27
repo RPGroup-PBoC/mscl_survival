@@ -72,7 +72,7 @@ def chains_to_dataframe(fit, var_names=None):
 
     data_out = fit.extract()
     if var_names is None:
-        _v = var_names = data_out.keys()
+        _v = data_out.keys()
         var_names = []
         for v in _v:
             if v != 'lp__':
@@ -91,11 +91,18 @@ def chains_to_dataframe(fit, var_names=None):
             for n in range(shape[1]):
                 df.insert(0, '{}__{}'.format(k, n), data_out[k][:, n])
 
-    # Compute the logp
-    logp = [fit.log_prob([data_out[v][i] for v in var_names])
-            for i in range(len(df))]
+    logp = []
+    valid_values = [v for v in data_out.keys() if v != 'lp__']
+    for i in range(len(df)):
+        sample = []
+        for v in valid_values:
+            if type(data_out[v][i]) == np.float64:
+                sample.append(data_out[v][i])
+            else:
+                for _, k in enumerate(data_out[v][i]):
+                    sample.append(k)
+        logp.append(fit.log_prob(sample))
     df.insert(0, 'logp', logp)
-
     return df
 
 
