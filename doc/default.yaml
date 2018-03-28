@@ -1,0 +1,18 @@
+---
+geometry: top=0.85in, left=1in, footskip=0.85in
+indent: true
+eqnos-cleveref: On
+eqnos-plus-name: Eq.
+number-sections: True
+header-includes:
+  \usepackage{microtype}
+  \usepackage{mathpazo}
+  \usepackage{palatino}
+  \usepackage{sectsty}
+  \usepackage{tikz}
+  \usetikzlibrary{shapes.geometric, arrows}
+  \sectionfont{\normalfont\sffamily}
+  \subsectionfont{\normalfont\sffamily}
+  \subsubsectionfont{\normalfont\sffamily\itshape}
+  \renewcommand{\thesection}{\Alph{section}}
+---
