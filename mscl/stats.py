@@ -11,7 +11,7 @@ def ecdf(data):
 
 
 def density_binning(data, groupby='shock_group', bin_width=10,
-                    min_events=20, input_key='channel_density',
+                    min_cells=20, input_key='channel_density',
                     output_key='survival'):
     """
     Bins an array of data by a given density.
@@ -73,7 +73,7 @@ def density_binning(data, groupby='shock_group', bin_width=10,
 
         # Find those less than the minimum cell number.
         bin_counts = _grouped.to_dict()
-        low_bins = _grouped[_grouped < min_events].to_dict()
+        low_bins = _grouped[_grouped < min_cells].to_dict()
 
         # Get just the bin numbers.
         bin_nos = list(low_bins.keys())

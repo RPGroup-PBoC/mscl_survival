@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-10 -*-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -47,19 +47,19 @@ _ = sns.stripplot('rbs', 'effective_channels', data=shock_data,
 
 # Add the marker for the standard candle strain
 ax[0].set_ylim(0, 2)
-ax[1].set_ylim(0, 800)
+ax[1].set_ylim(0, 1000)
 
 # Format the axes and save
-ax[0].set_ylabel('relative intensity', fontsize=8)
-ax[1].set_ylabel('effective channel number', fontsize=8)
-ax[0].set_xlabel('RBS modification', fontsize=8)
-ax[1].set_xlabel('RBS modification', fontsize=8)
-ax[0].yaxis.set_tick_params(labelsize=8)
-ax[1].yaxis.set_tick_params(labelsize=8)
-ax[0].xaxis.set_tick_params(labelsize=8, rotation=30)
-ax[1].xaxis.set_tick_params(labelsize=8)
-fig.text(0.01, 0.95, '(A)', fontsize=8)
-fig.text(0.51, 0.95, '(B)', fontsize=8)
+ax[0].set_ylabel('relative intensity', fontsize=10)
+ax[1].set_ylabel('effective channel number', fontsize=10)
+ax[0].set_xlabel('RBS modification', fontsize=10)
+ax[1].set_xlabel('RBS modification', fontsize=10)
+ax[0].yaxis.set_tick_params(labelsize=10)
+ax[1].yaxis.set_tick_params(labelsize=10)
+ax[0].xaxis.set_tick_params(labelsize=10, rotation=30)
+ax[1].xaxis.set_tick_params(labelsize=10)
+fig.text(0.01, 0.95, '(A)', fontsize=10)
+fig.text(0.51, 0.95, '(B)', fontsize=10)
 plt.tight_layout()
 plt.savefig('../figs/fig{}.pdf'.format(FIG_NO), bbox_inches='tight')
 plt.savefig('../figs/fig{}.png'.format(FIG_NO), bbox_inches='tight')
