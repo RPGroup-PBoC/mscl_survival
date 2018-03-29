@@ -2,7 +2,9 @@
 geometry: top=0.85in, left=1in, footskip=0.85in
 indent: true
 eqnos-cleveref: On
-eqnos-plus-name: Eq.
+fignos-cleveref: On
+eqnos-plus-name: "Eq."
+fignos-plus-name: "Fig."
 number-sections: True
 header-includes:
   \usepackage{microtype}
@@ -14,5 +16,8 @@ header-includes:
   \sectionfont{\normalfont\sffamily}
   \subsectionfont{\normalfont\sffamily}
   \subsubsectionfont{\normalfont\sffamily\itshape}
+  \linespread{1.5}
   \renewcommand{\thesection}{\Alph{section}}
+  \usepackage{lineno}
+  \linenumbers
 ---
