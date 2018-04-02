@@ -1,9 +1,14 @@
+import os
 import skimage.io
 import skimage.measure
 import seaborn as sns
 import numpy as np
-import os
 import matplotlib.pyplot as plt
+import bokeh.plotting
+import bokeh.io
+import bokeh.palettes
+import bokeh.layouts
+
 
 # ---------------------------------------------------------------------------
 # Plotting styles
@@ -122,9 +127,6 @@ def save_seg(fname, image, mask, fill_contours=True, ip_dist=0.160,
         plt.close()
     return fig
 
-# TODO: Rewrite this with a  Bokeh backend.
-
-
 def show_connections(fname, image, data, title=None, bar_length=10,
                      ip_dist=0.16):
     """
@@ -201,3 +203,116 @@ def show_connections(fname, image, data, title=None, bar_length=10,
             plt.title(title, fontsize=12)
         plt.savefig(fname, bbox_inches='tight')
     return fig
+
+def boilerplate(**kwargs):
+    """
+    A boiler-plate for a bokeh plotting figure. See `bokeh.plotting.figure`
+    for more documentation.
+    """
+    # Make a bokeh figure axis.
+    if kwargs is not None:
+        p = bokeh.plotting.figure(**kwargs)
+    else:
+        p = bokeh.plotting.figure()
+
+    # Apply the styling to the figure axis.
+    p.background_fill_color = '#E3DCD0'
+    p.grid.grid_line_color = '#FFFFFF'
+    p.grid.grid_line_width = 0.75
+    p.axis.minor_tick_line_color = None
+    p.axis.major_tick_line_color = None
+    p.axis.axis_line_color = None
+    p.axis.axis_label_text_font = 'Lucida Sans Unicode'
+    p.axis.major_label_text_font = 'Lucida Sans Unicode'
+    p.axis.axis_label_text_font_style = 'normal'
+    p.axis.axis_label_text_font_size = '1em'
+    p.axis.major_label_text_font_size = '0.75em'
+    p.axis.axis_label_text_color = '#3c3c3c'
+    p.axis.axis_label_standoff = 3
+    return p
+
+
+
+def imshow(im, color_mapper=None, plot_height=400, length_units='pixels',
+           interpixel_distance=1.0, return_glyph=False):
+    """
+    Display an image in a Bokeh figure.
+    Parameters
+    ----------
+    im : 2-dimensional Numpy array
+        Intensity image to be displayed.
+    color_mapper : bokeh.models.LinearColorMapper instance, default None
+        Mapping of intensity to color. Default is 256-level Viridis.
+    plot_height : int
+        Height of the plot in pixels. The width is scaled so that the
+        x and y distance between pixels is the same.
+    length_units : str, default 'pixels'
+        The units of length in the image.
+    interpixel_distance : float, default 1.0
+        Interpixel distance in units of `length_units`.
+    return_glyph : book, default False
+        If True, the image GlyphRenderer is also returned.
+    Returns
+    -------
+    output : bokeh.plotting.figure instance
+        Bokeh plot with image displayed.
+    Notes
+    -----
+    We thank Justin Bois for writing this function. http://bebi103.caltech.edu
+    """
+    # Get shape, dimensions
+    n, m = im.shape
+    dw = m * interpixel_distance
+    dh = n * interpixel_distance
+
+    # Set up figure with appropriate dimensions
+    plot_width = int(m / n * plot_height)
+    kwargs = {'plot_height': plot_height, 'plot_width': plot_width,
+              'x_range': [0, dw], 'y_range': [0, dh],
+              'x_axis_label': length_units, 'y_axis_label': length_units}
+    p = boilerplate(**kwargs)
+
+    # Set color mapper; we'll do Viridis with 256 levels by default
+    if color_mapper is None or color_mapper is 'viridis':
+        color_mapper = bokeh.models.LinearColorMapper(
+            bokeh.palettes.viridis(256))
+    if color_mapper is 'Greys_r':
+        color_mapper = bokeh.models.LinearColorMapper(
+            bokeh.palettes.gray(256))
+
+    # Display the image
+    im_bokeh = p.image(image=[im[::-1, :]], x=0, y=0, dw=dw, dh=dh,
+                       color_mapper=color_mapper)
+
+    if return_glyph is True:
+        return p, im_bokeh
+    else:
+        return p
+
+
+def fill_between(p, domain, range_1, range_2, **kwargs):
+    """
+    Creates a shaded area between two curves on a bokeh figure
+    similar to matplotlibs `fill_between`.
+    Parameters
+    ----------
+    p : Bokeh Figure
+        Figure canvas on which to plot shaded region.
+    domain : numpy array
+        Range of x-values over which to shade
+    range_1, range_2 : numpy array
+        The two curves to fill between.
+    """
+
+    # Ensure that domain, range_1, and range_2 are the same length.
+    lengths = np.unique([len(domain), len(range_1), len(range_2)])
+    if len(lengths) > 1:
+        raise RuntimeError(
+            "domain, range_1, and range_2 must be the same length.")
+
+    # Set up the patch objects.
+    patch_x = np.append(domain, domain[::-1])
+    patch_y = np.append(range_1, range_2[::-1])
+
+    # Add a patch to the bokeh Figure.
+    p.patch(patch_x, patch_y, **kwargs)
