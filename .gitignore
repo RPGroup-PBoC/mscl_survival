@@ -7,6 +7,8 @@
 *.tif
 data/images/
 data/unclean*
+data/test_data
+data/20*
 *.DS_store
 *.DS_Store
 **ipynb_checkpoints**
