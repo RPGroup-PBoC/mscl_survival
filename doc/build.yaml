@@ -1,5 +1,6 @@
 ---
 include:
+  mscl.md
   supplement.md
-name: mscl_supplement
+name: mscl_complete
 ---
