@@ -12,14 +12,13 @@ import imp
 # imp.reload(mscl.mcmc)
 colors = mscl.plotting.set_plotting_style()
 
-%matplotlib inline
 # Define and load stan model.
 STAN_MODEL = '../stan/generic_logistic_regression.stan'
 sm = stan.StanModel(STAN_MODEL)
 
 # Load and isolate shock data
-data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
-shock_data = data[data['experiment'] == 'shock'].copy()
+shock_data = pd.read_csv('../../data/csv/compiled_data.csv')
+# shock_data = data[data['experiment'] == 'shock'].copy()
 
 #%% Perform regression
 data_dict = {'N': len(shock_data), 'predictor': shock_data['effective_channels'],

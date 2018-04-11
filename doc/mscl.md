@@ -7,7 +7,7 @@ California Institute of Technology, Pasadena, California, USA
 
 \* Send correspondence to <phillips@pboc.caltech.edu>
 
-##ABSTRACT (250 words)**
+## ABSTRACT (250 words)
 
 Rapid changes in extracellular osmolarity are one of many insults
 microbial cells face on a daily basis. To protect against such shocks,
@@ -34,9 +34,9 @@ This disagreement prompts further discussion regarding the regulation of
 channel activity and the level to which other mechanosensitive channels
 contribute to cell survival.
 
-##IMPORTANCE (120 words)**
+## IMPORTANCE (120 words)
 
-##INTRODUCTION**
+## INTRODUCTION
 
 Changes in the extracellular osmolarity can be a fatal event for
 bacterial cells. Upon a hypo-osmotic shock, water rushes across into the
@@ -122,9 +122,9 @@ with a fluorescent reporter is tuned through RBS modification of the
 the number of surviving cells are counted, allowing the calculation of a
 survival probability.
 
-**RESULTS**
+## RESULTS
 
-**Quantifying the single-cell MscL copy number.**
+### Quantifying the single-cell MscL copy number
 
 To measure the influence of MscL to cell survival in the absence of all
 other mechanosensitive channels, we then constructed an *E. coli* strain
@@ -195,10 +195,7 @@ indistinguishable from another. This variance is a quantity that is lost
 in the context of bulk scale experiments but can be accounted for via
 single-cell methods.
 
-![](media/image2.png){width="5.944444444444445in"
-height="2.9444444444444446in"}
-
-**Figure 2**: **Control of MscL expression and calculation of channel
+![**Figure 2**: **Control of MscL expression and calculation of channel
 copy number.** (A) Variability in expression across designed RBS
 mutants. The boxes represent the interquartile region of the
 distribution, the center line displays the median, and the whiskers
@@ -206,9 +203,10 @@ represent 1.5 times the maximum and minimum of the interquartile region.
 Individual measurements are denoted as black points. The strain used for
 calibration of channel copy number (MLG910) is highlighted. (B)
 Variability in effective channel copy number are computed using the
-standard candle in highlighted in (A).
+standard candle in highlighted in (A).](../figs/fig1.png)
 
-**Performing a single-cell hypo-osmotic challenge assay**
+
+### Performing a single-cell hypo-osmotic challenge assay
 
 To measure the channel copy number of a single cell and query its
 survival after a hypo-osmotic shock, we used a custom-made flow cell in
@@ -223,9 +221,7 @@ cells were imaged every sixty seconds for four to six hours. Survivors
 were defined as cells which underwent at least two divisions. The brief
 experimental protocol can be seen in Fig. 3B.
 
-![](media/image3.png){width="6.5in" height="3.352777777777778in"}
-
-**Figure 3**: **Experimental approach to measuring survival
+![**Experimental approach to measuring survival
 probability.** (A) Layout of a home-made flow cell for subjecting cells
 to osmotic shock. (A) Cells are attached to a polyethylamine
 functionalized surface of a glass coverslip within the flow chamber by
@@ -234,7 +230,8 @@ typical experimental procedure. Cells are loaded into a flow chamber as
 shown in (A) and mounted to the glass coverslip surface. Cells are
 subject to a hypo-osmotic shock by flowing hypotonic medium into the
 flow cell. After shock, the cells are monitored for several hours and
-surviving cells are identified.
+surviving cells are identified.](../figs/fig2.png)
+
 
 All cells shown in Fig 2B were subjected to a 1 osmol/L hypo-osmotic
 shock at varying rates between 0.002 Hz and 2 Hz. We can examine the
@@ -250,17 +247,14 @@ observe a slight shift in the surviving fraction of the data towards
 higher effective copy number, which matches our intuition that including
 more mechanosensitive channels increases the survival probability.
 
-![](media/image4.png){width="6.0in" height="3.0in"}
-
-**Figure 4**: **Distributions of survival and death as a function of
+![**Distributions of survival and death as a function of
 effective channel number.** (A) Histogram and (B) empirical cumulative
 distribution of all single cell measurements separated by their
 survival. Shaded red region indicates region with no observed survival.
 Bins for (A) are evenly spaced between 0 and 850 by intervals of 30
-channels per cell.
+channels per cell.](../figs/fig3.png)
 
-**Prediction of survival probability as a function of channel copy
-number**
+### Prediction of survival probability as a function of channel copy number
 
 There are several ways by which the survival probability could be
 calculated. The most obvious approach would be to group each individual
@@ -351,18 +345,17 @@ to the area correction described above. In such cases, including other
 predictors resulted in pathological curves showing that channel copy
 number is the most informative out of the available predictor variables.
 
-![](media/image5.png){width="5.819444444444445in" height="3.375in"}
-
-**Figure 5**: **Probability of survival as a function of MscL copy
+![**Probability of survival as a function of MscL copy
 number.** Predicted survival probabilities from a one-dimensional
 logistic regression for a slow (A) and fast (B) shock rate. Shaded
 regions represent the 95^th^ percent credible regions. Points at the top
 and bottom of plots represent individual cell measurements which
 survived and died, respectively. The red and black points correspond to
 the survival probability estimated via binning by RBS and binning by
-groups of 10 channels per cell, respectively.
+groups of 10 channels per cell, respectively.](../figs/fig4.png)
 
-##DISCUSSION
+
+## DISCUSSION
 
 One of the most challenging endeavors in the biological sciences is
 linking the molecular details of cellular components to the larger scale
@@ -472,13 +465,13 @@ peptides.
   10 – 100                     Electrophysiology     (26)
   10 - 15                      Electrophysiology     (12)
 
-##MATERIALS & METHODS
+## MATERIALS & METHODS
 
-###Bacterial strains and growth conditions
+### Bacterial strains and growth conditions
 
 HJ will summarize here.
 
-###Flow cell
+### Flow cell
 
 All experiments were conducted in a home-made flow cell as is shown in
 Fig. 3A. This flow cell has two inlets which allow media of different
@@ -500,7 +493,7 @@ imaging. Over the observation period, cells not exposed to an osmotic
 shock were able to grow for 4 – 6 divisions, showing that the flow cell
 does not directly impede cell growth.
 
-###Imaging conditions
+### Imaging conditions
 
 All imaging was performed in a flow cell held at 30°C on a Nikon
 Ti-Eclipse microscope outfitted with a Perfect Focus system enclosed in
@@ -531,7 +524,7 @@ The rate was calculated by fitting a line to the middle region of this
 trace. Further details regarding this procedure can be found in
 Bialecka-Fornal, Lee, and Phillips, 2015 (5).
 
-###Image Processing
+### Image Processing
 
 Images were processed using a combination of automated and manual
 methods. First, expression of MscL was measured via segmenting
@@ -569,7 +562,7 @@ more in-depth description of the segmentation procedure as well as the
 relevant code can be accessed as a Jupyter Notebook at
 (http://rpgroup.caltech.edu/mscl\_survival).
 
-###Logistic Regression
+### Logistic Regression
 
 We used Bayesian inferential methods to find the most probable values of
 the coefficients and the appropriate credible regions and is described
@@ -604,7 +597,7 @@ H.J.L and R.P. laid the groundwork for the project. H.J.L performed
 experiments. G.C. performed the data analysis and made the figures.
 G.C., H.J.L, and R.P. wrote the paper.
 
-## REFERENCES 
+## REFERENCES
 
 1\. Martinac B, Buechner M, Delcour AH, Adler J, Kung C. 1987.
 Pressure-sensitive ion channel in Escherichia coli. Proc Natl Acad Sci U
