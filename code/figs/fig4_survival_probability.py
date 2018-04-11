@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
-os.getcwd()
-
 # %%
 import numpy as np
 import pandas as pd
@@ -9,7 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import seaborn as sns
 import sys
-sys.path.insert(0, '../../../')
+sys.path.insert(0, '../../')
 import mscl.plotting
 import mscl.stats
 colors = mscl.plotting.set_plotting_style()
@@ -18,8 +15,8 @@ FIG_NO = 4
 # Load the dataset.
 traces = pd.read_csv(
     '../../data/csv/pooled_generic_logistic_regression_log.csv')
-data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
-data = data[data['experiment'] == 'shock']
+data = pd.read_csv('../../data/csv/compiled_data.csv')
+
 
 # Extract the modes.
 ind = np.argmax(traces['logp'])
@@ -83,7 +80,7 @@ ax2.plot(death['effective_channels'], np.random.normal(0, 0.01,
 
 # Plot the binned data.
 bin_width = 15
-binned_data = mscl.stats.density_binning(data, groupby='experiment', bin_width=bin_width,
+binned_data = mscl.stats.density_binning(data, groupby='shock_class', bin_width=bin_width,
                                          input_key='effective_channels', min_cells=15)
 grouped = binned_data.groupby('bin_number').apply(compute_mean_sem)
 _ = ax1.errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'],
@@ -121,37 +118,35 @@ plt.savefig('../../figs/fig{}_pooled_logistic.pdf'.format(FIG_NO),
 plt.savefig('../../figs/fig{}_pooled_logistic.png'.format(FIG_NO),
             bbox_inches='tight')
 
-# %% Generate the pooled data probability curve.
-fig, ax = plt.subplots(1, 1, figsize=(4.5, 3.5), height_ratios=[0.5, 0.8, 0.5])
+# # %% Generate the pooled data probability curve.
+# fig, ax = plt.subplots(1, 1, figsize=(4.5, 3.5), height_ratios=[0.5, 0.8, 0.5])
 
 
-ax.set_xscale('log')
+# ax.set_xscale('log')
 
-chan_range = np.logspace(0, 4, 200)
-prediction = (1 + np.exp(-(beta_0 + beta_1 * np.log(chan_range))))**-1
+# chan_range = np.logspace(0, 4, 200)
+# prediction = (1 + np.exp(-(beta_0 + beta_1 * np.log(chan_range))))**-1
 
-bins = np.arange(0, 850, 100)
-mean_chan, prob = [], []
-sorted = data.sort_values('effective_channels')
-for i in range(len(bins) - 1):
-    slc = sorted.iloc[bins[i]:bins[i + 1]]
-    if len(slc) > 0:
-        mean_chan.append(slc['effective_channels'].mean())
-        prob.append(np.sum(slc['survival'].astype(int)) / len(slc))
+# bins = np.arange(0, 850, 100)
+# mean_chan, prob = [], []
+# sorted = data.sort_values('effective_channels')
+# for i in range(len(bins) - 1):
+#     slc = sorted.iloc[bins[i]:bins[i + 1]]
+#     if len(slc) > 0:
+#         mean_chan.append(slc['effective_channels'].mean())
+#         prob.append(np.sum(slc['survival'].astype(int)) / len(slc))
 
 
-ax.plot(chan_range, prediction)
-ax.plot(mean_chan, prob, '.', ms=5)
+# ax.plot(chan_range, prediction)
+# ax.plot(mean_chan, prob, '.', ms=5)
 
 #%% Compute the survival probability curves given the logistic regression parameters.
 traces = pd.read_csv(
     '../../data/csv/heirarchical_logistic_regression_traces.csv')
 
 # Split by the shock rate.
-slow_data = data[(data['experiment'] == 'shock') &
-                 (data['shock_class'] == 'slow')].copy()
-fast_data = data[(data['experiment'] == 'shock') &
-                 (data['shock_class'] == 'fast')].copy()
+slow_data = data[(data['shock_class'] == 'slow')].copy()
+fast_data = data[(data['shock_class'] == 'fast')].copy()
 
 chan_range = np.logspace(0, 3, 500)
 samples = ['fast', 'slow']
@@ -213,7 +208,7 @@ for i, exp in enumerate([slow_data, fast_data]):
                            yerr=grouped['prob_err'], color=colors['red'], lw=1, linestyle='none',
                            marker='.', ms=4, zorder=100, label='1 RBS/bin')
     binned = mscl.stats.density_binning(
-        exp, bin_width=10, groupby='experiment', input_key='effective_channels', min_cells=15)
+        exp, bin_width=10, groupby='shock_class', input_key='effective_channels', min_cells=15)
     grouped = binned.groupby('bin_number').apply(compute_mean_sem)
     _ = ax[i + 2].errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'],
                            yerr=grouped['prob_err'], color='#4b4b4b', lw=1, linestyle='none',

@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
-sys.path.insert(0, '../')
+sys.path.insert(0, '../../')
 import mscl.plotting
 import mscl.stats
 
@@ -13,8 +13,8 @@ colors = mscl.plotting.set_plotting_style()
 FIG_NO = 3
 
 # Load in the data and isolate to onlly the shock experiments.
-data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
-shock_data = data[data['experiment'] == 'shock'].copy()
+shock_data = pd.read_csv('../../data/csv/compiled_data.csv')
+# shock_data = data[data['experiment'] == 'shock'].copy()
 
 # Define the bins for the range of channels  and colors
 bins = np.arange(0, 1100, 30)
