@@ -1,0 +1,5 @@
+# Date: 20180410
+# RBS Modification: MLG910
+# Shock Rate: None
+# Purpose: Compare five different biological replicates for calculation of a 
+# calibration factor. All cells were harvested at 0.33 OD600.
