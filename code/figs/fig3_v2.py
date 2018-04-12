@@ -44,7 +44,10 @@ for a in ax:
 
 for g, d in grouped:
     # Compute the ECDF.
+    sorted_d = d.sort_values(['effective_channels'])
     x, y = mscl.stats.ecdf(d['effective_channels'])
+    xmin = x - sorted_d['effective_channels_err'] 
+    xmax = x + sorted_d['effective_channels_err'] 
     print(g, np.min(x))
     _ = ax[0].hist(d['effective_channels'], bins=bins, color=color_dict[g], alpha=alpha_dict[g],
                    edgecolor='k', linewidth=0.75, normed=True, label=label_dict[g],
