@@ -1,14 +1,17 @@
 #! /usr/bin/env python
 import os
+import sys
+import getopt
 import frontmatter
 
 
 def main():
-    with open('build.yaml') as f:
+    opts, _ = getopt.getopt(sys.argv[1:], 'b:')
+    with open(opts[0][1]) as f:
         m, _ = frontmatter.parse(f.read())
 
         code = """
-        pandoc default.yaml -i {} --bibliography=mscl.bib --filter=pandoc-eqnos --filter=pandoc-crossref -o {}.pdf
+        pandoc default.yaml -i {} --bibliography=./mscl_refs.bib  --filter=pandoc-eqnos --filter=pandoc-crossref -o {}.pdf
         """.format(m['include'], m['name'])
         os.system(code)
 

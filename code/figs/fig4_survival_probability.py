@@ -13,9 +13,13 @@ colors = mscl.plotting.set_plotting_style()
 FIG_NO = 4
 
 # # Load the dataset.
+<<<<<<< HEAD
+data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
+=======
 # traces = pd.read_csv(
 #     '../../data/csv/pooled_generic_logistic_regression_log.csv')
 data = pd.read_csv('../../data/csv/compiled_data.csv')
+>>>>>>> 709a6946ca985c61e256071636766d53e0e2ee5d
 
 
 # # Extract the modes.
@@ -39,6 +43,8 @@ def compute_mean_sem(df):
                 'prob_err': np.sqrt(prob_err)}
     return pd.Series(out_dict)
 
+<<<<<<< HEAD
+=======
 
 # # Compute the prediction from logistic regression.
 # chan_range = np.linspace(0, 1000, 500)
@@ -140,6 +146,7 @@ def compute_mean_sem(df):
 # # ax.plot(chan_range, prediction)
 # # ax.plot(mean_chan, prob, '.', ms=5)
 
+>>>>>>> 709a6946ca985c61e256071636766d53e0e2ee5d
 #%% Compute the survival probability curves given the logistic regression parameters.
 traces = pd.read_csv(
     '../../data/csv/logistic_regression_traces.csv')
@@ -154,14 +161,22 @@ prob_survival = {}
 cred_regions = {}
 for s in samples:
     beta_0, beta_1 = np.median(
+<<<<<<< HEAD
+        traces['beta_0__{}'.format(s)].values), np.median(traces['beta_1__{}'.format(s)].values)
+=======
         traces['beta_0_{}'.format(s)].values), np.median(traces['beta_1_{}'.format(s)].values)
+>>>>>>> 709a6946ca985c61e256071636766d53e0e2ee5d
     prob_survival[s] = logit(beta_0, beta_1, chan_range)
 
     _cred = np.zeros((2, len(chan_range)))
 
     print(s, np.exp((np.log(4) - beta_0) / beta_1))
     # Compute the credible regions.
+<<<<<<< HEAD
+    beta_0, beta_1 = traces['beta_0__{}'.format(s)].values, traces['beta_1__{}'.format(s)].values
+=======
     beta_0, beta_1 = traces['beta_0_{}'.format(s)].values, traces['beta_1_{}'.format(s)].values
+>>>>>>> 709a6946ca985c61e256071636766d53e0e2ee5d
     print(s, np.exp(mscl.mcmc.compute_hpd((np.log(8) - beta_0) / beta_1, 0.95)))
     for i, c in enumerate(chan_range):
         _prob = logit(beta_0, beta_1, c)
@@ -199,6 +214,11 @@ for j, exp in enumerate([slow_data, fast_data]):
         _y = _g['survival'] - \
             np.random.normal(loc=0, scale=0.01, size=len(_g))
         _ = a.plot(_g['effective_channels'], _y,  'k.',  ms=1.5, alpha=0.2)
+<<<<<<< HEAD
+        _ = a.hlines(_g['effective_channels'], _g['min_channels'], _g['max_channels'], 'k', lw=0.5,
+        alpha=0.5 )
+=======
+>>>>>>> 709a6946ca985c61e256071636766d53e0e2ee5d
         
 
 # Plot data binned by strain

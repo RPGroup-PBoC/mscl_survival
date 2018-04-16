@@ -91,18 +91,22 @@ def chains_to_dataframe(fit, var_names=None):
             for n in range(shape[1]):
                 df.insert(0, '{}__{}'.format(k, n), data_out[k][:, n])
 
-    logp = []
-    valid_values = [v for v in data_out.keys() if v != 'lp__']
-    for i in range(len(df)):
-        sample = []
-        for v in valid_values:
-            if type(data_out[v][i]) == np.float64:
-                sample.append(data_out[v][i])
-            else:
-                for _, k in enumerate(data_out[v][i]):
-                    sample.append(k)
-        logp.append(fit.log_prob(sample))
-    df.insert(0, 'logp', logp)
+    # logp = []
+    # valid_values = [v for v in data_out.keys() if v != 'lp__']
+    # for i in range(len(df)):
+    #     sample = []
+    #     for v in valid_values:
+    #         if type(data_out[v][i]) == np.float64:
+    #             sample.append(data_out[v][i])
+    #         else:
+    #             for _, k in enumerate(data_out[v][i]):
+    #                 sample.append(k)    
+    #     try:
+    #         logp.append(fit.log_prob(sample))
+    #     except:
+    #         logp.append(np.nan)
+    # df.insert(0, 'logp', logp)
+    df.dropna(axis=0, inplace=True)
     return df
 
 
@@ -132,19 +136,14 @@ def compute_statistics(df, var_names=None, logprob_name='logp'):
     if var_names == None:
         var_names = [v for v in df.keys() if v is not logprob_name]
 
-    # Find the max of the log posterior.
-    ind = np.argmax(df[logprob_name])
-    if type(ind) is not int:
-        ind = int(ind[0])
-
     # Instantiate the dataframe for the parameters.
-    stat_df = pd.DataFrame([], columns=['parameter', 'mode', 'hpd_min',
+    stat_df = pd.DataFrame([], columns=['parameter', 'median', 'hpd_min',
                                         'hpd_max'])
     for v in var_names:
-        mode = df.iloc[ind][v]
+        med = np.median(df[v])
         hpd_min, hpd_max = compute_hpd(
             df[v].values.astype(float), mass_frac=0.95)
-        stat_dict = dict(parameter=v, mode=mode, hpd_min=hpd_min,
+        stat_dict = dict(parameter=v, median=med, hpd_min=hpd_min,
                          hpd_max=hpd_max)
         stat_df = stat_df.append(stat_dict, ignore_index=True)
 

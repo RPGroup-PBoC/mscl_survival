@@ -1,0 +1,10 @@
+---
+include:
+  # abstract.md 
+  # introduction.md
+  # results.md
+  discussion.md
+  # methods.md
+  # blank.md
+name: mscl
+---

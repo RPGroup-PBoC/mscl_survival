@@ -65,7 +65,11 @@ for i, f in enumerate(mlg910_files):
 
     if np.max(im_seg) != 0:
         # Compute the mean background fluorescence.
+<<<<<<< HEAD
+        mean_bg = mscl.image.compute_mean_bg(phase_im, im_flat, method='isodata')
+=======
         mean_bg = mscl.image.compute_mean_bg(phase_im, im_flat, method='otsu')
+>>>>>>> 709a6946ca985c61e256071636766d53e0e2ee5d
 
         # Extract the various properties.
         props = skimage.measure.regionprops(im_seg, im_flat)
