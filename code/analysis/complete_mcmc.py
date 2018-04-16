@@ -16,7 +16,7 @@ files = glob.glob('../processing/*mlg910*/output/*.csv')
 mlg910 = pd.concat([pd.read_csv(f, comment='#')
                     for f in files], ignore_index=True)
 # Adjust the area for the 2018 measurement.
-mlg910.loc[mlg910['date'] == 20180410, 'area'] *= 0.5
+mlg910.loc[mlg910['date'] == 20180410, 'area'] = mlg910[mlg910['date']==20180410]['area'] * 0.5
 
 # Adjust the replicate number for the July 2017 run.
 mlg910.loc[mlg910['date'] == 20170721,
@@ -53,4 +53,4 @@ data_dict = dict(J1=6, J2=2, N1=len(data[data['rbs']=='mlg910']), N2=len(data[da
                  survival=data[data['rbs']!= 'mlg910']['survival'].values.astype(int))
 
 
-samples = model.sampling(data=data_dict, iter=5000, thin=10, chains=4)
+samples = model.sampling(data=data_dict, iter=5000, thin=10, chains=2)
