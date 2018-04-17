@@ -1,9 +1,9 @@
 ---
 include:
-  A_rbs_design.md
-  B_image_processing.md 
+  # A_rbs_design.md
+  # B_image_processing.md 
   C_standard_candle.md
-  D_logistic_regression.md
-  E_error_propagation.md
+  # D_logistic_regression.md
+  # E_error_propagation.md
 name: mscl_supplement
 ---

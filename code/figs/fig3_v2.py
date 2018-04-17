@@ -13,7 +13,7 @@ colors = mscl.plotting.set_plotting_style()
 FIG_NO = 3
 
 # Load in the data and isolate to onlly the shock experiments.
-shock_data = pd.read_csv('../../data/csv/compiled_data.csv')
+shock_data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
 # shock_data = data[data['experiment'] == 'shock'].copy()
 
 # Define the bins for the range of channels  and colors
@@ -46,13 +46,14 @@ for g, d in grouped:
     # Compute the ECDF.
     sorted_d = d.sort_values(['effective_channels'])
     x, y = mscl.stats.ecdf(d['effective_channels'])
-    xmin = x - sorted_d['effective_channels_err'] 
-    xmax = x + sorted_d['effective_channels_err'] 
-    print(g, np.min(x))
+    xmin = sorted_d['maximum_channels'] 
+    xmax = sorted_d['minimum_channels'] 
     _ = ax[0].hist(d['effective_channels'], bins=bins, color=color_dict[g], alpha=alpha_dict[g],
                    edgecolor='k', linewidth=0.75, normed=True, label=label_dict[g],
                    zorder=zorder_dict[g])
     _ = ax[1].plot(x, y, '.', ms=2, color=color_dict[g], label='__nolegend__')
+    _ = ax[1].fill_betweenx(y, xmin, xmax, color=color_dict[g],
+    alpha=0.3, zorder=100)
     _ = ax[1].plot([], [], '-', marker='.', color=color_dict[g],
                    label=label_dict[g])
 
@@ -68,6 +69,7 @@ ax[1].fill_betweenx(np.linspace(-0, 1.01, 300), -10,
                                       == True]['effective_channels']),
                     color=colors['light_red'],
                     alpha=0.75)
+
 
 # Add the legend and clean up the figure.
 ax[0].legend(fontsize=8)

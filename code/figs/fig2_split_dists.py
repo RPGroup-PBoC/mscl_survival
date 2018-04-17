@@ -4,15 +4,14 @@ import sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-sys.path.insert(0, '../../../')
+sys.path.insert(0, '../../')
 import mscl.plotting
 import mscl.stats
 colors = mscl.plotting.set_plotting_style()
 
 # Define the data directory.
-# data_dir = '../../data/csv/'
-data_dir = 'data/csv/'
-data = pd.read_csv('{}compiled_data.csv'.format(data_dir))
+data_dir = '../../data/csv/'
+data = pd.read_csv('{}mscl_survival_data.csv'.format(data_dir))
 
 # Set up the figure canvas.
 fig, ax = plt.subplots(2, 2, figsize=(6, 4), sharex=True)
@@ -32,6 +31,8 @@ bins = np.arange(0, 800, 50)
 for g, d in grouped:
     # Generate the cdf.
     x, y = mscl.stats.ecdf(d['effective_channels'])
+    x_max, _ = mscl.stats.ecdf(d['maximum_channels'])
+    x_min, _ = mscl.stats.ecdf(d['minimum_channels'])
 
     # Plot the dists.
     _ = axes[g[0]][0].hist(d['effective_channels'], bins=bins, color=color_dict[g[1]],
@@ -43,6 +44,6 @@ for g, d in grouped:
 ax[0, 0].legend(fontsize=8)
 ax[1, 0].legend(fontsize=8)
 plt.tight_layout()
-plt.savefig('figs/split_dists.pdf', bbox_inches='tight')
+plt.savefig('../../figs/split_dists.pdf', bbox_inches='tight')
 
 
