@@ -34,7 +34,7 @@ parameters {
     vector<lower=0>[J1] sigma_I_A;
 
     // Prior for average copy number.
-    real<lower=0> n_sc;
+    
 
     // Shock rate parameters
     vector[J2] beta_0;
@@ -43,6 +43,7 @@ parameters {
 
 transformed parameters {
      vector<lower=0>[N2] n_sr; // Channel copy number for each shocked cell.
+     real<lower=0> n_sc;
      n_sr = I_A_sr * hyper_A_mu / hyper_alpha_mu;
 }
 
@@ -52,9 +53,9 @@ model {
 
     // Set the hyperpriors.
     n_sc ~ normal(ntot, sigma_ntot);
-    hyper_A_mu ~ normal(0, 10);
-    hyper_A_sigma ~ normal(0, 1);
-    hyper_alpha_mu ~ normal(0, 1000);
+    hyper_A_mu ~ uniform(0, 10);
+    hyper_A_sigma ~ normal(0, 10);
+    hyper_alpha_mu ~ uniform(0, 2^16);
     hyper_alpha_sigma ~ normal(0, 1000);
 
     // Set the low level priors.

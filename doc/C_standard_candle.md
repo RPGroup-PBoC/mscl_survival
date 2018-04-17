@@ -60,14 +60,75 @@ where we have used [@eq:ian_area] to calculate $\langle I_A \rangle$ of the popu
 In our assumption of normal distributions for the areal intensity and area, we have included two new parameters which capture the error in our measurement $\sigma_A$ and $\sigma_{I_A}$. The complete posterior distribution for  a single biological replicate is therefore
 
 $$
-g(\alpha \vert Y, D) = {1 \over (2\pi \sigma_A \sigma_{I_A})^k}\prod\limits_{j=1}^k\exp\left[-{(A_j - \langle A \rangle)^2 \over 2\sigma_A^2} - {\left({I_j \over A_j}- {\alpha \langle N_\text{tot} \rangle \over \langle A \rangle}\right)^2 \over 2 \sigma_{I_A}^2 } \right]f(\langle N_\text{tot}\rangle)g(\alpha,\sigma_A, \sigma_{I_A}),
-$${#eq:single_rep_posterior}
+\begin{aligned}
+g(\alpha, \langle A \rangle, \langle N_\text{tot}\rangle, \sigma_A, \sigma_{I_A} \vert  D) =& {1 \over (2\pi \sigma_A \sigma_{I_A})^k}\prod\limits_{j=1}^k\exp\left[-{(A_j - \langle A \rangle)^2 \over 2\sigma_A^2} - {\left({I_j \over A_j}- {\alpha \langle N_\text{tot} \rangle \over \langle A \rangle}\right)^2 \over 2 \sigma_{I_A}^2 } \right]\,\times\, \\
+&f(\langle N_\text{tot}\rangle)g(\alpha,\sigma_A, \sigma_{I_A}),
+\end{aligned}
+$$
+{#eq:single_rep_posterior}
 
-where I have lumped all experimental parameters into a single term $Y$. We can, of course, specify priors for inferred parameters to be maximally uninformative and an informative prior on $\langle N_\text{tot} \rangle$. However, as we have multiple replicates and we are assuming each replicate is comparable to another, we can be a bit more informative with these priors.
+With the likelihood completely described, we are left with fiulling in the priors. The most obvious prior to define is for $\langle N_\text{tot}\rangle$. From the literature, we know the mean value $\mu_{N}$  and a variance $\sigma_{N}$ for this particular strain and growth condition. Using these values, we can specify the prior as
+
+$$
+g(\langle N_\text{tot} \rangle\, \vert\, \mu_N, \sigma_N) = {1 \over \sqrt{2\pi\sigma_N^2}} \exp\left[-{\left(\langle N_\text{tot}\rangle - \mu_N\right)^2}\over 2\sigma_N^2\right].
+$$
+
+We can, of course, specify priors for inferred parameters to be maximally uninformative. However, as we have multiple replicates and we are assuming each replicate is comparable to another, we can be a bit more informative with these priors.
 
 #### Multiple replicates
 
-We expect each biological replicate to behave the same, despite the small experimental differences between them. This means that the model shown in [@eq:single_rep_posterior] should be the same for each replicate. However, we know that the parameters $\alpha, \sigma_A,$ and $\sigma_{I_A}$ should be very similar between replicates. In fact, we can make the assumption that they are drawn from the same distribution, whatever that may be. As all of these parameters are the product of many independent processes, we can assume that $\alpha$ and  $\langle A \rangle$ are drawn from a normal distribution with some mean $\mu$ and variance $\tilde{\sigma}$.
+We expect each biological replicate to behave the same, despite the small experimental differences between them. This means that the model shown in [@eq:single_rep_posterior] should be the same for each replicate. However, we know that the parameters $\alpha, \sigma_A,$ and $\sigma_{I_A}$ should be very similar between replicates. In fact, we can say that the values for each individual replicate are drawn from the same distribution.
+
+The functional form of this distribution is not obvious. However, we know that the value is the result of many independent processes, meaning it is likely gaussian. 
+
+With this assumption in place, we can write the prior distribution of $\langle A \rangle$ for a set of $n$ replicates as
+
+$$
+g(\langle A \rangle\, \vert \, \tilde{\langle A \rangle}, \tilde{\sigma_A}) = {1 \over (2\pi\tilde{\sigma_A}^2)^{n/2}} \prod\limits_{i=1}^n \exp\left[-{\left(\langle A_i\rangle - \tilde{\langle A \rangle}\right)^2 \over 2 \tilde{\sigma_A}^2}\right],
+$${#eq:area_prior}
+
+and for $\alpha$,
+
+$$
+g(\alpha\, \vert \tilde{\alpha}, \tilde{\sigma_\alpha}) = {1 \over (2\pi\tilde{\sigma_\alpha}^2)^{n/2}} \prod \limits_{i=1}^{n}\exp\left[-{\left(\alpha_i - \tilde{\alpha}\right)^2 \over 2\tilde{\sigma_\alpha}^2}\right].
+$${#eq:alpha_prior}.
+
+While we have taken care of the priors listed in [@eq:single_rep_posterior], we have introduced four new parameters, which each need their own prior! For these,we can be maximally uninformative. For $\tilde{\langle A \rangle}$, we can impose a uniform prior over a reasonable range for the size of *E. coli*,
+
+$$
+g(\tilde{\langle A \rangle}) = \begin{cases}\left(\tilde{\langle A \rangle}_\text{max} - \tilde{\langle A \rangle}_\text{min}\right)^{-1} & \tilde{\langle A \rangle}_\text{min} \leq \tilde{\langle A \rangle} \leq \tilde{\langle A \rangle}_\text{max}\\
+0 & \text{otherwise}
+\end{cases}.
+$${#eq:area_hyperprior}
 
 
-Using this assumption, we can write the prior
+We know that the value of $\alpha$ is limited by the bit depth of our camera, though not necessarily an integer. We can assign a uniform prior for $\alpha$ as
+
+$$
+g(\tilde{\alpha}) = \begin{cases} \left(\tilde{\alpha}_\text{max} - \tilde{\alpha}_\text{min}\right)^{-1} & \tilde{\alpha}_\text{min} \leq \tilde{\alpha} \leq \tilde{\alpha}_\text{max}\\
+0 & \text{otherwise}
+\end{cases}.
+$${#eq:alpha_hyperprior}
+
+For $\tilde{\sigma_\alpha}$ and $\tilde{\sigma_A}$, we can use a maximally uninformative Jeffreys priors, 
+
+$$
+g(\tilde{\sigma_\alpha}) = {1 \over \tilde{\sigma_\alpha}},
+$${#eq:sigma_alpha_hyperprior}
+
+and 
+
+$$
+g(\tilde{\sigma_A}) = {1 \over \tilde{\sigma_A}}.
+$${#eq:sigma_area_hyperprior}
+
+Using [@eq:bayes] through [@eq:sigma_area_hyperprior], we can formulate the complete posterior probability distribution,
+$$
+\begin{aligned}
+g(\alpha, \tilde{\alpha}, \langle A \rangle, \tilde{\langle A \rangle}, \langle N_\text{tot}\rangle, \tilde{\sigma_\alpha}, \sigma_A, \tilde{\sigma_A}, \sigma_{I_A}\,&\vert\, \sigma_N, \mu_N, D) = \\ 
+{1 \over \tilde{\langle A \rangle}_\text{max} - \tilde{\langle A \rangle}_\text{min}}{1 \over \tilde{\alpha}_\text{max} - \tilde{\alpha}_\text{min} }{1 \over \tilde{\sigma_\alpha} \tilde{\sigma_A}}&\prod\limits_{i=1}^n{1 \over \left(\sigma_{A_i} \sigma_{{I_A}_i}\right)^{k_i}}\prod\limits_{j=1}^{k_i} \mathcal{N}(\langle A_{i,j} \rangle, \sigma_{A_{i,j}} )\mathcal{N}\left({\alpha \langle N_\text{tot} \rangle \over \langle A_i \rangle},\sigma_{{I_A}_{i}}\right)\times\\
+&\mathcal{N}(\tilde{\langle A \rangle}, \tilde{\sigma_A})\mathcal{N}(\tilde{\alpha}, \tilde{\sigma_\alpha})\mathcal{N}(\mu_N,\sigma_N)
+\end{aligned},
+$${#eq:posterior}
+
+where we have substituted $\mathcal{N}$ for the functional form of the normal distribution. 
