@@ -125,10 +125,12 @@ $${#eq:sigma_area_hyperprior}
 Using [@eq:bayes] through [@eq:sigma_area_hyperprior], we can formulate the complete posterior probability distribution,
 $$
 \begin{aligned}
-g(\alpha, \tilde{\alpha}, \langle A \rangle, \tilde{\langle A \rangle}, \langle N_\text{tot}\rangle, \tilde{\sigma_\alpha}, \sigma_A, \tilde{\sigma_A}, \sigma_{I_A}\,&\vert\, \sigma_N, \mu_N, D) = \\ 
-{1 \over \tilde{\langle A \rangle}_\text{max} - \tilde{\langle A \rangle}_\text{min}}{1 \over \tilde{\alpha}_\text{max} - \tilde{\alpha}_\text{min} }{1 \over \tilde{\sigma_\alpha} \tilde{\sigma_A}}&\prod\limits_{i=1}^n{1 \over \left(\sigma_{A_i} \sigma_{{I_A}_i}\right)^{k_i}}\prod\limits_{j=1}^{k_i} \mathcal{N}(\langle A_{i,j} \rangle, \sigma_{A_{i,j}} )\mathcal{N}\left({\alpha \langle N_\text{tot} \rangle \over \langle A_i \rangle},\sigma_{{I_A}_{i}}\right)\times\\
-&\mathcal{N}(\tilde{\langle A \rangle}, \tilde{\sigma_A})\mathcal{N}(\tilde{\alpha}, \tilde{\sigma_\alpha})\mathcal{N}(\mu_N,\sigma_N)
-\end{aligned},
+&g(\alpha, \tilde{\alpha}, \langle A \rangle, \tilde{\langle A \rangle}, \langle N_\text{tot} \rangle, \tilde{\sigma_\alpha}, \sigma_A, \tilde{\sigma_A}, \sigma_{I_A}\,\vert \, \sigma_N, \mu_N, D) = \\
+& {1 \over \tilde{\langle A \rangle}_\text{max} - \tilde{\langle A \rangle}_\text{min}}{1 \over \tilde{\alpha}_\text{max} - \tilde{\alpha}_\text{min}}{1 \over \left(\tilde{\sigma_\alpha}\tilde{\sigma_A}\right)^{n+2}}\prod\limits_{i=1}^n{1 \over \left(\sigma_{A_i}^2\sigma_{{I_A}_i}^2\sigma_N^2\right)^{k_i / 2}}\times\\
+&\prod\limits_{j=1}^{k_i}\exp\left[-{\left(A_{i,j}-\langle A \rangle_i\right)^2 \over 2\sigma_{A_i}^2} - {\left({I_{A_{i,j}} - {\alpha_i \langle N_\text{tot}\rangle_{i} \over \langle A\rangle_i}}\right)^2 \over 2\sigma_{{I_A}_i}^2}-{\left(\alpha_i - \tilde{\alpha}\right)^2 \over 2\tilde{\sigma_{\alpha}}^2}-{\left(\langle A \rangle_i - \tilde{\langle A \rangle}\right)^2 \over 2\tilde{\sigma_A}^2}-{\left(\langle N_\text{tot}\rangle_i - \mu_N\right)^2 \over 2\sigma_N^2}\right],
+\end{aligned}
 $${#eq:posterior}
 
-where we have substituted $\mathcal{N}$ for the functional form of the normal distribution. 
+where the normalization constants have been dropped for notational clarity.
+
+

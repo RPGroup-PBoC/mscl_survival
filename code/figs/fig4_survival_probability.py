@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import seaborn as sns
+import glob
 import sys
 sys.path.insert(0, '../../')
 import mscl.plotting
@@ -12,6 +13,7 @@ import mscl.stats
 colors = mscl.plotting.set_plotting_style()
 FIG_NO = 4
 
+MAX_EXP = 100
 # # Load the dataset.
 data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
 
