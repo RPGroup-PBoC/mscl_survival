@@ -2,7 +2,7 @@
 
 ## STANDARD CANDLE CALIBRATION ##
 
-
+------ 
 WE would like to have some way to convert measured intensity to total channel copy number. To get this calibration factor, we could perform single-molecule photobleaching experiments or the dilution experiment. Another way is by generating a simply statistical model based on the fruits of the labors of other.
 
 In 2012, HJ and Maja measured the total number of MscL channels in a particular strain under a variety of growth conditions using a calibration factor determined via single-molecule photobleaching. They determined the average number of channels per cell and repeated several times to find a mean of the means and a standard error. We posit that if we growth the cells in the same way and harvest the cells at the appropriate OD, we could measure the expression using our experimental system. We would therefore have a measure of the average fluorescence of a population and the average count. It's simple algebra to get to a calibration factor from that point.

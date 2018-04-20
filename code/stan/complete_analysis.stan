@@ -32,9 +32,7 @@ parameters {
     vector<lower=0>[J1] avg_I_A;
     vector<lower=0>[J1] sigma_A;
     vector<lower=0>[J1] sigma_I_A;
-
-    // Prior for average copy number.
-    
+    vector<lower=0>[J1] n_sc;
 
     // Shock rate parameters
     vector[J2] beta_0;
@@ -43,7 +41,7 @@ parameters {
 
 transformed parameters {
      vector<lower=0>[N2] n_sr; // Channel copy number for each shocked cell.
-     real<lower=0> n_sc;
+     
      n_sr = I_A_sr * hyper_A_mu / hyper_alpha_mu;
 }
 

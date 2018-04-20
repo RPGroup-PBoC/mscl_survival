@@ -56,7 +56,7 @@ pump. To monitor the media exchange, both the high salt and no salt LB media
 were supplemented with a low-affinity version of the calcium-sensitive dye
 Rhod-2(250 nM; TEF Labs) which fluoresces when bound to Ca^2+^. The no salt
 medium was also supplemented with 1$\mu$M CaCl~2~ to make the media mildly
-fluorescent and the rate of exchange rate was calculated by measuring the
+fluorescent and the exchange rate was calculated by measuring the
 fluorescence increase across an illuminated section of one of the positions. These images were collected in real time for the duration of the
 shock. The difference in measured fluorescence between the pre-shock images
 and those at the end of the shock set the scale of a 500 mM NaCl down shock.
@@ -117,8 +117,8 @@ $${#eq:calibration_factor}
 &nbsp;&nbsp;&nbsp;We used Bayesian inferential methods to compute this calibration factor taking measurement error and replicate-to-replicate variation into account. The resulting average cell area and calibration factor was used to convert the measured cell intensities from the osmotic shock experiments to cell copy number. The details of this inference are described in depth in the supplemental information. 
 
 ### Logistic regression
-&nbsp; &nbsp; &nbsp; &nbsp;We used Bayesian inferential methods to find the most probable values of the coefficients and the appropriate credible regions and is described in detail in the supplement. Briefly, we used Markov chain Monte Carlo (MCMC) to sample from the log posterior distribution and took the most probable value as the mean of the samples for each parameter. The MCMC
-was performed using the Stan probabilistic programming language [@carpenter2017]and all models can be found on the GitHub repository
+&nbsp; &nbsp; &nbsp; &nbsp;We used Bayesian inferential methods to find the most probable values of the coefficients $\beta_0$ and $\beta_1$ and the appropriate credible regions and is described in detail in the supplement. Briefly, we used Markov chain Monte Carlo (MCMC) to sample from the log posterior distribution and took the most probable value as the mean of the samples for each parameter. The MCMC
+was performed using the Stan probabilistic programming language [@carpenter2017] and all models can be found on the GitHub repository
 (`http://github.com/rpgroup-pboc/mscl_survival`).
 
 ### Data and software availability

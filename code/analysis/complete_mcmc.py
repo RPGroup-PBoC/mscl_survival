@@ -56,7 +56,7 @@ data_dict = dict(J1=6, J2=2, N1=len(data[data['rbs'] == 'mlg910']), N2=len(data[
                  survival=data[data['rbs'] != 'mlg910']['survival'].values.astype(int))
 
 # Sample
-samples = model.sampling(data=data_dict, iter=5000, chains=4, n_jobs=6)
+samples = model.sampling(data=data_dict, iter=5000, chains=4)
 
 # Compute the statistics of each parameter.
 sample_df = mscl.mcmc.chains_to_dataframe(samples)
