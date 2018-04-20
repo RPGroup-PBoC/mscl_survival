@@ -1,3 +1,4 @@
+# %%
 # -*- coding: utf-8 -*-
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,14 +14,7 @@ FIG_NO = 2
 # -------------
 data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
 
-# Examine only the shock data.
-shock_data = data[data['experiment'] == 'shock']
-
-# Look only at MLG 910 for channel counts.
-mlg910 = data[data['rbs'] == 'mlg910']
-cal = np.mean(mlg910['scaled_intensity'] * mlg910['area']) / 348
-
-grouped = shock_data.groupby('survival')
+grouped = data.groupby('survival')
 
 # Set up the axis
 fig, ax = plt.subplots(1, 2, figsize=((6, 3)))
@@ -46,12 +40,12 @@ fig.text(0.5, 0.92, '(C)', fontsize=8)
 color_dict = {True: colors['green'], False: colors['purple']}
 label_dict = {True: 'survival', False: 'death'}
 for g, d in grouped:
-    _ = ax[0].plot(d['area'], d['scaled_intensity'] * d['area'] / cal, '.',
+    _ = ax[0].plot(d['area'], d['scaled_intensity'] * d['area'] / d['calibration_factor'], '.',
                    color=color_dict[g], ms=4, alpha=0.5, label=label_dict[g])
     _ = ax[1].plot(d['area'], d['effective_channels'], '.', color=color_dict[g],
                    ms=4, alpha=0.5, label=label_dict[g])
 _ = ax[0].legend(fontsize=8)
 
 plt.tight_layout()
-plt.savefig('../../figs/figSX{}.svg'.format(FIG_NO), bbox_inches='tight')
-# plt.savefig('../figs/figSX{}.png'.format(FIG_NO), bbox_inches='tight')
+# plt.savefig('../../figs/figSX{}.svg'.format(FIG_NO), bbox_inches='tight')
+plt.savefig('../figs/figSX{}.png'.format(FIG_NO), bbox_inches='tight')

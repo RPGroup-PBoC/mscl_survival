@@ -14,7 +14,7 @@ FIG_NO = 3
 
 # Load in the data and isolate to onlly the shock experiments.
 shock_data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
-# shock_data = data[data['experiment'] == 'shock'].copy()
+
 
 # Define the bins for the range of channels  and colors
 bins = np.arange(0, 1100, 30)
@@ -48,6 +48,7 @@ for g, d in grouped:
     x, y = mscl.stats.ecdf(d['effective_channels'])
     xmin = sorted_d['maximum_channels'] 
     xmax = sorted_d['minimum_channels'] 
+    print(g, np.min(x))
     _ = ax[0].hist(d['effective_channels'], bins=bins, color=color_dict[g], alpha=alpha_dict[g],
                    edgecolor='k', linewidth=0.75, normed=True, label=label_dict[g],
                    zorder=zorder_dict[g])
@@ -70,15 +71,13 @@ ax[1].fill_betweenx(np.linspace(-0, 1.01, 300), -10,
                     color=colors['light_red'],
                     alpha=0.75)
 
-
 # Add the legend and clean up the figure.
 ax[0].legend(fontsize=8)
 ax[1].legend(fontsize=8, loc='lower right')
-
 ax[0].set_ylim([0, 0.011])
 ax[1].set_ylim([-0.01, 1.01])
 ax[1].set_xlim([-10, 850])
 ax[0].set_xlim([-10, 850])
 plt.tight_layout()
-plt.savefig('../../figs/fig{}_dists.pdf'.format(FIG_NO))
-plt.savefig('../../figs/fig{}_dists.png'.format(FIG_NO))
+plt.savefig('../../figs/fig{}.pdf'.format(FIG_NO))
+plt.savefig('../../figs/fig{}.png'.format(FIG_NO))
