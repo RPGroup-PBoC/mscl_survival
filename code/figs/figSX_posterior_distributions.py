@@ -44,8 +44,8 @@ for i in range(6):
     area_kernel = scipy.stats.gaussian_kde(data['avg_A__{}'.format(i)])
     alpha_fit = alpha_kernel(alpha_range)
     area_fit = area_kernel(area_range)
-    alpha_fit *= np.max(alpha_fit)**-1
-    area_fit *= np.max(area_fit)**-1
+    alpha_fit *= np.sum(alpha_fit)**-1
+    area_fit *= np.sum(area_fit)**-1
 
     # Plot the distributions.
     _ = ax[0].plot(alpha_range, alpha_fit, color=colors['blue'])
@@ -59,8 +59,8 @@ hyper_alpha_kernel = scipy.stats.gaussian_kde(data['hyper_alpha_mu'])
 hyper_area_kernel = scipy.stats.gaussian_kde(data['hyper_A_mu'])
 hyper_alpha_fit = hyper_alpha_kernel(alpha_range)
 hyper_area_fit = hyper_area_kernel(area_range)
-hyper_alpha_fit *= np.max(hyper_alpha_fit)**-1
-hyper_area_fit *= np.max(hyper_area_fit)**-1
+hyper_alpha_fit *= np.sum(hyper_alpha_fit)**-1
+hyper_area_fit *= np.sum(hyper_area_fit)**-1
 _ = ax[0].plot(alpha_range, hyper_alpha_fit, color=colors['red'], lw=3) 
 _ = ax[0].fill_between(alpha_range, hyper_alpha_fit, color=colors['red'], alpha=0.4, zorder=100) 
 _ = ax[1].plot(area_range, hyper_area_fit, color=colors['red'], lw=3) 

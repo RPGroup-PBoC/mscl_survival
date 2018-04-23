@@ -29,6 +29,8 @@ data['experiment'] = 'shock'
 
 data = pd.concat([data, mlg910], ignore_index=True)
 
+for i in range(len(data)):
+    data.iloc[i]['rbs'] = data.iloc[i]['rbs'].upper()
 # Keep only the shock data and mlg910
 intensity_order = data.groupby(
     ['rbs'])['scaled_intensity'].mean().sort_values()[::-1].index
@@ -63,16 +65,16 @@ ax[0].set_ylim(0, 3)
 ax[1].set_ylim(0, 1000)
 
 # Format the axes and save
-ax[0].set_ylabel('relative intensity', fontsize=10)
-ax[1].set_ylabel('effective channel number', fontsize=10)
-ax[0].set_xlabel('RBS modification', fontsize=10)
-ax[1].set_xlabel('RBS modification', fontsize=10)
-ax[0].yaxis.set_tick_params(labelsize=10)
-ax[1].yaxis.set_tick_params(labelsize=10)
-ax[0].xaxis.set_tick_params(labelsize=10, rotation=30)
-ax[1].xaxis.set_tick_params(labelsize=10, rotation=30)
-fig.text(0.01, 0.95, '(A)', fontsize=10)
-fig.text(0.51, 0.95, '(B)', fontsize=10)
+ax[0].set_ylabel('relative intensity', fontsize=8)
+ax[1].set_ylabel('effective channel number', fontsize=8)
+ax[0].set_xlabel('Shine-Dalgarno modification', fontsize=8)
+ax[1].set_xlabel('Shine-Dalgarno modification', fontsize=8)
+ax[0].yaxis.set_tick_params(labelsize=8)
+ax[1].yaxis.set_tick_params(labelsize=8)
+ax[0].xaxis.set_tick_params(labelsize=8, rotation=30)
+ax[1].xaxis.set_tick_params(labelsize=8, rotation=30)
+fig.text(0.01, 0.95, '(A)', fontsize=8)
+fig.text(0.51, 0.95, '(B)', fontsize=8)
 plt.tight_layout()
 plt.savefig('../../figs/fig{}.pdf'.format(FIG_NO), bbox_inches='tight')
 plt.savefig('../../figs/fig{}.png'.format(FIG_NO), bbox_inches='tight')

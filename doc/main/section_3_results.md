@@ -2,35 +2,34 @@
 
 ### Quantifying the single-cell MscL copy number
 
-To measure the influence of MscL to cell survival in the absence of all
-other mechanosensitive channels, we then constructed an *E. coli* strain
-which had all mechanosensitive channels deleted from the chromosome,
-leaving a cell line hyper susceptible to death from even mild osmotic
-shocks. We the constructed an expression system for the *E. coli* MscL
-protein C-terminally tagged with sfGFP. This chimeric construct has been
-shown through electrophysiology to function identically to the untagged
-version, allowing us to confidently draw conclusions about the role this
-channel plays in wild-type cells from our measurements (4).
+To measure the influence of MscL on cell survival in the absence of all other
+mechanosensitive channels, we constructed an *E. coli* strain which had all
+mechanosensitive channels deleted from the chromosome, leaving a cell line
+hyper susceptible to death from even mild osmotic shock. We then designed an
+expression system for the *E. coli* MscL protein C-terminally tagged with
+super-folder GFP (sfGFP). This chimeric construct has been shown through
+electrophysiology to function identically to the untagged version, allowing
+us to confidently draw conclusions about the role this channel plays in
+wild-type cells from our measurements [@bialecka-fornal2012].
 
-To modulate the number of MscL channels per cell, we designed a series
-of ribosomal binding site mutants (hereafter identified with the prefix
-“SD”) which were designed to decrease the expression relative to the
-wild-type sequence (Fig. S1). These changes involved direct alterations
-of the RBS sequence as well as the inclusion of AT hairpins of varying
-length directly upstream of the start codon. The six RBS sequences used
-in this work were designed using the RBS binding site strength
-calculator from the Salis Laboratory at the University of Pennsylvania,
-the details of which are described in the supplemental information
-(*Design of Ribosomal Binding* Sites) (17, 18). Each of these constructs
-were integrated into the chromosome to negate the variance in channel
-expression from a plasmid due to fluctuations in the plasmid copy
-number. The expression of these RBS mutants spans and order of magnitude
-and are shown in Fig. 2A.
+To modulate the number of MscL channels per cell, we developed a series of
+Shine-Dalgarno sequence mutants which were designed to decrease the
+expression relative to the wild-type sequence (Fig. S1). These changes
+involved direct alterations of the Shine-Dalgarno sequence as well as the
+inclusion of AT hairpins of varying length directly upstream of the start
+codon. The six RBS sequences used in this work were designed using the RBS
+binding site strength calculator from the Salis Laboratory at the
+Pennsylvania State University, the details of which are described in the
+supplemental information (*Design of Ribosomal Binding* Sites)
+[@espahborujeni2014; @salis2009]. Each of these constructs were integrated
+into the chromosome to negate the variance in channel expression from a
+plasmid due to fluctuations in the plasmid copy number. The expression of
+these RBS mutants spans and order of magnitude and are shown in Fig. 2A.
 
 To translate the arbitrary fluorescence to channel copy number, we
 calculated a calibration factor by measurement of a “standard candle” –
 a strain (MLG910) where the mean MscL-sfGFP copy number is known via
-quantitative Western blotting and single-molecule photobleaching (4).
+quantitative Western blotting and single-molecule photobleaching [@bialecka-fornal2012].
 This standard candle strain was grown in identical conditions in which
 the MscL count was measured and was imaged in the same manner as the
 osmotic challenge assays. The calibration factor was computed by
@@ -46,7 +45,7 @@ morphology becomes increasingly aberrant with filamentous, bulging, and
 branched cells become markedly abundant. (Fig S2 A). This morphological
 defect has been observed when altering the abundance of several species
 of mechanosensitive channels, suggesting that they play an important
-role in general architectural stability (4). As these aberrant
+role in general architectural stability [@bialecka-fornal2012]. As these aberrant
 morphologies can vary widely in size and shape, calculating the number
 of channels per cell becomes more nuanced. For example, taking the total
 MscL copy number for these cells could skew the final calculation of
@@ -79,7 +78,7 @@ represent 1.5 times the maximum and minimum of the interquartile region.
 Individual measurements are denoted as black points. The strain used for
 calibration of channel copy number (MLG910) is highlighted. (B)
 Variability in effective channel copy number are computed using the
-standard candle in highlighted in (A).](../figs/fig3.png)
+standard candle in highlighted in (A).](../../figs/fig2.png){   #eq}
 
 
 ### Performing a single-cell hypo-osmotic challenge assay
@@ -89,7 +88,7 @@ survival after a hypo-osmotic shock, we used a custom-made flow cell in
 which osmotic shock and growth can be monitored in real time using video
 microscopy (Fig. 3A). The design and characterization of this device has
 been described in depth previously and is briefly described in the
-Materials & Methods (5). Using this device, cells were exposed to a
+Materials & Methods [@bialecka-fornal2015]. Using this device, cells were exposed to a
 large hypo-osmotic shock by switching between LB Miller medium
 containing 500mM NaCl and LB media containing no NaCl for a total shock
 strength of 1 osmol/L. After the application of the osmotic shock, the
@@ -101,12 +100,12 @@ experimental protocol can be seen in Fig. 3B.
 probability.** (A) Layout of a home-made flow cell for subjecting cells
 to osmotic shock. (A) Cells are attached to a polyethylamine
 functionalized surface of a glass coverslip within the flow chamber by
-loading a dilute cell suspention through one of the inlets. (B) The
+loading a dilute cell suspension through one of the inlets. (B) The
 typical experimental procedure. Cells are loaded into a flow chamber as
 shown in (A) and mounted to the glass coverslip surface. Cells are
 subject to a hypo-osmotic shock by flowing hypotonic medium into the
 flow cell. After shock, the cells are monitored for several hours and
-surviving cells are identified.](../figs/fig2.png)
+surviving cells are identified.](../../figs/fig3.png)
 
 
 All cells shown in Fig 2B were subjected to a 1 osmol/L hypo-osmotic
@@ -128,7 +127,7 @@ effective channel number.** (A) Histogram and (B) empirical cumulative
 distribution of all single cell measurements separated by their
 survival. Shaded red region indicates region with no observed survival.
 Bins for (A) are evenly spaced between 0 and 850 by intervals of 30
-channels per cell.](../figs/fig3_dists.png)
+channels per cell.](../../figs/fig3.png)
 
 ### Prediction of survival probability as a function of channel copy number
 
@@ -197,7 +196,7 @@ shock” ( &lt; 1.0 Hz) and “fast shock” ($\geq 1.0$ Hz) grouping. The
 results of the logistic regression are shown in Fig. 5. We see a slight
 rightward shift the survival probability curve under fast shock relative
 to the slow shock case, reaffirming the conclusion that survival is also
-dependent on the rate of osmotic shock (5). These results show that a
+dependent on the rate of osmotic shock [@bialecka-fornal2015]. These results show that a
 large number of channels are required to provide appreciable protection.
 For a survival probability of 80% (the apparent upper limit in our
 experiments), a cell must have at least ${564}_{- 101}^{+ 169}$ or
@@ -230,4 +229,4 @@ regions represent the 95^th^ percent credible regions. Points at the top
 and bottom of plots represent individual cell measurements which
 survived and died, respectively. The red and black points correspond to
 the survival probability estimated via binning by RBS and binning by
-groups of 10 channels per cell, respectively.](../figs/fig4.png)
+groups of 10 channels per cell, respectively.](../../figs/fig4.png)

@@ -53,8 +53,11 @@ for g, d in grouped:
                    edgecolor='k', linewidth=0.75, normed=True, label=label_dict[g],
                    zorder=zorder_dict[g])
     _ = ax[1].plot(x, y, '.', ms=2, color=color_dict[g], label='__nolegend__')
-    _ = ax[1].fill_betweenx(y, xmin, xmax, color=color_dict[g],
-    alpha=0.3, zorder=100)
+    _ = ax[1].fill_betweenx(y, xmin, xmax, color=color_dict[g], alpha=0.3, zorder=100)
+    _ = ax[1].plot(xmin, y, '-', lw=1, color=color_dict[g], label='__nolegend__')
+    _ = ax[1].plot(xmax, y, '-', lw=1, color=color_dict[g], label='__nolegend__')
+
+
     _ = ax[1].plot([], [], '-', marker='.', color=color_dict[g],
                    label=label_dict[g])
 
