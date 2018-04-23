@@ -32,6 +32,7 @@ With this model in hand, we can construct a Bayesian hierarchical model to estim
 
 ### A hierarchical model for $\alpha$. ###
 
+![**A hierarchical model for estimation of the calibration factor and average cell size.** ](../figs/hierarchical_model.png)
 #### A single replicate
 We can begin by thinking of a single biological replicate. Suppose this data set contains many measurements of single cells and includes the average areal intensity of each cell and the cell area (both in the same units of area, such as pixels or $\mu$m$^2$). Using Bayes' theorem, and our knowledge of the mean expression level (from HJ and Maja), we can write an expression for the probability distribution of $\alpha$  as
 
