@@ -81,6 +81,6 @@ for a in (ax1, ax2):
 
 for a in (ax0, ax1, ax2):
     a.tick_params(labelsize=8)
+plt.tight_layout()
 plt.savefig('../../figs/figS{}.png'.format(FIG_NO), bbox_inches='tight', dpi=300)
 plt.savefig('../../figs/figS{}.pdf'.format(FIG_NO), bbox_inches='tight', dpi=300)
-plt.tight_layout()

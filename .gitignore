@@ -17,3 +17,4 @@ __pycache__
 *.key
 *.ai
 *egg*
+data/csv/complete_mcmc_traces.csv

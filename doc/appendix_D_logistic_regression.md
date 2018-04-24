@@ -1,4 +1,34 @@
-## LOGISTIC REGRESSION
+# 
+
+## LOGISTIC REGRESSION ##
+
+In this work, we were interested in computing the survival probability under a large hypo-osmotic shock as a function of MscL channel number. As the channel copy number distributions for each Shine-Dalgarno sequence mutant were broad and extensively overlapping, we chose to use a method of calculating survival probability through logistic regresion - a method that requires no binning of the data providing the least biased estimate of survival probability. Logistic regression is a technique that has been used in medical statistics since the late 1950's to describe diverse phenomena such as dose response curves, criminal recidivism, and survival probabilities for patients after treatment. It has also found much use in machine learning to tune a binary or categorical response given a continuous predictor signal. (**Find citations -- I know they are there**)
+
+In this section, we derive the functional form of the logistic regression cost function and provide an intuitive interpretation for the seemingly arbitrary parameters. We conclude with a description of our estimation methods for the most-likely values of these parameters using Markov chain Monte Carlo.
+
+### A Bayesian interpretation of $\beta_0$ and $\beta_1$ ###
+
+The central challenge of this work is to estimate the probability of survival $p_s$ given only a measure of the total number of MscL channels in that cell. In other words, for a given measurement of $N_c$ channels, we want to know likelihood that cell would survive a given osmotic shock. The probability of observing a survival event $s$ given a measurement of $N_c$ channels can be stated using Bayes' theorem as
+$$
+g(s\,\vert\, N_c) = {f(N_c\,\vert\, s)g(s) \over f(N_c)}.
+$${#eq:survival_bayes}
+where $g$ and $f$ represent probability density functions over parameters and data respectively. The posterior distribution $g(s\,\vert\, N_c)$ is the quantity of interest and implicitly related to the probability of survival. The likelihood $g(N_c\,\vert\, s)$ tells us the probability of observing $N_c$ channels in this cell given that it survives. The quantity $g(s)$ captures all *a priori* knowledge we have regarding the probability of this cell surviving and the denominator $f(N_c)$ tells us the converse -- the probability of observing $N_c$ cells irrespective of the survival outcome.
+
+Proper calculation of [@Eq:survival_bayes] requires that we have knowledge of $f(N_c)$, which is difficult to estimate. While we are able to give appropriate bounds on this term, such as a requirement of positivity and some knowledge of the maximum membrane packing density, it is not so obvious to determine the distribution between these bounds. Given this difficulty, it's easier to compute the odds of survival $\mathcal{O}(s\,\vert\, N_c)$, the probability of survival $s$ relative to death $d$,
+$$
+\mathcal{O}(s\,\vert\, N_c) = {g(s\,\vert\,N_c) \over g(d\,\vert\, N_c)} = {f(N_c\,\vert\, s)g(s) \over f(N_c\,\vert\,d)g(d)},
+$${#Eq:odds_definition}
+where the nuisance parameter $f(N_c)$ has not been cancelled out of our calculation.  
+
+XXX log transform XX. Computing the log-odds gives 
+
+$$
+\log \mathcal{O}(s\,\vert\,N_c)= \log {g(s) \over g(d)} + \log {f(N_c \,\vert\, s )\over f(N_c\,\vert\, d)}.
+$${#Eq:log_odds}
+
+
+
+-----
 
 ### Deriving the functional form of logistic regression 
 
