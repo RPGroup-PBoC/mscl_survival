@@ -1,9 +1,15 @@
 ---
 include:
+<<<<<<< HEAD:doc/headers/build_main.yaml
   section_3_results.md
   # abstract.md 
   # introduction.md
   # methods.md   
+=======
+  abstract.md 
+  introduction.md
+  methods.md
+>>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c:doc/build_main.yaml
   # results.md
   # discussion.md
   # blank.md

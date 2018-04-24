@@ -1,0 +1,2741 @@
+INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_7384d0c42b32a35d213358c195e6152c NOW.
+
+Gradient evaluation took 0.003918 seconds
+1000 transitions using 10 leapfrog steps per transition would take 39.18 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.003488 seconds
+1000 transitions using 10 leapfrog steps per transition would take 34.88 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001599 seconds
+1000 transitions using 10 leapfrog steps per transition would take 15.99 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Gradient evaluation took 0.004388 seconds
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+1000 transitions using 10 leapfrog steps per transition would take 43.88 seconds.
+
+Adjust your expectations accordingly!
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Gradient evaluation took 0.001958 seconds
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+1000 transitions using 10 leapfrog steps per transition would take 19.58 seconds.
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+Adjust your expectations accordingly!
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001948 seconds
+1000 transitions using 10 leapfrog steps per transition would take 19.48 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.004181 seconds
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+1000 transitions using 10 leapfrog steps per transition would take 41.81 seconds.
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+Adjust your expectations accordingly!
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001558 seconds
+1000 transitions using 10 leapfrog steps per transition would take 15.58 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001807 seconds
+1000 transitions using 10 leapfrog steps per transition would take 18.07 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: validate transformed params: n_sr[1] is -nan, but must be greater than or equal to 0  (in 'unknown file name' at line 45)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001727 seconds
+1000 transitions using 10 leapfrog steps per transition would take 17.27 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Gradient evaluation took 0.003839 seconds
+1000 transitions using 10 leapfrog steps per transition would take 38.39 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001912 seconds
+1000 transitions using 10 leapfrog steps per transition would take 19.12 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.0019 seconds
+1000 transitions using 10 leapfrog steps per transition would take 19 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:Iteration:    1 / 8000 [  0%]  (Warmup)
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001971 seconds
+1000 transitions using 10 leapfrog steps per transition would take 19.71 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: validate transformed params: n_sr[1] is -nan, but must be greater than or equal to 0  (in 'unknown file name' at line 45)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+Exception: validate transformed params: n_sr[1] is -nan, but must be greater than or equal to 0  (in 'unknown file name' at line 45)
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.00194 seconds
+1000 transitions using 10 leapfrog steps per transition would take 19.4 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001924 seconds
+1000 transitions using 10 leapfrog steps per transition would take 19.24 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001687 seconds
+1000 transitions using 10 leapfrog steps per transition would take 16.87 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: validate transformed params: n_sr[1] is -nan, but must be greater than or equal to 0  (in 'unknown file name' at line 45)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001522 seconds
+1000 transitions using 10 leapfrog steps per transition would take 15.22 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Gradient evaluation took 0.005236 seconds
+1000 transitions using 10 leapfrog steps per transition would take 52.36 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.002138 seconds
+1000 transitions using 10 leapfrog steps per transition would take 21.38 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001792 seconds
+1000 transitions using 10 leapfrog steps per transition would take 17.92 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.003214 seconds
+1000 transitions using 10 leapfrog steps per transition would take 32.14 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001779 seconds
+1000 transitions using 10 leapfrog steps per transition would take 17.79 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+
+Gradient evaluation took 0.001774 seconds
+1000 transitions using 10 leapfrog steps per transition would take 17.74 seconds.
+Adjust your expectations accordingly!
+
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:    1 / 8000 [  0%]  (Warmup)
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 73)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 72)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 61)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Exception: normal_lpdf: Location parameter is inf, but must be finite!  (in 'unknown file name' at line 74)
+
+If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration:  800 / 8000 [ 10%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 1600 / 8000 [ 20%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 2400 / 8000 [ 30%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 3200 / 8000 [ 40%]  (Warmup)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 4000 / 8000 [ 50%]  (Warmup)
+Iteration: 4001 / 8000 [ 50%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 4800 / 8000 [ 60%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 5600 / 8000 [ 70%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1598.3 seconds (Warm-up)
+               1193.68 seconds (Sampling)
+               2791.99 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1524.68 seconds (Warm-up)
+               1359.27 seconds (Sampling)
+               2883.95 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1622.42 seconds (Warm-up)
+               1325.3 seconds (Sampling)
+               2947.72 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1534.32 seconds (Warm-up)
+               1414.98 seconds (Sampling)
+               2949.29 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1578.53 seconds (Warm-up)
+               1379 seconds (Sampling)
+               2957.53 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1514.66 seconds (Warm-up)
+               1463.93 seconds (Sampling)
+               2978.59 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 6400 / 8000 [ 80%]  (Sampling)
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1592.83 seconds (Warm-up)
+               1466 seconds (Sampling)
+               3058.83 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1669.22 seconds (Warm-up)
+               1431.08 seconds (Sampling)
+               3100.3 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1695.38 seconds (Warm-up)
+               1412.35 seconds (Sampling)
+               3107.72 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1513.26 seconds (Warm-up)
+               1612.91 seconds (Sampling)
+               3126.17 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1735.91 seconds (Warm-up)
+               1427.55 seconds (Sampling)
+               3163.46 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1591.5 seconds (Warm-up)
+               1593.78 seconds (Sampling)
+               3185.28 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1652.41 seconds (Warm-up)
+               1533.18 seconds (Sampling)
+               3185.6 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1662.67 seconds (Warm-up)
+               1528.67 seconds (Sampling)
+               3191.34 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1699.86 seconds (Warm-up)
+               1515.28 seconds (Sampling)
+               3215.14 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1607.18 seconds (Warm-up)
+               1630.38 seconds (Sampling)
+               3237.56 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1731.5 seconds (Warm-up)
+               1535.96 seconds (Sampling)
+               3267.46 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1482.29 seconds (Warm-up)
+               1805.65 seconds (Sampling)
+               3287.94 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1727.16 seconds (Warm-up)
+               1566.19 seconds (Sampling)
+               3293.35 seconds (Total)
+
+Iteration: 7200 / 8000 [ 90%]  (Sampling)
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1562.1 seconds (Warm-up)
+               1864.98 seconds (Sampling)
+               3427.08 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1978.68 seconds (Warm-up)
+               1472.61 seconds (Sampling)
+               3451.29 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1885.69 seconds (Warm-up)
+               1568.13 seconds (Sampling)
+               3453.82 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1638.32 seconds (Warm-up)
+               1929.82 seconds (Sampling)
+               3568.14 seconds (Total)
+
+Iteration: 8000 / 8000 [100%]  (Sampling)
+
+ Elapsed Time: 1919.17 seconds (Warm-up)
+               1737.36 seconds (Sampling)
+               3656.54 seconds (Total)
+
+Traceback (most recent call last):
+  File "complete_mcmc.py", line 70, in <module>
+    'intensity', 'replicate_number'], inplace=True)
+TypeError: drop() got an unexpected keyword argument 'columns'
