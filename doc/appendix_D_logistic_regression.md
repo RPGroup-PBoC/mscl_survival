@@ -4,7 +4,65 @@
 
 In this work, we were interested in computing the survival probability under a large hypo-osmotic shock as a function of MscL channel number. As the channel copy number distributions for each Shine-Dalgarno sequence mutant were broad and extensively overlapping, we chose to use a method of calculating survival probability through logistic regresion - a method that requires no binning of the data providing the least biased estimate of survival probability. Logistic regression is a technique that has been used in medical statistics since the late 1950's to describe diverse phenomena such as dose response curves, criminal recidivism, and survival probabilities for patients after treatment. It has also found much use in machine learning to tune a binary or categorical response given a continuous predictor signal. (**Find citations -- I know they are there**)
 
-In this section, we derive the functional form of the logistic regression cost function and provide an intuitive interpretation for the seemingly arbitrary parameters. We conclude with a description of our estimation methods for the most-likely values of these parameters using Markov chain Monte Carlo.
+In this section, we derive a statistical model for estimating the most-likely
+values for the coefficients $\beta_0$ and $\beta_1$ and use Bayes' theorem to
+provide an interpretation for the statistical meaning.
+
+### Bayesian parameter estimation of $\beta_0$ and $\beta_1$ 
+
+The central challenge of this work is to estimate the probability of survival $p_s$ given only a measure of the total number of MscL channels in that cell. In other words, for a given measurement of $N_c$ channels, we want to know likelihood that cell would survive a given osmotic shock. Using Bayes' theorem we can write a statistical model for the survival probability as
+$$
+g(p_s\,\vert\, N_c) = {f(N_c\,\vert\, p_s)g(p_s) \over f(N_c)},
+$${#Eq:bayes_surv_prob}
+
+where $g$ and $f$ represent probability density functions over parameters and data, respectively. The posterior probability distribution $g(p_s\,\vert\, N_c)$ describes the probability of $p_s$ given a specific number of channels $N_c$. This distribution is dependent on the likelihood of observing $N_c$ channels assuming a value of $p_s$ multiplied by all prior knowledge we have about knowing nothing about the data, $g(s)$. The denominator $f(N_c)$ in [@Eq:bayes_surv_prob] captures all knowledge we have about the available values of $N_c$, knowing nothing about the true survival probability. As this term acts as a normalization constant, we will neglect it in the following calculations for notational brevity.
+
+To begin, we must come up with a statistical model that describes the experimental measurable in our experiment -- survival or death. As this is a binary response, we can consider each measurement as a Bernoulli trial with a probability of success matching our probability of survival $p_s$,
+$$
+f(s\, \vert\, p_s) = p_s^s(1 - p_s)^{1-s},
+$${#Eq:bernoulli}
+where $s$ is the binary response of $1$ or $0$ for survival and death, respectively. As is stated in the introduction to this section, we decided to use a logistic function to describe the survival probability. We assume that the log-odds of survival is linear with respect to the effective channel copy number $N_c$ as
+$$
+\log{p_s \over 1 - p_s} = \beta_0 + \beta_1 N_c,
+$${#Eq:logit}
+where $\beta_0$ and $\beta_1$ are coefficients which describe the survival probability in the absence of channels and the increase in log-odds of survival conveyed by a single channel. The rationale behind this interpretation is presented in the following section, *A Bayesian interpretation of $\beta_0$ and $\beta_1$. With this assumption in hand, we can solve for $p_s$,
+$$
+p_s = {1 \over 1 + e^{-\beta_0 -\beta_1 N_c}}.
+$${#Eq:logistic_prob}
+
+With a functional form for the survival probability, the probability of observing  $N_c$ channeles given a measurement of survival and values for $|beta_0$ and $\beta_1$ can be stated as 
+$$f(N_c, s\,\vert\,\beta_0,\beta_1) = \left({1 \over 1 + e^{-\beta_0 - \beta_1 N_c}}\right)^s\left(1 - {1 \over 1 + e^{-\beta_0 - \beta_1 N_c}}\right)^{1 - s},
+$${#Eq:bernouli_likelihood}
+which is the likelihood presented in [@Eq:bayes_surv_prob]. As we have now introduced two parameters, $\beta_0$, and $\beta_1$, we must provide some description of our prior knowledge for each. As is typically the case, we k,now nothing about the values for $\beta_0$ and $\beta_1$. These parameters are allowed to take any value, so long as it is a real number. Since all values are allowable, we can assume a flat distribution for each and remove the constant from the posterior distribution. For a set of $k$ single-cell measurements, we can write the posterior probability distribution stated in [@Eq:bayes_surv_prob] as
+$$
+g(\beta_0, \beta_1\,\vert\, N_c, s) = \prod\limits_{i=1}^n\left({1 \over 1 + e^{-\beta_0 - \beta_1 N_c^{(i)}}}\right)^{s^{(i)}}\left(1 - {1 \over 1 + e^{-\beta_0 - \beta_1 N_c^{(i)}}}\right)^{1 - s^{(i)}}
+$$[@Eq:known_nc_post]
+
+Implicitly stated in [@Eq:known_nc_post] is absolute knowledge of the channel copy number $N_c$. However, as is described in the section *Standard Candle Calibration*, we must convert from a measured areal sfGFP intensity $\rho$ to a effective channel copy number,
+$$
+N_c = {\rho \tilde{\langle A \rangle} \over \tilde{\alpha}},
+$${#Eq:standard_candle}
+where $\tilde{\langle A \rangle}$ is the average cell area of the standard candle strain and $\tilde{\alpha}$ is the most-likely value for the calibration factor between arbitrary units and protein copy number. Earlier in *Standard Candle Calibration*, we detailed a process for generating an estimate for the most-likely value of $\tilde{\langle A \rangle}$ and $\tilde{\alpha}$. Given these estimates, we can include an informative prior for each value. From the Markov chain Monte Carlo samples shown in [@Fig:posterior_distributions], the posterior distribution for each parameter is approximately Gaussian. By approximating them as Gaussian distributions, we can assign an informative prior for each as
+$$
+g(\alpha\,\vert\,\tilde{\alpha}, \tilde{\sigma}_\alpha) \propto {1 \over \tilde{\sigma}_\alpha^k}\prod\limits_{i=1}^k\exp\left[-{(\alpha_i - \tilde{\alpha})^2 \over  2\tilde{\sigma}_\alpha^2}\right]
+$${#Eq:alpha_prior}
+for the calibration factor for each cell and 
+$$
+g(\langle A \rangle\,\vert\,\tilde{\langle A \rangle},\tilde{\sigma}_{\langle A \rangle}) = {1 \over \tilde{\sigma}_{\langle A \rangle}^k}\prod\limits_{i=1}^k\exp\left[-{(\langle A \rangle_i - \tilde{\langle A \rangle})^2 \over 2\tilde{\sigma}_{\langle A \rangle}^2}\right],
+$${#Eq:area_prior}
+where $\tilde{\sigma}_\alpha$ and $\tilde{\sigma}_{\langle A \rangle}$ represent the variance from approximating each posterior as a Gaussian. The proportionality for each prior arises from the neglection of normalization constants for notational clarity.
+
+Given [#Eq:bernouilli_likelihood] through [@Eq:area_prior], the complete posterior distribution for estimating the most likely values of $\beta_0$ and $\beta_1$ can be written as
+$$
+\begin{aligned}
+g(\beta_0, &\beta_1\,\vert\,[\rho, s],\tilde{\langle A \rangle}, \tilde{\sigma}_{\langle A \rangle}, \tilde{\alpha}, \tilde{\sigma}_\alpha) \propto{1 \over (\tilde{\sigma}_\alpha\tilde{\sigma}_{\langle A \rangle})^k}\prod\limits_{i=1}^k\left(1 + \exp\left[-\beta_0 - \beta_1 {\rho_i \langle A \rangle_i \over \alpha_i}\right]\right)^{-s_i}\,\times\,\\
+&\left(1 - \left(1 + \exp\left[-\beta_0 - \beta_1 {\rho_i\langle A \rangle_i \over \alpha_i}\right]\right)^{-1}\right)^{1 - s_i}
+\exp\left[-{(\langle A \rangle_i - \tilde{\langle A \rangle})^2 \over 2\tilde{\sigma}_{\langle A \rangle}} - {(\alpha_i - \tilde{\alpha})^2\over 2\tilde{\sigma}_\alpha^2}\right]
+\end{aligned}.
+$${#Eq:logistic_posterior}
+
+As this posterior distribution is not solvable analytically, we used Markov chain Monte Carlo to draw samples out of this distribution. The posterior distributions for $\beta_0$ and $\beta_1$ for both slow and fast shock rate data can be seen in [@Fig:logistic_regression_posterior_distributions]
+
 
 ### A Bayesian interpretation of $\beta_0$ and $\beta_1$ ###
 
@@ -18,105 +76,42 @@ Proper calculation of [@Eq:survival_bayes] requires that we have knowledge of $f
 $$
 \mathcal{O}(s\,\vert\, N_c) = {g(s\,\vert\,N_c) \over g(d\,\vert\, N_c)} = {f(N_c\,\vert\, s)g(s) \over f(N_c\,\vert\,d)g(d)},
 $${#Eq:odds_definition}
-where the nuisance parameter $f(N_c)$ has not been cancelled out of our calculation.  
-
-XXX log transform XX. Computing the log-odds gives 
-
+where $f(N_c)$ is cancelled. The only stipulation on the possible value of the odds is that it must be a positive value. As we would like to equally weigh odds less than one as those of several hundred or thousand, it is more convenient to compute the log-odds, given as 
 $$
 \log \mathcal{O}(s\,\vert\,N_c)= \log {g(s) \over g(d)} + \log {f(N_c \,\vert\, s )\over f(N_c\,\vert\, d)}.
 $${#Eq:log_odds}
+Computing the log-transform reveals two interesting quantity. The first term is the ratio of the priors and tells us the *a priori* knowledge of the odds of survival irrespective of the number of channels. As we have no reason to think that survival is more likely than death, this ratio goes to unity. The second term is the log likelihood ratio and tells us how likely we are to observe a given channel copy number $N_c$ given the cell survives relative to when it dies. 
 
-
-
------
-
-### Deriving the functional form of logistic regression 
-
-The functional form of the logistic regression model given by Eq. 1 in the main text includes two dimensionless and seemingly arbitrary coefficients, $\beta_0$ and $\beta_1$. Interpreting the probabilistic or physical meaning of these parameters is often an afterthought. However, there is a direct connection between Bayes' theorem (CITE DOWNEY) and these parameters which we will examine here in depth.
-
-Suppose we are examining a single cell with an effective channel copy number of $n$ and we are interested in computing this its probability of survival. We can write an expression for this probability by using Bayes' theorem as
-
-$$ P(s\vert n) = {P(n \vert s)P(s) \over P(n)},
-$${#eq:bayes}
-where $P(n\vert s)$ is the likelihood of having $n$ channels given an observation of survival, $P(s)$ is the probability of survival completely independent of the channel number measurement, and $P(n)$ is the probability of having $n$ channels irrespective of the cell fate. Calculating this probability requires that we have some knowledge of $P(n)$, which is a difficult quantity to estimate. We may know the bounds of the physically accessible values of $n$, but we have no knowledge of the distribution. For this reason, it's easier to consider the odds of survival with a given number of channels $n$ relative to the odds of survival at another channel copy number. For example, let's examine the odds of survival for a cell with $n = 0$ and another with $n = 1$. Using {@eq:bayes}, we can write the odds of survival for each copy number as
-
+For each channel copy number, we can evaluate [@Eq:log_odds] to measure the log odds of survival. If we start with zero channels per cell, we can write the log-odds as
 $$
-\mathcal{O}(s \vert n=0 ) = {P(s \vert n=0) \over P(d \vert n=0)} = {P(n=0 \vert s)P(s) \over P(n=0 \vert d)P(d)},
-$${#eq:explicit_odds_zero}
-and
-
+\log \mathcal{O}(s\,\vert\,N_c=0) = \log {g(s) \over g(d)} + \log {f(N_c=0\,\vert\, s) \over f(N_c=0\,\vert\, d)}.
+$${#Eq:nc=0}
+For a channel copy number of one, the odds of survival is
 $$
-\mathcal{O}(s \vert n=1) = {P(s \vert n=1) \over P(d \vert n=1)} = {P(n=1 \vert s)P(s) \over P(n=1 \vert d)P(d)}.
-$${#eq:explicit_odds_one}
-We see for each copy number, the ratio $P(s) / P(d)$ is always present. By computing the log-odds, we can separate two useful quantities,
-
+\log \mathcal{O}(s\,\vert\,N_c=1) = \log{g(s) \over g(d)} + \log{f(N_c=1\,\vert\, s) \over f(N_c=1\,\vert\, d)}.
+$${#Eq:nc=1}
+In both [@Eq:nc=0] and [@Eq:nc=1], the log of our *a priori* knowledge of survival versus death remains. The only factor that is changing is log likelihood ratio. We can be more general in our language and say that the log-odds of survival is increased by the difference in the log odds between any two channel copy numbers. We can rewrite the log likelihood ratio in a more general form as
 $$
-\log\mathcal{O}(s\vert n) = \log{P(s)\over P(d)} + \log{P([n = 0, n=1] \vert s)\over P([n=0, n=1] \vert d)},
-$${#eq:log_odds}. 
-The first term is the log-odds of survival independent of the number of channels. The second term 
-is the log likelihood of observing $n$ channels given that the cell survives relative to when the cell dies. Rather than considering $n=0$ and $n=1$ separately, we can write the log likelihood ratio in one concise statement as
-
+\log {f(N_c\, \vert\, s) \over f(N_c\,\vert\, d)} = \log{f(N_c = 0\,\vert\,s) \over f(N_c=0\,\vert\, d)} + N_c \left[\log{f(N_c=1 \,\vert\,s) \over f(N_c=1\,\vert\, d)} - \log{f(N_c=0\,\vert\, s) \over f(N_c=0\,\vert\, d)}\right],
+$${#Eq:generalized_LLR}
+where we are now only considering the case in which $N_c \in [0, 1]$.
+The bracketed term in [@Eq:generalized_LLR] is the log of the odds of survival given a single channel relative to the odds of survival given no channels. Mathematically, this odds-ratio can be expressed as
 $$
- \log {P([n=0, n=1] \vert s)\over P([n=0, n=1]\vert d)} = \log {P(n=0\vert s) \over P(n=0\vert d)} + N_c\left[\log {P(n=1\vert s) \over P(n=1 \vert d)} - \log {P(n=0 \vert s) \over P(n=0 \vert d)}\right] = \log {P(N_c \vert s) \over P(N_c \vert d)},
-$${#eq:single_llr_expression}
-where $N_c \in [0, 1]$. The bracketed quantity is mathematically equivalent to the log-odds ratio of the two channel copy numbers $\mathcal{OR}(s\vert N_c)$.
+\mathcal{OR}_{N_c}(s) = {{f(N_c=0\,\vert\,s)g(s)\over f(N_c=0\,\vert\,d)g(d)}\over {f(N_c=1\,\vert\,s)g(s)\over f(N_c=1\,\vert\,d)g(d)}} = {f(N_c=0\,\vert\,s) f(N_c=1\,\vert\,d)\over f(N_c=1\,\vert s)f(N_c=0\,\vert\,d)}.
+$${#Eq:odds_ratio}
+The log of [Eq:odds_ratio] is mathematically equivalent to the bracketed term shown in [@Eq:generalized_LLR]. 
 
-We can stitch together these expressions to arrive at a single expression for the log-odds of survival given a channel copy number $n$. By combining {@eq:log_odds} with {@eq:single_llr_expression} we have
-
+We can now begin to staple these pieces together to arrive at an expression for the log odds of survival. Combining [@Eq:generalized_LLR] with [@Eq:log_odds] generates
 $$
-\log\mathcal{O}(s\vert N_c) = \log \mathcal{O}(s)  + \log {P(n=0 \vert s) \over P(n=0 \vert s)} + N\left[\log {P(n=1 \vert s) \over P(n=1 \vert d)} - \log{P(n=0 \vert s) \over P(n=0 \vert d)}\right].
-$${#eq:log_odds_step_one}
-Finally, we can substitute for the second term in {@eq:log_odds_step_one} with {@eq:explicit_odds_zero} to arrive at
-
+\log \mathcal{O}(s\,\vert\,N_c) = \log{g(s) \over g(d)} + \log {f(N_c=0\,\vert\, s) \over f(N_c=0\,\vert\, d)} + N_c\left[{f(N_c=1\,\vert\,s)\over f(N_c=1\,\vert\,d)} - \log{f(N_c=0\,\vert\,s) \over f(N_c=0\,\vert\,d)}\right].
+$$[#Eq:combined_v1]
+Using our knowledge that the bracketed term is the log odds-ratio and the first two times represents the log-odds of survival with $N_c=0$, we conclude with
 $$
-\log \mathcal{O}(s \vert n=1) = \log\mathcal{O}(s\vert n=0) + N_c\mathcal{OR}(s\vert N).
-$${#eq:bayes_logit}
-
-In of the main text, Eq. 1 stated the model for logistic regression. Ignoring the use of $\log N_c$ as a predictor, this model is given as
+\log\mathcal{O}(s\,\vert\,N_c) = \log \mathcal{O}(s\,\vert\,N_c=0) + N_c \mathcal{OR}_{N_c}(s).
+$${#Eq:bayesian_logit}
+This result can be directly compared to Eq. 1 presented in the main text,
 $$
-\log{p_s \over 1 - p_s} = \beta_0 + \beta_1 N_c,
-$${#eq:main_text_logit}
-which is of the same form as {@eq:bayes_logit}. By comparing these two expressions, we can make sense of the seemingly arbitrary coefficients. The intercept $\beta_0$ is the log-odds of survival with zero channels where as $\beta_1$ is the log-odds of survival with one channel relative to the log-odds of survival with zero. This can easily be expanded to cover any number of mechanosensitive channels, which is performed for the analysis presented in the main text.
-
-## BAYESIAN PARAMETER ESTIMATION
-  In this work, we chose to estimate the most-likely parameter values for
- $\beta_0$ and $\beta_1$ using a Bayesian definition of probability. We can
- compute the posterior probability distribution for these parameters given a collection of data $D$ which is given by Bayes' theorem,
-
-$$
-  P(\beta_0, \beta_1\vert D) = {P(D\vert\beta_0, \beta_1)P(\beta_0,\beta_1) \over P(D)}.
-$${#eq:bayes_thm}
-The data $D$ is composed of all single cell measurements of effective channel copy number, the statistical error in the channel copy number, and their survival ('True' or 'False'). The quantity $P(D\vert\beta_0, \beta_1)$ represents the likelihood of observing the data given the parameters. All prior knowledge of the coefficients for $\beta_0$ and $\beta_1$ independent of the observed data is captured by $P(\beta_0, \beta_1)$. Finally, the denominator $P(D)$ is the likelihood marginalized over the parameters. In the context of this work, this quantity serves simply as a normalization constant and an be ignored. 
-
-To formulate the likelihood, we can abstract survival or death as a Bernoulli process with a probability of success $p_s$,
-
-$$
-f(s \vert p_s) = p_s^F(1 - p)^{1 - F},
-$${#eq:bernoulli}
-where $F$ is the fate of the cell with $1$ being survival and $0$ being death. Each measurement in the data set is treated independently, as is implied by {@eq:bernoulli} and Eq. 1 of the main text in which the probability is dependent on the log of the channel copy number $N_c$. The likelihood given in {@eq:bayes_thm} can be written for the entire data set as
-
-$$
-P(D\vert \beta_0, \beta_1) = \prod_{i=1}^k\left({1 \over e^{-\theta_i}}\right)^{F_i}\left(1 - {1 \over 1 + e^{-\theta_i}}\right)^{1 - F_i},
-$${#eq:likelihood}
-where $k$ is the total number of samples in the dataset, $s_i$ is the fate of the $i^{th}$ cel, and $\theta$ is defined as
-
-$$
-\theta = \log{p_s \over 1 - p_s} = \beta_0 + \beta_1 \log N_c.
-$${#eq:theta_logit}
-
-Each measurement of the channel copy number $N_c$ has an associated statistical error $\sigma_c$. To incorporate this uncertainty in our statistical model, we must include yet another prior for the "true" channel copy number for each measurement. As the copy number is dependent on many independent processes (e.g. translation, folding, membrane insertion, etc), it is reasonable to assume that the copy number is normally distributed. WE can therefore write a prior each single cell as
-
-$$
-P(n\vert N_c, \sigma_c) = {1 \over \sqrt{2\pi\sigma_c^2}}\exp\left[-{(n - N_c)^2 \over 2\sigma_c^2}\right],
-$${#eq:nc_prior}.
-
-An advantage of logistic regression is that there are no bounds on the values that $\beta_0$ and $\beta_1$ can take. This permits us to assume a flat distribution for the prior of both coefficients, allowing us to drop them from our expression. Putting all of these pieces together gives us the final posterior probability distribution,
-
-$$
-P(\beta_0,\beta_1, [n]\vert N_c, \sigma_c) = {1 \over 2\pi^{k/2}}\prod_{i=1}^k {1 \over \sigma_{c,i}} \exp\left[-{(n_i - N_{c,i})^2 \over 2\sigma_{c,i}^2}\right]\left({1 \over 1 + e^{-\beta_0 - \beta_1 \log n_i}}\right)^{F_i} \left(1 - {1 \over 1 + e^{-\beta_0 - \beta_1 \log n_i}}\right)^{1 - F_i}.
-$${#eq:posterior}
-
-Exact marginalization is not practical for this posterior. To find the most-likely parameter values, we used Markov chain Monte Carlo (MCMC) to sample directly form this distribution. To this end, we used the high efficiency "No U-turns" sampler (NUTS) packaged with the probabilistic programming language Stan. The posterior for the coefficients over the slow and fast shock rate experiments can be seen in [@fig:posterior]
-
-![**Posterior probability distributions for logistic regression coefficients.** The density of the MCMC samples for the two coefficients of logistic regression for (A) slow and (B) fast shocks. The mode and 95% credible regions for each parameter are shown as the dot and crosshairs, respectively.](../figs/figSX1.png){#fig:posterior}
+\log {p_s \over 1 - p_s} = \beta_0 + \beta_1 N_c,
+$${#Eq:logit}
+which allows for an interpretation of the seemingly arbitrary coefficients $\beta_0$ and $\beta_1$. The intercept term, $\beta_0$, captures the log-odds of survival with no MscL channels. The slope, $\beta_1$, describes the log odds-ratio of survival which a single channel relative to the odds of survival with no channels at all. While we have examined this considering only two possible channel copy numbers ($1$ and $0$), the relationship between them is linear. We can therefore generalize this for any MscL copy number as the increase in the log-odds of survival is constant for a change of one channel.
 

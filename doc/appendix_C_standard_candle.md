@@ -67,7 +67,7 @@ g(\alpha) = \begin{cases} {1 \over \alpha_\text{max} - \alpha_\text{min}} & \alp
 0 & \text{otherwise}
 \end{cases},
 $${#Eq:alpha_uniform_prior}
-for \alpha and 
+for $\alpha$ and 
 $$
 g(\langle A \rangle) = \begin{cases} {1 \over \langle A \rangle_\text{max} - \langle A \rangle_\text{min}} & \langle A \rangle_\text{min} \leq \langle A \rangle \leq \langle A \rangle_\text{max}\\
 0 & \text{otherwise}
