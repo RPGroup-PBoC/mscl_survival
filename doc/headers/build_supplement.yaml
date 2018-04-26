@@ -1,5 +1,6 @@
 ---
 include:
+  appendix_B_image_processing.md
   appendix_C_standard_candle.md
   appendix_D_logistic_regression.md
 name: mscl_supplement.pdf

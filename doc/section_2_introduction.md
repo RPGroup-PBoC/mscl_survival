@@ -34,7 +34,6 @@ and other environmental challenges [@bialecka-fornal2012, @schmidt2016;
 channels per cell, why cells seem to need so many and the biological
 rationale behind their condition-dependent expression both remain a mystery.
 
-<<<<<<< HEAD:doc/section_2_introduction.md
  &nbsp;&nbsp;&nbsp; &nbsp; While the copy numbers are known, their connection
  to survival is understudied. Drawing such a direct connection between
  channel copy number and survival requires quantitative *in vivo*
@@ -54,15 +53,6 @@ rationale behind their condition-dependent expression both remain a mystery.
  those found in the long tails of the distribution have quite different
  survival rates than the mean but are lost in the final calculation of
  survival probability.
-=======
- &nbsp;&nbsp;&nbsp; &nbsp; While the copy numbers are known, their connection to survival is understudied. Drawing such a direct connection between channel copy number and survival requires
-quantitative *in vivo* experiments. To our knowledge, the work presented in
-van den Berg et al. 2016 [@vandenberg2016] is the first attempt to simultaneously measure channel abundance and survivability for a single species of mechanosensitive channel. While the measurement of channel copy number was performed at the level of single cells using super-resolution microscopy, survivability after an osmotic downshock was assessed in bulk plating assays which rely on serial dilutions of a shocked culture followed counting the number of resulting colonies after incubation. Such bulk assays have long been the standard for querying cell viability after an osmotic challenge (**Include other plating assay references**). While bulk-scale experiments have been highly informative, they reflect only the mean survival rate of the population, obfuscating the variability in survival of the population. The stochastic nature
-of gene expression results in a noisy distribution of MscL channels
-rather than a single value, meaning those found in the long tails of the
-distribution have quite different survival rates than the mean but are
-lost in the final calculation of survival probability.
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c:doc/introduction.md
 
 &nbsp; &nbsp; &nbsp; &nbsp;In this work, we present an experimental system to quantitatively probe
 the interplay between MscL copy number and survival at single-cell
@@ -92,10 +82,6 @@ is beyond the gating tension, the mechanosensitive channel MscL opens,
 releasing water and small intracellular molecules into the environment
 thus relieving pressure and membrane tension. (B) The experimental
 approach undertaken in this work. The number of mechanosensitive channels tagged
-<<<<<<< HEAD:doc/section_2_introduction.md
 with a fluorescent reporter is tuned through  modification of the Shine-Dalgarno sequence of the *mscL* gene. The cells are then subjected to a hypo-osmotic shock and
-=======
-with a fluorescent reporter is tuned through  modification of the SD sequence of the *mscL* gene. The cells are then subjected to a hypo-osmotic shock and
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c:doc/introduction.md
 the number of surviving cells are counted, allowing the calculation of a
 survival probability.](../figs/fig1.png){#fig:overview}

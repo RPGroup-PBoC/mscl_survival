@@ -24,8 +24,11 @@ mlg910.loc[mlg910['date'] == 20170721,
            'replicate_number'] = mlg910['replicate_number'].max() + 1
 mlg910.loc[:, 'shock_class'] = 'none'
 mlg910.loc[:, 'survival'] = -1
-shock_data = pd.read_csv('../../data/csv/compiled_data.csv')
+shock_files = glob.glob('../processing/*shock*/output/*.csv')
+shock_data = pd.concat([pd.read_csv(f, comment='#') for f in shock_files])
 shock_data['replicate_number'] = 0
+shock_data.loc[:, 'shock_class'] = 'slow'
+shock_data.loc[shock_data['flow_rate'] >= 1.0, 'shock_class'] = 'fast'
 data = pd.concat([mlg910, shock_data], ignore_index=True)
 data.dropna(axis=1, inplace=True)
 # Insert the shock rate identifier.
@@ -56,11 +59,7 @@ data_dict = dict(J1=6, J2=2, N1=len(data[data['rbs'] == 'mlg910']), N2=len(data[
                  survival=data[data['rbs'] != 'mlg910']['survival'].values.astype(int))
 
 # Sample
-<<<<<<< HEAD
 samples = model.sampling(data=data_dict, iter=5000, chains=4)
-=======
-samples = model.sampling(data=data_dict, iter=5000, chains=4, n_jobs=48)
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c
 
 # Compute the statistics of each parameter.
 sample_df = mscl.mcmc.chains_to_dataframe(samples)
@@ -72,11 +71,7 @@ stats.to_csv('../../data/csv/complete_mcmc_stats.csv', index=False)
 shock_data = data[data['rbs'] != 'mlg910'].copy()
 cal_data = data[data['rbs']=='mlg910'].copy()
 shock_data.drop(axis=1, labels=['exposure_ms', 'mean_bg', 'idx', 'intensity', 'replicate_number'], inplace=True)
-<<<<<<< HEAD
-
-=======
 cal_data.drop(axis=1, labels=['exposure_ms', 'mean_bg', 'idx', 'intensity', 'replicate_number', 'shock_class'], inplace=True)
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c
 
 rate_keys = {'slow':0, 'fast':1}
 for i, r in enumerate(rate_keys.keys()):
@@ -98,31 +93,17 @@ shock_data.loc[:, 'calibration_factor'] = stats[stats['parameter']=='hyper_alpha
 shock_data.loc[:, 'minimum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_min'].values[0]
 shock_data.loc[:, 'maximum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_max'].values[0]
 
-<<<<<<< HEAD
-for i in range(6):
-    median_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['median'].values[0]]
-    min_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_min'].values[0]]
-    max_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_max'].values[0]]
-    cal_data.loc[cal_data['replicate_number'] == i+1, 'effective_channels'] = median_n
-    cal_data.loc[cal_data['replicate_number'] == i+1, 'minimum_channels'] = min_n
-    cal_data.loc[cal_data['replicate_number'] == i+1, 'maximum_channels'] = max_n
-=======
 median_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['median'].values[0] for i in range(6)]
 min_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_min'].values[0] for i in range(6)]
 max_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_max'].values[0] for i in range(6)]
 cal_data.loc[:, 'effective_channels'] = median_n
 cal_data.loc[:, 'minimum_channels'] = min_n
 cal_data.loc[:, 'maximum_channels'] = max_n
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c
 
 cal_data.loc[:, 'calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['median'].values[0]
 cal_data.loc[:, 'minimum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_min'].values[0]
 cal_data.loc[:, 'maximum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_max'].values[0]
-<<<<<<< HEAD
 cal_data.drop(axis=1, labels=['exposure_ms', 'mean_bg', 'idx', 'intensity', 'replicate_number', 'shock_class'], inplace=True)
-=======
-
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c
 #
 # Save the final dataframe.
 shock_data.to_csv('../../data/csv/mscl_survival_data.csv', index=False)
