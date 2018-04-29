@@ -17,7 +17,7 @@ assuming that $\alpha$ is a constant value that does not change from cell to cel
 &nbsp;&nbsp;&nbsp;&nbsp;The experiments presented in this work were performed using non-synchronously growing cultures. As there is a uniform distribution of growth phases in the culture, the cell size distribution is broad the the extremes being small, newborn cells and large cells in the process of division.  As described in the main text, the cell size distribution of a population is broadened further by modulating the MscL copy number. To speak in the terms of an effective channel copy number, we relate the average areal intensity of the population to the average cell size, 
 $$
 \langle I_\text{tot} \rangle = \langle \rho \rangle \langle A \rangle = \alpha \langle N_\text{tot} \rangle,
-$${#Eq:area_conversion}
+$${#eq:area_conversion}
 where $\langle\rho\rangle$ is the average areal intensity in arbitrary units per pixel of the population and $\langle A \rangle$ is the average area of a segmented cell. As only one focal plane was imaged in these experiments, we could not compute an appropriate volume for each cell given the highly aberrant morphology. We therefore opted to use the projected two-dimensional area of each cell as a proxy for cell size. Given these set of measurements, the calibration factor can be computed as
 $$
 \alpha = {\langle \rho \rangle\langle A \rangle \over \langle N_\text{tot} \rangle}.
@@ -63,7 +63,7 @@ $$
 g(\alpha) = \begin{cases} {1 \over \alpha_\text{max} - \alpha_\text{min}} & \alpha_\text{min} \leq \alpha \leq \alpha_\text{max} \\
 0 & \text{otherwise}
 \end{cases},
-$${#Eq:alpha_uniform_prior}
+$${#eq:alpha_uniform_prior}
 for $\alpha$ and 
 $$
 g(\langle A \rangle) = \begin{cases} {1 \over \langle A \rangle_\text{max} - \langle A \rangle_\text{min}} & \langle A \rangle_\text{min} \leq \langle A \rangle \leq \langle A \rangle_\text{max}\\

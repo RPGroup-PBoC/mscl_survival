@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# %%
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -14,18 +15,13 @@ FIG_NO = 3
 
 # Load in the data and isolate to onlly the shock experiments.
 shock_data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
-<<<<<<< HEAD:code/figs/fig3.py
-
-=======
-# shock_data = data[data['experiment'] == 'shock'].copy()
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c:code/figs/fig3_v2.py
 
 # Define the bins for the range of channels  and colors
 bins = np.arange(0, 1100, 30)
 color_dict = {True: colors['green'], False: colors['purple']}
 label_dict = {True: 'survival', False: 'death'}
 zorder_dict = {True: 1, False: 2}
-alpha_dict = {True: 0.9, False: 0.8}
+alpha_dict = {True: 0.9, False: 0.65}
 
 # Group by survival and set the colors.
 grouped = shock_data.groupby(['survival'])
@@ -52,24 +48,13 @@ for g, d in grouped:
     x, y = mscl.stats.ecdf(d['effective_channels'])
     xmin = sorted_d['maximum_channels'] 
     xmax = sorted_d['minimum_channels'] 
-<<<<<<< HEAD:code/figs/fig3.py
-    print(g, np.min(x))
-=======
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c:code/figs/fig3_v2.py
     _ = ax[0].hist(d['effective_channels'], bins=bins, color=color_dict[g], alpha=alpha_dict[g],
-                   edgecolor='k', linewidth=0.75, normed=True, label=label_dict[g],
-                   zorder=zorder_dict[g])
+                   edgecolor='k', normed=True, label=label_dict[g],
+                   zorder=zorder_dict[g], histtype='stepfilled')
     _ = ax[1].plot(x, y, '.', ms=2, color=color_dict[g], label='__nolegend__')
-<<<<<<< HEAD:code/figs/fig3.py
     _ = ax[1].fill_betweenx(y, xmin, xmax, color=color_dict[g], alpha=0.3, zorder=100)
-    _ = ax[1].plot(xmin, y, '-', lw=1, color=color_dict[g], label='__nolegend__')
-    _ = ax[1].plot(xmax, y, '-', lw=1, color=color_dict[g], label='__nolegend__')
-
-
-=======
-    _ = ax[1].fill_betweenx(y, xmin, xmax, color=color_dict[g],
-    alpha=0.3, zorder=100)
->>>>>>> a15fb32741d34cbe8d2096263922e2cee265662c:code/figs/fig3_v2.py
+    # _ = ax[1].plot(xmin, y, '-', lw=1, color=color_dict[g], label='__nolegend__')
+    # _ = ax[1].plot(xmax, y, '-', lw=1, color=color_dict[g], label='__nolegend__')
     _ = ax[1].plot([], [], '-', marker='.', color=color_dict[g],
                    label=label_dict[g])
 

@@ -132,7 +132,7 @@ surviving cells are identified.](../figs/fig2 (Original).png){#fig:flow_cell}
  effective copy number, which matches our intuition that including more
  mechanosensitive channels increases the survival probability.
 
-![**Distributions of survival and death as a function of effective channel number.** (A) Histogram and (B) empirical cumulative distribution of all single cell measurements separated by their survival. Vertical red region  in each plots indicates the region with no observed survival. Shaded purple and green regions in (B) represent the 95% credible region of the effective channel number calculation for each cell. Bins for (A) are evenly spaced between 0 and 850 by intervals of 30 channels per cell.](../figs/fig3.png){#Fig:survival_dists}
+![<span style='color: red'> Ignore the jagged confidence intervals for now. I have to rerun the MCMC using more steps for convergence.</span>**Distributions of survival and death as a function of effective channel number.** (A) Histogram and (B) empirical cumulative distribution of all single cell measurements separated by their survival. Vertical red region  in each plots indicates the region with no observed survival. Shaded purple and green regions in (B) represent the 95% credible region of the effective channel number calculation for each cell. Bins for (A) are evenly spaced between 0 and 850 by intervals of 30 channels per cell.](../figs/fig3.png){#Fig:survival_dists}
 
 ### Prediction of survival probability as a function of channel copy number
 

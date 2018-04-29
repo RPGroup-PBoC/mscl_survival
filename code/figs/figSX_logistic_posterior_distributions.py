@@ -13,7 +13,7 @@ colors = mscl.plotting.set_plotting_style()
 FIG_NO = 'X4'
 # Load the data
 data = pd.read_csv('../../data/csv/complete_mcmc_traces.csv')
-fig, ax = plt.subplots(1, 2, figsize=(6, 4))
+fig, ax = plt.subplots(1, 2, figsize=(5, 3))
 fig.text(0, 0.95, '(A)', fontsize=8)
 fig.text(0.5, 0.95, '(B)', fontsize=8)
 for i, a in enumerate(ax.ravel()):
@@ -21,8 +21,6 @@ for i, a in enumerate(ax.ravel()):
     a.set_yticks([])
     if i < 2:
         a.set_xlabel(r'$\beta_0$', fontsize=8)
-        a.set_title(titles[i], fontsize=8,
-                    backgroundcolor=colors['pale_yellow'], y=1.08)
     else:
         a.set_xlabel(r'$\beta_1$', fontsize=8)
 
@@ -46,9 +44,9 @@ for i in range(2):
     _ = ax[1].fill_between(beta1_range, beta1_kde,
                            color=colors['light_' + color_key[i]], zorder=i+1, alpha=0.5)
 
-_ = ax[0].legend(fontsize=8, handlelength=1)
+_ = ax[0].legend(fontsize=8, handlelength=1, loc='upper left')
 plt.tight_layout()
 plt.savefig('../../figs/figS{}_logistic_posterior_distributions.png'.format(FIG_NO),
-            bbox_inches='tight')
+            bbox_inches='tight', dpi=300)
 plt.savefig('../../figs/figS{}_logistic_posterior_distributions.pdf'.format(FIG_NO),
-            bbox_inches='tight')
+            bbox_inches='tight', dpi=300)

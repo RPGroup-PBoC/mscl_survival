@@ -1,18 +1,18 @@
 
 ## DISCUSSION ##
 
-One of the most challenging endeavors in the biological sciences is
-linking the molecular details of cellular components to the larger scale
-physiology of the organism. This formidable task has perhaps been best
-met in the context of the central dogma where over half a century of
-thorough scientific dissection has left us with some sense of the
+&nbsp;&nbsp;&nbsp;&nbsp;One of the most challenging endeavors in the
+biological sciences is linking the molecular details of cellular components
+to the larger scale physiology of the organism. This formidable task has
+perhaps been best met in the context of the central dogma where over half a
+century of thorough scientific dissection has left us with some sense of the
 connection between the microscopic details and macroscopic consequences
-(CITATIONS). This by no means that we are “finished” with the central
-dogma, but it serves as a model by which we believe the other enumerable
-fascinating phenomena of life should be approached. The wide swath of
-structural, biochemical, and mechanical knowledge of mechanosensitive
-channels makes the phenomenon of osmoregulation a particularly
-attractive subject for such study.
+(CITATIONS). This by no means that we are “finished” with the central dogma,
+but it serves as a model by which we believe the other enumerable fascinating
+phenomena of life should be approached. The wide swath of structural,
+biochemical, and mechanical knowledge of mechanosensitive channels makes the
+phenomenon of osmoregulation a particularly attractive subject for such
+study.
 
 To our knowledge, this work represents the first attempt to
 quantitatively control the abundance of a single species of

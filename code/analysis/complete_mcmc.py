@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#%%
 import numpy as np
 import pandas as pd
 import pystan
@@ -58,10 +60,12 @@ data_dict = dict(J1=6, J2=2, N1=len(data[data['rbs'] == 'mlg910']), N2=len(data[
                  ntot=CHANNEL_NUM, sigma_ntot=CHANNEL_SEM,
                  survival=data[data['rbs'] != 'mlg910']['survival'].values.astype(int))
 
-# Sample
-samples = model.sampling(data=data_dict, iter=5000, chains=4)
+#%% Sample
+print('sampling...')
+samples = model.sampling(data=data_dict, iter=10000, chains=3)
+print('finished!')
 
-# Compute the statistics of each parameter.
+#%% Compute the statistics of each parameter.
 sample_df = mscl.mcmc.chains_to_dataframe(samples)
 stats = mscl.mcmc.compute_statistics(sample_df)
 sample_df.to_csv('../../data/csv/complete_mcmc_traces.csv', index=False)
@@ -93,12 +97,12 @@ shock_data.loc[:, 'calibration_factor'] = stats[stats['parameter']=='hyper_alpha
 shock_data.loc[:, 'minimum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_min'].values[0]
 shock_data.loc[:, 'maximum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_max'].values[0]
 
-median_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['median'].values[0] for i in range(6)]
-min_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_min'].values[0] for i in range(6)]
-max_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_max'].values[0] for i in range(6)]
-cal_data.loc[:, 'effective_channels'] = median_n
-cal_data.loc[:, 'minimum_channels'] = min_n
-cal_data.loc[:, 'maximum_channels'] = max_n
+# median_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['median'].values[0] for i in range(6)]
+# min_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_min'].values[0] for i in range(6)]
+# max_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_max'].values[0] for i in range(6)]
+# cal_data.loc[:, 'effective_channels'] = median_n
+# cal_data.loc[:, 'minimum_channels'] = min_n
+# cal_data.loc[:, 'maximum_channels'] = max_n
 
 cal_data.loc[:, 'calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['median'].values[0]
 cal_data.loc[:, 'minimum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_min'].values[0]
