@@ -1,7 +1,7 @@
 
 ## DISCUSSION ##
 
-**&nbsp;&nbsp;&nbsp;&nbsp;One of the most challenging endeavors in the
+&nbsp;&nbsp;&nbsp;&nbsp;One of the most challenging endeavors in the
 biological sciences is linking the microscopic details of cellular components
 to the macro-scale physiology of the organism. This formidable task has been
 met repeatedly throughout history, especially in the era of DNA sequencing
@@ -20,7 +20,7 @@ how gene dosage affects furrow positioning in *Drosophila* [@liu2013], how
 recombination of V(D)J gene segments generates an extraordinarily diverse
 antibody repertoire [@lovely2015; @schatz2004; @schatz2011], and how telomere
 shortening through DNA replication is intrinsically tied to cell senescence
-[@herbig2004; @victorelli2017], to name only a few of many such examples. **
+[@herbig2004; @victorelli2017], to name only a few of many such examples.
 
 &nbsp;&nbsp;&nbsp;&nbsp;This by no means that we are “finished” with any of
 these topics. Rather, it's quite the opposite in the sense that having a
@@ -40,7 +40,7 @@ survive an osmotic shock, irrespective of the shock rate. The second is that
 between 500 and 600 channels per cell are needed to provide $\geq 80\%$
 survival, depending on the shock rate.
 
-**&nbsp;&nbsp;&nbsp;&nbsp;Only recently has the relationship between the MscL
+&nbsp;&nbsp;&nbsp;&nbsp;Only recently has the relationship between the MscL
 copy number and the probability of survival been approached experimentally.
 In van den Berg et al. (2016), the authors examined the contribution of MscL
 to survival in a genetic background where all other known mechanosensitive
@@ -52,9 +52,9 @@ bulk assays. They report a nearly linear relationship between survival and
 copy number, with approximately 100 channels per cell conveying 100%
 survival. This number is significantly smaller than our observation of
 approximately 100 channels as the *minimum* number needed to convey any
-observable degree of survival.**
+observable degree of survival.
 
-**&nbsp;&nbsp;&nbsp;&nbsp; The disagreement between the numbers reported in
+&nbsp;&nbsp;&nbsp;&nbsp; The disagreement between the numbers reported in
 this work and in van den Berg et al. may partially arise from subtle
 differences in the experimental approach. The primary practical difference is
 the rate and magnitude of the osmotic shock. van den Berg et al. applied an
@@ -75,19 +75,21 @@ level. Connecting such a wide and complex distribution of copy numbers to
 single-cell physiology requires the consideration of moments beyond the mean
 which is a nontrivial task. Rather than trying to make such a connection, we
 queried survival at single-cell resolution at the expense of a lower
-experimental throughput.**
+experimental throughput.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Despite these experimental differences, the results
 of this work and van den Berg et al., are in agreement that MscL must be
-present at the level of 100 or more channels per cell in wild-type cells to convey
-appreciable survival. As both of these works were performed in a strain in
-which the only mechanosensitive channel was MscL, it remains unknown how the
-presence of the other channel species would alter the number of MscL needed
-for complete survival. To explore the contribution of another channel to survival, the mechanosensitive channel of small conductance MscS was also queried in van den Berg et al. The authors found that
-over the explored range of MscS channel copy numbers, the maximum survival
-rate was approximately 50\%. In our experiments, we observed a maximum
-survival probability of approximately 80\% even with close to 1000 MscL channels
-per cell. It is possible that the combined effort of the six other
+present at the level of 100 or more channels per cell in wild-type cells to
+convey appreciable survival. As both of these works were performed in a
+strain in which the only mechanosensitive channel was MscL, it remains
+unknown how the presence of the other channel species would alter the number
+of MscL needed for complete survival. To explore the contribution of another
+channel to survival, the mechanosensitive channel of small conductance MscS
+was also queried in van den Berg et al. The authors found that over the
+explored range of MscS channel copy numbers, the maximum survival rate was
+approximately 50\%. In our experiments, we observed a maximum survival
+probability of approximately 80\% even with close to 1000 MscL channels per
+cell. It is possible that the combined effort of the six other
 mechanosensitive channels would make up for some if not all of the remaining
 20\%. Both van den Berg et al. and this work show that there is still much to
 be learned with respect to the interplay between the various species of
