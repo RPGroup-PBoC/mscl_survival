@@ -1,39 +1,26 @@
 
 ## DISCUSSION ##
 
-&nbsp;&nbsp;&nbsp;&nbsp;One of the most challenging endeavors in the
-biological sciences is linking the molecular details of cellular components
-to the larger scale physiology of the organism. This formidable task has been
+**&nbsp;&nbsp;&nbsp;&nbsp;One of the most challenging endeavors in the
+biological sciences is linking the microscopic details of cellular components
+to the macro-scale physiology of the organism. This formidable task has been
 met repeatedly throughout history, especially in the era of DNA sequencing
-and single molecule biochemistry. For example, the curious 1950 observation of
-birefringence of anemic red blood cells coupled with their sickle shape
-suggested intracellular crystallization of some proteinaceous component, most likely hemoglobin [@perutz1950]. Intense genetic and
-biochemical dissection of hemoglobin from anemic cells revealed a single Glutamate to Valine
-amino acid substitution that lowered the energy barrier for precipitation upon a
-change in O$_2$ partial pressure [@finch1973]. This mutant form of hemoglobin
-now serves as a model system for understanding the dynamics of protein
-crystal formation [@feeling-taylor2004] in addition to serving as a testing
-ground for gene therapy [@bourzac2017]. Another example is the phenomenon of
-chemosensation and chemotaxis in bacteria. A physical model for the detection
-of minuscule changes in concentration across the length of a single *E. coli*
-cell was first proposed by Howard Berg and Edward Purcell in 1977
-[@berg1977]. Rather than sensing absolute number of molecules, this
-chemosensory system detects fold-changes in concentration allowing the cell
-to tune their motility in dynamic concentration gradients. This adaptation
-facilitated by the repeated methylation of the cytoplasmic domain of
-chemotaxis receptors [@sourjik2002, @colin2017]. Our knowledge of the
-molecular basis of these methylation modifications has allowed targeted
-mutagenesis of these residues with quantitative predictions of the
-chemotactic effect and has revealed that cooperative interactions between
-receptors can also modulate chemoreception [@krembel2015, @krembel2015a]. Finally, we turn to the central dogma which has long been a subject of quantitative dissection and serves
-as a stellar example of connecting microscopic details to macroscopic
-consequences. For example, the combination of biochemical experimentation and
-biophysical models have given us a picture of how gene dosage affects furrow
-positioning in *Drosophila* [@liu2013], how recombination of V(D)J gene
-segments generates an extraordinarily diverse antibody repertoire
-[@lovely2015; @schatz2004; @schatz2011], and how telomere shortening through
-DNA replication is intrinsically tied to cell senescence [@herbig2004;
-@victorelli2017], to name only a few of many examples.
+and single molecule biochemistry. For example, we as a scientific community have been able to connect
+sickle-cell anemia to a single amino acid substitution in Hemoglobin which
+promotes precipitation under a change in O$_2$ partial pressure
+[@feeling-taylor2004; @finch1973; @perutz1950]. We've assembled a physical
+model that quantitatively describes chemosensation in bacteria [@berg1977] in
+which the arbiter of sensory adaptation is the repeated methylation of
+chemoreceptors [@colin2017; @krembel2015a; @krembel2015; @sourjik2002]. In
+the past ~ 50 years alone, we've assembled biological and physical models of
+the many facets of the central dogma that give us a sense of the interplay
+between the genome and physiology. For example, the combination of
+biochemical experimentation and biophysical models have given us a picture of
+how gene dosage affects furrow positioning in *Drosophila* [@liu2013], how
+recombination of V(D)J gene segments generates an extraordinarily diverse
+antibody repertoire [@lovely2015; @schatz2004; @schatz2011], and how telomere
+shortening through DNA replication is intrinsically tied to cell senescence
+[@herbig2004; @victorelli2017], to name only a few of many such examples. **
 
 &nbsp;&nbsp;&nbsp;&nbsp;This by no means that we are “finished” with any of
 these topics. Rather, it's quite the opposite in the sense that having a
@@ -46,53 +33,53 @@ channel abundance is a key quantity that is missing from our toolbox of
 facts. To our knowledge, this work represents the first attempt to
 quantitatively control the abundance of a single species of mechanosensitive
 channel and examine the physiological consequences in terms of survival
-probability at single cell resolution. Our results reveal two notable
-quantities. First, out of the several hundred single cell measurements, we
+probability at single-cell resolution. Our results reveal two notable
+quantities. First, out of the several hundred single-cell measurements, we
 never observed a cell which had less than approximately 100 channels per cell
 survive an osmotic shock, irrespective of the shock rate. The second is that
 between 500 and 600 channels per cell are needed to provide $\geq 80\%$
 survival, depending on the shock rate.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Only recently has the relationship between the MscL
+**&nbsp;&nbsp;&nbsp;&nbsp;Only recently has the relationship between the MscL
 copy number and the probability of survival been approached experimentally.
 In van den Berg et al. (2016), the authors examined the contribution of MscL
 to survival in a genetic background where all other known mechanosensitive
 channels had been deleted from the chromosome and plasmid-borne expression of
-an MscL-mEos fusion was tuned through an IPTG inducible promoter
+an MscL-mEos3.2 fusion was tuned through an IPTG inducible promoter
 [@vandenberg2016]. In this work, they measured the single-cell channel
 abundance through super-resolution microscopy and queried survival through
 bulk assays. They report a nearly linear relationship between survival and
 copy number, with approximately 100 channels per cell conveying 100%
-survival. This number is in stark contrast with our observation of
+survival. This number is significantly smaller than our observation of
 approximately 100 channels as the *minimum* number needed to convey any
-observable degree of survival.
+observable degree of survival.**
 
-&nbsp;&nbsp;&nbsp;&nbsp; The disagreement between the numbers reported in
+**&nbsp;&nbsp;&nbsp;&nbsp; The disagreement between the numbers reported in
 this work and in van den Berg et al. may partially arise from subtle
-differences in the experimental approach. In their work, survival was
-measured through plating assays which represent the population average rather
-than the distribution of survival probability. While this approach provides valuable
-information regarding the response of a population to an osmotic shock,
-the high survival rate may be an artifact of a wide distribution of channel
-copies per cell in the population coupled with aggregation of cells in
-plating assays which may result in an under count of the total cell load.
-Bulk plating assays are notorious for large variance of cell counts between replicates. In van den
-Berg et al., the authors compute their error in survival probability to be
-approximately 15%, which is typical for these types of assays. This can lead
-to observed survival probabilities greater than 100%, underlining the need
-for single-cell methods of querying survival. Another source of disagreement
-may arise from the details of the expression system. As has been shown in
-this work, the expression of MscL from a chromosomal integration is noisy with a
-single strain exhibiting MscL copy numbers spanning an order of magnitude or more. In
-van den Berg et al., this variance is exacerbated by expression of MscL from
-an inducible plasmid as fluctuations in the gene copy number from plasmid
-replication and segregation influence the expression level. This increased
-variance leads to approximately a 40 - 50\% error in their measured channel
-copy number for a particular level of induction.
+differences in the experimental approach. The primary practical difference is
+the rate and magnitude of the osmotic shock. van den Berg et al. applied an
+approximately 600 mosm downshock in bulk at an undetermined rate whereas we
+applied a 1 osm downshock at controlled rates varying from 0.002 Hz to 2 Hz.
+In their work, survival was measured through plating assays which
+represent the population average rather than the distribution of survival
+probability. While this approach provides valuable information regarding the
+response of a population to an osmotic shock, the high survival rate may be
+an artifact of a wide distribution of channel copies per cell in the
+population coupled with bulk-scale measurement of survival. As has been shown
+in this work, the expression of MscL from a chromosomal integration is noisy
+with a single strain exhibiting MscL copy numbers spanning an order of
+magnitude or more. In van den Berg et al., this variance is exacerbated by
+expression of MscL from an inducible plasmid as fluctuations in the gene copy
+number from plasmid replication and segregation influence the expression
+level. Connecting such a wide and complex distribution of copy numbers to
+single-cell physiology requires the consideration of moments beyond the mean
+which is a nontrivial task. Rather than trying to make such a connection, we
+queried survival at single-cell resolution at the expense of a lower
+experimental throughput.**
 
 &nbsp;&nbsp;&nbsp;&nbsp;Despite these experimental differences, the results
 of this work and van den Berg et al., are in agreement that MscL must be
-present in the tune of $10^2$ channels per cell in wild-type cells to convey
+present at the level of 100 or more channels per cell in wild-type cells to convey
 appreciable survival. As both of these works were performed in a strain in
 which the only mechanosensitive channel was MscL, it remains unknown how the
 presence of the other channel species would alter the number of MscL needed
@@ -110,17 +97,17 @@ mechanosensitive channel as well as their regulation.
 rate of osmotic down shock are important factors in determining cell survival
 [@bialecka-fornal2015]. In this work, we show that this finding holds true
 for a single species of mechanosensitive channel, even at high levels of
-expression. One would näively expect that this rate-dependent effect would
+expression. One might naïvely expect that this rate-dependent effect would
 disappear once a certain threshold of channels had been met. Our experiments,
 however, show that even at nearly 1000 channels per cell the predicted
-survival curves for a slow ($< 1.0$ Hz) and fast($\geq 1.0$ Hz) are shifted
+survival curves for a slow ($< 1.0$ Hz) and fast ($\geq 1.0$ Hz) are shifted
 relative to each other with the fast shock predicting lower rates of
 survival. This suggests either we have not reached this threshold in our
 experiments or there is more to understand about the relationship between
 abundance, channel species, and the shock rate.
 
 &nbsp;&nbsp;&nbsp;&nbsp;A sizable suite of experimental and theoretical
-treatment suggests that only a few copies of MscL or MscS should be necessary for
+treatments suggests that only a few copies of MscL or MscS should be necessary for
 100% protection given our knowledge of the conductance and the maximal water
 flux through the channel in its open state [@louhivuori2010; @booth2014].
 However, recent proteomic studies have revealed average MscL copy numbers to be in the
@@ -139,6 +126,7 @@ novel single-cell and single-molecule methods, we will continue to collect
 more facts about this fascinating system and hopefully connect the molecular
 details of mechanosensation with perhaps the most important physiological
 response -- life or death.
+
 
 | Reported channels per cell | Method  | Reference |
 |:---|:---|:---:|
