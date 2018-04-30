@@ -60,8 +60,9 @@ data_dict = dict(J1=6, J2=len(shock_rates), N1=len(data[data['rbs'] == 'mlg910']
                  survival=data[data['rbs'] != 'mlg910']['survival'].values.astype(int))
 
 print('beginning sampling....')
-samples = model.sampling(data=data_dict, iter=2000, chains=4)
+samples = model.sampling(data=data_dict, iter=8000, chains=4, n_jobs=-1)
 print('finished!')
 
 # %%
-samples
+samples_df = mscl.mcmc.chains_to_dataframe(samples)
+samples.to_csv('../../data/csv/complete_mcmc_shock_rate_idx.csv')
