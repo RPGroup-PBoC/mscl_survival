@@ -63,7 +63,7 @@ data_dict = dict(J1=6, J2=2, N1=len(data[data['rbs'] == 'mlg910']), N2=len(data[
 
 #%% Sample
 print('sampling...')
-samples = model.sampling(data=data_dict, iter=10000, chains=4)
+samples = model.sampling(data=data_dict, iter=8000, chains=4, n_jobs=-1)
 print('finished!')
 
 #%% Compute the statistics of each parameter.
