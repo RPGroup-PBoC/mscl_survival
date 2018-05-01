@@ -65,4 +65,4 @@ print('finished!')
 
 # %%
 samples_df = mscl.mcmc.chains_to_dataframe(samples)
-samples.to_csv('../../data/csv/complete_mcmc_shock_rate_idx.csv')
+samples_df.to_csv('../../data/csv/complete_mcmc_shock_rate_idx.csv')

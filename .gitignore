@@ -18,3 +18,4 @@ __pycache__
 *.ai
 *egg*
 data/csv/complete_mcmc_traces.csv
+data/csv/complete_mcmc_shock_rate_idx.csv
