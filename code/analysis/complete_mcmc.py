@@ -33,6 +33,7 @@ shock_data.loc[:, 'shock_class'] = 'slow'
 shock_data.loc[shock_data['flow_rate'] >= 1.0, 'shock_class'] = 'fast'
 data = pd.concat([mlg910, shock_data], ignore_index=True)
 data.dropna(axis=1, inplace=True)
+
 # Insert the shock rate identifier.
 data.loc[:, 'idx'] = 0
 data.loc[data['shock_class'] == 'slow', 'idx'] = 1
@@ -62,7 +63,7 @@ data_dict = dict(J1=6, J2=2, N1=len(data[data['rbs'] == 'mlg910']), N2=len(data[
 
 #%% Sample
 print('sampling...')
-samples = model.sampling(data=data_dict, iter=10000, chains=3)
+samples = model.sampling(data=data_dict, iter=10000, chains=4)
 print('finished!')
 
 #%% Compute the statistics of each parameter.
@@ -97,18 +98,6 @@ shock_data.loc[:, 'calibration_factor'] = stats[stats['parameter']=='hyper_alpha
 shock_data.loc[:, 'minimum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_min'].values[0]
 shock_data.loc[:, 'maximum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_max'].values[0]
 
-# median_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['median'].values[0] for i in range(6)]
-# min_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_min'].values[0] for i in range(6)]
-# max_n = [stats[stats['parameter']=='n_sc__{}'.format(i)]['hpd_max'].values[0] for i in range(6)]
-# cal_data.loc[:, 'effective_channels'] = median_n
-# cal_data.loc[:, 'minimum_channels'] = min_n
-# cal_data.loc[:, 'maximum_channels'] = max_n
-
-cal_data.loc[:, 'calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['median'].values[0]
-cal_data.loc[:, 'minimum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_min'].values[0]
-cal_data.loc[:, 'maximum_calibration_factor'] = stats[stats['parameter']=='hyper_alpha_mu']['hpd_max'].values[0]
-cal_data.drop(axis=1, labels=['exposure_ms', 'mean_bg', 'idx', 'intensity', 'replicate_number', 'shock_class'], inplace=True)
-#
 # Save the final dataframe.
 shock_data.to_csv('../../data/csv/mscl_survival_data.csv', index=False)
-cal_data.to_csv('../../data/csv/standard_candle_data.csv', index=False)
+

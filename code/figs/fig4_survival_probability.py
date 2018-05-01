@@ -12,8 +12,8 @@ import mscl.plotting
 import mscl.stats
 colors = mscl.plotting.set_plotting_style()
 FIG_NO = 4
-
 MAX_EXP = 100
+
 # # Load the dataset.
 data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
 
@@ -86,14 +86,14 @@ for j, exp in enumerate([slow_data, fast_data]):
         _ = a.plot(_g['effective_channels'], _y,  'k.',  ms=1.5, alpha=0.2)
         
 # Plot data binned by strain
-bin_width=50
+bin_width = 75 
 for i, exp in enumerate([slow_data, fast_data]):
     grouped = exp.groupby('rbs').apply(compute_mean_sem)
     _ = ax[i + 2].errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'],
                            yerr=grouped['prob_err'], color=colors['red'], lw=1, linestyle='none',
-                           marker='.', ms=4, zorder=100, label='1 SD/bin')
+                           marker='.', ms=4, zorder=100, label='1 mutant / bin')
     binned = mscl.stats.density_binning(
-        exp, bin_width=bin_width, groupby='shock_class', input_key='effective_channels', min_cells=25)
+        exp, bin_width=bin_width, groupby='shock_class', input_key='effective_channels', min_cells=30)
     grouped = binned.groupby('bin_number').apply(compute_mean_sem)
     _ = ax[i + 2].errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'],
                            yerr=grouped['prob_err'], color='#4b4b4b', lw=1, linestyle='none',

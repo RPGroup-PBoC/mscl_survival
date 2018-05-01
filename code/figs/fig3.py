@@ -43,21 +43,20 @@ for a in ax:
     a.yaxis.set_tick_params(labelsize=8)
 
 for g, d in grouped:
-    # Compute the ECDF.
-    sorted_d = d.sort_values(['effective_channels'])
+    # Compute the ECDF
     x, y = mscl.stats.ecdf(d['effective_channels'])
-    xmin = sorted_d['maximum_channels'] 
-    xmax = sorted_d['minimum_channels'] 
+    xmax = np.sort(d['maximum_channels'])
+    xmin = np.sort(d['minimum_channels'])
     _ = ax[0].hist(d['effective_channels'], bins=bins, color=color_dict[g], alpha=alpha_dict[g],
                    edgecolor='k', normed=True, label=label_dict[g],
                    zorder=zorder_dict[g], histtype='stepfilled')
     _ = ax[1].plot(x, y, '.', ms=2, color=color_dict[g], label='__nolegend__')
     _ = ax[1].fill_betweenx(y, xmin, xmax, color=color_dict[g], alpha=0.3, zorder=100)
-    # _ = ax[1].plot(xmin, y, '-', lw=1, color=color_dict[g], label='__nolegend__')
-    # _ = ax[1].plot(xmax, y, '-', lw=1, color=color_dict[g], label='__nolegend__')
+    _ = ax[1].plot(xmin, y, '-', lw=0.5, color=color_dict[g], label='__nolegend__')
+    _ = ax[1].plot(xmax, y, '-', lw=0.5, color=color_dict[g], label='__nolegend__')
     _ = ax[1].plot([], [], '-', marker='.', color=color_dict[g],
                    label=label_dict[g])
-
+sorted_d
 # Shade the 100% observed death range.
 ax[0].fill_betweenx(np.linspace(0, 0.011, 300), -10,
                     np.min(shock_data[shock_data['survival']
@@ -73,8 +72,8 @@ ax[1].fill_betweenx(np.linspace(-0, 1.01, 300), -10,
 
 
 # Add the legend and clean up the figure.
-ax[0].legend(fontsize=8)
-ax[1].legend(fontsize=8, loc='lower right')
+ax[0].legend(fontsize=10)
+ax[1].legend(fontsize=10, loc='lower right')
 ax[0].set_ylim([0, 0.011])
 ax[1].set_ylim([-0.01, 1.01])
 ax[1].set_xlim([-10, 850])
@@ -82,3 +81,44 @@ ax[0].set_xlim([-10, 850])
 plt.tight_layout()
 plt.savefig('../../figs/fig{}.pdf'.format(FIG_NO))
 plt.savefig('../../figs/fig{}.png'.format(FIG_NO))
+
+
+#%% Generate the same plots but separated by shock rate.
+grouped = shock_data.groupby(['shock_class', 'survival'])
+
+# Set up the figure canvas.
+fig, ax = plt.subplots(1, 2, figsize=(6, 3.5))
+fig.text(0, 0.93, '(A)', fontsize=10)
+fig.text(0.5, 0.93, '(B)', fontsize=10)
+axes = {'slow': ax[0], 'fast': ax[1]}
+for g, d in grouped:
+    # Compute the ecdf.
+    y = np.arange(0, len(d), 1) / len(d)
+    x_median = np.sort(d['effective_channels'])
+    x_min = np.sort(d['minimum_channels'])
+    x_max = np.sort(d['maximum_channels'])
+
+    # Plot the ecdf.
+    axes[g[0]].plot(x_median, y, '.', ms=2, color=color_dict[g[1]], label='__nolegend__')
+    axes[g[0]].fill_betweenx(y, x_min, x_max, color=color_dict[g[1]], alpha=0.3, label='__nolegend__')
+    axes[g[0]].plot(x_max, y, '-', lw=1, color=color_dict[g[1]], label=label_dict[g[1]])
+    axes[g[0]].plot(x_min, y, '-', lw=1, color=color_dict[g[1]], label='__nolegend__')
+    min_surv = np.min(x_median)
+    print(g, min_surv)
+
+    if g[1] == 1:
+        axes[g[0]].fill_betweenx(np.linspace(0, 1, 300), 0, min_surv , color=colors['light_red'], alpha=0.5)
+
+ax[0].legend()    
+for a in ax:
+    a.set_xlim([shock_data['effective_channels'].min(), shock_data['effective_channels'].max()])
+    a.set_ylim([0, 1])
+    a.set_xlabel('effective channels per cell') 
+    a.set_ylabel('cumulative distribution')
+ax[0].set_title('slow shock ($<$ 1.0 Hz)', backgroundcolor=colors['pale_yellow'], y=1.04, fontsize=10)
+ax[1].set_title('fast shock ($\geq$ 1.0 Hz)', backgroundcolor=colors['pale_yellow'], y=1.04, fontsize=10)
+plt.tight_layout()
+plt.savefig('../../figs/fig{}_shock_separation.pdf'.format(FIG_NO), bbox_inches='tight')
+plt.savefig('../../figs/fig{}_shock_separation.png'.format(FIG_NO), bbox_inches='tight')
+
+shock_data[shock_data['calibration_factor'] > 3000].date.unique()
