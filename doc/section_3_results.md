@@ -8,27 +8,28 @@ under a hypo-osmotic shock. While this procedure could be performed for any
 species of channel, we chose MscL as it is the most well characterized and
 the most abundant species of mechanosensitive channel in *E. coli*. To probe
 the contribution of MscL alone, we generated an *E. coli* strain in which all
-seven known mechanosensitive channel genes were deleted from the chromosome.
-A single copy of an *mscL* gene encoding an MscL super-folder GFP (sfGFP)
-fusion was then integrated back into the chromosome, removing fluctuations in
-gene copy number as a contributor to noise in gene expression. Fluorescent
-protein fusions have frequently been used to study MscL and have been shown
-through electrophysiology to function identically to the native MscL protein,
-allowing us to confidently draw conclusions about the role this channel plays
-in wild-type cells from our measurements. [@bialecka-fornal2012;
-@norman2005].
+seven known mechanosensitive channel genes were deleted from the chromosome
+followed by the integration of an *mscL* gene encoding an MscL super-folder
+GFP (sfGFP) fusion. Chromosomal integration imposes strict control on the
+gene copy number compared to plasmid borne expression systems, which is
+important to minimize variation in channel expression across the population.
+Fluorescent protein fusions have frequently been used to study MscL and have
+been shown through electrophysiology to function identically to the native
+MscL protein, allowing us to confidently draw conclusions about the role this
+channel plays in wild-type cells from our measurements.
+[@bialecka-fornal2012; @norman2005].
 
- &nbsp;&nbsp;&nbsp;&nbsp;To modulate the number of MscL channels per cell, we
- developed a series of Shine-Dalgarno (SD) sequence mutants which were
- designed to decrease the expression relative to wild-type (Fig. S1). These
- changes involved direct alterations of the SD sequence as well as the
- inclusion of AT hairpins of varying length directly upstream of the start
- codon. The six SD sequences used in this work were designed using the RBS
- binding site strength calculator from the Salis Laboratory at the
- Pennsylvania State University, the details of which are described in the
- supplemental information (*Design of Shine-Dalgarno Sequences*)
- [@espahborujeni2014; @salis2009]. While the designed SD sequence mutations decreased the expression relative to wild-type, the distribution of expression is remarkably wide. The expression of these SD mutants spans
- an order of magnitude and are shown in Fig. 2A.
+&nbsp;&nbsp;&nbsp;&nbsp;To modulate the number of MscL channels per cell, we
+developed a series of Shine-Dalgarno (SD) sequence mutants which were
+designed to decrease the expression relative to wild-type (Fig. S1). These
+changes involved direct alterations of the SD sequence as well as the
+inclusion of AT hairpins of varying length directly upstream of the start
+codon. The six SD sequences used in this work were designed using the RBS
+binding site strength calculator from the Salis Laboratory at the
+Pennsylvania State University, and are shown in Fig S1 [@espahborujeni2014;
+@salis2009]. While the designed SD sequence mutations decreased the
+expression relative to wild-type, the distribution of expression is
+remarkably wide spanning an order of magnitude, as is shown in [@Fig:boxplot]A.
 
  &nbsp;&nbsp;&nbsp;&nbsp;To measure the number of MscL channels per cell, we
  determined a fluorescence calibration factor to translate arbitrary
@@ -43,15 +44,15 @@ in wild-type cells from our measurements. [@bialecka-fornal2012;
  single-molecule photobleaching and quantitative Western blotting to probe
  the expression of MscL-sfGFP under a wide range of growth conditions. To
  compute a calibration factor, we used one these strains, (MLG910), as a
- "standard candle" and highlighted in yellow in [@Fig:boxplot]A. This
+ "standard candle" and is highlighted in yellow in [@Fig:boxplot]A. This
  standard candle strain was grown in identical conditions in which the MscL
  count was determined and was imaged in the same manner as the osmotic
  challenge assays presented in this work. The calibration factor was computed
- by dividing the mean total cell fluorescence by the known MscL copy
- number, resulting in a measure of arbitrary fluorescence units per MscL
- channel. Details regarding this calculation and appropriate propagation of
- error can be found in the Materials & Methods as well as the Supplemental
- Information (*Standard Candle Calibration*).
+ by dividing the mean total cell fluorescence by the known MscL copy number,
+ resulting in a measure of arbitrary fluorescence units per MscL channel.
+ Details regarding this calculation and appropriate propagation of error can
+ be found in the Materials & Methods as well as the Supplemental Information
+ (*Standard Candle Calibration*).
 
  &nbsp;&nbsp;&nbsp;&nbsp;While it is seemingly trivial to use this
  calibration to determine the total number of channels per cell for wild-type
@@ -62,7 +63,7 @@ in wild-type cells from our measurements. [@bialecka-fornal2012;
  abundant. (Fig S2 A). This morphological defect has been observed when
  altering the abundance of several species of mechanosensitive channels,
  suggesting that they play an important role in general architectural
- stability [@bialecka-fornal2012]. As these aberrant morphologies can vary
+ stability [@bialecka-fornal2012; @bialecka-fornal2015]. As these aberrant morphologies can vary
  widely in size and shape, calculating the number of channels per cell
  becomes more nuanced. For example, taking the total MscL copy number for
  these cells could skew the final calculation of survival probability as a
@@ -80,20 +81,19 @@ for our suite of SD mutants are shown in [@Fig:boxplot] B. The expression of
 these strains cover nearly three orders of magnitude with the extremes
 ranging from approximately four channels per cell to nearly one thousand.
 While the means of each strain are somewhat distinct, the distributions show
-a large degree of overlap, making one particular strain nearly
+a large degree of overlap, making one strain nearly
 indistinguishable from another. This variance is a quantity that is lost in
 the context of bulk scale experiments but can be accounted for via
 single-cell methods.
 
 ![**Control of MscL expression and calculation of channel
 copy number.** (A) Variability in expression across designed SD
-mutants. The boxes represent the interquartile region of the
+mutants. (B) Variability in effective channel copy number is computed using the
+standard candle. The boxes represent the interquartile region of the
 distribution, the center line displays the median, and the whiskers
 represent 1.5 times the maximum and minimum of the interquartile region.
 Individual measurements are denoted as black points. The strain used for
-calibration of channel copy number (MLG910) is highlighted. (B)
-Variability in effective channel copy number are computed using the
-standard candle in highlighted in (A).](../figs/fig2.png){#fig:boxplot}
+calibration of channel copy number (MLG910) is highlighted. ](../figs/fig2.pdf){#fig:boxplot}
 
 ### Performing a single-cell hypo-osmotic challenge assay ###
 
@@ -130,23 +130,22 @@ treated as an individual experiment. The hypo-osmotic shock applied in these
 experiments was varied across a range of 0.002 Hz to 2Hz. Rather than
 pooling this wide range of shock rates into a single data set, we chose to
 separate the data into a “slow shock” ( &lt; 1.0 Hz) and “fast shock” ($\geq
-1.0$ Hz) grouping. The cumulative distributions of channel copy number
+1.0$ Hz) grouping. Other groupings of shock rate were explored and are discussed in the supplemental information (*Coarse Graining Shock Rate*). The cumulative distributions of channel copy number
 separated by survival are shown in [@Fig:survival_dists]. In these
 experiments, survival was never observed for a cell containing less than
 approximately 100 channels per cell, indicated by the red stripe in
-[@Fig:survival_dists]. This suggests that a notably large number of channels
-are required for survival. We also observe a slight shift in the surviving
+[@Fig:survival_dists]. This suggests that there is a minimum number of channels needed for survival on the order of 100 per cell. We also observe a slight shift in the surviving
 fraction of the data towards higher effective copy number, which matches our
 intuition that including more mechanosensitive channels increases the
 survival probability.
 
-![**Distributions of survival and death as a function of effective channel number.** (A) Empirical cumulative distributions of channel copy number separated by survival (green) or death (purple) after a slow ($< 1.0$ Hz) osmotic shock. (B) The empirical cumulative distribution for a fast ($\geq 1.0$ Hz) osmotic shock.  Shaded regions represnt the 95% credible region of the effective channel number calculation for each cell.](../figs/fig4.png){#Fig:survival_dists}
+![**Distributions of survival and death as a function of effective channel number.** (A) Empirical cumulative distributions of channel copy number separated by survival (green) or death (purple) after a slow ($< 1.0$ Hz) osmotic shock. (B) The empirical cumulative distribution for a fast ($\geq 1.0$ Hz) osmotic shock.  Shaded green and purple regions represent the 95% credible region of the effective channel number calculation for each cell. Shaded red stripe signifies the range of channels in which no survival was observed.](../figs/fig4.png){#fig:survival_dists}
 
 ### Prediction of survival probability as a function of channel copy number
 
 &nbsp;&nbsp;&nbsp;&nbsp;There are several ways by which the survival
 probability can be calculated. The most obvious approach would be to group
-each individual Shine-Dalgarno mutant as a single bin and compute the average
+each individual SD mutant as a single bin and compute the average
 MscL copy number and the survival probability. Binning by strain is the most
 frequently used approach for such measurements and has provided valuable
 insight into the qualitative relationship of survival on other physiological
@@ -155,12 +154,10 @@ distribution for each SD mutant ([@Fig:boxplot]B) is remarkably wide and
 overlaps with the other strains. We argue that this coarse-grained binning
 negates the benefits of performing single-cell measurements as two strains
 with different means but overlapping quartiles would be treated as distinctly
-different distributions. While this approach may be sufficient to provide a
-sense of the qualitative trend, it is exceedingly difficult to extrapolate
-the survival curve outside of the observed regions.
+different distributions. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Another approach would be to pool all data together, irrespective of
-Shine-Dalgarno modification, and bin by an arbitrary range of channels.
+the SD mutation, and bin by an arbitrary range of channels.
 Depending on the width of the bin, this could allow for finer resolution of
 the quantitative trend, but the choice of the bin width is arbitrary with the
 *a priori* knowledge that is available. Drawing a narrow bin width can easily
@@ -168,7 +165,7 @@ restrict the number of observed events to small numbers where the statistical
 precision of the survival probability is lost. On the other hand, drawing wide bins increases
 the precision of the estimate, but becomes further removed from a true
 single-cell measurement and represents a population mean, even though it may
-be a smaller population than binning by the Shine-Dalgarno sequence alone.
+be a smaller population than binning by the SD sequence alone. In both of these approaches, it is difficult to extrapolate the quantitative trend outside of the experimentally observed region of channel copy number. Here, we present a method to estimate the probability of survival for any channel copy number, even those that lie outside of the experimentally queried range.
 
  &nbsp;&nbsp;&nbsp;&nbsp;To quantify the survival probability while
 maintaining single-cell resolution, we chose use a logistic regression model
@@ -176,11 +173,11 @@ which does not rely on grouping data into arbitrary bins and treats each cell me
 independent experiment. Logistic regression is an inferential method to model
 the probability of a boolean or categorical event (such as survival or death)
 given one or several predictor variables and is commonly used in medical
-statistics to compute survival rates and dose response curves [@anderson2003,
+statistics to compute survival rates and dose response curves [@anderson2003;
 @mishra2016]. The primary assumption of logistic regression is that the
 log-odds probability of survival $p_{s}$ is linearly dependent on the
 predictor variable, in our case the number of channels per cell $N_{c}$ with
-a dimensionless slope $\beta_0$ and intercept $\beta_1$,
+a dimensionless intercept $\beta_0$ and slope $\beta_0$, 
 $$
 \log{p_s \over 1 - p_s} = \beta_0 + \beta_1 N_c.
 $${#eq:linear_channel_logit}
@@ -200,37 +197,48 @@ In this analysis, we used Bayesian inferential methods to determine the
 most likely values of the coefficients and is described in detail in the
 supplemental information (*Logistic Regression*).
 
- &nbsp;&nbsp;&nbsp;&nbsp; The results of the logistic
-regression are shown in [@Fig:survival]. We see a slight rightward shift the survival
-probability curve under fast shock relative to the slow shock case,
-reaffirming the conclusion that survival is also dependent on the rate of
-osmotic shock [@bialecka-fornal2015]. These results show that a large number
-of channels are required to provide appreciable protection. For a survival
-probability of 80% (the apparent upper limit in our experiments), a cell must
-have approximately 600 or 800 channels per cell for a fast and slow shock,
-respectively. Furthermore, the curves in [@Fig:survival] suggest survival in the
-presence of MscL alone is dependent on the rate of osmotic downshock. This
-rate dependence has not been observed for cells expressing MscL alongside
-other species of mechanosensitive channels, potentially highlighting a role
-they play in concert with MscL. To ensure that the results from logistic
-regression accurately describe the data, we can compare the survival
-probabilities to those using the binning methods described above (red and
-black points, [@Fig:survival]). Nearly all binned data fall within error of the
-prediction, suggesting that this approach accurately reflects the survival
-probability and gives license to extrapolate the estimation of survival probability to regions of outside of our experimentally explored copy number regime.
+ &nbsp;&nbsp;&nbsp;&nbsp; The results of the logistic regression are shown in
+ [@Fig:survival]. We see a slight rightward shift the survival probability
+ curve under fast shock relative to the slow shock case, reaffirming the
+ conclusion that survival is also dependent on the rate of osmotic shock
+ [@bialecka-fornal2015]. This rate dependence has been observed for cells
+ expressing MscL alongside other species of mechanosensitive channels, but
+ not for MscL alone. This suggests that MscL responds differently to
+ different rates of shock, highlighting the need for further study of rate
+ dependence and the coordination between different species of mechanosensitive
+ channels. These results show that several hundred of channels are required
+ to provide appreciable protection. For a survival probability of 80% (the
+ apparent upper limit in our experiments), a cell must have approximately 500
+ to 700 channels per cell for a fast and slow shock, respectively.
+ Furthermore, the curves in [@Fig:survival] suggest survival in the presence
+ of MscL alone is dependent on the rate of osmotic downshock. TTo ensure that
+ the results from logistic regression accurately describe the data, we can
+ compare the survival probabilities to those using the binning methods
+ described above (red and black points, [@Fig:survival]). Nearly all binned
+ data fall within error of the prediction (see Materials & Methods for
+ derivation of error bars), suggesting that this approach accurately reflects
+ the survival probability and gives license to extrapolate the estimation of
+ survival probability to regions of outside of our experimentally explored
+ copy number regime.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Thus far, we’ve dictated that the survival
-probability is dependent only on the number of channels. In Fig. S4, we show
-the result of including other predictor variables, such as area, as well as including quadratic dependence on channel copy number. In such cases,
+&nbsp;&nbsp;&nbsp;&nbsp;Thus far, we’ve dictated that for a given rate of
+osmotic shock (i.e. "fast" or "slow"), the survival probability is dependent
+only on the number of channels. In Fig. S4, we show the result of including
+other predictor variables, such as area and shock rate alone. In such cases,
 including other predictors resulted in pathological curves showing that
 channel copy number is the most informative out of the available predictor
 variables.
 
-![**Probability of survival as a function of MscL copy number.** Predicted
-survival probabilities from a one-dimensional logistic regression for a slow
-(A) and fast (B) shock rate. Shaded regions represent the 95^th^ percent
-credible regions. Points at the top and bottom of plots represent individual
-cell measurements which survived and died, respectively. The red and black
-points correspond to the survival probability estimated via binning by SD sequence 
-and binning by groups of 50 channels per cell,
-respectively.](../figs/fig5.png){#fig:survival}
+![**Probability of survival as a function of MscL copy number.** (A)
+Estimated survival probability for survival under slow shock as a function of
+channel copy number. (B) The estimated survival probability of survival under
+a fast shock as a function of channel copy number. Solid curves correspond to
+the most probable survival probability from a one-dimensional logistic
+regression. Shaded regions represent the 95\% credible regions. Points at the
+top and bottom of plots represent individual cell measurements which survived
+and died, respectively. The red and black points correspond to the survival
+probability estimated via binning by SD sequence and binning by groups of 50
+channels per cell, respectively. Horizontal error bars represent the standard
+error of the mean from at least 25 measurements. Vertical error bars
+represent the certainty of the probability estimate given $n$ survival events
+from $N$ measurements.](../figs/fig5.png){#fig:survival}
