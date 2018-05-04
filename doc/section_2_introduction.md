@@ -18,21 +18,26 @@ processes play in the greater context of physiology [@bavi2016;
 @bialecka-fornal2012; @bialecka-fornal2015; @edwards2012; @naismith2012;
 @ursell2008; @vandenberg2016].
 
- &nbsp;&nbsp; &nbsp; &nbsp;Of the seven channels in *E. coli*, the mechanosensitive channel of large
-conductance (MscL) is the most abundant and the best characterized. This
-channel has a large conductance (3 nS) and is capable of mediating the flux  of water molecules across the membrane [@haswell2011]. Molecular dynamics simulations indicate that a single open MscL channel permits the flux of $4 \times 10^9$ water molecules per second, which is an order of magnitude larger than a single aquaporin channel [@louhivuori2010,  @milo2010, - BNID100479].
-This suggests that having only a few channels per cell could be sufficient to
-relieve even large changes in membrane tension. Electrophysiological
-experiments have suggested a small population of channels per cell
-[@booth2005; @hase1997], however, more recent approaches using quantitative
-western blotting, fluorescence microscopy, and proteomics have measured
-several hundred MscL per cell [@bialecka-fornal2012;
-@schmidt2016; @soufi2015]. To further complicate matters, the expression
-profile of MscL appears to depend on growth phase, available carbon source,
-and other environmental challenges [@bialecka-fornal2012, @schmidt2016;
-@soufi2015; @stokes2003a]. While there are likely more than just a few
-channels per cell, why cells seem to need so many and the biological
-rationale behind their condition-dependent expression both remain a mystery.
+ &nbsp;&nbsp; &nbsp; &nbsp;Of the seven channels in *E. coli*, the
+ mechanosensitive channel of large conductance (MscL) is the most abundant
+ and the best characterized. This channel has a large conductance (3 nS) and
+ is capable of mediating the flux of water molecules across the membrane
+ [@haswell2011]. Molecular dynamics simulations indicate that a single open
+ MscL channel permits the flux of $4 \times 10^9$ water molecules per second,
+ which is an order of magnitude larger than a single aquaporin channel
+ [@louhivuori2010, @milo2010, - BNID100479]. This suggests that having only a
+ few channels per cell could be sufficient to relieve even large changes in
+ membrane tension. Electrophysiological experiments have suggested a small
+ population of channels per cell [@booth2005; @hase1997], however, more
+ recent approaches using quantitative western blotting, fluorescence
+ microscopy, and proteomics have measured several hundred MscL per cell
+ [@bialecka-fornal2012; @schmidt2016; @soufi2015]. To further complicate
+ matters, the expression profile of MscL appears to depend on growth phase,
+ available carbon source, and other environmental challenges
+ [@bialecka-fornal2012, @schmidt2016; @soufi2015; @stokes2003a]. While there
+ are likely more than just a few channels per cell, why cells seem to need so
+ many and the biological rationale behind their condition-dependent
+ expression both remain a mystery.
 
  &nbsp;&nbsp;&nbsp; &nbsp; While the copy numbers are known, their connection
  to survival is understudied. Drawing such a direct connection between

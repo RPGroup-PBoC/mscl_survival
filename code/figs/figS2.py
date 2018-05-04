@@ -21,20 +21,20 @@ fig, ax = plt.subplots(1, 2, figsize=((6, 3)))
 for a in ax:
     a.xaxis.set_tick_params(labelsize=8)
     a.yaxis.set_tick_params(labelsize=8)
-    a.set_xlabel('projected cell area [µm$^2$]', fontsize=8)
+    a.set_xlabel('projected cell area [µm$^2$]', fontsize=10)
     a.set_yscale('log')
     a.set_ylim([5, 1E4])
 
 
 # Labels and titles
-ax[0].set_title('total channel count', fontsize=8, backgroundcolor='#FFEDCE',
+ax[0].set_title('total channel count', fontsize=10, backgroundcolor='#FFEDCE',
                 y=1.05)
-ax[1].set_title('effective channel count', fontsize=8,
+ax[1].set_title('effective channel count', fontsize=10,
                 backgroundcolor='#FFEDCE', y=1.05)
-ax[0].set_ylabel('total channels per cell', fontsize=8)
-ax[1].set_ylabel('effective channels per cell', fontsize=8)
-fig.text(0, 0.92, '(B)', fontsize=8)
-fig.text(0.5, 0.92, '(C)', fontsize=8)
+ax[0].set_ylabel('total channels per cell', fontsize=10)
+ax[1].set_ylabel('effective channels per cell', fontsize=10)
+fig.text(0, 0.92, '(B)', fontsize=10)
+fig.text(0.5, 0.92, '(C)', fontsize=10)
 
 # Plotting
 color_dict = {True: colors['green'], False: colors['purple']}
@@ -44,8 +44,8 @@ for g, d in grouped:
                    color=color_dict[g], ms=4, alpha=0.5, label=label_dict[g])
     _ = ax[1].plot(d['area'], d['effective_channels'], '.', color=color_dict[g],
                    ms=4, alpha=0.5, label=label_dict[g])
-_ = ax[0].legend(fontsize=8)
+_ = ax[0].legend(fontsize=10)
 
 plt.tight_layout()
-# plt.savefig('../../figs/figSX{}.svg'.format(FIG_NO), bbox_inches='tight')
-plt.savefig('../figs/figSX{}.png'.format(FIG_NO), bbox_inches='tight')
+plt.savefig('../../figs/figS{}.pdf'.format(FIG_NO), bbox_inches='tight')
+plt.savefig('../figs/figS{}.png'.format(FIG_NO), bbox_inches='tight', dpi=300)

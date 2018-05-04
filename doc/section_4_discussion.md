@@ -4,8 +4,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;One of the most challenging endeavors in the
 biological sciences is linking the microscopic details of cellular components
 to the macro-scale physiology of the organism. This formidable task has been
-met repeatedly throughout history, especially in the era of DNA sequencing
-and single molecule biochemistry. For example, we as a scientific community have been able to connect
+met repeatedly in the recent history or biology, especially in the era of DNA sequencing
+and single molecule biochemistry. For example, the scientific community has been able to connect
 sickle-cell anemia to a single amino acid substitution in Hemoglobin which
 promotes precipitation under a change in O$_2$ partial pressure
 [@feeling-taylor2004; @finch1973; @perutz1950]. We've assembled a physical
@@ -20,7 +20,7 @@ how gene dosage affects furrow positioning in *Drosophila* [@liu2013], how
 recombination of V(D)J gene segments generates an extraordinarily diverse
 antibody repertoire [@lovely2015; @schatz2004; @schatz2011], and how telomere
 shortening through DNA replication is intrinsically tied to cell senescence
-[@herbig2004; @victorelli2017], to name only a few of many such examples.
+[@herbig2004; @victorelli2017], to name just a few of many such examples.
 
 &nbsp;&nbsp;&nbsp;&nbsp;This by no means that we are “finished” with any of
 these topics. Rather, it's quite the opposite in the sense that having a
@@ -28,8 +28,8 @@ handle on the biophysical knobs that tune the behavior opens the door to a
 litany of new scientific questions. In the case of mechanosenstaion and
 osmoregulation, we have only recently been able to determine some of the
 basic facts that allow us to approach this fascinating biological phenomenon
-using the tools of physics. The dependence of survival on mechanosensitive
-channel abundance is a key quantity that is missing from our toolbox of
+biophysically. The dependence of survival on mechanosensitive
+channel abundance is a key quantity that is missing from our collection of critical
 facts. To our knowledge, this work represents the first attempt to
 quantitatively control the abundance of a single species of mechanosensitive
 channel and examine the physiological consequences in terms of survival
@@ -58,8 +58,8 @@ observable degree of survival.
 this work and in van den Berg et al. may partially arise from subtle
 differences in the experimental approach. The primary practical difference is
 the rate and magnitude of the osmotic shock. van den Berg et al. applied an
-approximately 600 mosm downshock in bulk at an undetermined rate whereas we
-applied a 1 osm downshock at controlled rates varying from 0.002 Hz to 2 Hz.
+approximately 600 mOsm downshock in bulk at an undetermined rate whereas we
+applied a 1 Osm downshock at controlled rates varying from 0.002 Hz to 2 Hz.
 In their work, survival was measured through plating assays which
 represent the population average rather than the distribution of survival
 probability. While this approach provides valuable information regarding the
@@ -83,17 +83,20 @@ present at the level of 100 or more channels per cell in wild-type cells to
 convey appreciable survival. As both of these works were performed in a
 strain in which the only mechanosensitive channel was MscL, it remains
 unknown how the presence of the other channel species would alter the number
-of MscL needed for complete survival. To explore the contribution of another
-channel to survival, the mechanosensitive channel of small conductance MscS
-was also queried in van den Berg et al. The authors found that over the
-explored range of MscS channel copy numbers, the maximum survival rate was
-approximately 50\%. In our experiments, we observed a maximum survival
-probability of approximately 80\% even with close to 1000 MscL channels per
-cell. It is possible that the combined effort of the six other
-mechanosensitive channels would make up for some if not all of the remaining
-20\%. Both van den Berg et al. and this work show that there is still much to
-be learned with respect to the interplay between the various species of
-mechanosensitive channel as well as their regulation.
+of MscL needed for complete survival. In our experiments, we observed a
+maximum survival probability of approximately 80\% even with close to 1000
+MscL channels per cell. It is possible that the combined effort of the six
+other mechanosensitive channels would make up for some if not all of the
+remaining 20\%. To explore the contribution of another channel to survival,
+van den Berg et al. also queried the contribution of MscS, another
+mechanosensitive channel, to survival in the absence of any other species of
+mechansensitive channel. It was found that over the explored range of MscS
+channel copy numbers, the maximum survival rate was approximately 50\%,
+suggesting that different mechanosensitive channels have an upper limit to
+how much protection they can convey. Both van den Berg et al. and our work
+show that there is still much to be learned with respect to the interplay
+between the various species of mechanosensitive channel as well as their
+regulation.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Recent work has shown that both magnitude and the
 rate of osmotic down shock are important factors in determining cell survival
@@ -108,7 +111,7 @@ survival. This suggests either we have not reached this threshold in our
 experiments or there is more to understand about the relationship between
 abundance, channel species, and the shock rate.
 
-&nbsp;&nbsp;&nbsp;&nbsp;A sizable suite of experimental and theoretical
+&nbsp;&nbsp;&nbsp;&nbsp; Some experimental and theoretical
 treatments suggests that only a few copies of MscL or MscS should be necessary for
 100% protection given our knowledge of the conductance and the maximal water
 flux through the channel in its open state [@louhivuori2010; @booth2014].
