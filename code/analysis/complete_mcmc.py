@@ -26,6 +26,7 @@ mlg910.loc[mlg910['date'] == 20170721,
            'replicate_number'] = mlg910['replicate_number'].max() + 1
 mlg910.loc[:, 'shock_class'] = 'none'
 mlg910.loc[:, 'survival'] = -1
+mlg910.loc[:, 'flow_rate'] = 0
 shock_files = glob.glob('../processing/*shock*/output/*.csv')
 shock_data = pd.concat([pd.read_csv(f, comment='#') for f in shock_files])
 shock_data['replicate_number'] = 0

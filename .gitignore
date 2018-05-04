@@ -19,4 +19,7 @@ __pycache__
 *egg*
 data/csv/complete_mcmc_traces.csv
 data/csv/complete_mcmc_shock_rate_idx.csv
-*outfile.txt
+data/csv/three_shock_rate_complete_mcmc_traces.csv
+data/csv/pooled_complete_mcmc_traces.csv
+*.txt
+*.vscode/
