@@ -10,7 +10,6 @@ import mscl.mcmc
 import mscl.stats
 colors = mscl.plotting.set_plotting_style()
 
-
 def compute_mean_sem(df):
     n_tot = len(df)
     n_surv = np.sum(df['survival'].astype(int))
