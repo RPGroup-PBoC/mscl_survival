@@ -139,7 +139,7 @@ fraction of the data towards higher effective copy number, which matches our
 intuition that including more mechanosensitive channels increases the
 survival probability.
 
-![**Distributions of survival and death as a function of effective channel number.** (A) Empirical cumulative distributions of channel copy number separated by survival (green) or death (purple) after a slow ($< 1.0$ Hz) osmotic shock. (B) The empirical cumulative distribution for a fast ($\geq 1.0$ Hz) osmotic shock.  Shaded green and purple regions represent the 95% credible region of the effective channel number calculation for each cell. Shaded red stripe signifies the range of channels in which no survival was observed.](../figs/fig4.png){#fig:survival_dists}
+![**Distributions of survival and death as a function of effective channel number.** (A) Empirical cumulative distributions of channel copy number separated by survival (green) or death (purple) after a slow ($< 1.0$ Hz) osmotic shock. (B) The empirical cumulative distribution for a fast ($\geq 1.0$ Hz) osmotic shock.  Shaded green and purple regions represent the 95% credible region of the effective channel number calculation for each cell. Shaded red stripe signifies the range of channels in which no survival was observed.](../figs/fig4.pdf){#fig:survival_dists}
 
 ### Prediction of survival probability as a function of channel copy number
 
@@ -241,4 +241,4 @@ probability estimated via binning by SD sequence and binning by groups of 50
 channels per cell, respectively. Horizontal error bars represent the standard
 error of the mean from at least 25 measurements. Vertical error bars
 represent the certainty of the probability estimate given $n$ survival events
-from $N$ measurements.](../figs/fig5.png){#fig:survival}
+from $N$ measurements.](../figs/fig5.pdf){#fig:survival}

@@ -57,69 +57,143 @@ were supplemented with a low-affinity version of the calcium-sensitive dye
 Rhod-2(250 nM; TEF Labs) which fluoresces when bound to Ca^2+^. The no salt
 medium was also supplemented with 1$\mu$M CaCl~2~ to make the media mildly
 fluorescent and the exchange rate was calculated by measuring the
-fluorescence increase across an illuminated section of one of the positions. These images were collected in real time for the duration of the
-shock. The difference in measured fluorescence between the pre-shock images
-and those at the end of the shock set the scale of a 500 mM NaCl down shock.
-The rate was calculated by fitting a line to the middle region of this
-trace. Further details regarding this procedure can be found in
-Bialecka-Fornal, Lee, and Phillips, 2015 [@bialecka-fornal2015].
+fluorescence increase across an illuminated section of one of the positions.
+These images were collected in real time for the duration of the shock. The
+difference in measured fluorescence between the pre-shock images and those at
+the end of the shock set the scale of a 500 mM NaCl down shock. The rate was
+calculated by fitting a line to the middle region of this trace. Further
+details regarding this procedure can be found in Bialecka-Fornal, Lee, and
+Phillips, 2015 [@bialecka-fornal2015].### Image Processing
 
-### Image Processing
+&nbsp; &nbsp; &nbsp; &nbsp;Images were processed using a combination of
+automated and manual methods. First, expression of MscL was measured via
+segmenting individual cells or small clusters of cells in phase contrast and
+computing the mean pixel value of the fluorescence image for each segmented
+object. The fluorescence images were passed through several filtering
+operations which reduced high-frequency noise as well as corrected for uneven
+illumination of the excitation wavelength.
 
- &nbsp; &nbsp; &nbsp; &nbsp;Images were processed using a combination of automated and manual
-methods. First, expression of MscL was measured via segmenting
-individual cells or small clusters of cells in phase contrast and
-computing the mean pixel value of the fluorescence image for each
-segmented object. The fluorescence images were passed through several
-filtering operations which reduced high-frequency noise as well as
-corrected for uneven illumination of the excitation wavelength.
+&nbsp; &nbsp; &nbsp; &nbsp;Survival or death classification was performed
+manually using the CellProfiler plugin for ImageJ software (NIH). A survivor
+was defined as a cell which was able to undergo two division events after the
+osmotic down shock. Cells which detached from the surface during the
+post-shock growth phase or those which became indistinguishable from other
+cells due to clustering were not counted as survival or death and were
+removed from the dataset completely. A region of the cell was manually marked
+with 1.0 (survival) or 0.0 (death) by clicking on the image. The `xy`
+coordinates of the click as well as the assigned value were saved as an `.xml`
+file for that position.
 
- &nbsp; &nbsp; &nbsp; &nbsp;Survival or death classification was performed manually using the
-CellProfiler plugin for ImageJ software (NIH). A survivor was defined as
-a cell which was able to undergo two division events after the osmotic
-down shock. Cells which detached from the surface during the post-shock
-growth phase or those which became indistinguishable from other cells
-due to clustering were not counted as survival or death and were removed
-from the dataset completely. A region of the cell was manually marked
-with 1.0 (survival) or 0.0 (death) by clicking on the image. The xy
-coordinates of the click as well as the assigned value were saved as an
-.xml file for that position.
-
- &nbsp; &nbsp; &nbsp; &nbsp;The connection between the segmented cells and their corresponding
-manual markers was automated. As the manual markings were made on the
-first phase contrast image after the osmotic shock, small shifts in the
-positions of the cell made one-to-one mapping with the segmentation mask
-non-trivial. The linkages between segmented cell and manual marker were
-made by computing all pairwise distances between the manual marker and
-the segmented cell centroid, taking the shortest distance as the true pairing. The
-linkages were then inspected manually and incorrect mappings were
+&nbsp; &nbsp; &nbsp; &nbsp;The connection between the segmented cells and
+their corresponding manual markers was automated. As the manual markings were
+made on the first phase contrast image after the osmotic shock, small shifts
+in the positions of the cell made one-to-one mapping with the segmentation
+mask non-trivial. The linkages between segmented cell and manual marker were
+made by computing all pairwise distances between the manual marker and the
+segmented cell centroid, taking the shortest distance as the true pairing.
+The linkages were then inspected manually and incorrect mappings were
 corrected as necessary.
 
- &nbsp; &nbsp; &nbsp; &nbsp;All relevant statistics about the segmented objects as well as the
-sample identity, date of acquisition, osmotic shock rate, and camera
-exposure time were saved as `csv` files for each individual experiment. A
-more in-depth description of the segmentation procedure as well as the
-relevant code can be accessed as a Jupyter Notebook at
+&nbsp; &nbsp; &nbsp; &nbsp;All relevant statistics about the segmented
+objects as well as the sample identity, date of acquisition, osmotic shock
+rate, and camera exposure time were saved as `csv` files for each individual
+experiment. A more in-depth description of the segmentation procedure as well
+as the relevant code can be accessed as a Jupyter Notebook at
 (`http://rpgroup.caltech.edu/mscl\_survival`).
 
 ### Calculation of effective channel copy number
-&nbsp; &nbsp; &nbsp; &nbsp;To compute the MscL channel copy number, we relied on measuring the fluorescence level of a bacterial strain in which the mean MscL channel copy number was known via fluorescence microscopy [@bialecka-fornal2012]. *E. coli* strain MLG910 (**strain info-- I think *mscL*<>*mscL-sfGFP* :: Frag1**), which expresses the MscL-sfGFP fusion protein from the wild-type SD sequence, was grown under identical conditions to those described in Bialecka-Fornal et al. 2015 in M9 minimal medium supplemented with 0.2% glucose to an OD<sub>600nm</sub> of ~0.3. The cells were then diluted ten fold and immobilized on a rigid 2% agarose substrate and placed onto a glass bottom petri dish and imaged in the same conditions as described previously. 
+&nbsp; &nbsp; &nbsp; &nbsp;To compute the MscL channel copy number, we relied
+on measuring the fluorescence level of a bacterial strain in which the mean
+MscL channel copy number was known via fluorescence microscopy
+[@bialecka-fornal2012]. *E. coli* strain MLG910 (**strain info-- I think
+*mscL*<>*mscL-sfGFP* :: Frag1**), which expresses the MscL-sfGFP fusion
+protein from the wild-type SD sequence, was grown under identical conditions
+to those described in Bialecka-Fornal et al. 2015 in M9 minimal medium
+supplemented with 0.2% glucose to an OD<sub>600nm</sub> of ~0.3. The cells
+were then diluted ten fold and immobilized on a rigid 2% agarose substrate
+and placed onto a glass bottom petri dish and imaged in the same conditions
+as described previously.
 
-&nbsp; &nbsp; &nbsp;Images were taken of six biological replicates of MLG910 and were processed identically to those in the osmotic shock experiments. A calibration factor between the average cell fluorescence level and mean MscL copy number was then computed. We assumed that all measured fluorescence (after filtering and background subtraction) was derived from the MscL-sfGFP fusion, 
+&nbsp; &nbsp; &nbsp;Images were taken of six biological replicates of MLG910
+and were processed identically to those in the osmotic shock experiments. A
+calibration factor between the average cell fluorescence level and mean MscL
+copy number was then computed. We assumed that all measured fluorescence
+(after filtering and background subtraction) was derived from the MscL-sfGFP
+fusion,
 $$
 \langle I_\text{tot}\rangle = \alpha \langle N \rangle,
 $${#eq:ian}
-in which $\alpha$ is the calibration factor and $\langle N \rangle$ is the mean cellular MscL-sfGFP copy number as reported in Bialecka-Fornal et al. 2012 [@bialecka-fornal2012]. To correct for errors in segmentation, the intensity was computed as an areal density $\langle I_A \rangle$ and was multiplied by the average cell area $\langle A \rangle$ of the population. The calibration factor was therefore computed as
+in which $\alpha$ is the calibration factor and $\langle N \rangle$ is the
+mean cellular MscL-sfGFP copy number as reported in Bialecka-Fornal et al.
+2012 [@bialecka-fornal2012]. To correct for errors in segmentation, the
+intensity was computed as an areal density $\langle I_A \rangle$ and was
+multiplied by the average cell area $\langle A \rangle$ of the population.
+The calibration factor was therefore computed as
 $$
 \alpha = {\langle I_A \rangle \langle A \rangle \over \langle N \rangle}.
 $${#eq:calibration_factor}
 
-&nbsp;&nbsp;&nbsp;We used Bayesian inferential methods to compute this calibration factor taking measurement error and replicate-to-replicate variation into account. The resulting average cell area and calibration factor was used to convert the measured cell intensities from the osmotic shock experiments to cell copy number. The details of this inference are described in depth in the supplemental information. 
+&nbsp;&nbsp;&nbsp;We used Bayesian inferential methods to compute this
+calibration factor taking measurement error and replicate-to-replicate
+variation into account. The resulting average cell area and calibration
+factor was used to convert the measured cell intensities from the osmotic
+shock experiments to cell copy number. The details of this inference are
+described in depth in the supplemental information.
 
 ### Logistic regression
-&nbsp; &nbsp; &nbsp; &nbsp;We used Bayesian inferential methods to find the most probable values of the coefficients $\beta_0$ and $\beta_1$ and the appropriate credible regions and is described in detail in the supplement. Briefly, we used Markov chain Monte Carlo (MCMC) to sample from the log posterior distribution and took the most probable value as the mean of the samples for each parameter. The MCMC
-was performed using the Stan probabilistic programming language [@carpenter2017] and all models can be found on the GitHub repository
-(`http://github.com/rpgroup-pboc/mscl_survival`).
+&nbsp; &nbsp; &nbsp; &nbsp;We used Bayesian inferential methods to find the
+most probable values of the coefficients $\beta_0$ and $\beta_1$ and the
+appropriate credible regions and is described in detail in the supplement.
+Briefly, we used Markov chain Monte Carlo (MCMC) to sample from the log
+posterior distribution and took the most probable value as the mean of the
+samples for each parameter. The MCMC was performed using the Stan
+probabilistic programming language [@carpenter2017] and all models can be
+found on the GitHub repository (`http://github.com/rpgroup-pboc/mscl_survival`).
+
+### Calculation of survival probability error
+The vertical error bars for the points shown in [@Fig:survival] represent our uncertainty in the survival probability given our measurement of $n$ survivors out of a total $N$ single-cell measurements. The probability distribution of the survival probability $p_s$ given these measurements can be written using Bayes' theorem as
+$$
+g(p_s\,\vert\, n, N) = {f(n\,\vert\,p_s, N)g(p_s) \over f(n\,\vert\, N)},
+$${#eq:probability_bayes}
+where $g$ and $f$ represent probability density functions over parameters and data, respectively. The likelihood $f(n\,\vert p_s, N)$ represents the probability of measuring $n$ survival events, given a total of $N$ measurements each with a probability of survival $p_s$. This matches the story for the Binomial distribution and can be written as
+$$
+f(n\,\vert\,p_s, N) = {N! \over n!(N - n)!}p_s^n(1 - p_s)^{N - n}.
+$${#eq:binomial}
+To maintain maximal ignorance we can assume that any value for $p_s$ is valid, such that is in the range [0, 1]. This prior knowledge, represented by $g(p_s)$ can be written as
+$$
+g(p_s) = \begin{cases}1 & 0\leq p_s\leq 1 \\
+0 & \text{otherwise} \end{cases}.
+$${#eq:uniform_prob}
+We can also assume maximal ignorance for the total number of survival events we could observe, $f(n\, \vert\, N)$. Assuming all observations are equally likely, this can be written as
+$$
+f(n\,\vert\, N) = {1 \over N + 1}
+$${#eq:evidence}
+where the addition of one comes from the probability of making zero observations. Combining [@Eq:probability_bayes;@Eq:binomial;@Eq:uniform_prob;@Eq:evidence], the posterior distribution $g(p_s\,\vert\, n, N)$ is
+$$
+g(p_s\,\vert\, n, N) = {(N+1)! \over n!(N - n)!}p_s^{n}(1 - p_s)^{N - n}.
+$${#eq:probability_posterior}
+
+&nbsp;&nbsp;&nbsp;&nbsp; The most probable value of $p_s$, where the  posterior probability distribution given by [@Eq:probability_posterior] is maximized, can be found by computing the point at which derivative of the log posterior with respect to $p_s$ goes to zero,
+$$
+{d\log g(p_s\,\vert\,n, N) \over d p_s} = {n \over p_s} - {N - n  \over 1 - p_s} = 0
+$${#eq:deriv_ps}.
+Solving [@Eq:deriv_ps] for $p_s$ gives the most likely value for the probability,
+$$
+p_s^* = {n \over N}.
+$$
+So long as $N >> np_s$, [@Eq:probability_posterior] can be approximated as a Gaussian distribution with a mean $p_s^*$ and a variance $\sigma_{p_s}^2$. By definition, the variance
+of a Gaussian distribution is computed as the negative reciprical of the second derivative of the log posterior evaluated at $p_s = p_s^*$,
+$$
+\sigma_{p_s}^2 = - \left({d^2 \log g(p_s\,\vert\, n, N) \over dp_s^2}\Bigg\vert_{p_s=p_s^*}\right).
+$${#eq:variance_def}
+Evaluating [@Eq:variance_def] yields
+$$
+\sigma_{p_s}^2 = {n(N-n)\over N^3}.
+$${#eq:prob_variance}
+Given [@Eq:most_prob_prob] and [@Eq:prob_variance], the most-likely survival probability and estimate of the uncertainty can be written as
+$$
+p_s = p_s^* \pm \sigma_{p_s}.
+$$
 
 ### Data and software availability
 
@@ -135,7 +209,7 @@ issues.
 
  &nbsp; &nbsp; &nbsp; &nbsp;We thank Maja Bialecka-Fornal, Nathan Belliveau, Justin Bois, Soichi
 Hirokawa, Jaspar Landman, Manuel Razo-Mejia, Muir Morrison, and Shyam
-Saladi for useful advice and discussions. This work was supported by the
+Saladi for useful advice and discussion. This work was supported by the
 National Institutes of Health DP1 OD000217 (Director’s Pioneer Award),
 R01 GM085286, GM084211-A1 , and GM118043-01.
 
@@ -144,7 +218,3 @@ R01 GM085286, GM084211-A1 , and GM118043-01.
  &nbsp; &nbsp; &nbsp; &nbsp;H.J.L. and R.P. laid the groundwork for the project. H.J.L. performed
 experiments. G.C. performed the data analysis and made the figures.
 G.C., H.J.L., and R.P. wrote the paper.
-
-## 
-
-## REFERENCES

@@ -62,18 +62,18 @@ ax[1].set_ylim(0, 1000)
 labels = [i.upper() for i in intensity_order]
 
 # Format the axes and save
-ax[0].set_ylabel('relative intensity', fontsize=10)
-ax[1].set_ylabel('effective channel number', fontsize=10)
-ax[0].set_xlabel('RBS modification', fontsize=10)
-ax[1].set_xlabel('RBS modification', fontsize=10)
+ax[0].set_ylabel('relative intensity', fontsize=8)
+ax[1].set_ylabel('effective channel number', fontsize=8)
+ax[0].set_xlabel('RBS modification', fontsize=8)
+ax[1].set_xlabel('RBS modification', fontsize=8)
 
 for a in ax:
     a.set_xticklabels(labels)
-    a.yaxis.set_tick_params(labelsize=10)
-    a.xaxis.set_tick_params(labelsize=10, rotation=45)
+    a.yaxis.set_tick_params(labelsize=8)
+    a.xaxis.set_tick_params(labelsize=8, rotation=45)
 
-fig.text(0.01, 0.95, '(A)', fontsize=10)
-fig.text(0.5, 0.95, '(B)', fontsize=10)
+fig.text(0.01, 0.95, '(A)', fontsize=8)
+fig.text(0.5, 0.95, '(B)', fontsize=8)
 plt.tight_layout()
 plt.savefig('../../figs/fig{}.pdf'.format(FIG_NO), bbox_inches='tight', dpi=300)
 plt.savefig('../../figs/fig{}.png'.format(FIG_NO), bbox_inches='tight', dpi=300)

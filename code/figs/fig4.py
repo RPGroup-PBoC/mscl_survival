@@ -30,8 +30,8 @@ grouped = shock_data.groupby(['shock_class', 'survival'])
 
 # Set up the figure canvas.
 fig, ax = plt.subplots(1, 2, figsize=(6, 3.5))
-fig.text(0, 0.93, '(A)', fontsize=10)
-fig.text(0.5, 0.93, '(B)', fontsize=10)
+fig.text(0, 0.93, '(A)', fontsize=8)
+fig.text(0.5, 0.93, '(B)', fontsize=8)
 axes = {'slow': ax[0], 'fast': ax[1]}
 for g, d in grouped:
     # Compute the ecdf.
@@ -57,8 +57,8 @@ for a in ax:
     a.set_ylim([0, 1])
     a.set_xlabel('effective channels per cell') 
     a.set_ylabel('cumulative distribution')
-ax[0].set_title('slow shock ($<$ 1.0 Hz)', backgroundcolor=colors['pale_yellow'], y=1.04, fontsize=10)
-ax[1].set_title('fast shock ($\geq$ 1.0 Hz)', backgroundcolor=colors['pale_yellow'], y=1.04, fontsize=10)
+ax[0].set_title('slow shock ($<$ 1.0 Hz)', backgroundcolor=colors['pale_yellow'], y=1.04, fontsize=8)
+ax[1].set_title('fast shock ($\geq$ 1.0 Hz)', backgroundcolor=colors['pale_yellow'], y=1.04, fontsize=8)
 plt.tight_layout()
 plt.savefig('../../figs/fig{}.pdf'.format(FIG_NO), bbox_inches='tight', dpi=300)
 plt.savefig('../../figs/fig{}.png'.format(FIG_NO), bbox_inches='tight', dpi=300)
