@@ -1,15 +1,4 @@
-## MATERIALS & METHODS
-
-![**Experimental approach to measuring survival
-probability.** (A) Layout of a home-made flow cell for subjecting cells
-to osmotic shock. (A) Cells are attached to a polyethylamine
-functionalized surface of a glass coverslip within the flow chamber by
-loading a dilute cell suspention through one of the inlets. (B) The
-typical experimental procedure. Cells are loaded into a flow chamber as
-shown in (A) and mounted to the glass coverslip surface. Cells are
-subject to a hypo-osmotic shock by flowing hypotonic medium into the
-flow cell. After shock, the cells are monitored for several hours and
-surviving cells are identified.](../figs/fig2.png){#fig:flow_cell}
+## MATERIALS & METHODS ##
 
 ### Bacterial strains and growth conditions
 
@@ -54,7 +43,7 @@ subsequent measurement of channel copy number. To perform the osmotic shock,
 LB media containing no NaCl was pulled into the flow cell through a syringe
 pump. To monitor the media exchange, both the high salt and no salt LB media
 were supplemented with a low-affinity version of the calcium-sensitive dye
-Rhod-2(250 nM; TEF Labs) which fluoresces when bound to Ca^2+^. The no salt
+Rhod-2 (250 nM; TEF Labs) which fluoresces when bound to Ca^2+^. The no salt
 medium was also supplemented with 1$\mu$M CaCl~2~ to make the media mildly
 fluorescent and the exchange rate was calculated by measuring the
 fluorescence increase across an illuminated section of one of the positions.
@@ -63,7 +52,9 @@ difference in measured fluorescence between the pre-shock images and those at
 the end of the shock set the scale of a 500 mM NaCl down shock. The rate was
 calculated by fitting a line to the middle region of this trace. Further
 details regarding this procedure can be found in Bialecka-Fornal, Lee, and
-Phillips, 2015 [@bialecka-fornal2015].### Image Processing
+Phillips, 2015 [@bialecka-fornal2015].
+
+### Image Processing
 
 &nbsp; &nbsp; &nbsp; &nbsp;Images were processed using a combination of
 automated and manual methods. First, expression of MscL was measured via
@@ -96,20 +87,19 @@ corrected as necessary.
 
 &nbsp; &nbsp; &nbsp; &nbsp;All relevant statistics about the segmented
 objects as well as the sample identity, date of acquisition, osmotic shock
-rate, and camera exposure time were saved as `csv` files for each individual
+rate, and camera exposure time were saved as `.csv` files for each individual
 experiment. A more in-depth description of the segmentation procedure as well
 as the relevant code can be accessed as a Jupyter Notebook at
-(`http://rpgroup.caltech.edu/mscl\_survival`).
+(`http://rpgroup.caltech.edu/mscl_survival`).
 
 ### Calculation of effective channel copy number
 &nbsp; &nbsp; &nbsp; &nbsp;To compute the MscL channel copy number, we relied
 on measuring the fluorescence level of a bacterial strain in which the mean
 MscL channel copy number was known via fluorescence microscopy
-[@bialecka-fornal2012]. *E. coli* strain MLG910 (**strain info-- I think
-*mscL*<>*mscL-sfGFP* :: Frag1**), which expresses the MscL-sfGFP fusion
+[@bialecka-fornal2012]. *E. coli* strain MLG910, which expresses the MscL-sfGFP fusion
 protein from the wild-type SD sequence, was grown under identical conditions
 to those described in Bialecka-Fornal et al. 2015 in M9 minimal medium
-supplemented with 0.2% glucose to an OD<sub>600nm</sub> of ~0.3. The cells
+supplemented with 0.5% glucose to an OD~600nm~ of ~0.3. The cells
 were then diluted ten fold and immobilized on a rigid 2% agarose substrate
 and placed onto a glass bottom petri dish and imaged in the same conditions
 as described previously.
@@ -138,12 +128,12 @@ calibration factor taking measurement error and replicate-to-replicate
 variation into account. The resulting average cell area and calibration
 factor was used to convert the measured cell intensities from the osmotic
 shock experiments to cell copy number. The details of this inference are
-described in depth in the supplemental information.
+described in depth in the supplemental information (Standard Candle Calibration).
 
 ### Logistic regression
 &nbsp; &nbsp; &nbsp; &nbsp;We used Bayesian inferential methods to find the
 most probable values of the coefficients $\beta_0$ and $\beta_1$ and the
-appropriate credible regions and is described in detail in the supplement.
+appropriate credible regions and is described in detail in the supplemental information (*Logistic Regression*).
 Briefly, we used Markov chain Monte Carlo (MCMC) to sample from the log
 posterior distribution and took the most probable value as the mean of the
 samples for each parameter. The MCMC was performed using the Stan
@@ -159,29 +149,29 @@ where $g$ and $f$ represent probability density functions over parameters and da
 $$
 f(n\,\vert\,p_s, N) = {N! \over n!(N - n)!}p_s^n(1 - p_s)^{N - n}.
 $${#eq:binomial}
-To maintain maximal ignorance we can assume that any value for $p_s$ is valid, such that is in the range [0, 1]. This prior knowledge, represented by $g(p_s)$ can be written as
+To maintain maximal ignorance we can assume that any value for $p_s$ is valid, such that is in the range [0, 1]. This prior knowledge, represented by $g(p_s)$, can be written as
 $$
 g(p_s) = \begin{cases}1 & 0\leq p_s\leq 1 \\
 0 & \text{otherwise} \end{cases}.
 $${#eq:uniform_prob}
-We can also assume maximal ignorance for the total number of survival events we could observe, $f(n\, \vert\, N)$. Assuming all observations are equally likely, this can be written as
+We can also assume maximal ignorance for the total number of survival events we could measure given $N$ observations, $f(n\, \vert\, N)$. Assuming all observations are equally likely, this can be written as
 $$
 f(n\,\vert\, N) = {1 \over N + 1}
 $${#eq:evidence}
-where the addition of one comes from the probability of making zero observations. Combining [@Eq:probability_bayes;@Eq:binomial;@Eq:uniform_prob;@Eq:evidence], the posterior distribution $g(p_s\,\vert\, n, N)$ is
+where the addition of one comes from the possibility of observing zero survival events. Combining [@Eq:binomial;@Eq:uniform_prob;@Eq:evidence], the posterior distribution $g(p_s\,\vert\, n, N)$ is
 $$
 g(p_s\,\vert\, n, N) = {(N+1)! \over n!(N - n)!}p_s^{n}(1 - p_s)^{N - n}.
 $${#eq:probability_posterior}
 
 &nbsp;&nbsp;&nbsp;&nbsp; The most probable value of $p_s$, where the  posterior probability distribution given by [@Eq:probability_posterior] is maximized, can be found by computing the point at which derivative of the log posterior with respect to $p_s$ goes to zero,
 $$
-{d\log g(p_s\,\vert\,n, N) \over d p_s} = {n \over p_s} - {N - n  \over 1 - p_s} = 0
-$${#eq:deriv_ps}.
+{d\log g(p_s\,\vert\,n, N) \over d p_s} = {n \over p_s} - {N - n  \over 1 - p_s} = 0.
+$${#eq:deriv_ps}
 Solving [@Eq:deriv_ps] for $p_s$ gives the most likely value for the probability,
 $$
 p_s^* = {n \over N}.
-$$
-So long as $N >> np_s$, [@Eq:probability_posterior] can be approximated as a Gaussian distribution with a mean $p_s^*$ and a variance $\sigma_{p_s}^2$. By definition, the variance
+$${#eq:most_prob_prob}
+So long as $N >> np_s^*$, [@Eq:probability_posterior] can be approximated as a Gaussian distribution with a mean $p_s^*$ and a variance $\sigma_{p_s}^2$. By definition, the variance
 of a Gaussian distribution is computed as the negative reciprical of the second derivative of the log posterior evaluated at $p_s = p_s^*$,
 $$
 \sigma_{p_s}^2 = - \left({d^2 \log g(p_s\,\vert\, n, N) \over dp_s^2}\Bigg\vert_{p_s=p_s^*}\right).
@@ -190,7 +180,7 @@ Evaluating [@Eq:variance_def] yields
 $$
 \sigma_{p_s}^2 = {n(N-n)\over N^3}.
 $${#eq:prob_variance}
-Given [@Eq:most_prob_prob] and [@Eq:prob_variance], the most-likely survival probability and estimate of the uncertainty can be written as
+Given [@Eq:most_prob_prob] and [@Eq:prob_variance], the most-likely survival probability and estimate of the uncertainty can be expressed as
 $$
 p_s = p_s^* \pm \sigma_{p_s}.
 $$
@@ -207,7 +197,7 @@ issues.
 
 ## ACKNOWLEDGEMENTS
 
- &nbsp; &nbsp; &nbsp; &nbsp;We thank Maja Bialecka-Fornal, Nathan Belliveau, Justin Bois, Soichi
+&nbsp; &nbsp; &nbsp; &nbsp;We thank Maja Bialecka-Fornal, Nathan Belliveau, Justin Bois, Soichi
 Hirokawa, Jaspar Landman, Manuel Razo-Mejia, Muir Morrison, and Shyam
 Saladi for useful advice and discussion. This work was supported by the
 National Institutes of Health DP1 OD000217 (Director’s Pioneer Award),
@@ -215,6 +205,6 @@ R01 GM085286, GM084211-A1 , and GM118043-01.
 
 ## AUTHOR CONTRIBUTION
 
- &nbsp; &nbsp; &nbsp; &nbsp;H.J.L. and R.P. laid the groundwork for the project. H.J.L. performed
+&nbsp; &nbsp; &nbsp; &nbsp;H.J.L. and R.P. laid the groundwork for the project. H.J.L. performed
 experiments. G.C. performed the data analysis and made the figures.
-G.C., H.J.L., and R.P. wrote the paper.
+G.C. and R.P. wrote the paper.

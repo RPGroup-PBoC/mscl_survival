@@ -5,3 +5,7 @@
 
 
 ## RIBOSOMAL BINDING SITE DESIGN
+
+Info about SD.
+
+![**SD design figure**](../figs/figSX6.png){#Fig:sd_design}

@@ -114,3 +114,8 @@ where the braces $\{\dots\}$ represent the set of parameters for biological repl
 &nbsp;&nbsp;&nbsp;&nbsp;While [@Eq:cal_factor_posterior] is not analytically solvable, it can be easily sampled using Markov chain Monte Carlo (MCMC). The results of the MCMC sampling for $\tilde{\alpha}$ and $\tilde{\langle A \rangle}$ can be seen in [@Fig:alpha_area_sampling]. From this approach, we found the most-likely parameter values of $3300^{+700}_{-700}$ a.u. per MscL channel and $5.4^{+0.4}_{-0.5}$ $\mu$m$^2$ for $\tilde{\alpha}$ and $\tilde{\langle A \rangle}$, respectively. Here, we've reported the median value of the posterior distribution for each parameter with the upper and lower bound of the 95\% credible region as superscript and subscript, respectively. These values and associated errors were used in the calculation of channel copy number. 
 
 ![**Posterior distributions for hyper-parameters and replicate parameters.** (A) The posterior probability distribution for $\tilde{\alpha}$ and $\tilde{\langle A \rangle}$. Probability increases from light to dark red. The replicate parameter (blue) and hyper-parameter (red) marginalized posterior probability distributions for $\alpha$ (B) and $\langle A \rangle$ (C).](../figs/FigSX1.png){#Fig:posterior_samples}
+
+
+### Effect of correction
+
+![**Influence of correction**](../figs/figS2.png){#fig:area_correction}

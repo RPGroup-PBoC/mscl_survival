@@ -4,23 +4,24 @@
 &nbsp;&nbsp;&nbsp;&nbsp;One of the most challenging endeavors in the
 biological sciences is linking the microscopic details of cellular components
 to the macro-scale physiology of the organism. This formidable task has been
-met repeatedly in the recent history or biology, especially in the era of DNA sequencing
-and single molecule biochemistry. For example, the scientific community has been able to connect
-sickle-cell anemia to a single amino acid substitution in Hemoglobin which
-promotes precipitation under a change in O$_2$ partial pressure
-[@feeling-taylor2004; @finch1973; @perutz1950]. We've assembled a physical
-model that quantitatively describes chemosensation in bacteria [@berg1977] in
-which the arbiter of sensory adaptation is the repeated methylation of
-chemoreceptors [@colin2017; @krembel2015a; @krembel2015; @sourjik2002]. In
-the past ~ 50 years alone, we've assembled biological and physical models of
-the many facets of the central dogma that give us a sense of the interplay
-between the genome and physiology. For example, the combination of
-biochemical experimentation and biophysical models have given us a picture of
-how gene dosage affects furrow positioning in *Drosophila* [@liu2013], how
-recombination of V(D)J gene segments generates an extraordinarily diverse
-antibody repertoire [@lovely2015; @schatz2004; @schatz2011], and how telomere
-shortening through DNA replication is intrinsically tied to cell senescence
-[@herbig2004; @victorelli2017], to name just a few of many such examples.
+met repeatedly in the recent history of biology, especially in the era of DNA
+sequencing and single molecule biochemistry. For example, the scientific
+community has been able to connect sickle-cell anemia to a single amino acid
+substitution in Hemoglobin which promotes precipitation under a change in
+O$_2$ partial pressure [@feeling-taylor2004; @finch1973; @perutz1950]. Others
+have assembled a physical model that quantitatively describes chemosensation
+in bacteria [@berg1977] in which the arbiter of sensory adaptation is the
+repeated methylation of chemoreceptors [@colin2017; @krembel2015a;
+@krembel2015; @sourjik2002]. In the past ~50 years alone, numerous biological
+and physical models of the many facets of the central dogma have been
+assembled that give us a sense of the interplay between the genome and
+physiology. For example, the combination of biochemical experimentation and
+biophysical models have given us a picture of how gene dosage affects furrow
+positioning in *Drosophila* [@liu2013], how recombination of V(D)J gene
+segments generates an extraordinarily diverse antibody repertoire
+[@lovely2015; @schatz2004; @schatz2011], and how telomere shortening through
+DNA replication is intrinsically tied to cell senescence [@herbig2004;
+@victorelli2017], to name just a few of many such examples.
 
 &nbsp;&nbsp;&nbsp;&nbsp;This by no means that we are “finished” with any of
 these topics. Rather, it's quite the opposite in the sense that having a
@@ -37,7 +38,7 @@ probability at single-cell resolution. Our results reveal two notable
 quantities. First, out of the several hundred single-cell measurements, we
 never observed a cell which had less than approximately 100 channels per cell
 survive an osmotic shock, irrespective of the shock rate. The second is that
-between 500 and 600 channels per cell are needed to provide $\geq 80\%$
+between 500 and 700 channels per cell are needed to provide $\geq 80\%$
 survival, depending on the shock rate.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Only recently has the relationship between the MscL
@@ -143,5 +144,5 @@ response -- life or death.
 | 10 - 100 | Electrophysiology  | @booth2005|
 |10 - 15 | Electrophysiology | @blount1999|
 :**Measured cellular copy numbers of MscL.** Asterisk (\*) Indicates
-inferred MscL channel copy number from the total number of MscL
+inferred MscL channel copy number from the total number of detected MscL
 peptides.
