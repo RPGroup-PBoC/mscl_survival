@@ -14,7 +14,7 @@ $$
 g(p_s\,\vert\, N_c) = {f(N_c\,\vert\, p_s)g(p_s) \over f(N_c)},
 $${#eq:bayes_surv_prob}
 
-where $g$ and $f$ represent probability density functions over parameters and data, respectively. The posterior probability distribution $g(p_s\,\vert\, N_c)$ describes the probability of $p_s$ given a specific number of channels $N_c$. This distribution is dependent on the likelihood of observing $N_c$ channels assuming a value of $p_s$ multiplied by all prior knowledge we have about knowing nothing about the data, $g(s)$. The denominator $f(N_c)$ in [@Eq:bayes_surv_prob] captures all knowledge we have about the available values of $N_c$, knowing nothing about the true survival probability. As this term acts as a normalization constant, we will neglect it in the following calculations for notational brevity.
+where $g$ and $f$ represent probability density functions over parameters and data, respectively. The posterior probability distribution $g(p_s\,\vert\, N_c)$ describes the probability of $p_s$ given a specific number of channels $N_c$. This distribution is dependent on the likelihood of observing $N_c$ channels assuming a value of $p_s$ multiplied by all prior knowledge we have about knowing nothing about the data, $g(s)$. The denominator $f(N_c)$ in [@Eq:bayes_surv_prob] captures all knowledge we have about the available values of $N_c$, knowing nothing about the true survival probability. As this term acts as a normalization constant, we will neglect it in the following calculations for convenience.
 
 &nbsp;&nbsp;&nbsp;&nbsp;To begin, we must come up with a statistical model that describes the experimental measurable in our experiment -- survival or death. As this is a binary response, we can consider each measurement as a Bernoulli trial with a probability of success matching our probability of survival $p_s$,
 $$
@@ -32,17 +32,17 @@ $${#eq:logistic_prob}
 With a functional form for the survival probability, the likelihood stated in [@Eq:bayes_surv_prob] can be restated as 
 $$
 f(N_c, s\,\vert\,\beta_0,\beta_1) = \left({1 \over 1 + e^{-\beta_0 - \beta_1 N_c}}\right)^s\left(1 - {1 \over 1 + e^{-\beta_0 - \beta_1 N_c}}\right)^{1 - s}.
-$${#eq:bernouli_likelihood}
+$${#eq:bernoulli_likelihood}
 As we have now introduced two parameters, $\beta_0$, and $\beta_1$, we must provide some description of our prior knowledge regarding their values. As is typically the case, we know nothing about the values for $\beta_0$ and $\beta_1$. These parameters are allowed to take any value, so long as it is a real number. Since all values are allowable, we can assume a flat distribution where any value has an equally likely probability. This value of this constant probability is not necessary for our calculation and is ignored. For a set of $k$ single-cell measurements, we can write the posterior probability distribution stated in [@Eq:bayes_surv_prob] as
 $$
 g(\beta_0, \beta_1\,\vert\, N_c, s) = \prod\limits_{i=1}^n\left({1 \over 1 + e^{-\beta_0 - \beta_1 N_c^{(i)}}}\right)^{s^{(i)}}\left(1 - {1 \over 1 + e^{-\beta_0 - \beta_1 N_c^{(i)}}}\right)^{1 - s^{(i)}}
 $${#eq:known_nc_post}
 
-&nbsp;&nbsp;&nbsp;&nbsp;Implicitly stated in [@Eq:known_nc_post] is absolute knowledge of the channel copy number $N_c$. However, as is described in section B *Standard Candle Calibration*, we must convert from a measured areal sfGFP intensity $\rho$ to a effective channel copy number,
+&nbsp;&nbsp;&nbsp;&nbsp;Implicitly stated in [@Eq:known_nc_post] is absolute knowledge of the channel copy number $N_c$. However, as is described in section B *Standard Candle Calibration*, we must convert from a measured areal sfGFP intensity $I_A$ to a effective channel copy number,
 $$
-N_c = {\rho \tilde{\langle A \rangle} \over \tilde{\alpha}},
+N_c = {I_A \tilde{\langle A \rangle} \over \tilde{\alpha}},
 $${#eq:standard_candle}
-where $\tilde{\langle A \rangle}$ is the average cell area of the standard candle strain and $\tilde{\alpha}$ is the most-likely value for the calibration factor between arbitrary units and protein copy number. In section B (*Standard Candle Calibration*), we detailed a process for generating an estimate for the most-likely value of $\tilde{\langle A \rangle}$ and $\tilde{\alpha}$. Given these estimates, we can include an informative prior for each value. From the Markov chain Monte Carlo samples shown in [@Fig:posterior_distributions], the posterior distribution for each parameter is approximately Gaussian. By approximating them as Gaussian distributions, we can assign an informative prior for each as
+where $\tilde{\langle A \rangle}$ is the average cell area of the standard candle strain and $\tilde{\alpha}$ is the most-likely value for the calibration factor between arbitrary units and protein copy number. In section B (*Standard Candle Calibration*), we detailed a process for generating an estimate for the most-likely value of $\tilde{\langle A \rangle}$ and $\tilde{\alpha}$. Given these estimates, we can include an informative prior for each value. From the Markov chain Monte Carlo samples shown in [@Fig:posterior_samples], the posterior distribution for each parameter is approximately Gaussian. By approximating them as Gaussian distributions, we can assign an informative prior for each as
 $$
 g(\alpha\,\vert\,\tilde{\alpha}, \tilde{\sigma}_\alpha) \propto {1 \over \tilde{\sigma}_\alpha^k}\prod\limits_{i=1}^k\exp\left[-{(\alpha_i - \tilde{\alpha})^2 \over  2\tilde{\sigma}_\alpha^2}\right]
 $${#eq:alpha_prior}
@@ -50,19 +50,20 @@ for the calibration factor for each cell and
 $$
 g(\langle A \rangle\,\vert\,\tilde{\langle A \rangle},\tilde{\sigma}_{\langle A \rangle}) = {1 \over \tilde{\sigma}_{\langle A \rangle}^k}\prod\limits_{i=1}^k\exp\left[-{(\langle A \rangle_i - \tilde{\langle A \rangle})^2 \over 2\tilde{\sigma}_{\langle A \rangle}^2}\right],
 $${#eq:area_prior}
-where $\tilde{\sigma}_\alpha$ and $\tilde{\sigma}_{\langle A \rangle}$ represent the variance from approximating each posterior as a Gaussian. The proportionality for each prior arises from the neglection of normalization constants for notational clarity.
+where $\tilde{\sigma}_\alpha$ and $\tilde{\sigma}_{\langle A \rangle}$ represent the variance from approximating each posterior as a Gaussian. The proportionality for each prior arises from the neglecting of normalization constants for notational convenience.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Given [@Eq:bernouilli_likelihood] through [@Eq:area_prior], the complete posterior distribution for estimating the most likely values of $\beta_0$ and $\beta_1$ can be written as
 $$
 \begin{aligned}
-g(\beta_0, &\beta_1\,\vert\,[\rho, s],\tilde{\langle A \rangle}, \tilde{\sigma}_{\langle A \rangle}, \tilde{\alpha}, \tilde{\sigma}_\alpha) \propto{1 \over (\tilde{\sigma}_\alpha\tilde{\sigma}_{\langle A \rangle})^k}\prod\limits_{i=1}^k\left(1 + \exp\left[-\beta_0 - \beta_1 {\rho_i \langle A \rangle_i \over \alpha_i}\right]\right)^{-s_i}\,\times\,\\
-&\left(1 - \left(1 + \exp\left[-\beta_0 - \beta_1 {\rho_i\langle A \rangle_i \over \alpha_i}\right]\right)^{-1}\right)^{1 - s_i}
+g(\beta_0, &\beta_1\,\vert\,[I_A, s],\tilde{\langle A \rangle}, \tilde{\sigma}_{\langle A \rangle}, \tilde{\alpha}, \tilde{\sigma}_\alpha) \propto{1 \over (\tilde{\sigma}_\alpha\tilde{\sigma}_{\langle A \rangle})^k}\prod\limits_{i=1}^k\left(1 + \exp\left[-\beta_0 - \beta_1 {{I_A}_i \langle A \rangle_i \over \alpha_i}\right]\right)^{-s_i}\,\times\,\\
+&\left(1 - \left(1 + \exp\left[-\beta_0 - \beta_1 {{I_A}_i\langle A \rangle_i \over \alpha_i}\right]\right)^{-1}\right)^{1 - s_i}
 \exp\left[-{(\langle A \rangle_i - \tilde{\langle A \rangle})^2 \over 2\tilde{\sigma}_{\langle A \rangle}} - {(\alpha_i - \tilde{\alpha})^2\over 2\tilde{\sigma}_\alpha^2}\right]
 \end{aligned}.
 $${#eq:logistic_posterior}
 
-As this posterior distribution is not solvable analytically, we used Markov chain Monte Carlo to draw samples out of this distribution. The posterior distributions for $\beta_0$ and $\beta_1$ for both slow and fast shock rate data can be seen in [@Fig:logistic_regression_posterior_distributions]
+As this posterior distribution is not solvable analytically, we used Markov chain Monte Carlo to draw samples out of this distribution. The posterior distributions for $\beta_0$ and $\beta_1$ for both slow and fast shock rate data can be seen in [@Fig:logistic_posterior_distributions]
 
+![**Posterior distributions for logistic regression coefficients evaluated for fast and slow shock rates.** (A) Kernel density estimates of the posterior distribution for $\beta_0$ for fast (blue) and slow (purple) shock rates. (B) Kernel density estimates of posterior distribution for $\beta_1$.](../figs/figSX4_logistic_posterior_distributions.png ){#fig:logistic_posterior_distributions}
 
 ### A Bayesian interpretation of $\beta_0$ and $\beta_1$ ###
 The assumption of a linear relationship between the log-odds of survival and the predictor variable $N_c$ appears to be arbitrary and is presented without justification.
@@ -87,12 +88,12 @@ Computing the log-transform reveals two interesting quantities. The first term i
 &nbsp;&nbsp;&nbsp;&nbsp;For each channel copy number, we can evaluate [@Eq:log_odds] to measure the log-odds of survival. If we start with zero channels per cell, we can write the log-odds of survival as
 $$
 \log \mathcal{O}(s\,\vert\,N_c=0) = \log {g(s) \over g(d)} + \log {f(N_c=0\,\vert\, s) \over f(N_c=0\,\vert\, d)}.
-$${#eq:nc=0}
+$${#eq:nc_0}
 For a channel copy number of one, the odds of survival is
 $$
 \log \mathcal{O}(s\,\vert\,N_c=1) = \log{g(s) \over g(d)} + \log{f(N_c=1\,\vert\, s) \over f(N_c=1\,\vert\, d)}.
-$${#eq:nc=1}
-In both [@Eq:nc=0] and [@Eq:nc=1], the log of our *a priori* knowledge of survival versus death remains. The only factor that is changing is log likelihood ratio. We can be more general in our language and say that the log-odds of survival is increased by the difference in the log-odds conveyed by addition of a single channel. We can rewrite the log likelihood ratio in a more general form as
+$${#eq:nc_1}
+In both [@Eq:nc_0] and [@Eq:nc_1], the log of our *a priori* knowledge of survival versus death remains. The only factor that is changing is log likelihood ratio. We can be more general in our language and say that the log-odds of survival is increased by the difference in the log-odds conveyed by addition of a single channel. We can rewrite the log likelihood ratio in a more general form as
 $$
 \log {f(N_c\, \vert\, s) \over f(N_c\,\vert\, d)} = \log{f(N_c = 0\,\vert\,s) \over f(N_c=0\,\vert\, d)} + N_c \left[\log{f(N_c=1 \,\vert\,s) \over f(N_c=1\,\vert\, d)} - \log{f(N_c=0\,\vert\, s) \over f(N_c=0\,\vert\, d)}\right],
 $${#eq:generalized_LLR}
@@ -101,7 +102,7 @@ The bracketed term in [@Eq:generalized_LLR] is the log of the odds of survival g
 $$
 \log\mathcal{OR}_{N_c}(s) = \log{{f(N_c=1\,\vert\,s)g(s)\over f(N_c=1\,\vert\,d)g(d)}\over {f(N_c=0\,\vert\,s)g(s)\over f(N_c=0\,\vert\,d)g(d)}} = \log{f(N_c=1\,\vert\,s) \over f(N_c=1\,\vert\,d)} - \log{f(N_c=0\,\vert\,s)\over f(N_c=0\,\vert\,d)} .
 $${#eq:odds_ratio}
-[Eq:odds_ratio] is mathematically equivalent to the bracketed term shown in [@Eq:generalized_LLR]. 
+[@Eq:odds_ratio] is mathematically equivalent to the bracketed term shown in [@Eq:generalized_LLR]. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;We can now begin to staple these pieces together to arrive at an expression for the log odds of survival. Combining [@Eq:generalized_LLR] with [@Eq:log_odds] yields
 $$
@@ -117,4 +118,6 @@ $$
 $${#eq:logit}
 which allows for an interpretation of the seemingly arbitrary coefficients $\beta_0$ and $\beta_1$. The intercept term, $\beta_0$, captures the log-odds of survival with no MscL channels. The slope, $\beta_1$, describes the log odds-ratio of survival which a single channel relative to the odds of survival with no channels at all. While we have examined this considering only two possible channel copy numbers ($1$ and $0$), the relationship between them is linear. We can therefore generalize this for any MscL copy number as the increase in the log-odds of survival is constant for addition of a single channel.
 
-![**Posterior distributions for logistic regression coefficients evaluated for fast and slow shock rates.** Kernel density estimates of the posterior distribution for $\beta_0$ (A)  and $\beta_1$ (B) obtained through MCMC sampling.](../figs/figSX4_logistic_posterior_distributions.png){#Fig:logistic_posterior_distributions}
+### Other properties as predictor variables ###
+
+&nbsp;&nbsp;&nbsp;&nbsp; The previous two sections discuss in detail the logic and practice behind the application of logistic regression to cell survival data using only the effective channel copy number as the predictor of survival. However, there are a variety of properties that could rightly be used as predictor variables, such as cell area and shock rate. As is stipulated in our standard candle calibration, there should be no correlation between survival and cell area. [@Fig:alternative_predictor_variables]A shows the logistic regression performed on the cell area. We see for both slow and fast shock groups, there is little to no change in survival probability with changing cell area. The appearance of a bottle neck in the notably wide credible regions is a result of a large fraction of the measurements being tightly distributed about a mean value. [@Fig:alternative_predictor_variables]B shows the predicted survival probability as a function of the the shock rate, using the log transform of the shock rate as a predictor variable. Much as in the case of using cell area as a predictor, there is a  

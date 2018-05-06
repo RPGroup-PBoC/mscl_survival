@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
+# %%
+import os
+os.chdir('code/figs/')
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import pystan
 import pandas as pd
 import sys
-sys.path.insert(0, '../')
+sys.path.insert(0, '../../')
 import mscl.stats
 import mscl.mcmc
 import mscl.plotting
@@ -13,231 +16,166 @@ colors = mscl.plotting.set_plotting_style()
 
 FIG_NO = 'X3'
 
-# --- Area Predictor -------------
+# Load the necessary data sets.
 data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
-shock_data = data[data['experiment'] == 'shock'].copy()
-sm = pystan.StanModel('../stan/generic_logistic_regression.stan')
-
-
-#%% Area as a predictor variable
-dfs = []
-grouped = shock_data.groupby('shock_class')
-for g, d in grouped:
-    data_dict = {'N': len(d), 'predictor': d['area'],
-                 'output': d['survival'].astype(int)}
-    trace = sm.sampling(data=data_dict, iter=5000, chains=4)
-    _df = mscl.mcmc.chains_to_dataframe(trace)
-    _df.insert(0, 'shock_speed', g)
-    dfs.append(_df)
-traces = pd.concat(dfs, ignore_index=False)
-
-traces.to_csv('../../data/csv/logistic_regression_area_predictor.csv',
-              index=False)
+model = pystan.StanModel('../stan/generic_logistic_regression.stan')
 
 # %%
-grouped = shock_data.groupby('shock_class')
-fig = plt.figure(figsize=(4, 2.2))
-gs = gridspec.GridSpec(3, 2, height_ratios=[0.5, 8, 0.5])
-ax = [plt.subplot(gs[i, j]) for i in range(3) for j in range(2)]
-axes = {'slow': [ax[0], ax[4], ax[2]], 'fast': [ax[1], ax[5], ax[3]]}
-color_dict = {'slow': [colors['red'], colors['light_red']],
-              'fast': [colors['blue'], colors['light_blue']]}
+# Use area as a predictor variable.
+data.loc[data['shock_class'] == 'slow', 'idx'] = 1
+data.loc[data['shock_class'] == 'fast', 'idx'] = 2
+data_dict = {'J': 2, 'N': len(data), 'trial': data['idx'].values.astype(
+    int), 'output': data['survival'].astype(int), 'predictor': data['area']}
+samples = model.sampling(data=data_dict, iter=5000, chains=4)
+area_samples = mscl.mcmc.chains_to_dataframe(samples)
+area_stats = mscl.mcmc.compute_statistics(area_samples)
+# %%
+# Use log shock rate as a predictor
+data_dict = {'J': 1, 'N': len(data), 'trial': np.ones(len(data)).astype(
+    int), 'output': data['survival'].astype(int), 'predictor': np.log(data['flow_rate'].values)}
+samples = model.sampling(data=data_dict, iter=5000, chains=4)
+rate_samples = mscl.mcmc.chains_to_dataframe(samples)
+rate_stats = mscl.mcmc.compute_statistics(rate_samples)
+rate_samples
+# %%
+# Use both channel number and log shock rate as a predictor variable
+bivariate_model = pystan.StanModel(
+    '../stan/bivariate_logistic_regression.stan')
+data_dict = {'N': len(data), 'output': data['survival'].astype(int), 'predictor_1': np.log(
+    data['effective_channels'].values), 'predictor_2': np.log(data['flow_rate'].values)}
+samples = bivariate_model.sampling(data=data_dict, iter=5000, chains=4)
+samples
+bivariate_samples = mscl.mcmc.chains_to_dataframe(samples)
+bivariate_stats = mscl.mcmc.compute_statistics(bivariate_samples)
+# %%
+# Generate the plots.
+fig, ax = plt.subplots(2, 2, figsize=(6, 5))
 
+# Add figure panel labels.
+fig.text(0, 0.95, '(A)', fontsize=8)
+fig.text(0, 0.45, '(B)', fontsize=8)
+fig.text(0.5, 0.45, '(C)', fontsize=8)
+ax = ax.ravel()
+# Add labels
+for i in range(4):
+    ax[i].tick_params(labelsize=8)
+    if i < 3:
+        ax[i].set_ylabel('survival probability', fontsize=8)
+        ax[i].set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
+ax[0].set_xlabel('cell area [µm$^2$]', fontsize=8)
+ax[1].set_xlabel('cell area [µm$^2$]', fontsize=8)
+ax[2].set_xlabel('shock rate [Hz]', fontsize=8)
+ax[3].set_xlabel('effective channel number', fontsize=8)
+ax[3].set_ylabel('shock rate [Hz]', fontsize=8)
+area_range = np.linspace(0, 40, 500)
+titles = ['slow shock (< 1.0 Hz)', 'fast shock ($\geq$ 1.0 Hz)']
+color_key = [colors['purple'], colors['blue']]
+fill_colors = [colors['light_purple'], colors['light_blue']]
+for i in range(2):
+    ax[i].set_ylim([-0.2, 1.2])
+    ax[i].set_xlim([0, 40])
+    _ = ax[i].set_title(titles[i], fontsize=8, backgroundcolor=colors['pale_yellow'], y=1.05)
+    _ = ax[i].set_xlabel('cell area [µm$^2$]', fontsize=8)
+    # Set the titkle
+    # Find the most-likely values from the fitting. 
+    beta_0 = area_stats[area_stats['parameter']=='beta_0__{}'.format(i)]['median'].values[0]
+    beta_1 = area_stats[area_stats['parameter']=='beta_1__{}'.format(i)]['median'].values[0]
+    logit = beta_0 + beta_1 * area_range
+    prob = (1 + np.exp(-logit))**-1
 
-ax[0].set_title('slow shock (< 1.0 Hz)', backgroundcolor=colors['pale_yellow'],
-                fontsize=8)
-ax[1].set_title('fast shock (≥ 1.0 Hz)', backgroundcolor=colors['pale_yellow'],
-                fontsize=8)
-fig.text(0.05, 0.9, '(A)', fontsize=8)
-# Set the special axes requirements for the rug plots
-for i in (0, 1):
-    ax[i].set_axis_off()
+    # Plot the modst-likely prediction. 
+    _ = ax[i].plot(area_range, prob, color=color_key[i], lw=1.5, label='logistic regression')
 
-for i in (4, 5):
-    ax[i].set_frame_on(False)
-    ax[i].set_yticks([])
-    ax[i].set_xlabel('area [µm$^2$]', fontsize=8)
-
-for a in ax:
-    a.tick_params(labelsize=8)
-
-ax[2].set_ylabel('survival probability', fontsize=8)
-ax[3].set_ylabel('survival probability', fontsize=8)
-ax[2].set_xticklabels([])
-ax[3].set_xticklabels([])
-
-# Plot the survival and death cells on the appropriate rug plots
-area_range = np.linspace(0, 40, 1000)
-for g, d in grouped:
-    # Generate the rug plots
-    survival = d[d['survival'] == True]
-    death = d[d['survival'] == False]
-    _y_surv = np.random.normal(loc=0, scale=0.1, size=len(survival))
-    _y_death = np.random.normal(loc=0, scale=0.1, size=len(death))
-    surv_ax, death_ax, plot_ax = axes[g]
-    surv_ax.plot(survival['area'], _y_surv, 'k.', ms=1.5, alpha=0.2)
-    death_ax.plot(death['area'], _y_death, 'k.', ms=1.5, alpha=0.2)
-
-grouped = traces.groupby('shock_speed')
-for g, d in grouped:
-    _, _, plot_ax = axes[g]
-    # Compute the survival probability curve.
-    beta_0, beta_1 = np.median(d['beta_0']), np.median(d['beta_1'])
-    p_survival = (1 + np.exp(-beta_0 - beta_1 * area_range))**-1
-
-    # Compute the credible region.
+    # Plot the credible regions.
     cred_region = np.zeros((2, len(area_range)))
-    for i, a in enumerate(area_range):
-        _p_surv = (1 + np.exp(-d['beta_0'] - a * d['beta_1']))**-1
-        cred_region[:, i] = mscl.mcmc.compute_hpd(_p_surv, 0.95)
+    for j, a in enumerate(area_range):
+        beta_0 = area_samples['beta_0__{}'.format(i)]
+        beta_1 = area_samples['beta_1__{}'.format(i)]
+        logit = beta_0 + beta_1 * a
+        prob = (1 + np.exp(-logit))**-1
+        cred_region[:, j] = mscl.mcmc.compute_hpd(prob, 0.95)
+    _ = ax[i].fill_between(area_range, cred_region[0, :], cred_region[1, :], color=fill_colors[i], alpha=0.5)
+    _ = ax[i].plot(area_range, cred_region[0, :], color=color_key[i], lw=0.75, label='__nolegend__')
+    _ = ax[i].plot(area_range, cred_region[1, :], color=color_key[i], lw=0.75, label='__nolegend__')
 
-    _ = plot_ax.plot(area_range, p_survival, '-', color=color_dict[g][0])
-    _ = plot_ax.fill_between(area_range, cred_region[0, :], cred_region[1, :],
-                             color=color_dict[g][1], alpha=0.5)
-    _ = plot_ax.plot(area_range, cred_region[0, :], color=color_dict[g][0],
-                     lw=1)
-    _ = plot_ax.plot(area_range, cred_region[1, :], color=color_dict[g][0],
-                     lw=1)
+    # Set the top and bottom stripes for plotting the measurements 
+    _ = ax[i].hlines(1.15, 0, 40, color='w', lw=10, label='__nolegend__')
+    _ = ax[i].hlines(-0.15, 0, 40, color='w', lw=10, label='__nolegend__')
 
-for a in ax:
-    a.set_xlim([0, 40])
-plt.subplots_adjust(hspace=0.01, wspace=0.3)
-plt.savefig('../../figs/figS{}_area.pdf'.format(FIG_NO), bbox_inches='tight')
-# plt.savefig('../figs/figS{}.pdf'.format(FIG_NO), bbox_inches='tight')
-# %%
-CAL = 4258
-#%% Area as a predictor variable
-dfs = []
-grouped = shock_data.groupby('shock_class')
-for g, d in grouped:
-    data_dict = {'N': len(d), 'predictor': d['area'] * d['scaled_intensity'] / CAL,
-                 'output': d['survival'].astype(int)}
-    trace = sm.sampling(data=data_dict, iter=5000, chains=4)
-    _df = mscl.mcmc.chains_to_dataframe(trace)
-    _df.insert(0, 'shock_speed', g)
-    dfs.append(_df)
-traces = pd.concat(dfs, ignore_index=False)
-
-# traces.to_csv('../../data/csv/logistic_regression_area_predictor.csv',
-# index=False)
-
-# %%
-grouped = shock_data.groupby('shock_class')
-fig = plt.figure(figsize=(4, 2.2))
-gs = gridspec.GridSpec(3, 2, height_ratios=[0.5, 8, 0.5])
-ax = [plt.subplot(gs[i, j]) for i in range(3) for j in range(2)]
-axes = {'slow': [ax[0], ax[4], ax[2]], 'fast': [ax[1], ax[5], ax[3]]}
-color_dict = {'slow': [colors['red'], colors['light_red']],
-              'fast': [colors['blue'], colors['light_blue']]}
+    #  Plot the actual data.
+    _data = data[data['idx']==i + 1]
+    _surv = _data[_data['survival'] == True]['area']
+    _death  = _data[_data['survival'] == False]['area']
+    ys = np.random.normal(loc=1.15, scale=0.01, size=len(_surv))
+    yd = np.random.normal(loc=-0.15, scale=0.01, size=len(_death))
+    _ = ax[i].plot(_surv, ys, 'k.', ms=1, alpha=0.5)
+    _ = ax[i].plot(_death, yd, 'k.', ms=1, alpha=0.5)
 
 
-ax[0].set_title('slow shock (< 1.0 Hz)', backgroundcolor=colors['pale_yellow'],
-                fontsize=8)
-ax[1].set_title('fast shock (≥ 1.0 Hz)', backgroundcolor=colors['pale_yellow'],
-                fontsize=8)
-fig.text(0.05, 0.9, '(B)', fontsize=8)
+# Plot the shock rate prediction.
+ax[2].set_xlim([0, 2.5])
+ax[2].set_ylim([-0.2, 1.2])
+rate_range = np.linspace(0, 2.5, 500)
+beta_0 = rate_stats[rate_stats['parameter']=='beta_0']['median'].values[0]
+beta_1 = rate_stats[rate_stats['parameter']=='beta_1']['median'].values[0]
+logit = beta_0 + beta_1 * np.log(rate_range) 
+prob = (1 + np.exp(-logit))**-1
+_ = ax[2].plot(rate_range, prob, color='k', lw=1.5)
 
-# Set the special axes requirements for the rug plots
-for i in (0, 1):
-    ax[i].set_axis_off()
+# Compute the credible region.
+cred_region = np.zeros((2, len(rate_range)))
+for i, r in enumerate(rate_range):
+    logit = rate_samples['beta_0'] + rate_samples['beta_1'] * np.log(r)
+    prob = (1 + np.exp(-logit))**-1
+    cred_region[:, i] = mscl.mcmc.compute_hpd(prob, 0.95)
+_ = ax[2].fill_between(rate_range, cred_region[0, :], cred_region[1, :], color='slategray', alpha=0.5)
+_ = ax[2].plot(rate_range, cred_region[0, :], color='k', lw=0.75, label='__nolegend__')
+_ = ax[2].plot(rate_range, cred_region[1, :], color='k', lw=0.75, label='__nolegend__')
 
-for i in (4, 5):
-    ax[i].set_frame_on(False)
-    ax[i].set_yticks([])
-    ax[i].set_xlabel('integrated channel\ncopy number', fontsize=8)
-
-for a in ax:
-    a.tick_params(labelsize=8)
-
-ax[2].set_ylabel('survival probability', fontsize=8)
-ax[3].set_ylabel('survival probability', fontsize=8)
-ax[2].set_xticklabels([])
-ax[3].set_xticklabels([])
-
-# Plot the survival and death cells on the appropriate rug plots
-chan_range = np.linspace(0, 1500, 1000)
-for g, d in grouped:
-    # Generate the rug plots
-    survival = d[d['survival'] == True]
-    death = d[d['survival'] == False]
-    _y_surv = np.random.normal(loc=0, scale=0.1, size=len(survival))
-    _y_death = np.random.normal(loc=0, scale=0.1, size=len(death))
-    surv_ax, death_ax, plot_ax = axes[g]
-    surv_ax.plot(survival['area'] * survival['scaled_intensity'] /
-                 CAL, _y_surv, 'k.', ms=1.5, alpha=0.2)
-    death_ax.plot(death['area'] * death['scaled_intensity'] /
-                  CAL, _y_death, 'k.', ms=1.5, alpha=0.2)
-
-grouped = traces.groupby('shock_speed')
-for g, d in grouped:
-    _, _, plot_ax = axes[g]
-    # Compute the survival probability curve.
-    beta_0, beta_1 = np.median(d['beta_0']), np.median(d['beta_1'])
-    p_survival = (1 + np.exp(-beta_0 - beta_1 * area_range))**-1
-
-    # Compute the credible region.
-    cred_region = np.zeros((2, len(area_range)))
-    for i, a in enumerate(chan_range):
-        _p_surv = (1 + np.exp(-d['beta_0'] - a * d['beta_1']))**-1
-        cred_region[:, i] = mscl.mcmc.compute_hpd(_p_surv, 0.95)
-
-    _ = plot_ax.plot(area_range, p_survival, '-', color=color_dict[g][0])
-    _ = plot_ax.fill_between(chan_range, cred_region[0, :], cred_region[1, :],
-                             color=color_dict[g][1], alpha=0.5)
-    _ = plot_ax.plot(chan_range, cred_region[0, :], color=color_dict[g][0],
-                     lw=1)
-    _ = plot_ax.plot(chan_range, cred_region[1, :], color=color_dict[g][0],
-                     lw=1)
-for a in ax:
-    a.set_xlim([0, 1500])
-plt.subplots_adjust(hspace=0.01, wspace=0.3)
-plt.savefig('../../figs/figS{}_total_channels.pdf'.format(FIG_NO),
-            bbox_inches='tight')
-# plt.savefig('../fi
-
-# %%
-sm = pystan.StanModel('../stan/bivariate_logistic_regression.stan')
-
-#%% -- Bivariate regression --------------
-# Compile the stan model.
-sm = pystan.StanModel('../stan/bivariate_logistic_regression.stan')
-data_dict = {'N': len(shock_data), 'predictor_1': shock_data['effective_channels'],
-             'predictor_2': shock_data['flow_rate'],
-             'output': shock_data['survival'].astype(int)}
-# Sample and convert the traces to a dataframe
-bivariate_traces = sm.sampling(data=data_dict, iter=5000, chains=4)
-bivariate_df = mscl.mcmc.chains_to_dataframe(bivariate_traces)
-
-# Compute the means for all coefficients.
-_, beta_2, beta_1, beta_0 = np.mean(bivariate_df).values
+# Plot the cell measurements.
+_ = ax[2].hlines(1.15, 0, 2.5, lw=10, color='w')
+_ = ax[2].hlines(-0.15, 0, 2.5, lw=10, color='w')
+surv = data[data['survival']==True]['flow_rate']
+death = data[data['survival']==False]['flow_rate']
+ys = np.random.normal(loc=1.15, scale=0.01, size=len(surv))
+yd = np.random.normal(loc=-0.15, scale=0.01, size=len(death))
+_ = ax[2].plot(surv, ys, 'k.', ms=2, alpha=0.5, label='__nolegend__')
+_ = ax[2].plot(death, yd, 'k.', ms=2, alpha=0.5, label='__nolegend__')
 
 
-#%% Set up the grid
-chan_range = np.linspace(0, 800, 500)
-shock_range = np.linspace(0, 3, 500)
-X, Y = np.meshgrid(chan_range, shock_range)
-p_survival = (1 + np.exp(-(beta_0 + beta_1 * X + beta_2 * Y)))**-1
+# Plot the bivariate regression.
+chan_range = np.logspace(0, 3, 500)
+X, Y = np.meshgrid(chan_range, rate_range)
+beta_0 = bivariate_stats[bivariate_stats['parameter']=='beta_0']['median'].values[0]
+beta_1 = bivariate_stats[bivariate_stats['parameter']=='beta_1']['median'].values[0]
+beta_2 = bivariate_stats[bivariate_stats['parameter']=='beta_2']['median'].values[0]
+logit = beta_0 + beta_1 * np.log(X) + beta_2 * Y
+prob = (1 + np.exp(-logit))**-1
 
-# plt.imshow(p_survival)
-fig, ax = plt.subplots(1, 1, figsize=(2.2, 2.2))
-contour = ax.contourf(X, Y, p_survival, cmap='bone')
-ax.set_yscale('log')
+# Plot the contours of probability. 
+_ = ax[3].contourf(X, Y, prob, cmap='viridis')
+_cont = ax[3].contour(X, Y, prob, colors='w')
 
-survs = shock_data[shock_data['survival'] == True]
-deaths = shock_data[shock_data['survival'] == False]
-# plt.clabel(contour, inline=1, fontsize=8)
-ax.plot(survs['effective_channels'], survs['flow_rate'], '.', color=colors['green'],
-        alpha=0.5, label='survival', ms=2)
-ax.plot(deaths['effective_channels'], deaths['flow_rate'], '.', color=colors['light_purple'],
-        alpha=0.5, label='death', ms=2)
-cbar = plt.colorbar(mappable=contour, ax=ax)
-ax.set_xlabel('effecive channel number', fontsize=8)
-ax.set_ylabel('flow rate [Hz]', fontsize=8)
-ax.xaxis.set_tick_params(labelsize=8)
-ax.yaxis.set_tick_params(labelsize=8)
-ax.legend(fontsize=8, bbox_to_anchor=(1.1, 1.2), ncol=2)
-cbar.ax.yaxis.set_tick_params(labelsize=8)
-cbar.ax.set_ylim([0, 1])
-cbar.ax.set_ylabel('survival probability', fontsize=8)
-plt.savefig('../../figs/figS{}_bivariate_logistic.pdf'.format(FIG_NO),
-            bbox_inches='tight')
+# Plot the points of cells.
+_ = ax[3].vlines(-10, -0.2, 2.7, color='w', lw=10)
+_ = ax[3].vlines(1005, -0.2, 2.7, color='w', lw=10)
+_ = ax[3].hlines(-0.15, 0, 1010, color='w', lw=10)
+_ = ax[3].hlines(2.65, 0, 1010, color='w', lw=10)
+_ = ax[3].set_ylim([-0.2, 2.7])
+_ = ax[3].set_xlim([-10, 1010])
+
+_surv = data[data['survival']==True]
+_death = data[data['survival']==False]
+ys = np.random.normal(2.65, 0.01, size=len(surv))
+yd = np.random.normal(-0.15, 0.01, size=len(death))
+xs = np.random.normal(-5, 0.05, size=len(_surv))
+xd = np.random.normal(1005, 5, size=len(_death))
+_ = ax[3].plot(_surv['effective_channels'], ys, 'k.', ms=2, alpha=0.75, label='__nolegend__')
+_ = ax[3].plot(_death['effective_channels'], yd, 'k.', ms=2, alpha=0.75, label='__nolegend__')
+_ = ax[3].plot(xs, _surv['flow_rate'], 'k.', ms=1, alpha=0.5, label='__nolegend__')
+_ = ax[3].plot(xd, _death['flow_rate'], 'k.', ms=1, alpha=0.5, label='__nolegend__')
+plt.clabel(_cont, inline=1, fontsize=8, color='w')
+
+plt.tight_layout()
+plt.savefig('../../figs/figSX_alternative_predictors.pdf', bbox_inches='tight', dpi=300)
+plt.savefig('../../figs/figSX_alternative_predictors.png', bbox_inches='tight', dpi=300)

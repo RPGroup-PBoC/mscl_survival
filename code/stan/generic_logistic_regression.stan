@@ -15,7 +15,7 @@ data {
     int<lower=1> N; // Total number of sample measurements.
     int<lower=0, upper=J> trial[N]; // Vector containing trial IDs.
     int<lower=0, upper=1> output[N]; // Categorial input vector.
-    vector<lower=0>[N] predictor;  // Computed effective channel number.
+    vector[N] predictor;  // Computed effective channel number.
     }
 
 parameters {

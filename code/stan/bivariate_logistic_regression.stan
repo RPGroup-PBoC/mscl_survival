@@ -13,8 +13,8 @@
 data {
     int<lower=0> N; // Total number of sample measurements.
     int<lower=0, upper=1> output[N]; // Categorial input vector.
-    vector<lower=0>[N] predictor_1;  // Computed effective channel number.
-    vector<lower=0>[N] predictor_2;
+    vector[N] predictor_1;  // Computed effective channel number.
+    vector[N] predictor_2;
     }
 
 parameters {

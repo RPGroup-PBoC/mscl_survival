@@ -37,7 +37,7 @@ indiv_samples = pd.read_csv('../../data/csv/complete_mcmc_shock_rate_idx.csv')
 indiv_stats = pd.read_csv('../../data/csv/complete_mcmc_shock_rate_idx_stats.csv')
 
 idx = {0: 'slow', 1: 'medium', 2: 'fast'}
-stats
+
 # %%
 # Instantiate the complicated figure
 fig = plt.figure(figsize=(7, 7))
@@ -93,7 +93,7 @@ for i, ax in enumerate(bottoms):
 # Set the titles
 tops = [surv_ax1, surv_ax2, surv_ax3, surv_ax4]
 titles = ['slow shock ($< 0.5$ Hz)', 'intermediate shock (0.5 - 1.0 Hz)',
-          'fast shock ($ \geq$ 1.0 Hz)', 'all shocks']
+          'fast shock ($>$ 1.0 Hz)', 'all shocks']
 
 for i, ax in enumerate(tops):
     ax.set_title(
@@ -208,7 +208,7 @@ flow_rates = np.sort(data['flow_rate'].unique())
 
 
 # Set up the complicated figure.
-fig, ax = plt.subplots(3, 4, figsize=(8, 5), sharex=True, sharey=True)
+fig, ax = plt.subplots(3, 4, figsize=(8, 5), sharex=False, sharey=True)
 
 # Properly format and label.
 for i in range(4):
@@ -216,10 +216,14 @@ for i in range(4):
     if i < 3:
         ax[i, 0].set_ylabel('survival probability', fontsize=8)
 ax = ax.ravel()
+for i in range(len(ax) - 5):
+    ax[i].set_xticklabels([])
+
+ax[7].set_xlabel('effective channel number', fontsize=8)
 for a in ax:
     a.tick_params(labelsize=8)
     a.set_xlim([0, 1000])
-    a.set_ylim([0, 1])
+    a.set_ylim([-0.15, 1.15])
 ax[-1].axis('off')
 
 # Iterate through each shock group and plot the prediction, credible region, and bins.
@@ -232,9 +236,40 @@ for i, r in enumerate(flow_rates):
     logit = beta_0 + beta_1 * np.log(chan_range)
     prob = (1 + np.exp(-logit))**-1
 
-    _ = ax[i].plot(chan_range, prob, color=colors['red'], lw=1)
+    _ = ax[i].plot(chan_range, prob, color=colors['red'], lw=1, label='logistic regression')
 
+    # Plot the credible regions.
+    cred_region = np.zeros((2, len(chan_range)))
+    for j, c in enumerate(chan_range):
+        logit = indiv_samples['beta_0__{}'.format(i)] + indiv_samples['beta_1__{}'.format(i)] * np.log(c)
+        prob = (1 + np.exp(-logit))**-1
+        cred_region[:, j] = mscl.mcmc.compute_hpd(prob, 0.95)
+    _ = ax[i].fill_between(chan_range, cred_region[0, :], cred_region[1, :], color=colors['light_red'], alpha=0.5)
+    _ = ax[i].plot(chan_range, cred_region[0, :], color=colors['red'], lw=0.75, label='__nolegend__')
+    _ = ax[i].plot(chan_range, cred_region[1, :], color=colors['red'], lw=0.75, label='__nolegend__')
+
+    _ = ax[i].hlines(1.1, 0, 1E3, color='w', lw=11)
+    _ = ax[i].hlines(-0.1, 0, 1E3, color='w', lw=11)
     # Add the title for the shock rate.
-    _ = ax[i].set_title('{} Hz'.format(r), fontsize=8, y=1.04, backgroundcolor=colors['pale_yellow'])
+    # Isolate the data to be plotted.
+    _data = data[data['flow_rate']==r]
+    surv = _data[_data['survival']==True]
+    death = _data[_data['survival']==False]
+    # Plot the points.
+    ys = np.random.normal(loc=1.1, scale=0.01, size=len(surv))
+    yd = np.random.normal(loc=-0.1, scale=0.01, size=len(death))
+    _ = ax[i].plot(surv['effective_channels'], ys, 'k.', ms=1, alpha=0.5, label='__nolegend__')
+    _ = ax[i].plot(death['effective_channels'], yd, 'k.', ms=1, alpha=0.5, label='__nolegend__')
+    rbs_binned = _data.groupby('rbs').apply(compute_mean_sem)
+    rbs_df = pd.DataFrame(rbs_binned).reset_index()
+    _ = ax[i].errorbar(rbs_df['mean_chan'], rbs_df['p_survival'], xerr=rbs_df['chan_err'], yerr=rbs_df['prob_err'],
+        ms=4, color=colors['blue'], lw=1, linestyle='none', fmt='.', zorder=1000, label='1 SD mutant / bin')
+    if i == 0:
+        _ = ax[i].set_title('{:.3f} Hz; N = {}'.format(r, len(_data)), fontsize=8, y=1.04, backgroundcolor=colors['pale_yellow'])
+    else:
+        _ = ax[i].set_title('{:.2f} Hz; N = {}'.format(r, len(_data)), fontsize=8, y=1.04, backgroundcolor=colors['pale_yellow'])
 
+_leg = ax[-2].legend(fontsize=8, bbox_to_anchor=(1.3, 0.75))
 plt.tight_layout()
+plt.savefig('../../figs/figS5_all_indiv_shock_regression.pdf', bbox_inches='tight', dpi=300)
+plt.savefig('../../figs/figS5_all_indiv_shock_regression.png', bbox_inches='tight', dpi=300)
