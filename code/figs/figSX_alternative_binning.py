@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # %%
-import os
 import sys
 import numpy as np
 import pandas as pd
@@ -35,8 +34,7 @@ pooled_samples = pd.read_csv('../../data/csv/pooled_complete_mcmc_traces.csv')
 pooled_stats = pd.read_csv('../../data/csv/pooled_complete_mcmc_stats.csv')
 pooled_data = pd.read_csv('../../data/csv/pooled_mscl_survival_data.csv')
 indiv_samples = pd.read_csv('../../data/csv/complete_mcmc_shock_rate_idx.csv')
-indiv_samples = pd.read_csv(
-    '../../data/csv/complete_mcmc_shock_rate_idx_stats.csv')
+indiv_stats = pd.read_csv('../../data/csv/complete_mcmc_shock_rate_idx_stats.csv')
 
 idx = {0: 'slow', 1: 'medium', 2: 'fast'}
 stats
@@ -150,12 +148,12 @@ for i, r in enumerate(rates):
     grouped = binned.groupby('bin_number').apply(compute_mean_sem)
     _ = curves[i].errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'],
                            yerr=grouped['prob_err'], color='#4b4b4b', lw=1, linestyle='none',
-                           marker='.', ms=4, zorder=99, label='{} channels/bin'.format(bin_width))
+                           marker='.', ms=4,  label='{} channels/bin'.format(bin_width), zorder=100)
 
     # Plot the strain data.
     grouped = _data.groupby(['rbs']).apply(compute_mean_sem)
     _ = curves[i].errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'], yerr=grouped['prob_err'],
-                           color=colors['blue'], lw=1, ms=4, marker='.', label='1 SD mutant / bin', linestyle='none')
+                           color=colors['blue'], lw=1, ms=4, marker='.', label='1 SD mutant / bin', linestyle='none', zorder=100)
 
 # Plot the pooled data.
 surv = data[data['survival'] == True]
@@ -191,25 +189,52 @@ binned = mscl.stats.density_binning(
     pooled_data, bin_width=bin_width, groupby='idx', input_key='effective_channels', min_cells=20)
 grouped = binned.groupby('bin_number').apply(compute_mean_sem)
 _ = prob_ax4.errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'],
-                      yerr=grouped['prob_err'], linestyle='none', lw=1, ms=4, marker='.', color='#4b4b4b')
+                      yerr=grouped['prob_err'], linestyle='none', lw=1, ms=4, marker='.', color='#4b4b4b', 
+                      label='{} channels / bin'.format(bin_width), zorder=100)
 
 # Plot the strain bins.
 grouped = pooled_data.groupby(['rbs']).apply(compute_mean_sem)
 _ = prob_ax4.errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'], yerr=grouped['prob_err'],
-                           color=colors['blue'], lw=1, ms=4, marker='.', label='1 SD mutant / bin', linestyle='none')
+                           color=colors['blue'], lw=1, ms=4, marker='.', label='1 SD mutant / bin', linestyle='none', zorder=100)
 
+_leg = prob_ax4.legend(fontsize=10, handlelength=0.75)
 
-# plt.savefig('figSX_alternative_binning.pdf', bbox_inches='tight', dpi=300)
-# plt.savefig('figSX_alternative_binning.png', bbox_inches='tight', dpi=300)
+plt.savefig('../../figs/figS4_alternative_binning.pdf', bbox_inches='tight', dpi=300)
+plt.savefig('../../figs/figS4_alternative_binning.png', bbox_inches='tight', dpi=300)
 
 
 # %%
-data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
-# Plot the regression on each individual shock rate.
-n_rates = data['flow_rate'].unique()
-samples = pd.read_csv('../../data/csv/complete_mcmc_shock_rate_idx.csv')
-stats = mscl.mcmc.compute_statistics(samples)
-stats.to_csv('../../data/csv/complete_mcmc_shock_rate_idx_stats.csv')
+flow_rates = np.sort(data['flow_rate'].unique())
 
-n_rates
-data
+
+# Set up the complicated figure.
+fig, ax = plt.subplots(3, 4, figsize=(8, 5), sharex=True, sharey=True)
+
+# Properly format and label.
+for i in range(4):
+    ax[-1, i].set_xlabel('effective channel number', fontsize=8)
+    if i < 3:
+        ax[i, 0].set_ylabel('survival probability', fontsize=8)
+ax = ax.ravel()
+for a in ax:
+    a.tick_params(labelsize=8)
+    a.set_xlim([0, 1000])
+    a.set_ylim([0, 1])
+ax[-1].axis('off')
+
+# Iterate through each shock group and plot the prediction, credible region, and bins.
+for i, r in enumerate(flow_rates):
+    # Get the most-likely stats.
+    beta_0 = indiv_stats[indiv_stats['parameter'] == 'beta_0__{}'.format(i)]['median'].values[0]
+    beta_1 = indiv_stats[indiv_stats['parameter'] == 'beta_1__{}'.format(i)]['median'].values[0]
+
+    # Plot the curve.
+    logit = beta_0 + beta_1 * np.log(chan_range)
+    prob = (1 + np.exp(-logit))**-1
+
+    _ = ax[i].plot(chan_range, prob, color=colors['red'], lw=1)
+
+    # Add the title for the shock rate.
+    _ = ax[i].set_title('{} Hz'.format(r), fontsize=8, y=1.04, backgroundcolor=colors['pale_yellow'])
+
+plt.tight_layout()

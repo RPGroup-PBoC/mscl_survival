@@ -2,5 +2,7 @@
 include:
   appendix_C_standard_candle.md
   appendix_D_logistic_regression.md
-name: 20180425_GC_supplement.pdf
+header:
+  default_supplement.yaml
+name: mscl_supplement.pdf
 ---

@@ -6,5 +6,7 @@ include:
   section_4_discussion.md
   section_5_methods.md
   section_6_references.md
+header:
+  default_main.yaml
 name: mscl_main.pdf
 ---
