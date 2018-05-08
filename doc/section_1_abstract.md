@@ -27,8 +27,8 @@ examine the contribution of MscL alone to cell survival after osmotic shock
 at single cell resolution using quantitative fluorescence microscopy. We
 conduct these experiments in an *E. coli* strain which is lacking all
 mechanosensitive channel genes save for MscL whose expression is tuned
-through modifications of the Shine-Dalgarno sequence. While theoretical
-models predict that only a few MscL channels would be needed to alleviate
+across three orders of magnitude through modifications of the Shine-Dalgarno sequence. While theoretical
+models suggest that only a few MscL channels would be needed to alleviate
 even large changes in osmotic pressure, we find that between 500 and 700
 channels per cell are needed to convey upwards of 80% survival. This number
 agrees with the average MscL copy number measured in wild-type *E. coli*

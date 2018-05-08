@@ -54,7 +54,7 @@ for s in samples.keys():
     cred_regions[s] = _cred
 
 # %%  Generate figure with appropriate rug plots.
-fig = plt.figure(figsize=(6, 3.5))
+fig = plt.figure(figsize=(6, 2))
 gs = gridspec.GridSpec(3, 2, height_ratios=[0.5, 8, 0.5])
 ax = [plt.subplot(gs[i, j]) for i in range(3) for j in range(2)]
 ax[0].set_title('slow shock (< 1.0 Hz)', backgroundcolor=colors['pale_yellow'],
@@ -91,7 +91,7 @@ for i, exp in enumerate([slow_data, fast_data]):
     grouped = exp.groupby('rbs').apply(compute_mean_sem)
     _ = ax[i + 2].errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'],
                            yerr=grouped['prob_err'], color=colors['red'], lw=1, linestyle='none',
-                           marker='.', ms=4, zorder=100, label='1 SD mutant / bin')
+                           marker='.', ms=4, zorder=100, label='1 SD mutant/bin')
     binned = mscl.stats.density_binning(
         exp, bin_width=bin_width, groupby='shock_class', input_key='effective_channels', min_cells=20)
     grouped = binned.groupby('bin_number').apply(compute_mean_sem)
@@ -115,8 +115,9 @@ _ = ax[3].plot(chan_range, prob_survival['fast'], color=colors['blue'],
                label='logistic\nregression')
 
 # for i in range(2):
-_leg = ax[2].legend(fontsize=8, loc='lower right', handlelength=1)
-_leg = ax[3].legend(fontsize=8, loc='lower right', handlelength=1)
+# _leg = ax[2].legend(fontsize=8, loc='lower right', handlelength=1)
+_leg = ax[3].legend(fontsize=8, loc='lower right', handlelength=1, bbox_to_anchor=(1.7, 0.4))
+_leg.legendHandles[0].set_color('k')
 
 # Fill in the credible regions.
 _ = ax[2].fill_between(chan_range, cred_regions['slow'][0, :], cred_regions['slow'][1, :],

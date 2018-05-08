@@ -6,7 +6,7 @@ eqnos-plus-name: "Eq."
 fignos-plus-name: "Fig."
 number-sections: True
 reference-section-title: REFERENCES
-bibliography: ./mscl.bib
+bibliography: ./mscl_refs.bib
 csl: ./asm.csl
 header-includes:
   \usepackage{microtype}

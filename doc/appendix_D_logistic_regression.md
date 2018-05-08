@@ -3,7 +3,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;In this work, we were interested in computing the survival probability under a large hypo-osmotic shock as a function of MscL channel number. As the channel copy number distributions for each Shine-Dalgarno sequence mutant were broad and overlapping, we chose to calculate the survival probability through logistic regression -- a method that requires no binning of the data providing the least biased estimate of survival probability. Logistic regression is a technique that has been used in medical statistics since the late 1950's to describe diverse phenomena such as dose response curves, criminal recidivism, and survival probabilities for patients after treatment [@anderson2003; @mishra2016; @stahler2013]. It has also found much use in machine learning to tune a binary or categorical response given a continuous input [@cheng2009; @dreiseitl2002; @ng]. 
 
-In this section, we derive a statistical model for estimating the most-likely
+&nbsp;&nbsp;&nbsp;&nbsp;In this section, we derive a statistical model for estimating the most-likely
 values for the coefficients $\beta_0$ and $\beta_1$ and use Bayes' theorem to
 provide an interpretation for the statistical meaning.
 
@@ -38,11 +38,11 @@ $$
 g(\beta_0, \beta_1\,\vert\, N_c, s) = \prod\limits_{i=1}^n\left({1 \over 1 + e^{-\beta_0 - \beta_1 N_c^{(i)}}}\right)^{s^{(i)}}\left(1 - {1 \over 1 + e^{-\beta_0 - \beta_1 N_c^{(i)}}}\right)^{1 - s^{(i)}}
 $${#eq:known_nc_post}
 
-&nbsp;&nbsp;&nbsp;&nbsp;Implicitly stated in [@Eq:known_nc_post] is absolute knowledge of the channel copy number $N_c$. However, as is described in section B *Standard Candle Calibration*, we must convert from a measured areal sfGFP intensity $I_A$ to a effective channel copy number,
+&nbsp;&nbsp;&nbsp;&nbsp;Implicitly stated in [@Eq:known_nc_post] is absolute knowledge of the channel copy number $N_c$. However, as is described in *Standard Candle Calibration*, we must convert from a measured areal sfGFP intensity $I_A$ to a effective channel copy number,
 $$
 N_c = {I_A \tilde{\langle A \rangle} \over \tilde{\alpha}},
 $${#eq:standard_candle}
-where $\tilde{\langle A \rangle}$ is the average cell area of the standard candle strain and $\tilde{\alpha}$ is the most-likely value for the calibration factor between arbitrary units and protein copy number. In section B (*Standard Candle Calibration*), we detailed a process for generating an estimate for the most-likely value of $\tilde{\langle A \rangle}$ and $\tilde{\alpha}$. Given these estimates, we can include an informative prior for each value. From the Markov chain Monte Carlo samples shown in [@Fig:posterior_samples], the posterior distribution for each parameter is approximately Gaussian. By approximating them as Gaussian distributions, we can assign an informative prior for each as
+where $\tilde{\langle A \rangle}$ is the average cell area of the standard candle strain and $\tilde{\alpha}$ is the most-likely value for the calibration factor between arbitrary units and protein copy number. In *Standard Candle Calibration*, we detailed a process for generating an estimate for the most-likely value of $\tilde{\langle A \rangle}$ and $\tilde{\alpha}$. Given these estimates, we can include an informative prior for each value. From the Markov chain Monte Carlo samples shown in [@Fig:posterior_samples], the posterior distribution for each parameter is approximately Gaussian. By approximating them as Gaussian distributions, we can assign an informative prior for each as
 $$
 g(\alpha\,\vert\,\tilde{\alpha}, \tilde{\sigma}_\alpha) \propto {1 \over \tilde{\sigma}_\alpha^k}\prod\limits_{i=1}^k\exp\left[-{(\alpha_i - \tilde{\alpha})^2 \over  2\tilde{\sigma}_\alpha^2}\right]
 $${#eq:alpha_prior}
@@ -52,7 +52,7 @@ g(\langle A \rangle\,\vert\,\tilde{\langle A \rangle},\tilde{\sigma}_{\langle A 
 $${#eq:area_prior}
 where $\tilde{\sigma}_\alpha$ and $\tilde{\sigma}_{\langle A \rangle}$ represent the variance from approximating each posterior as a Gaussian. The proportionality for each prior arises from the neglecting of normalization constants for notational convenience.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Given [@Eq:bernouilli_likelihood] through [@Eq:area_prior], the complete posterior distribution for estimating the most likely values of $\beta_0$ and $\beta_1$ can be written as
+&nbsp;&nbsp;&nbsp;&nbsp;Given [@Eq:bernoulli_likelihood] through [@Eq:area_prior], the complete posterior distribution for estimating the most likely values of $\beta_0$ and $\beta_1$ can be written as
 $$
 \begin{aligned}
 g(\beta_0, &\beta_1\,\vert\,[I_A, s],\tilde{\langle A \rangle}, \tilde{\sigma}_{\langle A \rangle}, \tilde{\alpha}, \tilde{\sigma}_\alpha) \propto{1 \over (\tilde{\sigma}_\alpha\tilde{\sigma}_{\langle A \rangle})^k}\prod\limits_{i=1}^k\left(1 + \exp\left[-\beta_0 - \beta_1 {{I_A}_i \langle A \rangle_i \over \alpha_i}\right]\right)^{-s_i}\,\times\,\\
@@ -61,7 +61,7 @@ g(\beta_0, &\beta_1\,\vert\,[I_A, s],\tilde{\langle A \rangle}, \tilde{\sigma}_{
 \end{aligned}.
 $${#eq:logistic_posterior}
 
-As this posterior distribution is not solvable analytically, we used Markov chain Monte Carlo to draw samples out of this distribution. The posterior distributions for $\beta_0$ and $\beta_1$ for both slow and fast shock rate data can be seen in [@Fig:logistic_posterior_distributions]
+As this posterior distribution is not solvable analytically, we used Markov chain Monte Carlo to draw samples out of this distribution, using the log of the effective channel number as described in the main text. The posterior distributions for $\beta_0$ and $\beta_1$ for both slow and fast shock rate data can be seen in [@Fig:logistic_posterior_distributions]
 
 ![**Posterior distributions for logistic regression coefficients evaluated for fast and slow shock rates.** (A) Kernel density estimates of the posterior distribution for $\beta_0$ for fast (blue) and slow (purple) shock rates. (B) Kernel density estimates of posterior distribution for $\beta_1$.](../figs/figSX4_logistic_posterior_distributions.png ){#fig:logistic_posterior_distributions}
 
@@ -75,7 +75,7 @@ g(s\,\vert\, N_c) = {f(N_c\,\vert\, s)g(s) \over f(N_c)}.
 $${#eq:survival_bayes}
 where $g$ and $f$ represent probability density functions over parameters and data respectively. The posterior distribution $g(s\,\vert\, N_c)$ is the quantity of interest and implicitly related to the probability of survival. The likelihood $g(N_c\,\vert\, s)$ tells us the probability of observing $N_c$ channels in this cell given that it survives. The quantity $g(s)$ captures all *a priori* knowledge we have regarding the probability of this cell surviving and the denominator $f(N_c)$ tells us the converse -- the probability of observing $N_c$ cells irrespective of the survival outcome.
 
-Proper calculation of [@Eq:survival_bayes] requires that we have knowledge of $f(N_c)$, which is difficult to estimate. While we are able to give appropriate bounds on this term, such as a requirement of positivity and some knowledge of the maximum membrane packing density, it is not so obvious to determine the distribution between these bounds. Given this difficulty, it's easier to compute the odds of survival $\mathcal{O}(s\,\vert\, N_c)$, the probability of survival $s$ relative to death $d$,
+&nbsp;&nbsp;&nbsp;&nbsp;Proper calculation of [@Eq:survival_bayes] requires that we have knowledge of $f(N_c)$, which is difficult to estimate. While we are able to give appropriate bounds on this term, such as a requirement of positivity and some knowledge of the maximum membrane packing density, it is not so obvious to determine the distribution between these bounds. Given this difficulty, it's easier to compute the odds of survival $\mathcal{O}(s\,\vert\, N_c)$, the probability of survival $s$ relative to death $d$,
 $$
 \mathcal{O}(s\,\vert\, N_c) = {g(s\,\vert\,N_c) \over g(d\,\vert\, N_c)} = {f(N_c\,\vert\, s)g(s) \over f(N_c\,\vert\,d)g(d)},
 $${#eq:odds_definition}
@@ -120,4 +120,11 @@ which allows for an interpretation of the seemingly arbitrary coefficients $\bet
 
 ### Other properties as predictor variables ###
 
-&nbsp;&nbsp;&nbsp;&nbsp; The previous two sections discuss in detail the logic and practice behind the application of logistic regression to cell survival data using only the effective channel copy number as the predictor of survival. However, there are a variety of properties that could rightly be used as predictor variables, such as cell area and shock rate. As is stipulated in our standard candle calibration, there should be no correlation between survival and cell area. [@Fig:alternative_predictor_variables]A shows the logistic regression performed on the cell area. We see for both slow and fast shock groups, there is little to no change in survival probability with changing cell area. The appearance of a bottle neck in the notably wide credible regions is a result of a large fraction of the measurements being tightly distributed about a mean value. [@Fig:alternative_predictor_variables]B shows the predicted survival probability as a function of the the shock rate, using the log transform of the shock rate as a predictor variable. Much as in the case of using cell area as a predictor, there is a  
+&nbsp;&nbsp;&nbsp;&nbsp; The previous two sections discuss in detail the logic and practice behind the application of logistic regression to cell survival data using only the effective channel copy number as the predictor of survival. However, there are a variety of properties that could rightly be used as predictor variables, such as cell area and shock rate. As is stipulated in our standard candle calibration, there should be no correlation between survival and cell area. [@Fig:alternative_predictor_variables]A and B show the logistic regression performed on the cell area. We see for both slow and fast shock groups,there is little change in survival probability with changing cell area and the wide credible regions allow for both positive and negative correlation between survival and area. The appearance of a bottle neck in the notably wide credible regions is a result of a large fraction of the measurements being tightly distributed about a mean value. [@Fig:alternative_predictor_variables]C shows the predicted survival probability as a function of the the shock rate. There is a slight decrease in survivability as a function of increasing shock rate, however the width of the credible region allows for slightly positive or slightly negative correlation. While we have presented logistic regression in this section as a one-dimensional method, [@Eq:logit] can be generalized to $n$ predictor variables $x$ as
+$$
+\log {p_s \over 1 - p_s} = \beta_0 + \sum\limits_{i}^n \beta_ix_i.
+$${#eq:generalized_logit}
+Using this generalization, we can use both shock rate and the effective channel copy number as predictor variables. The resulting two-dimensional surface of survival probability is shown in [@Fig:alternative_predictor_variables]D. As is suggested by [@Fig:alternative_predictor_variables]C, the magnitude of change in survivability as the shock rate is increased is smaller than that along increasing channel copy number, supporting our conclusion that for MscL alone, the copy number is the most important variable in determining survival.
+
+
+![**Survival probability estimation using alternative predictor variables.** (A) Estimated survival probability as a function of cell area for the slow shock group. (B) Estimated survival probability as a function of cell area for the fast shock group.  (C) Estimated survival probability as a function shock rate. Black points at top and bottom of plots represent single-cell measurements of cells who survived and perished, respectively. Shaded regions in (A) - (C) represent the 95\% credible region. (D) Surface of estimated survival probability using both shock rate and effective channel number as predictor variables. Black points at left and right of plot represent single-cell measurements of cells which survived and died, respectively, sorted by shock rate. Points at top and bottom of plot represent survival and death sorted by their effective channel copy number. Labeled contours correspond to the survival probability.](../figs/figSX_alternative_predictors.png){#fig:alternative_predictor_variables}

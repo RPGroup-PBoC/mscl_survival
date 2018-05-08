@@ -40,14 +40,14 @@ idx = {0: 'slow', 1: 'medium', 2: 'fast'}
 
 # %%
 # Instantiate the complicated figure
-fig = plt.figure(figsize=(7, 7))
+fig = plt.figure(figsize=(6,5))
 gs = gridspec.GridSpec(22, 30)
 
 # Add panel labels.
-fig.text(0.05, 0.9, '(A)', fontsize=10)
-fig.text(0.5, 0.9, '(B)', fontsize=10)
-fig.text(0.05, 0.48, '(C)', fontsize=10)
-fig.text(0.5, 0.48, '(D)', fontsize=10)
+fig.text(0.05, 0.9, '(A)', fontsize=8)
+fig.text(0.5, 0.9, '(B)', fontsize=8)
+fig.text(0.05, 0.48, '(C)', fontsize=8)
+fig.text(0.5, 0.48, '(D)', fontsize=8)
 # Top panels
 surv_ax1 = fig.add_subplot(gs[0, 0:14])
 surv_ax2 = fig.add_subplot(gs[0, 16:])
@@ -73,8 +73,10 @@ for ax in points:
     ax.set_yticks([])
     ax.set_facecolor('none')
     ax.set_xlim([0, 1E3])
+    ax.tick_params(labelsize=8)
 
 for i, ax in enumerate(curves):
+    ax.tick_params(labelsize=8)
     ax.set_xlim([0, 1E3])
     ax.set_ylim([-0.02, 1.02])
     ax.set_xticklabels([])
@@ -82,13 +84,13 @@ for i, ax in enumerate(curves):
         ax.set_ylabel('')
         ax.set_yticklabels([])
     else:
-        ax.set_ylabel('survival probablity', fontsize=10)
+        ax.set_ylabel('survival probablity', fontsize=8)
     if i < 2:
         ax.set_xticklabels([])
 
 bottoms = [death_ax1, death_ax2, death_ax3, death_ax4]
 for i, ax in enumerate(bottoms):
-    ax.set_xlabel('effective channel number', fontsize=10)
+    ax.set_xlabel('effective channel number', fontsize=8)
 
 # Set the titles
 tops = [surv_ax1, surv_ax2, surv_ax3, surv_ax4]
@@ -97,7 +99,7 @@ titles = ['slow shock ($< 0.5$ Hz)', 'intermediate shock (0.5 - 1.0 Hz)',
 
 for i, ax in enumerate(tops):
     ax.set_title(
-        titles[i], backgroundcolor=colors['pale_yellow'], fontsize=10, y=1.1)
+        titles[i], backgroundcolor=colors['pale_yellow'], fontsize=8, y=1.1)
     ax.set_xticklabels([])
 
 #  Plot the survival curves and credible regions.
@@ -109,7 +111,7 @@ for i in range(3):
                    'beta_1__{}'.format(i)]['median'].values[0]
     logit = beta_0 + beta_1 * np.log(chan_range)
     prob = (1 + np.exp(-logit))**-1
-    _ = curves[i].plot(chan_range, prob, color=colors['red'], lw=1.5)
+    _ = curves[i].plot(chan_range, prob, color=colors['red'], lw=1.5, label='logistic regression')
 
     # Set the credible regions.
     cred_region = np.zeros((2, len(chan_range)))
@@ -197,7 +199,7 @@ grouped = pooled_data.groupby(['rbs']).apply(compute_mean_sem)
 _ = prob_ax4.errorbar(grouped['mean_chan'], grouped['p_survival'], xerr=grouped['chan_err'], yerr=grouped['prob_err'],
                            color=colors['blue'], lw=1, ms=4, marker='.', label='1 SD mutant / bin', linestyle='none', zorder=100)
 
-_leg = prob_ax4.legend(fontsize=10, handlelength=0.75)
+_leg = prob_ax1.legend(fontsize=8, handlelength=0.75)
 
 plt.savefig('../../figs/figS4_alternative_binning.pdf', bbox_inches='tight', dpi=300)
 plt.savefig('../../figs/figS4_alternative_binning.png', bbox_inches='tight', dpi=300)

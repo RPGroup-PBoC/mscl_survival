@@ -17,12 +17,15 @@ sorted_vals = data.sort_values('tir_au')
 sorted_vals['rel_expression'] = sorted_vals['tir_au'] / \
     sorted_vals[sorted_vals['id'] == 'SD0']['tir_au'].values
 
-sorted_vals
+# Load the experimental data.
+exp_data = pd.read_csv('../../data/csv/mscl_survival_data.csv')
+
+
 fig, ax = plt.subplots(1, 2, figsize=(6, 3))
 ax[0].set_axis_off()
 ax[1].yaxis.grid(False)
 ax[1].yaxis.set_ticks([0, 1, 2, 3, 4])
-ax[1].yaxis.set_ticklabels(['SD6', 'SD4', 'SD2', 'SD1', 'SD0'], fontsize=8)
+ax[1].yaxis.set_ticklabels(['SD6', 'SD4', 'SD2', 'SD1', 'WT'], fontsize=8)
 ax[1].xaxis.set_tick_params(labelsize=8)
 ax[1].set_xlabel('predicted expression\n relative to wild-type', fontsize=8)
 ax[1].set_xlim([0, 1.1])

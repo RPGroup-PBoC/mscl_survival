@@ -26,7 +26,7 @@ changes involved direct alterations of the SD sequence as well as the
 inclusion of AT hairpins of varying length directly upstream of the start
 codon. The six SD sequences used in this work were designed using the RBS
 binding site strength calculator from the Salis Laboratory at the
-Pennsylvania State University, and are shown in Fig S1 [@espahborujeni2014;
+Pennsylvania State University, shown in Fig S1 and described in the supplemental information (*Shine-Dalgarno Sequence Design*) [@espahborujeni2014;
 @salis2009]. While the designed SD sequence mutations decreased the
 expression relative to wild-type, the distribution of expression is
 remarkably wide spanning an order of magnitude, as is shown in [@Fig:boxplot]A.
@@ -60,20 +60,20 @@ remarkably wide spanning an order of magnitude, as is shown in [@Fig:boxplot]A.
  strains is complicated by distorted cell morphology. We observed that as the
  channel copy number decreases, cellular morphology becomes increasingly
  aberrant with filamentous, bulging, and branched cells become markedly
- abundant (Fig S2A). This morphological defect has been observed when
+ abundant (Fig S4A). This morphological defect has been observed when
  altering the abundance of several species of mechanosensitive channels,
  suggesting that they play an important role in general architectural
  stability [@bialecka-fornal2012; @bialecka-fornal2015]. As these aberrant morphologies can vary
  widely in size and shape, calculating the number of channels per cell
- becomes more nuanced. For example, taking the total MscL copy number for
+ becomes more a nuanced endeavor. For example, taking the total MscL copy number for
  these cells could skew the final calculation of survival probability as a
  large but severely distorted cell would be interpreted as having more
- channels than a smaller, wild-type shaped cell. To correct for this
+ channels than a smaller, wild-type shaped cell (Fig. S4B). To correct for this
  pathology, we computed the average expression level per unit area for each
  cell and multiplied this by the average cellular area of our standard candle
  strain which is morphologically indistinguishable from wild-type *E. coli*,
  allowing for the calculation of an effective channel copy number. The effect
- of this correction can be seen in Fig S2B and C, which illustrate that
+ of this correction can be seen in Fig S4C and D, which illustrate that
  there is no other correlation between cell area and channel expression.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Our calculation of the effective channel copy number
@@ -109,7 +109,7 @@ calibration of channel copy number (MLG910) is highlighted in yellow. ](../figs/
  controlled rates while under observation. After the application
  of the osmotic shock, the cells were imaged every sixty seconds for four to
  six hours. Survivors were defined as cells which underwent at least two
- divisions. The brief experimental protocol can be seen in [@Fig:flow_cell]B.
+ divisions post-shock. The brief experimental protocol can be seen in [@Fig:flow_cell]B.
 
 ![**Experimental approach to measuring survival probability.** (A) Layout of
 a home-made flow cell for subjecting cells to osmotic shock. Cells are
@@ -119,7 +119,7 @@ the inlets. (B) The typical experimental procedure. Cells are loaded into a
 flow chamber as shown in (A) and mounted to the glass coverslip surface.
 Cells are subjected to a hypo-osmotic shock by flowing hypotonic medium into
 the flow cell. After shock, the cells are monitored for several hours and
-surviving cells are identified.](../figs/fig2 (Original).png){#fig:flow_cell}
+surviving cells are identified.](../figs/fig3.pdf){#fig:flow_cell}
 
 &nbsp;&nbsp;&nbsp;&nbsp;Due to the extensive overlap in expression between
 the different SD mutants (see [@Fig:boxplot]), computing the survival
@@ -127,12 +127,11 @@ probability by treating each mutant as an individual bin obfuscates the
 relationship between channel abundance and survival. To more thoroughly
 examine this relationship, all measurements were pooled together with each
 cell being treated as an individual experiment. The hypo-osmotic shock
-applied in these experiments was varied across a range of 0.002 Hz to 2Hz.
+applied in these experiments was varied across a range of 0.02 Hz to 2.wHz.
 Rather than pooling this wide range of shock rates into a single data set, we
-chose to separate the data into a “slow shock” ( &lt; 1.0 Hz) and “fast
-shock” ($\geq 1.0$ Hz) grouping. Other groupings of shock rate were explored
-and are discussed in the supplemental information (*Coarse Graining Shock
-Rate*). The cumulative distributions of channel copy number separated by
+chose to separate the data into “slow shock” ( &lt; 1.0 Hz) and “fast
+shock” ($\geq 1.0$ Hz) classes. Other groupings of shock rate were explored
+and are discussed in the supplemental information (*Shock Classification*). The cumulative distributions of channel copy number separated by
 survival are shown in [@Fig:survival_dists]. In these experiments, survival
 was never observed for a cell containing less than approximately 100 channels
 per cell, indicated by the red stripe in [@Fig:survival_dists]. This suggests

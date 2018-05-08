@@ -60,7 +60,7 @@ this work and in van den Berg et al. may partially arise from subtle
 differences in the experimental approach. The primary practical difference is
 the rate and magnitude of the osmotic shock. van den Berg et al. applied an
 approximately 600 mOsm downshock in bulk at an undetermined rate whereas we
-applied a 1 Osm downshock at controlled rates varying from 0.002 Hz to 2 Hz.
+applied a 1 Osm downshock at controlled rates varying from 0.02 Hz to 2.2 Hz.
 In their work, survival was measured through plating assays which
 represent the population average rather than the distribution of survival
 probability. While this approach provides valuable information regarding the
@@ -113,7 +113,7 @@ experiments or there is more to understand about the relationship between
 abundance, channel species, and the shock rate.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Some experimental and theoretical
-treatments suggests that only a few copies of MscL or MscS should be necessary for
+treatments suggest that only a few copies of MscL or MscS should be necessary for
 100% protection given our knowledge of the conductance and the maximal water
 flux through the channel in its open state [@louhivuori2010; @booth2014].
 However, recent proteomic studies have revealed average MscL copy numbers to be in the

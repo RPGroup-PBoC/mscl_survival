@@ -128,7 +128,7 @@ calibration factor taking measurement error and replicate-to-replicate
 variation into account. The resulting average cell area and calibration
 factor was used to convert the measured cell intensities from the osmotic
 shock experiments to cell copy number. The details of this inference are
-described in depth in the supplemental information (Standard Candle Calibration).
+described in depth in the supplemental information (*Standard Candle Calibration*).
 
 ### Logistic regression
 &nbsp; &nbsp; &nbsp; &nbsp;We used Bayesian inferential methods to find the
@@ -141,7 +141,7 @@ probabilistic programming language [@carpenter2017] and all models can be
 found on the GitHub repository (`http://github.com/rpgroup-pboc/mscl_survival`).
 
 ### Calculation of survival probability error
-The vertical error bars for the points shown in [@Fig:survival] represent our uncertainty in the survival probability given our measurement of $n$ survivors out of a total $N$ single-cell measurements. The probability distribution of the survival probability $p_s$ given these measurements can be written using Bayes' theorem as
+&nbsp;&nbsp;&nbsp;&nbsp;The vertical error bars for the points shown in [@Fig:survival] represent our uncertainty in the survival probability given our measurement of $n$ survivors out of a total $N$ single-cell measurements. The probability distribution of the survival probability $p_s$ given these measurements can be written using Bayes' theorem as
 $$
 g(p_s\,\vert\, n, N) = {f(n\,\vert\,p_s, N)g(p_s) \over f(n\,\vert\, N)},
 $${#eq:probability_bayes}
@@ -172,9 +172,9 @@ $$
 p_s^* = {n \over N}.
 $${#eq:most_prob_prob}
 So long as $N >> np_s^*$, [@Eq:probability_posterior] can be approximated as a Gaussian distribution with a mean $p_s^*$ and a variance $\sigma_{p_s}^2$. By definition, the variance
-of a Gaussian distribution is computed as the negative reciprical of the second derivative of the log posterior evaluated at $p_s = p_s^*$,
+of a Gaussian distribution is computed as the negative reciprocal of the second derivative of the log posterior evaluated at $p_s = p_s^*$,
 $$
-\sigma_{p_s}^2 = - \left({d^2 \log g(p_s\,\vert\, n, N) \over dp_s^2}\Bigg\vert_{p_s=p_s^*}\right).
+\sigma_{p_s}^2 = - \left({d^2 \log g(p_s\,\vert\, n, N) \over dp_s^2}\Bigg\vert_{p_s=p_s^*}\right)^{-1}.
 $${#eq:variance_def}
 Evaluating [@Eq:variance_def] yields
 $$
@@ -183,7 +183,7 @@ $${#eq:prob_variance}
 Given [@Eq:most_prob_prob] and [@Eq:prob_variance], the most-likely survival probability and estimate of the uncertainty can be expressed as
 $$
 p_s = p_s^* \pm \sigma_{p_s}.
-$$
+$${#eq:}
 
 ### Data and software availability
 

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 # %%
-import os
-os.chdir('code/figs/')
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
@@ -24,7 +22,7 @@ model = pystan.StanModel('../stan/generic_logistic_regression.stan')
 # Use area as a predictor variable.
 data.loc[data['shock_class'] == 'slow', 'idx'] = 1
 data.loc[data['shock_class'] == 'fast', 'idx'] = 2
-data_dict = {'J': 2, 'N': len(data), 'trial': data['idx'].values.astype(
+data_dict = {'J': int(2), 'N': len(data), 'trial': data['idx'].values.astype(
     int), 'output': data['survival'].astype(int), 'predictor': data['area']}
 samples = model.sampling(data=data_dict, iter=5000, chains=4)
 area_samples = mscl.mcmc.chains_to_dataframe(samples)
@@ -32,7 +30,7 @@ area_stats = mscl.mcmc.compute_statistics(area_samples)
 # %%
 # Use log shock rate as a predictor
 data_dict = {'J': 1, 'N': len(data), 'trial': np.ones(len(data)).astype(
-    int), 'output': data['survival'].astype(int), 'predictor': np.log(data['flow_rate'].values)}
+    int), 'output': data['survival'].astype(int), 'predictor': data['flow_rate'].values}
 samples = model.sampling(data=data_dict, iter=5000, chains=4)
 rate_samples = mscl.mcmc.chains_to_dataframe(samples)
 rate_stats = mscl.mcmc.compute_statistics(rate_samples)
@@ -42,7 +40,7 @@ rate_samples
 bivariate_model = pystan.StanModel(
     '../stan/bivariate_logistic_regression.stan')
 data_dict = {'N': len(data), 'output': data['survival'].astype(int), 'predictor_1': np.log(
-    data['effective_channels'].values), 'predictor_2': np.log(data['flow_rate'].values)}
+    data['effective_channels'].values), 'predictor_2': data['flow_rate'].values}
 samples = bivariate_model.sampling(data=data_dict, iter=5000, chains=4)
 samples
 bivariate_samples = mscl.mcmc.chains_to_dataframe(samples)
@@ -53,8 +51,9 @@ fig, ax = plt.subplots(2, 2, figsize=(6, 5))
 
 # Add figure panel labels.
 fig.text(0, 0.95, '(A)', fontsize=8)
-fig.text(0, 0.45, '(B)', fontsize=8)
-fig.text(0.5, 0.45, '(C)', fontsize=8)
+fig.text(0.5, 0.95, '(B)', fontsize=8)
+fig.text(0, 0.45, '(C)', fontsize=8)
+fig.text(0.5, 0.45, '(D)', fontsize=8)
 ax = ax.ravel()
 # Add labels
 for i in range(4):
@@ -118,14 +117,14 @@ ax[2].set_ylim([-0.2, 1.2])
 rate_range = np.linspace(0, 2.5, 500)
 beta_0 = rate_stats[rate_stats['parameter']=='beta_0']['median'].values[0]
 beta_1 = rate_stats[rate_stats['parameter']=='beta_1']['median'].values[0]
-logit = beta_0 + beta_1 * np.log(rate_range) 
+logit = beta_0 + beta_1 * rate_range
 prob = (1 + np.exp(-logit))**-1
 _ = ax[2].plot(rate_range, prob, color='k', lw=1.5)
 
 # Compute the credible region.
 cred_region = np.zeros((2, len(rate_range)))
 for i, r in enumerate(rate_range):
-    logit = rate_samples['beta_0'] + rate_samples['beta_1'] * np.log(r)
+    logit = rate_samples['beta_0'] + rate_samples['beta_1'] * r
     prob = (1 + np.exp(-logit))**-1
     cred_region[:, i] = mscl.mcmc.compute_hpd(prob, 0.95)
 _ = ax[2].fill_between(rate_range, cred_region[0, :], cred_region[1, :], color='slategray', alpha=0.5)
@@ -153,28 +152,29 @@ logit = beta_0 + beta_1 * np.log(X) + beta_2 * Y
 prob = (1 + np.exp(-logit))**-1
 
 # Plot the contours of probability. 
-_ = ax[3].contourf(X, Y, prob, cmap='viridis')
-_cont = ax[3].contour(X, Y, prob, colors='w')
+_ = ax[3].contourf(X, Y, prob, cmap='viridis', levels=[0, 0.2, 0.4, 0.6, 0.8, 0.9, 1])
+_cont = ax[3].contour(X, Y, prob, colors='w', levels = [0, 0.2, 0.4, 0.6, 0.8, 0.9, 1])
 
 # Plot the points of cells.
-_ = ax[3].vlines(-10, -0.2, 2.7, color='w', lw=10)
-_ = ax[3].vlines(1005, -0.2, 2.7, color='w', lw=10)
-_ = ax[3].hlines(-0.15, 0, 1010, color='w', lw=10)
-_ = ax[3].hlines(2.65, 0, 1010, color='w', lw=10)
+_ = ax[3].vlines(-10, -0.2, 2.7, color='w', lw=15)
+_ = ax[3].vlines(1005, -0.2, 2.7, color='w', lw=15)
+_ = ax[3].hlines(-0.15, 0, 1010, color='w', lw=15)
+_ = ax[3].hlines(2.65, 0, 1010, color='w', lw=15)
 _ = ax[3].set_ylim([-0.2, 2.7])
-_ = ax[3].set_xlim([-10, 1010])
+_ = ax[3].set_xlim([-15, 1020])
 
 _surv = data[data['survival']==True]
 _death = data[data['survival']==False]
 ys = np.random.normal(2.65, 0.01, size=len(surv))
 yd = np.random.normal(-0.15, 0.01, size=len(death))
-xs = np.random.normal(-5, 0.05, size=len(_surv))
-xd = np.random.normal(1005, 5, size=len(_death))
+xs = np.random.normal(1005, 5, size=len(_surv))
+xd = np.random.normal(-5, 2, size=len(_death))
 _ = ax[3].plot(_surv['effective_channels'], ys, 'k.', ms=2, alpha=0.75, label='__nolegend__')
 _ = ax[3].plot(_death['effective_channels'], yd, 'k.', ms=2, alpha=0.75, label='__nolegend__')
 _ = ax[3].plot(xs, _surv['flow_rate'], 'k.', ms=1, alpha=0.5, label='__nolegend__')
 _ = ax[3].plot(xd, _death['flow_rate'], 'k.', ms=1, alpha=0.5, label='__nolegend__')
-plt.clabel(_cont, inline=1, fontsize=8, color='w')
+label_pos = [(100, 0.5), (200, 1.0), (400, 1.5), (600, 1.5), (850, 0.5)]
+plt.clabel(_cont, inline=1, fontsize=8, color='w', manual=label_pos, fmt='%0.2f')
 
 plt.tight_layout()
 plt.savefig('../../figs/figSX_alternative_predictors.pdf', bbox_inches='tight', dpi=300)

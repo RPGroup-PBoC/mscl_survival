@@ -21,6 +21,7 @@ header-includes:
   \linespread{1.5}
   \renewcommand{\thesection}{\Alph{section}}
   \usepackage{lineno}
-  \renewcommand{\theequation}{S.\arabic{equation}}
+  \renewcommand{\theequation}{S\arabic{equation}}
+  \renewcommand{\thefigure}{S\arabic{figure}}
   \linenumbers
 ---

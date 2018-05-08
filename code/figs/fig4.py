@@ -29,10 +29,12 @@ grouped = shock_data.groupby(['survival'])
 grouped = shock_data.groupby(['shock_class', 'survival'])
 
 # Set up the figure canvas.
-fig, ax = plt.subplots(1, 2, figsize=(6, 3.5))
+fig, ax = plt.subplots(1, 2, figsize=(6, 2.5))
 fig.text(0, 0.93, '(A)', fontsize=8)
 fig.text(0.5, 0.93, '(B)', fontsize=8)
 axes = {'slow': ax[0], 'fast': ax[1]}
+for a in ax:
+    a.tick_params(labelsize=8)
 for g, d in grouped:
     # Compute the ecdf.
     y = np.arange(0, len(d), 1) / len(d)
@@ -51,12 +53,12 @@ for g, d in grouped:
     if g[1] == 1:
         axes[g[0]].fill_betweenx(np.linspace(0, 1, 300), 0, min_surv , color=colors['light_red'], alpha=0.5)
 
-ax[0].legend()    
+ax[0].legend(fontsize=8)    
 for a in ax:
     a.set_xlim([shock_data['effective_channels'].min(), shock_data['effective_channels'].max()])
     a.set_ylim([0, 1])
-    a.set_xlabel('effective channels per cell') 
-    a.set_ylabel('cumulative distribution')
+    a.set_xlabel('effective channels per cell', fontsize=8) 
+    a.set_ylabel('cumulative distribution', fontsize=8)
 ax[0].set_title('slow shock ($<$ 1.0 Hz)', backgroundcolor=colors['pale_yellow'], y=1.04, fontsize=8)
 ax[1].set_title('fast shock ($\geq$ 1.0 Hz)', backgroundcolor=colors['pale_yellow'], y=1.04, fontsize=8)
 plt.tight_layout()

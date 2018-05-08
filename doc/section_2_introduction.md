@@ -1,7 +1,7 @@
 
 ## INTRODUCTION
- &nbsp;&nbsp;&nbsp;&nbsp; Changes in the extracellular osmolarity can be fatal for bacterial
-cells. Upon a hypo-osmotic shock, water rushes into the cell across
+ &nbsp;&nbsp;&nbsp;&nbsp; Changes in the extracellular osmolarity can be a fatal event for the bacterial
+cell. Upon a hypo-osmotic shock, water rushes into the cell across
 the membrane, leaving the cell with no choice but to equalize the pressure.
 This equalization occurs either through damage to the cell membrane
 (resulting in death) or through the regulated flux of water molecules through
@@ -25,7 +25,7 @@ mediates the flux of water molecules across the membrane via a ~3 nm wide
 pore in the open state [@cruickshank1997, @haswell2011]. Molecular dynamics
 simulations indicate that a single open MscL channel permits the flux of $4
 \times 10^9$ water molecules per second, which is an order of magnitude
-larger than a single aquaporin channel [@louhivuori2010; @milo2010 -BNID100479]. This suggests that having only a few channels per cell could be
+larger than a single aquaporin channel (BNID 100479) [@louhivuori2010; @milo2010]. This suggests that having only a few channels per cell could be
 sufficient to relieve even large changes in membrane tension.
 Electrophysiological experiments have suggested a small population of
 channels per cell [@booth2005; @hase1997], however, more recent approaches
@@ -38,7 +38,7 @@ and other environmental challenges [@bialecka-fornal2012, @schmidt2016;
 channels per cell, why cells seem to need so many and the biological
 rationale behind their condition-dependent expression both remain a mystery.
 
-&nbsp;&nbsp;&nbsp; &nbsp; While the copy numbers are known, their connection
+&nbsp;&nbsp;&nbsp; &nbsp; While their biochemical and biophysical characteristics have received much attention, their connection
 to survival is understudied. Drawing such a direct connection between
 channel copy number and survival requires quantitative *in vivo*
 experiments. To our knowledge, the work presented in van den Berg et al.
