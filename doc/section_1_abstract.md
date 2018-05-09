@@ -4,11 +4,13 @@ indent: false
 
 # **Connecting the dots between mechanosensitive channel abundance, osmotic shock, and survival at single-cell resolution**  
 
-Griffin Chure$^a$, Heun Jin Lee$^b$, and Rob Phillips$^{a,\ b,\ c,\ *}$
+Griffin Chure$^{a, \dagger}$, Heun Jin Lee$^{b, \dagger}$, and Rob Phillips$^{a,\ b,\ c,\ *}$
 
-Departments of Biochemistry and Molecular Biophysics$^a$, Applied
-Physics$^b$, and Division of Biology and Biological Engineering$^c$,
+Department of Biochemistry and Molecular Biophysics$^a$, 
+Department of Physics$^b$, and Division of Biology and Biological Engineering$^c$,
 California Institute of Technology, Pasadena, California, USA
+
+$\dagger$ contributed equally
 
 \* Send correspondence to `phillips@pboc.caltech.edu`
 
@@ -46,7 +48,7 @@ these channels to cell survival remains largely unknown. In this work, we use
 quantitative video microscopy to measure the abundance of a single species of
 MS channel in single cells followed by their survival after a large osmotic
 shock. We observe total death of the population with less than 100 channels
-per cell and determine that approximately 500 - 700 are needed for 80% survival.
+per cell and determine that approximately 500 - 700 channels are needed for 80% survival.
 The number of channels we find to confer nearly full survival is consistent
 with the counts of the number of channels in wild type cells in several
 earlier studies. These results prompt further studies dissecting the

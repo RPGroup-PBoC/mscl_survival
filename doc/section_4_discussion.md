@@ -94,7 +94,7 @@ mechanosensitive channel, to survival in the absence of any other species of
 mechansensitive channel. It was found that over the explored range of MscS
 channel copy numbers, the maximum survival rate was approximately 50\%,
 suggesting that different mechanosensitive channels have an upper limit to
-how much protection they can convey. Both van den Berg et al. and our work
+how much protection they can confer. Both van den Berg et al. and our work
 show that there is still much to be learned with respect to the interplay
 between the various species of mechanosensitive channel as well as their
 regulation.

@@ -65,7 +65,7 @@ remarkably wide spanning an order of magnitude, as is shown in [@Fig:boxplot]A.
  suggesting that they play an important role in general architectural
  stability [@bialecka-fornal2012; @bialecka-fornal2015]. As these aberrant morphologies can vary
  widely in size and shape, calculating the number of channels per cell
- becomes more a nuanced endeavor. For example, taking the total MscL copy number for
+ becomes a more nuanced endeavor. For example, taking the total MscL copy number for
  these cells could skew the final calculation of survival probability as a
  large but severely distorted cell would be interpreted as having more
  channels than a smaller, wild-type shaped cell (Fig. S4B). To correct for this
@@ -127,7 +127,7 @@ probability by treating each mutant as an individual bin obfuscates the
 relationship between channel abundance and survival. To more thoroughly
 examine this relationship, all measurements were pooled together with each
 cell being treated as an individual experiment. The hypo-osmotic shock
-applied in these experiments was varied across a range of 0.02 Hz to 2.wHz.
+applied in these experiments was varied across a range of 0.02 Hz to 2.2 Hz.
 Rather than pooling this wide range of shock rates into a single data set, we
 chose to separate the data into “slow shock” ( &lt; 1.0 Hz) and “fast
 shock” ($\geq 1.0$ Hz) classes. Other groupings of shock rate were explored

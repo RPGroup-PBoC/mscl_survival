@@ -201,7 +201,7 @@ issues.
 Hirokawa, Jaspar Landman, Manuel Razo-Mejia, Muir Morrison, and Shyam
 Saladi for useful advice and discussion. This work was supported by the
 National Institutes of Health DP1 OD000217 (Director’s Pioneer Award),
-R01 GM085286, GM084211-A1 , and GM118043-01.
+R01 GM085286, GM084211-A1 , GM118043-01, and La Fondation Pierre Gilles de Gennes.
 
 ## AUTHOR CONTRIBUTION
 

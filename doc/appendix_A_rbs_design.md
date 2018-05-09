@@ -1,10 +1,12 @@
 # **Supplemental information for "Connecting the dots between osmotic shock, mechanosensitive channel abundance, and survival at single-cell resolution"**
 
-Griffin Chure$^\text{a}$, Heun Jin Lee$^\text{b}$, and Rob Phillips$^\text{a,c,*}$
+Griffin Chure$^{a, \dagger}$, Heun Jin Lee$^{b, \dagger}$, and Rob Phillips$^{a,c,*}$
 
-Departments of Biochemistry and Molecular Biophysics$^a$, Applied Physics$^\text{b}$, and Division of Biology and Biological Engineering$^\text{c}$, California Institute of Technology, Pasadena, California, USA
+Department of Biochemistry and Molecular Biophysics$^a$, Department of Physics$^\text{b}$, and Division of Biology and Biological Engineering$^\text{c}$, California Institute of Technology, Pasadena, California, USA
+
+$\dagger$ contributed equally
+
 \* Send correspondence to `phillips@pboc.caltech.edu`
-
 
 ## SHINE-DALGARNO SEQUENCE DESIGN
 
