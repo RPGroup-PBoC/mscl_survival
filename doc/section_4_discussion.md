@@ -23,7 +23,7 @@ segments generates an extraordinarily diverse antibody repertoire
 DNA replication is intrinsically tied to cell senescence [@herbig2004;
 @victorelli2017], to name just a few of many such examples.
 
-&nbsp;&nbsp;&nbsp;&nbsp;This by no means that we are “finished” with any of
+&nbsp;&nbsp;&nbsp;&nbsp;This is by no means that we are ``finished” with any of
 these topics. Rather, it's quite the opposite in the sense that having a
 handle on the biophysical knobs that tune the behavior opens the door to a
 litany of new scientific questions. In the case of mechanosenstaion and

@@ -63,7 +63,7 @@ $${#eq:logistic_posterior}
 
 As this posterior distribution is not solvable analytically, we used Markov chain Monte Carlo to draw samples out of this distribution, using the log of the effective channel number as described in the main text. The posterior distributions for $\beta_0$ and $\beta_1$ for both slow and fast shock rate data can be seen in [@Fig:logistic_posterior_distributions]
 
-![**Posterior distributions for logistic regression coefficients evaluated for fast and slow shock rates.** (A) Kernel density estimates of the posterior distribution for $\beta_0$ for fast (blue) and slow (purple) shock rates. (B) Kernel density estimates of posterior distribution for $\beta_1$.](../figs/figSX4_logistic_posterior_distributions.png ){#fig:logistic_posterior_distributions}
+![**Posterior distributions for logistic regression coefficients evaluated for fast and slow shock rates.** (A) Kernel density estimates of the posterior distribution for $\beta_0$ for fast (blue) and slow (purple) shock rates. (B) Kernel density estimates of posterior distribution for $\beta_1$.](../figs/figS4.pdf ){#fig:logistic_posterior_distributions}
 
 ### A Bayesian interpretation of $\beta_0$ and $\beta_1$ ###
 The assumption of a linear relationship between the log-odds of survival and the predictor variable $N_c$ appears to be arbitrary and is presented without justification.

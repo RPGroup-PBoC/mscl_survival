@@ -1,4 +1,4 @@
-## RESULTS ##
+## Results
 
 ### Quantifying the single-cell MscL copy number ###
 
@@ -20,14 +20,14 @@ in wild-type cells from our measurements. [@bialecka-fornal2012;
 @norman2005].
 
 &nbsp;&nbsp;&nbsp;&nbsp;To modulate the number of MscL channels per cell, we
-developed a series of Shine-Dalgarno sequence mutants which were
+developed a series of mutants which were
 designed to decrease the expression relative to wild-type. These
 changes involved direct alterations of the Shine-Dalgarno sequence as well as the
 inclusion of AT hairpins of varying length directly upstream of the start
-codon ([@Fig:boxplot]A). The six SD sequences used in this work were chosen using the RBS
+codon ([@Fig:boxplot]A). The six Shine-Dalgarno sequences used in this work were chosen using the RBS
 binding site strength calculator from the Salis Laboratory at the
 Pennsylvania State University [@espahborujeni2014;
-@salis2009]. While the designed SD sequence mutations decreased the
+@salis2009]. While the designed Shine-Dalgarno sequence mutations decreased the
 expression relative to wild-type as intended, the distribution of expression is
 remarkably wide spanning an order of magnitude.
 
@@ -60,7 +60,7 @@ remarkably wide spanning an order of magnitude.
  strains is complicated by distorted cell morphology. We observed that as the
  channel copy number decreases, cellular morphology becomes increasingly
  aberrant with filamentous, bulging, and branched cells become markedly
- abundant (Fig S3A). This morphological defect has been observed when
+ abundant (Fig. S3A). This morphological defect has been observed when
  altering the abundance of several species of mechanosensitive channels,
  suggesting that they play an important role in general architectural
  stability [@bialecka-fornal2012; @bialecka-fornal2015]. As these aberrant morphologies can vary
@@ -68,16 +68,16 @@ remarkably wide spanning an order of magnitude.
  becomes a more nuanced endeavor. For example, taking the total MscL copy number for
  these cells could skew the final calculation of survival probability as a
  large but severely distorted cell would be interpreted as having more
- channels than a smaller, wild-type shaped cell (Fig. S2B). To correct for this
+ channels than a smaller, wild-type shaped cell (Fig. S3B). To correct for this
  pathology, we computed the average expression level per unit area for each
  cell and multiplied this by the average cellular area of our standard candle
  strain which is morphologically indistinguishable from wild-type *E. coli*,
  allowing for the calculation of an effective channel copy number. The effect
- of this correction can be seen in Fig S4C and D, which illustrate that
+ of this correction can be seen in Fig. S3C and D, which illustrate that
  there is no other correlation between cell area and channel expression.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Our calculation of the effective channel copy number
-for our suite of SD mutants is shown in [@Fig:boxplot]B. The expression of
+for our suite of Shine-Dalgarno mutants is shown in [@Fig:boxplot]B. The expression of
 these strains cover nearly three orders of magnitude with the extremes
 ranging from approximately four channels per cell to nearly one thousand.
 While the means of each strain are somewhat distinct, the distributions show
@@ -87,7 +87,7 @@ the context of bulk scale experiments but can be accounted for via
 single-cell methods.
 
 ![**Control of MscL expression and calculation of channel
-copy number.** (A) Schematic view the expression modifications performed in this work. The beginning portion of the native *mscL* sequence is shown with the Shine-Dalgarno sequence, spacer region, and start code shaded in red, green, and blue, respectively. The Shine-Dalgarno sequence was modified through the Salis lab Ribosomal Binding Strength calculator [@espahborujeni2014; @salis2009]. The wild-type sequence (MLG910) is shown in black with mutations for the other five RBS mutants highlighted in red. Expression was further modified by the insertion of repetitive `AT` bases into the spacer region, generating hairpins of varying length which acted as a thermodynamic barrier for translation initiation. (B) Variability in effective channel copy number is computed using the
+copy number.** (A) Schematic view the expression modifications performed in this work. The beginning portion of the native *mscL* sequence is shown with the Shine-Dalgarno sequence, spacer region, and start code shaded in red, green, and blue, respectively. The Shine-Dalgarno sequence was modified through the Salis lab Ribosomal Binding Strength calculator [@espahborujeni2014; @salis2009]. The wild-type sequence (MLG910) is shown in black with mutations for the other four Shine-Dalgarno mutants highlighted in red. Expression was further modified by the insertion of repetitive `AT` bases into the spacer region, generating hairpins of varying length which acted as a thermodynamic barrier for translation initiation. (B) Variability in effective channel copy number is computed using the
 standard candle. The boxes represent the interquartile region of the
 distribution, the center line displays the median, and the whiskers
 represent 1.5 times the maximum and minimum of the interquartile region.
@@ -103,8 +103,8 @@ calibration of channel copy number (MLG910) is highlighted in yellow. ](../figs/
  device has been described in depth previously and is briefly described in
  the Materials & Methods [@bialecka-fornal2015]. Using this device, cells
  were exposed to a large hypo-osmotic shock by switching between LB Miller
- medium containing 500mM NaCl and LB media containing no NaCl. All six SD
- modifications shown in Fig 2B (excluding MLG910) were subjected to a hypo-osmotic shock at
+ medium containing 500mM NaCl and LB media containing no NaCl. All six Shine-Dalgarno
+ modifications shown in [@Fig:boxplot]B (excluding MLG910) were subjected to a hypo-osmotic shock at
  controlled rates while under observation. After the application
  of the osmotic shock, the cells were imaged every sixty seconds for four to
  six hours. Survivors were defined as cells which underwent at least two
@@ -121,7 +121,7 @@ the flow cell. After shock, the cells are monitored for several hours and
 surviving cells are identified.](../figs/fig3.pdf){#fig:flow_cell}
 
 &nbsp;&nbsp;&nbsp;&nbsp;Due to the extensive overlap in expression between
-the different SD mutants (see [@Fig:boxplot]), computing the survival
+the different Shine-Dalgarno mutants (see [@Fig:boxplot]B), computing the survival
 probability by treating each mutant as an individual bin obfuscates the
 relationship between channel abundance and survival. To more thoroughly
 examine this relationship, all measurements were pooled together with each
@@ -153,19 +153,19 @@ observed.](../figs/fig4.pdf){#fig:survival_dists}
 
 &nbsp;&nbsp;&nbsp;&nbsp;There are several ways by which the survival
 probability can be calculated. The most obvious approach would be to group
-each individual SD mutant as a single bin and compute the average
+each individual Shine-Dalgarno mutant as a single bin and compute the average
 MscL copy number and the survival probability. Binning by strain is the most
 frequently used approach for such measurements and has provided valuable
 insight into the qualitative relationship of survival on other physiological
 factors [@bialecka-fornal2015; @vandenberg2016]. However the copy number
-distribution for each SD mutant ([@Fig:boxplot]B) is remarkably wide and
+distribution for each Shine-Dalgarno mutant ([@Fig:boxplot]B) is remarkably wide and
 overlaps with the other strains. We argue that this coarse-grained binning
 negates the benefits of performing single-cell measurements as two strains
 with different means but overlapping quartiles would be treated as distinctly
 different distributions. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Another approach would be to pool all data together,
-irrespective of the SD mutation, and bin by a defined range of channels.
+irrespective of the Shine-Dalgarno mutation, and bin by a defined range of channels.
 Depending on the width of the bin, this could allow for finer resolution of
 the quantitative trend, but the choice of the bin width is arbitrary with the
 *a priori* knowledge that is available. Drawing a narrow bin width can easily
@@ -173,7 +173,7 @@ restrict the number of observed events to small numbers where the statistical
 precision of the survival probability is lost. On the other hand, drawing
 wide bins increases the precision of the estimate, but becomes further
 removed from a true single-cell measurement and represents a population mean,
-even though it may be a smaller population than binning by the SD sequence
+even though it may be a smaller population than binning by the Shine-Dalgarno sequence
 alone. In both of these approaches, it is difficult to extrapolate the
 quantitative trend outside of the experimentally observed region of channel
 copy number. Here, we present a method to estimate the probability of
@@ -211,7 +211,8 @@ p_s = \frac{1}{1 + N_c^{-\beta_1}e^{-\beta_0}}.
 $${#eq:prob}
 In this analysis, we used Bayesian inferential methods to determine the
 most likely values of the coefficients and is described in detail in the
-supplemental information (*Logistic Regression*).
+supplemental information (*gression*).
+
 &nbsp;&nbsp;&nbsp;&nbsp; The results of the logistic regression are shown in
 [@Fig:survival]. We see a slight rightward shift the survival probability
 curve under fast shock relative to the slow shock case, reaffirming the
@@ -222,13 +223,14 @@ for MscL alone. This suggests that MscL responds differently to different
 rates of shock, highlighting the need for further study of rate dependence
 and the coordination between different species of mechanosensitive channels.
 [@Fig:survival] also shows that several hundred channels are required to
-provide appreciable protection from osmotic shock. The results from the
-logistic regression are showed as continuous colored curves. The individual
+provide appreciable protection from osmotic shock. For a survival probability of 80%, a cell must have
+approximately 500 to 700 channels per cell for a fast and slow shock,
+respectively. The results from the logistic regression are showed as continuous colored curves. The individual
 cell measurements separated by survival and death are shown at the top and
 bottom of each plot, respectively, and are included to provide a sense of
-sampling density. For a survival probability of 80%, a cell must have
-approximately 500 to 700 channels per cell for a fast and slow shock,
-respectively. Over the explored range of MscL copy number, we observed a
+sampling density. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Over the explored range of MscL copy number, we observed a
 maximum of 80\% survival for any binning method. The remaining 20\% survival
 may be attained when the other species of mechanosensitive channels are
 expressed alongside MscL. However, it is possible that the flow cell method
@@ -246,7 +248,7 @@ copy number regime.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Thus far, we’ve dictated that for a given rate of
 osmotic shock (i.e. "fast" or "slow"), the survival probability is dependent
-only on the number of channels. In Fig. S3, we show the result of including
+only on the number of channels. In Fig. S7, we show the result of including
 other predictor variables, such as area and shock rate alone. In such cases,
 including other predictors resulted in pathological curves showing that
 channel copy number is the most informative out of the available predictor
@@ -260,7 +262,7 @@ the most probable survival probability from a one-dimensional logistic
 regression. Shaded regions represent the 95\% credible regions. Points at the
 top and bottom of plots represent individual cell measurements which survived
 and perished, respectively. The red and black points correspond to the survival
-probability estimated via binning by SD sequence and binning by groups of 50
+probability estimated via binning by Shine-Dalgarno sequence and binning by groups of 50
 channels per cell, respectively. Horizontal error bars represent the standard
 error of the mean from at least 25 measurements. Vertical error bars
 represent the certainty of the probability estimate given $n$ survival events

@@ -1,5 +1,6 @@
 
-## INTRODUCTION
+## Introduction
+
  &nbsp;&nbsp;&nbsp;&nbsp; Changes in the extracellular osmolarity can be a fatal event for the bacterial
 cell. Upon a hypo-osmotic shock, water rushes into the cell across
 the membrane, leaving the cell with no choice but to equalize the pressure.
@@ -22,7 +23,7 @@ processes play in the greater context of physiology [@bavi2016;
 mechanosensitive channel of large conductance (MscL) is the most abundant
 and the best characterized. This channel has a large conductance (3 nS) and
 mediates the flux of water molecules across the membrane via a ~3 nm wide
-pore in the open state [@cruickshank1997, @haswell2011]. Molecular dynamics
+pore in the open state [@cruickshank1997; @haswell2011]. Molecular dynamics
 simulations indicate that a single open MscL channel permits the flux of $4
 \times 10^9$ water molecules per second, which is an order of magnitude
 larger than a single aquaporin channel (BNID 100479) [@louhivuori2010; @milo2010]. This suggests that having only a few channels per cell could be
@@ -50,7 +51,7 @@ a hypo-osmotic shock was assessed in bulk plating assays which rely on
 serial dilutions of a shocked culture followed by counting the number of
 resulting colonies after incubation. Such bulk assays have long been the
 standard for querying cell viability after an osmotic challenge. While
-bulk-scale experiments have been highly informative, they reflect only the
+they  jhave been highly informative, they reflect only the
 mean survival rate of the population, obfuscating the variability in
 survival of the population. The stochastic nature of gene expression results
 in a noisy distribution of MscL channels rather than a single value, meaning
