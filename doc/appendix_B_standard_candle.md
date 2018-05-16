@@ -1,4 +1,12 @@
+<!-- # **Supplemental information for "Connecting the dots between osmotic shock, mechanosensitive channel abundance, and survival at single-cell resolution"**
 
+Griffin Chure$^{a, \dagger}$, Heun Jin Lee$^{b, \dagger}$, and Rob Phillips$^{a,c,*}$
+
+Department of Biochemistry and Molecular Biophysics$^a$, Department of Physics$^\text{b}$, and Division of Biology and Biological Engineering$^\text{c}$, California Institute of Technology, Pasadena, California, USA
+ -->
+<!-- $\dagger$ contributed equally -->
+
+<!-- \* Send correspondence to `phillips@pboc.caltech.edu` -->
 ## Standard Candle Calibration ##
 
 &nbsp;&nbsp;&nbsp;&nbsp;To estimate the single-cell MscL abundance via microscopy, we needed to determine a calibration factor that could translate arbitrary fluorescence units to protein copy number. To compute this calibration factor, we relied on *a priori* knowledge of the mean copy number of MscL-sfGFP for a particular bacterial strain in specific growth conditions. In Bialecka-Fornal et al. 2012 [@bialecka-fornal2012], the average MscL copy number for a population of MLG910 cells was measured using quantitative Western blotting and single-molecule photobleaching assays. By growing this strain in identical growth conditions an imaging using our experimental set up, we can make an approximate measure of this calibration factor. In this section, we derive a statistical model for estimating the most-likely value of this calibration factor and its associated error.

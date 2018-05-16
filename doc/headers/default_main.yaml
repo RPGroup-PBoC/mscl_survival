@@ -4,7 +4,7 @@ eqnos-cleveref: On
 fignos-cleveref: On
 eqnos-plus-name: "Eq."
 fignos-plus-name: "Fig."
-reference-section-title: REFERENCES
+reference-section-title: References
 bibliography: ./mscl_refs.bib
 csl: ./asm.csl
 link-citations: true
