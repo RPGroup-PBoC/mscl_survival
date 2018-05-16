@@ -1,0 +1,22 @@
+---
+layout: page
+cover: assets/composite.png
+title: Main Text
+icon: fa-pencil
+order: 2
+---
+{%- assign _posts = site.categories.main | sort: 'date'-%}
+{%- include header.html scrolly_nav= _posts -%}
+<!-- Main -->
+{%- if page.content != "" -%}
+
+{%- endif -%}
+<!-- Posts List -->
+{%- for _post in _posts -%}
+	{%- capture _title -%}
+		<a href="{{- _post.url | absolute_url -}}">{{- _post.title -}}</a>
+	{%- endcapture -%}
+	{%- capture _excerpt -%}<p>{{- _post.content -}}</p>{%- endcapture -%}
+	{%- assign _content = _excerpt | append: _link -%}
+	{%- include section.html title=_title subtitle=_subtitle content=_content -%}
+{%- endfor -%}
