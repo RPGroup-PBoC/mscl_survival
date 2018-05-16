@@ -15,9 +15,9 @@ Raw images and MCMC chains are hosted on the CaltechDATA data repository and can
 
 All Python code for processing the raw data sets can be reached through the `master` branch of this repository, [`github.com/rpgroup-pboc/mscl_survival.git`](http://www.github.com/rpgroup-pboc/mscl_survival.git). All MCMC was performed using the [Stan probabailistic programming language.](www.mc-stan.org) The `.stan` models used for the hierarchical logistic regression can be downloaded below:
 
-* [**`hierarchical_calibration_factor.stan`**](code/hierarchical_calbration_factor.stan)
-* [**`hierarchical_logistic_regression.stan`**](code/hierarchical_logistic_regression.stan)
-* [**`complete_analysis.stan`**](code/complete_analysis.stan) **\|** This model samples both hierarchical models simultaneously. 
+* [**`hierarchical_calibration_factor.stan`**](code/stan/hierarchical_calbration_factor.stan)
+* [**`hierarchical_logistic_regression.stan`**](code/stan/hierarchical_logistic_regression.stan)
+* [**`complete_analysis.stan`**](code/stan/complete_analysis.stan) **\|** This model samples both hierarchical models simultaneously. 
 
 We have also included a Jupyter Notebook which describes the image processing procedure undertaken in this work. 
 
