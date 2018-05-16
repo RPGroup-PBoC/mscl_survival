@@ -61,7 +61,6 @@ theme: jekyll-theme-prologue
 collections: [sections]
 gems: 
   - jekyll-pandoc
-markdown: Pandoc
 pandoc:
  extensions: 
     - normalize
