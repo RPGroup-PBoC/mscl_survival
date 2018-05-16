@@ -6,7 +6,7 @@
 contribution of a single mechanosensitive channel species to cell survival
 under a hypo-osmotic shock. While this procedure could be performed for any
 species of channel, we chose MscL as it is the most well characterized and
-the most abundant species in *E. coli*. To probe the contribution of MscL
+one of the most abundant species in *E. coli*. To probe the contribution of MscL
 alone, we generated an *E. coli* strain in which all seven known
 mechanosensitive channel genes were deleted from the chromosome followed by
 the integration of an *mscL* gene encoding an MscL super-folder GFP (sfGFP)
@@ -20,39 +20,41 @@ in wild-type cells from our measurements. [@bialecka-fornal2012;
 @norman2005].
 
 &nbsp;&nbsp;&nbsp;&nbsp;To modulate the number of MscL channels per cell, we
-developed a series of mutants which were
-designed to decrease the expression relative to wild-type. These
-changes involved direct alterations of the Shine-Dalgarno sequence as well as the
-inclusion of AT hairpins of varying length directly upstream of the start
-codon ([@Fig:boxplot]A). The six Shine-Dalgarno sequences used in this work were chosen using the RBS
-binding site strength calculator from the Salis Laboratory at the
-Pennsylvania State University [@espahborujeni2014;
-@salis2009]. While the designed Shine-Dalgarno sequence mutations decreased the
-expression relative to wild-type as intended, the distribution of expression is
-remarkably wide spanning an order of magnitude.
+developed a series of mutants which were designed to decrease the expression
+relative to wild-type. These changes involved direct alterations of the
+Shine-Dalgarno sequence as well as the inclusion of AT hairpins of varying
+length directly upstream of the start codon ([@Fig:boxplot]A). The six
+Shine-Dalgarno sequences used in this work were chosen using the RBS binding
+site strength calculator from the Salis Laboratory at the Pennsylvania State
+University [@espahborujeni2014; @salis2009]. While the designed
+Shine-Dalgarno sequence mutations decreased the expression relative to
+wild-type as intended, the distribution of expression is remarkably wide
+spanning an order of magnitude.
 
- &nbsp;&nbsp;&nbsp;&nbsp;To measure the number of MscL channels per cell, we
- determined a fluorescence calibration factor to translate arbitrary
- fluorescence units per cell to protein copy number. There have been numerous
- techniques developed over the past decade to directly measure this
- calibration factor such as quantifying single-molecule photobleaching
- constants or measuring the binomial partitioning of fluorescent proteins
- upon cell division [@bialecka-fornal2012; @elowitz2002]. In this work, we
- used *a priori* knowledge of the mean MscL-sfGFP expression level of a
- particular *E. coli* strain to compute a calibration factor. In
- Bialecka-Fornal et al. 2012 [@bialecka-fornal2012], the authors used
- single-molecule photobleaching and quantitative Western blotting to probe
- the expression of MscL-sfGFP under a wide range of growth conditions. To
- compute a calibration factor, we used the strain MLG910 (wild-type *E. coli* with the *mscL* gene replaced by a *mscL-sfGFP* fusion driven by the native promoter and Shine-Dalgarno sequence) as a
- "standard candle" and is highlighted in yellow in [@Fig:boxplot]B. This
- standard candle strain was grown in identical conditions in which the MscL
- count was determined and was imaged in the same manner as the osmotic
- challenge assays presented in this work. The calibration factor was computed
- by dividing the mean total cell fluorescence by the known MscL copy number,
- resulting in a measure of arbitrary fluorescence units per MscL channel.
- Details regarding this calculation and appropriate propagation of error can
- be found in the Materials & Methods as well as the supplemental information
- (*Standard Candle Calibration*).
+&nbsp;&nbsp;&nbsp;&nbsp;To measure the number of MscL channels per cell, we
+determined a fluorescence calibration factor to translate arbitrary
+fluorescence units per cell to protein copy number. There have been numerous
+techniques developed over the past decade to directly measure this
+calibration factor such as quantifying single-molecule photobleaching
+constants or measuring the binomial partitioning of fluorescent proteins
+upon cell division [@bialecka-fornal2012; @elowitz2002]. In this work, we
+used *a priori* knowledge of the mean MscL-sfGFP expression level of a
+particular *E. coli* strain to compute a calibration factor. In
+Bialecka-Fornal et al. 2012 [@bialecka-fornal2012], the authors used
+single-molecule photobleaching and quantitative Western blotting to probe
+the expression of MscL-sfGFP under a wide range of growth conditions. To
+compute a calibration factor, we used the strain MLG910 (wild-type *E. coli*
+with the *mscL* gene replaced by a *mscL-sfGFP* fusion driven by the native
+promoter and Shine-Dalgarno sequence) as a "standard candle" and is
+highlighted in yellow in [@Fig:boxplot]B. This standard candle strain was
+grown in identical conditions in which the MscL count was determined and was
+imaged in the same manner as the osmotic challenge assays presented in this
+work. The calibration factor was computed by dividing the mean total cell
+fluorescence by the known MscL copy number, resulting in a measure of
+arbitrary fluorescence units per MscL channel. Details regarding this
+calculation and appropriate propagation of error can be found in the
+Materials & Methods as well as the supplemental information (*Standard
+Candle Calibration*).
 
  &nbsp;&nbsp;&nbsp;&nbsp;While it is seemingly trivial to use this
  calibration to determine the total number of channels per cell for wild-type
@@ -86,14 +88,23 @@ indistinguishable from another. This variance is a quantity that is lost in
 the context of bulk scale experiments but can be accounted for via
 single-cell methods.
 
-![**Control of MscL expression and calculation of channel
-copy number.** (A) Schematic view the expression modifications performed in this work. The beginning portion of the native *mscL* sequence is shown with the Shine-Dalgarno sequence, spacer region, and start code shaded in red, green, and blue, respectively. The Shine-Dalgarno sequence was modified through the Salis lab Ribosomal Binding Strength calculator [@espahborujeni2014; @salis2009]. The wild-type sequence (MLG910) is shown in black with mutations for the other four Shine-Dalgarno mutants highlighted in red. Expression was further modified by the insertion of repetitive `AT` bases into the spacer region, generating hairpins of varying length which acted as a thermodynamic barrier for translation initiation. (B) Variability in effective channel copy number is computed using the
-standard candle. The boxes represent the interquartile region of the
-distribution, the center line displays the median, and the whiskers
-represent 1.5 times the maximum and minimum of the interquartile region.
-Individual measurements are denoted as black points. The strain used for
-calibration of channel copy number (MLG910) is highlighted in yellow. ](../figs/fig2.pdf){#fig:boxplot}
-
+![**Control of MscL expression and calculation of channel copy number.** (A)
+Schematic view of the expression modifications performed in this work. The
+beginning portion of the native *mscL* sequence is shown with the
+Shine-Dalgarno sequence, spacer region, and start codo  n shaded in red, green,
+and blue, respectively. The Shine-Dalgarno sequence was modified through the
+Salis lab Ribosomal Binding Strength calculator [@espahborujeni2014;
+@salis2009]. The wild-type sequence (MLG910) is shown in black with mutations
+for the other four Shine-Dalgarno mutants highlighted in red. Expression was
+further modified by the insertion of repetitive `AT` bases into the spacer
+region, generating hairpins of varying length which acted as a thermodynamic
+barrier for translation initiation. (B) Variability in effective channel copy
+number is computed using the standard candle. The boxes represent the
+interquartile region of the distribution, the center line displays the
+median, and the whiskers represent 1.5 times the maximum and minimum of the
+interquartile region. Individual measurements are denoted as black points.
+The strain used for calibration of channel copy number (MLG910) is
+highlighted in yellow. ](../figs/fig2.pdf){#fig:boxplot}
 ### Performing a single-cell hypo-osmotic challenge assay ###
 
  &nbsp;&nbsp;&nbsp;&nbsp;To measure the channel copy number of a single cell

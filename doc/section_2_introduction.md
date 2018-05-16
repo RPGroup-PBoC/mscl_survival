@@ -20,16 +20,17 @@ processes play in the greater context of physiology [@bavi2016;
 @ursell2008; @vandenberg2016].
 
 &nbsp;&nbsp; &nbsp; &nbsp;Of the seven channels in *E. coli*, the
-mechanosensitive channel of large conductance (MscL) is the most abundant
-and the best characterized. This channel has a large conductance (3 nS) and
-mediates the flux of water molecules across the membrane via a ~3 nm wide
-pore in the open state [@cruickshank1997; @haswell2011]. Molecular dynamics
-simulations indicate that a single open MscL channel permits the flux of $4
-\times 10^9$ water molecules per second, which is an order of magnitude
-larger than a single aquaporin channel (BNID 100479) [@louhivuori2010; @milo2010]. This suggests that having only a few channels per cell could be
-sufficient to relieve even large changes in membrane tension.
-Electrophysiological experiments have suggested a small population of
-channels per cell [@booth2005; @hase1997], however, more recent approaches
+mechanosensitive channel of large conductance (MscL) is one of the most
+abundant and the best characterized. This channel has a large conductance (3
+nS) and mediates the flux of water molecules across the membrane via a ~3 nm
+wide pore in the open state [@cruickshank1997; @haswell2011]. Molecular
+dynamics simulations indicate that a single open MscL channel permits the
+flux of $4 \times 10^9$ water molecules per second, which is an order of
+magnitude larger than a single aquaporin channel (BNID 100479)
+[@louhivuori2010; @milo2010]. This suggests that having only a few channels
+per cell could be sufficient to relieve even large changes in membrane
+tension. Electrophysiological experiments have suggested a small population
+of channels per cell [@booth2005; @hase1997], however, more recent approaches
 using quantitative western blotting, fluorescence microscopy, and proteomics
 have measured several hundred MscL per cell [@bialecka-fornal2012;
 @schmidt2016; @soufi2015]. To further complicate matters, the expression
@@ -39,20 +40,20 @@ and other environmental challenges [@bialecka-fornal2012, @schmidt2016;
 channels per cell, why cells seem to need so many and the biological
 rationale behind their condition-dependent expression both remain a mystery.
 
-&nbsp;&nbsp;&nbsp; &nbsp; While their biochemical and biophysical characteristics have received much attention, their connection
-to survival is understudied. Drawing such a direct connection between
-channel copy number and survival requires quantitative *in vivo*
-experiments. To our knowledge, the work presented in van den Berg et al.
-2016 [@vandenberg2016] is the first attempt to simultaneously measure
-channel abundance and survivability for a single species of mechanosensitive
-channel. While the measurement of channel copy number was performed at the
-level of single cells using super-resolution microscopy, survivability after
-a hypo-osmotic shock was assessed in bulk plating assays which rely on
-serial dilutions of a shocked culture followed by counting the number of
-resulting colonies after incubation. Such bulk assays have long been the
-standard for querying cell viability after an osmotic challenge. While
-they  jhave been highly informative, they reflect only the
-mean survival rate of the population, obfuscating the variability in
+&nbsp;&nbsp;&nbsp; &nbsp; While their biochemical and biophysical
+characteristics have received much attention, their connection to survival is
+understudied. Drawing such a direct connection between channel copy number
+and survival requires quantitative *in vivo* experiments. To our knowledge,
+the work presented in van den Berg et al. 2016 [@vandenberg2016] is the first
+attempt to simultaneously measure channel abundance and survivability for a
+single species of mechanosensitive channel. While the measurement of channel
+copy number was performed at the level of single cells using super-resolution
+microscopy, survivability after a hypo-osmotic shock was assessed in bulk
+plating assays which rely on serial dilutions of a shocked culture followed
+by counting the number of resulting colonies after incubation. Such bulk
+assays have long been the standard for querying cell viability after an
+osmotic challenge. While they have been highly informative, they reflect only
+the mean survival rate of the population, obfuscating the variability in
 survival of the population. The stochastic nature of gene expression results
 in a noisy distribution of MscL channels rather than a single value, meaning
 those found in the long tails of the distribution have quite different

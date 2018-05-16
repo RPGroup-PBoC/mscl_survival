@@ -1,4 +1,4 @@
-## ACKNOWLEDGEMENTS
+## Acknowledgements
 
 &nbsp; &nbsp; &nbsp; &nbsp;We thank Maja Bialecka-Fornal, Nathan Belliveau, Justin Bois, Soichi
 Hirokawa, Jaspar Landman, Manuel Razo-Mejia, Muir Morrison, and Shyam

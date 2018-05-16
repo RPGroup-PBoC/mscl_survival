@@ -64,8 +64,8 @@ applied a 1 Osm downshock at controlled rates varying from 0.02 Hz to 2.2 Hz.
 In their work, survival was measured through plating assays which
 represent the population average rather than the distribution of survival
 probability. While this approach provides valuable information regarding the
-response of a population to an osmotic shock, the high survival rate may be
-an artifact of a wide distribution of channel copies per cell in the
+response of a population to an osmotic shock, the high survival rate may
+stem from a wide distribution of channel copies per cell in the
 population coupled with bulk-scale measurement of survival. As has been shown
 in this work, the expression of MscL from a chromosomal integration is noisy
 with a single strain exhibiting MscL copy numbers spanning an order of
