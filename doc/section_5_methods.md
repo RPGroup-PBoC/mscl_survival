@@ -188,7 +188,7 @@ $${#eq:}
 ### Data and software availability
 
  &nbsp; &nbsp; &nbsp; &nbsp;All raw image data is freely available and is stored on the CaltechDATA
-Research Data Repository accessible through (DOI). All processed
+Research Data Repository accessible through DOI: 10.22002/D1.941. The raw Markov chain Monte Carlo samples are stored as `.csv` files on CaltechDATA and are accessible through DOI: 10.22002/D1.942. All processed
 experimental data, Python, and Stan code used in this work are freely
 available through our GitHub repository
 (`http://github.com/rpgroup-pboc/mscl_survival`). The scientific
