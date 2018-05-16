@@ -39,7 +39,7 @@ traces = pd.read_csv(
 slow_data = data[(data['shock_class'] == 'slow')].copy()
 fast_data = data[(data['shock_class'] == 'fast')].copy()
 
-chan_range = np.linspace(0, 1000, 800)
+chan_range = np.linspace(0, 1250, 800)
 samples = {'fast':1, 'slow':0}
 prob_survival = {}
 cred_regions = {}
@@ -135,7 +135,7 @@ _ = ax[3].plot(chan_range, cred_regions['fast'][1, :],
 # Properly set the limits for the regression curves
 for i in (2, 3):
     ax[i].set_ylim([0, 1])
-    ax[i].set_xlim([0, 1000])
+    ax[i].set_xlim([0, 1250])
     ax[i].set_ylabel('survival probability', fontsize=8)
 plt.subplots_adjust(hspace=0, wspace=0.25)
 
@@ -145,7 +145,7 @@ ax[1].text(-0.2, 1.5, '(B)', fontsize=8, transform=ax[1].transAxes)
 ax[2].set_ylim([-0.01, 1.01])
 ax[3].set_ylim([-0.01, 1.01])
 for a in ax:
-    a.set_xlim([1, 1E3])
+    a.set_xlim([1, 1250])
 
 plt.savefig('../../figs/fig{}.pdf'.format(FIG_NO), bbox_inches='tight', dpi=300)
 plt.savefig('../../figs/fig{}.png'.format(FIG_NO), bbox_inches='tight', dpi=300)

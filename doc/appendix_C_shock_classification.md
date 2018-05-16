@@ -1,5 +1,5 @@
 
-## SHOCK CLASSIFICATION ##
+## Shock Classification ##
 
 &nbsp;&nbsp;&nbsp;&nbsp;Its been previously shown that the rate of osmotic down-shock dictates the survival probability [@bialecka-fornal2015]. To investigate how a single channel contributes to survival, we queried survival at several shock rates with varying MscL copy number. In the main text of this work, we separated our experiments into arbitrary bins of "fast" ($\geq$ 1.0 Hz) and "slow" ($<$ 1.0 Hz) shock rates. In this section, we discuss our rationale for coarse graining our data into these two groupings. 
 

@@ -1,5 +1,5 @@
 
-## LOGISTIC REGRESSION ##
+## Logistic Regression ##
 
 &nbsp;&nbsp;&nbsp;&nbsp;In this work, we were interested in computing the survival probability under a large hypo-osmotic shock as a function of MscL channel number. As the channel copy number distributions for each Shine-Dalgarno sequence mutant were broad and overlapping, we chose to calculate the survival probability through logistic regression -- a method that requires no binning of the data providing the least biased estimate of survival probability. Logistic regression is a technique that has been used in medical statistics since the late 1950's to describe diverse phenomena such as dose response curves, criminal recidivism, and survival probabilities for patients after treatment [@anderson2003; @mishra2016; @stahler2013]. It has also found much use in machine learning to tune a binary or categorical response given a continuous input [@cheng2009; @dreiseitl2002; @ng]. 
 
@@ -115,7 +115,7 @@ $${#eq:bayesian_logit}
 This result can be directly compared to Eq. 1 presented in the main text,
 $$
 \log {p_s \over 1 - p_s} = \beta_0 + \beta_1 N_c,
-$${#eq:logit}
+$${#eq:}
 which allows for an interpretation of the seemingly arbitrary coefficients $\beta_0$ and $\beta_1$. The intercept term, $\beta_0$, captures the log-odds of survival with no MscL channels. The slope, $\beta_1$, describes the log odds-ratio of survival which a single channel relative to the odds of survival with no channels at all. While we have examined this considering only two possible channel copy numbers ($1$ and $0$), the relationship between them is linear. We can therefore generalize this for any MscL copy number as the increase in the log-odds of survival is constant for addition of a single channel.
 
 ### Other properties as predictor variables ###

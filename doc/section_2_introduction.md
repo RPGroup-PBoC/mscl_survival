@@ -46,7 +46,7 @@ experiments. To our knowledge, the work presented in van den Berg et al.
 channel abundance and survivability for a single species of mechanosensitive
 channel. While the measurement of channel copy number was performed at the
 level of single cells using super-resolution microscopy, survivability after
-an osmotic downshock was assessed in bulk plating assays which rely on
+a hypo-osmotic shock was assessed in bulk plating assays which rely on
 serial dilutions of a shocked culture followed by counting the number of
 resulting colonies after incubation. Such bulk assays have long been the
 standard for querying cell viability after an osmotic challenge. While
@@ -67,7 +67,7 @@ encoding an MscL-super-folder GFP (sfGFP) fusion protein. To explore copy
 number regimes beyond those of the wild-type expression level, we modified
 the Shine-Dalgarno (SD) sequence of this integrated construct allowing us to
 cover nearly three decades of MscL copy number. To probe survivability, we
-exposed cells to a large osmotic down-shock at controlled rates in a flow
+exposed cells to a large hypo-osmotic shock at controlled rates in a flow
 cell under a microscope, allowing the observation of the single-cell channel
 copy number and the resulting survivability of single cells. With this large
 set of single cell measurements, we approach the calculation of survival

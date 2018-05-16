@@ -1,4 +1,4 @@
-## MATERIALS & METHODS ##
+## Materials & Methods
 
 ### Bacterial strains and growth conditions
 
@@ -194,17 +194,3 @@ available through our GitHub repository
 (`http://github.com/rpgroup-pboc/mscl_survival`). The scientific
 community is invited to fork our repository and open constructive
 issues.
-
-## ACKNOWLEDGEMENTS
-
-&nbsp; &nbsp; &nbsp; &nbsp;We thank Maja Bialecka-Fornal, Nathan Belliveau, Justin Bois, Soichi
-Hirokawa, Jaspar Landman, Manuel Razo-Mejia, Muir Morrison, and Shyam
-Saladi for useful advice and discussion. This work was supported by the
-National Institutes of Health DP1 OD000217 (Director’s Pioneer Award),
-R01 GM085286, GM084211-A1 , GM118043-01, and La Fondation Pierre Gilles de Gennes.
-
-## AUTHOR CONTRIBUTION
-
-&nbsp; &nbsp; &nbsp; &nbsp;H.J.L. and R.P. laid the groundwork for the project. H.J.L. performed
-experiments. G.C. performed the data analysis and made the figures.
-G.C. and R.P. wrote the paper.

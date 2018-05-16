@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
 import glob
-sys.path.insert(0, '../')
+sys.path.insert(0, '../../')
 import mscl.plotting
 import mscl.stats
 
@@ -35,14 +35,14 @@ intensity_order = data.groupby(
 
 # Set up the figureself.
 fig, ax = plt.subplots(1, 2, figsize=(6, 3))
-
-# Plot the rescaled intensity
-_ = sns.boxplot(data['rbs'], data['scaled_intensity'] / data[data['rbs'] == 'mlg910']['scaled_intensity'].mean(), order=intensity_order,
-                fliersize=0, linewidth=0.75, palette='Greens', ax=ax[0])
-_ = sns.stripplot(data['rbs'], data['scaled_intensity'] / data[data['rbs'] == 'mlg910']['scaled_intensity'].mean(), order=intensity_order,
-                  jitter=True, marker='.', size=2.5, alpha=0.5, color='k',
-                  ax=ax[0])
-ax[0].vlines(1, 0, 3, color=colors['pale_yellow'], lw=30, zorder=0, alpha=0.75)
+ax[0].axis('off')
+# # Plot the rescaled intensity
+# _ = sns.boxplot(data['rbs'], data['scaled_intensity'] / data[data['rbs'] == 'mlg910']['scaled_intensity'].mean(), order=intensity_order,
+#                 fliersize=0, linewidth=0.75, palette='Greens', ax=ax[0])
+# _ = sns.stripplot(data['rbs'], data['scaled_intensity'] / data[data['rbs'] == 'mlg910']['scaled_intensity'].mean(), order=intensity_order,
+#                   jitter=True, marker='.', size=2.5, alpha=0.5, color='k',
+#                   ax=ax[0])
+# ax[0].vlines(1, 0, 3, color=colors['pale_yellow'], lw=30, zorder=0, alpha=0.75)
 ax[1].vlines(1, 0, 1000, color=colors['pale_yellow'], lw=30, zorder=0, alpha=0.75)
 
 # Plot the channel number
@@ -62,7 +62,7 @@ ax[1].set_ylim(0, 1000)
 labels = [i.upper() for i in intensity_order]
 
 # Format the axes and save
-ax[0].set_ylabel('relative intensity', fontsize=8)
+# ax[0].set_ylabel('relative intensity', fontsize=8)
 ax[1].set_ylabel('effective channel number', fontsize=8)
 ax[0].set_xlabel('RBS modification', fontsize=8)
 ax[1].set_xlabel('RBS modification', fontsize=8)
@@ -75,5 +75,5 @@ for a in ax:
 fig.text(0.01, 0.95, '(A)', fontsize=8)
 fig.text(0.5, 0.95, '(B)', fontsize=8)
 plt.tight_layout()
-plt.savefig('../../figs/fig{}.pdf'.format(FIG_NO), bbox_inches='tight', dpi=300)
-plt.savefig('../../figs/fig{}.png'.format(FIG_NO), bbox_inches='tight', dpi=300)
+plt.savefig('../../figs/fig{}_plots.svg'.format(FIG_NO), bbox_inches='tight', dpi=300)
+# plt.savefig('../../figs/fig{}_plots.png'.format(FIG_NO), bbox_inches='tight', dpi=300)

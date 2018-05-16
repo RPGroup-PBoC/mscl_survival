@@ -20,7 +20,7 @@ fig.text(0.5, 0.95, '(B)', fontsize=10)
 for i, a in enumerate(ax.ravel()):
     a.set_ylabel(r'$\propto$ probability', fontsize=10)
     # a.set_yticks([])
-    if i < 2:
+    if i < 1:
         a.set_xlabel(r'$\beta_0$', fontsize=10)
     else:
         a.set_xlabel(r'$\beta_1$', fontsize=10)
