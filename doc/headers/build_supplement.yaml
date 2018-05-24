@@ -1,6 +1,5 @@
 ---
 include:
-  appendix_header.md
   supplemental_information_A_standard_candle.md
   supplemental_information_B_shock_classification.md
   supplemental_information_C_logistic_regression.md
