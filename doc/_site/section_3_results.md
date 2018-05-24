@@ -84,7 +84,7 @@ indistinguishable from another. This variance is a quantity that is lost in
 the context of bulk scale experiments but can be accounted for via
 single-cell methods.
 
-![Control of MscL expression and calculation of channel copy number. (A)
+![**Control of MscL expression and calculation of channel copy number.** (A)
 Schematic view of the expression modifications performed in this work. The
 beginning portion of the native *mscL* sequence is shown with the
 Shine-Dalgarno sequence, spacer region, and start codon shaded in red, green,
@@ -101,8 +101,7 @@ median, and the whiskers represent 1.5 times the maximum and minimum of the
 interquartile region. Individual measurements are denoted as black points.
 The strain used for calibration of channel copy number (MLG910) is
 highlighted in yellow. ](../figs/fig2.pdf){#fig:boxplot}
-
-
+s
 ### Performing a single-cell hypo-osmotic challenge assay ###
 
  &nbsp;&nbsp;&nbsp;&nbsp;To measure the channel copy number of a single cell
