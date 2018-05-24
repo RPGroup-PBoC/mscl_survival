@@ -2,15 +2,17 @@
 indent: false
 ---
 
-# **Connecting the dots between mechanosensitive channel abundance, osmotic shock, and survival at single-cell resolution**  
+# Connecting the dots between mechanosensitive channel abundance, osmotic shock, and survival at single-cell resolution  
 
-Griffin Chure$^{a, \dagger}$, Heun Jin Lee$^{b, \dagger}$, and Rob Phillips$^{a,\ b,\ c,\ *}$
+Griffin Chure$^{a, \dagger}$, Heun Jin Lee$^{b, \dagger}$, and Rob Phillips$^{a,\ b,\ *}$
 
-Department of Biochemistry and Molecular Biophysics$^a$, 
-Department of Physics$^b$, and Division of Biology and Biological Engineering$^c$,
-California Institute of Technology, Pasadena, California, USA
+$^a$ Department of Biology and Biological Engineering, California Institute of Technology, Pasadena, CA, USA
+
+$^b$ Department of Physics, California Institute of Technology, Pasadena, California, USA
 
 $\dagger$ contributed equally
+
+**Running title:** MscL copy number and cell survival after osmotic shock
 
 \* Send correspondence to `phillips@pboc.caltech.edu`
 
@@ -19,7 +21,7 @@ Rapid changes in extracellular osmolarity are one of many insults microbial
 cells face on a daily basis. To protect against such shocks,
 *Escherichia coli* and other microbes express several types of transmembrane
 channels which open and close in response to changes in membrane tension. In
-*E. coli*, the most abundant of these channels is the mechanosensitive
+*E. coli*, one of the most abundant channels is the mechanosensitive
 channel of large conductance (MscL). While this channel has been heavily
 characterized through structural methods, electrophysiology, and theoretical
 modeling, our understanding of its physiological role in preventing cell
@@ -50,5 +52,5 @@ shock. We observe total death of the population with less than 100 channels
 per cell and determine that approximately 500 - 700 channels are needed for 80% survival.
 The number of channels we find to confer nearly full survival is consistent
 with the counts of the number of channels in wild type cells in several
-earlier studies. These results prompt further studies dissecting the
+earlier studies. These results prompt further studies to dissect the
 contribution of other channel species to survival.

@@ -1,5 +1,5 @@
 
-## DISCUSSION ##
+## Discussion
 
 &nbsp;&nbsp;&nbsp;&nbsp;One of the most challenging endeavors in the
 biological sciences is linking the microscopic details of cellular components
@@ -23,7 +23,7 @@ segments generates an extraordinarily diverse antibody repertoire
 DNA replication is intrinsically tied to cell senescence [@herbig2004;
 @victorelli2017], to name just a few of many such examples.
 
-&nbsp;&nbsp;&nbsp;&nbsp;This is by no means that we are ``finished” with any of
+&nbsp;&nbsp;&nbsp;&nbsp; By no means are we  ``finished” with any of
 these topics. Rather, it's quite the opposite in the sense that having a
 handle on the biophysical knobs that tune the behavior opens the door to a
 litany of new scientific questions. In the case of mechanosenstaion and
@@ -36,8 +36,8 @@ quantitatively control the abundance of a single species of mechanosensitive
 channel and examine the physiological consequences in terms of survival
 probability at single-cell resolution. Our results reveal two notable
 quantities. First, out of the several hundred single-cell measurements, we
-never observed a cell which had less than approximately 100 channels per cell
-survive an osmotic shock, irrespective of the shock rate. The second is that
+never observed a cell which had less than approximately 100 channels per cell and 
+survived an osmotic shock, irrespective of the shock rate. The second is that
 between 500 and 700 channels per cell are needed to provide $\geq 80\%$
 survival, depending on the shock rate.
 
@@ -143,6 +143,6 @@ response -- life or death.
 | 4 - 5 | Electrophysiology  | @stokes2003a|
 | 10 - 100 | Electrophysiology  | @booth2005|
 |10 - 15 | Electrophysiology | @blount1999|
-:**Measured cellular copy numbers of MscL.** Asterisk (\*) Indicates
+:Measured cellular copy numbers of MscL. Asterisk (\*) Indicates
 inferred MscL channel copy number from the total number of detected MscL
 peptides.

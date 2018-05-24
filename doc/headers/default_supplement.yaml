@@ -23,5 +23,11 @@ header-includes:
   \usepackage{lineno}
   \renewcommand{\theequation}{S\arabic{equation}}
   \renewcommand{\thefigure}{S\arabic{figure}}
+   \usepackage{caption}
+  \captionsetup[figure]{name={\bf \fontfamily{phv} \selectfont FIG}}
+  \captionsetup[table]{name={\bf \fontfamily{phv} \selectfont TABLE}}
+  \captionsetup[figure]{labelsep=space}
+  \captionsetup[table]{labelsep=space}
+  \linespread{1.5}  
   \linenumbers
 ---

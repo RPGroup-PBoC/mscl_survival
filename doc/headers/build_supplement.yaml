@@ -1,10 +1,11 @@
 ---
 include:
-  appendix_B_standard_candle.md
-  appendix_C_shock_classification.md
-  appendix_D_logistic_regression.md
+  appendix_header.md
+  supplemental_information_A_standard_candle.md
+  supplemental_information_B_shock_classification.md
+  supplemental_information_C_logistic_regression.md
   section_7_references.md
 header:
   default_supplement.yaml
-name: mscl_supplement.html
+name: 20180523_final_draft_SI.pdf
 ---

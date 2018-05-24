@@ -16,10 +16,14 @@ header-includes:
   \usepackage{palatino}
   \usepackage{sectsty}
   \usepackage{tikz}
-  \usetikzlibrary{shapes.geometric, arrows}
   \sectionfont{\normalfont\sffamily}
   \subsectionfont{\normalfont\sffamily}
   \subsubsectionfont{\normalfont\sffamily\itshape}
+  \usepackage{caption}
+  \captionsetup[figure]{name={\bf \fontfamily{phv} \selectfont FIG}}
+  \captionsetup[table]{name={\bf \fontfamily{phv} \selectfont TABLE}}
+  \captionsetup[figure]{labelsep=space}
+  \captionsetup[table]{labelsep=space}
   \linespread{1.5}  
   \usepackage{lineno}
   \linenumbers

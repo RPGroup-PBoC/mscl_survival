@@ -10,7 +10,7 @@ transmembrane protein channels (Fig 1A). Such proteinaceous pressure release
 valves have been found across all domains of life, with the first bacterial
 channel being described in 1987 @martinac1987. Over the past thirty years,
 several more channels have been discovered, described, and (in many cases)
-biophysically characterized. *E. coli*, for example, has seven types of these
+biophysically characterized. *E. coli*, for example, has seven of these
 channels (one MscL and six MscS homologs) which have varied conductance,
 gating mechanisms, and expression levels. While they have been the subject of
 much experimental and theoretical dissection, much remains a mystery with
@@ -29,7 +29,7 @@ flux of $4 \times 10^9$ water molecules per second, which is an order of
 magnitude larger than a single aquaporin channel (BNID 100479)
 [@louhivuori2010; @milo2010]. This suggests that having only a few channels
 per cell could be sufficient to relieve even large changes in membrane
-tension. Electrophysiological experiments have suggested a small population
+tension. Electrophysiological experiments have suggested a small number 
 of channels per cell [@booth2005; @hase1997], however, more recent approaches
 using quantitative western blotting, fluorescence microscopy, and proteomics
 have measured several hundred MscL per cell [@bialecka-fornal2012;
@@ -41,7 +41,7 @@ channels per cell, why cells seem to need so many and the biological
 rationale behind their condition-dependent expression both remain a mystery.
 
 &nbsp;&nbsp;&nbsp; &nbsp; While their biochemical and biophysical
-characteristics have received much attention, their connection to survival is
+characteristics have received much attention, their connection to cell survival is
 understudied. Drawing such a direct connection between channel copy number
 and survival requires quantitative *in vivo* experiments. To our knowledge,
 the work presented in van den Berg et al. 2016 [@vandenberg2016] is the first
@@ -67,7 +67,7 @@ coli* strain in which all seven mechanosensitive channels had been deleted
 from the chromosome followed by a chromosomal integration of a single gene
 encoding an MscL-super-folder GFP (sfGFP) fusion protein. To explore copy
 number regimes beyond those of the wild-type expression level, we modified
-the Shine-Dalgarno (SD) sequence of this integrated construct allowing us to
+the Shine-Dalgarno sequence of this integrated construct allowing us to
 cover nearly three decades of MscL copy number. To probe survivability, we
 exposed cells to a large hypo-osmotic shock at controlled rates in a flow
 cell under a microscope, allowing the observation of the single-cell channel
@@ -79,7 +79,7 @@ the observed range. In addition, we show that several hundred channels are
 needed to convey high rates of survival and observe a minimum number of
 channels needed to permit any degree of survival.
 
-![**Role of mechanosensitive channels during hypo-osmotic shock.** (A) A
+![Role of mechanosensitive channels during hypo-osmotic shock. (A) A
 hypo-osmotic shock results in a large difference in the osmotic strength
 between the intracellular and extracellular spaces. As a result, water rushes
 into the cell to equalize this gradient increasing the turgor pressure and
