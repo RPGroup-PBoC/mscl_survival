@@ -1,4 +1,4 @@
-#`mscl_survival`
+# `mscl_survival` #
 
 This repository contains all Python code, Jupyter Notebooks, small data files, and the full text for the publication "Connecting the dots between mechanosensitive channel abundance, osmotic shock, and survival at single-cell resolution."  We encourage the scientific community to fork this repository and open constructive issues that will improve and/or correct any writing in this work. The general architecture of the repository is described below. 
 
