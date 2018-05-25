@@ -123,10 +123,10 @@ MscL have shown similar counts through quantitative Western blotting and
 fluorescence microscopy [@bialecka-fornal2012]. Electrophysiology studies have
 told another story with copy number estimates ranging between 4 and 100
 channels per cell [@blount1999; @stokes2003a, @booth2005]. These
-measurements, however, measure only the active number of channels. The
+measurements, however, measure the active number of channels. The
 factors regulating channel activity in these experiments could be due to
 perturbations during the sample preparation or reflect some unknown mechanism
-of regulation, such as the presence or absence of interacting cofactors. As
+of regulation, such as the presence or absence of interacting cofactors [@schumann2010]. The work described here, on the other hand, measures the *maximum* number of channels that could be active and may be able to explain why the channel abundance is higher than estimated by theoretical means. There remains much more to be leared about the regulation of activity in these systems. As
 the *in vivo* measurement of protein copy number becomes accessible through
 novel single-cell and single-molecule methods, we will continue to collect
 more facts about this fascinating system and hopefully connect the molecular

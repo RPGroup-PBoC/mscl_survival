@@ -14,7 +14,7 @@ depth. All imaging took place within 1 – 2 cm of the outlet to avoid imaging
 cells within a non-uniform gradient of osmolarity. The interior of the flow
 cell was functionalized with a 1:400 dilution of polyethylamine prior to
 addition of cells with the excess washed away with water. A dilute cell
-suspension in LB Miller with 500 mM NaCl was loaded into one inlet while the
+suspension in LB Lennox with 500 mM NaCl was loaded into one inlet while the
 other was connected to a vial of LB medium with no NaCl. This hypotonic
 medium was clamped during the loading of the cells.
 
