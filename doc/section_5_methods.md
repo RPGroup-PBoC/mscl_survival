@@ -232,6 +232,6 @@ $${#eq:}
 Research Data Repository [@chure2018a]. The raw Markov chain Monte Carlo samples are stored as `.csv` files on CaltechDATA [@chure2018]. All processed
 experimental data, Python, and Stan code used in this work are freely
 available through our GitHub repository
-(`http://github.com/rpgroup-pboc/mscl_survival`)[@chure2018b]. The scientific
+(`http://github.com/rpgroup-pboc/mscl_survival`)[@chure2018b] accessible through DOI: 10.5281/zenodo.1252524. The scientific
 community is invited to fork our repository and open constructive
 issues.
