@@ -1,10 +1,12 @@
 ---
 include:
+  appendix_header.md
   supplemental_information_A_standard_candle.md
   supplemental_information_B_shock_classification.md
   supplemental_information_C_logistic_regression.md
+  supplemental_information_E_strains.md
   section_7_references.md
 header:
   default_supplement.yaml
-name: 20180523_final_draft_SI.html
+name: Chure2018a_supplement.pdf
 ---
