@@ -20,7 +20,7 @@ def main():
 
         with open("_html/_{}".format(m['name']), 'rt') as _ht:
             # Set up the empty list of sections.
-            sections = [[] for i in range(num_sects + 2)]
+            sections = [[] for i in range(num_sects + 3)]
             sect_id = 0
             for line in _ht:
                 if '<h2' in line:

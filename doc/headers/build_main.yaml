@@ -1,6 +1,5 @@
 ---
 include:
-  section_1_abstract.md
   section_2_introduction.md
   section_3_results.md
   section_4_discussion.md
@@ -9,5 +8,5 @@ include:
   section_7_references.md
 header:
   default_main.yaml
-name: Chure2018a.pdf
+name: mscl_main.html
 ---
