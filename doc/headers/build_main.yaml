@@ -1,12 +1,18 @@
 ---
 include:
+  section_1_abstract.md
   section_2_introduction.md
   section_3_results.md
   section_4_discussion.md
   section_5_methods.md
   section_6_acknowledgements.md
+  appendix_header.md
+  supplemental_information_A_standard_candle.md
+  supplemental_information_B_shock_classification.md
+  supplemental_information_C_logistic_regression.md
+  supplemental_information_D_strains.md
   section_7_references.md
 header:
   default_main.yaml
-name: mscl_main.html
+name: Chure2018a_combined.pdf
 ---

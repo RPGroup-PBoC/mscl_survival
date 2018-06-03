@@ -1,5 +1,6 @@
 ---
 include:
+  appendix_header.md
   supplemental_information_A_standard_candle.md
   supplemental_information_B_shock_classification.md
   supplemental_information_C_logistic_regression.md
@@ -7,5 +8,5 @@ include:
   section_7_references.md
 header:
   default_supplement.yaml
-name: supplement.html 
+name: Chure2018a_supplement.pdf
 ---
