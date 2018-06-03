@@ -2,7 +2,48 @@
 
 ### Bacterial strains and growth conditions
 
-HJ will summarize here.
+The bacterial strains are described in Table S1. The parent strain for the
+mutants used in this study was MJF641 [@edwards2012], a strain which had all seven
+mechanosensitive channels deleted. The MscL-sfGFP coding region from MLG910
+[@bialecka-fornal2012] was integrated into MJF641 by P1 transduction, creating the strain
+D6LG-Tn10. Selection pressure for MscL integration was created by
+incorporating an osmotic shock into the transduction protocol, which favored
+the survival of MscL-expressing stains relative to MJF641 by ~100-fold.
+Screening for integration candidates was based on fluorescence expression of
+plated colonies. Successful integration was verified by sequencing. Attempts
+to transduce RBS-modified MscL-sfGFP coding regions became increasingly
+inefficient as the targeted expression level of MscL was reduced. This was
+due to the decreasing fluorescence levels and survival rates of the
+integration candidates. Consequently, RBS modifications were made by
+inserting DNA oligos with lambda Red-mediated homologous recombination, i.e.,
+recombineering [Sharan 2009]. The oligos had a designed mutation (Figure 2)
+flanked by ~25 base pairs that matched the targeted MscL region [Table S2]. A
+two-step recombineering process of selection followed by counter selection
+using a tetA-sacB gene fusion cassette [@li2013] was chosen because of its
+capabilities to integrate with efficiencies comparable to P1 transduction and
+not leave antibiotic resistance markers or scar sequences in the final
+strain. To prepare the strain D6LG-Tn10 for this scheme, the Tn10 transposon
+containing the tetA gene needed to be removed to avoid interference with the
+tetA-sacB cassette. Tn10 was removed from the middle of the ycjM gene with
+the primer Tn10delR (Table S2) by recombineering, creating the strain D6LG
+(SD0). Counter selection against the tetA gene was promoted by using agar
+media with fusaric acid [@bochner1980; @li2013]. The tetA-sacB cassette was
+PCR amplified out of the strain XTL298 using primers MscLSPSac and MscLSPSacR
+(Table S2). The cassette was integrated in place of the spacer region in front
+of the MscL start codon of D6LG (SD0) by recombineering, creating the
+intermediate strain D6LTetSac. Positive selection for cassette integration
+was provided by agar media with tetracycline. Finally, the RBS modifying
+oligos were integrated into place by replacing the tetA-sacB cassette by
+recombineering. Counter selection against both tetA and sacB was ensured by
+using agar media with fusaric acid and sucrose [@li2013], creating the Shine-Dalgarno
+mutant strains used in this work.
+
+Strain cultures were grown in 5 mL of LB-Lennox media with antibiotic
+(apramycin) overnight at 37°C. The next day, 50 µL of overnight culture was
+inoculated into 5 mL of LB-Lenox with antibiotic and the culture was grown to
+OD<sub>600nm</sub> ~0.25. Subsequently, 500 µL of that culture was inoculated into 5 mL of
+LB-Lennox supplemented with 500mM of NaCl and the culture was regrown to OD<sub>600nm</sub>
+~0.25. A 1 mL aliquot was taken and used to load the flow cell.
 
 ### Flow cell
 
