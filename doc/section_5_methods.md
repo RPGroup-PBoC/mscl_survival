@@ -3,7 +3,7 @@
 ### Bacterial strains and growth conditions
 
 The bacterial strains are described in Table S1. The parent strain for the
-mutants used in this study was MJF641 [@edwards2012], a strain which had all seven
+mutants used in this study was MJF641 [@edwards2012] (generously provided by Drs. Samantha Miller and Ian Booth), a strain which had all seven
 mechanosensitive channels deleted. The MscL-sfGFP coding region from MLG910
 [@bialecka-fornal2012] was integrated into MJF641 by P1 transduction, creating the strain
 D6LG-Tn10. Selection pressure for MscL integration was created by
@@ -139,8 +139,7 @@ on measuring the fluorescence level of a bacterial strain in which the mean
 MscL channel copy number was known via fluorescence microscopy
 [@bialecka-fornal2012]. *E. coli* strain MLG910, which expresses the MscL-sfGFP fusion
 protein from the wild-type SD sequence, was grown under identical conditions
-to those described in Bialecka-Fornal et al. 2015 in M9 minimal medium
-supplemented with 0.5% glucose to an OD~600nm~ of ~0.3. The cells
+to those described in Bialecka-Fornal et al. 2015 in LB Miller medium (BD Medical Sciences) to an OD~600nm~ of ~0.3. The cells
 were then diluted ten fold and immobilized on a rigid 2% agarose substrate
 and placed onto a glass bottom petri dish and imaged in the same conditions
 as described previously.

@@ -6,18 +6,19 @@
 contribution of a single mechanosensitive channel species to cell survival
 under a hypo-osmotic shock. While this procedure could be performed for any
 species of channel, we chose MscL as it is the most well characterized and
-one of the most abundant species in *E. coli*. To probe the contribution of MscL
-alone, we generated an *E. coli* strain in which all seven known
-mechanosensitive channel genes were deleted from the chromosome followed by
-the integration of an *mscL* gene encoding an MscL super-folder GFP (sfGFP)
-fusion. Chromosomal integration imposes strict control on the gene copy
-number compared to plasmid borne expression systems, which is important to
-minimize variation in channel expression across the population and provide conditions more representative of native cell physiology. Fluorescent
-protein fusions have frequently been used to study MscL and have been shown
-through electrophysiology to function identically to the native MscL protein,
-allowing us to confidently draw conclusions about the role this channel plays
-in wild-type cells from our measurements. [@bialecka-fornal2012;
-@norman2005].
+one of the most abundant species in *E. coli*. To probe the contribution of
+MscL alone, we integrated an *mscL* gene encoding an MscL super-folder GFP
+(sfGFP) fusion into a strain in which all seven known mechanosensitive
+channel genes were deleted from the chromosome [@edwards2012] (strain MJF641 generously
+provided by Samantha Miller and Ian Booth) . Chromosomal integration imposes
+strict control on the gene copy number compared to plasmid borne expression
+systems, which is important to minimize variation in channel expression
+across the population and provide conditions more representative of native
+cell physiology. Fluorescent protein fusions have frequently been used to
+study MscL and have been shown through electrophysiology to function
+identically to the native MscL protein, allowing us to confidently draw
+conclusions about the role this channel plays in wild-type cells from our
+measurements. [@bialecka-fornal2012; @norman2005].
 
 &nbsp;&nbsp;&nbsp;&nbsp;To modulate the number of MscL channels per cell, we
 developed a series of mutants which were designed to decrease the expression
