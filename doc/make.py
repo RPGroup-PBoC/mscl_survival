@@ -11,7 +11,7 @@ def main():
         m, _ = frontmatter.parse(f.read())
 
         code = """
-        pandoc headers/{} -i {} --bibliography=./mscl_refs.bib  --filter=pandoc-eqnos --columns 6 --filter=pandoc-crossref -o {}
+        pandoc headers/{} -i {} --bibliography=./mscl_refs.bib --filter=pandoc-eqnos --columns 6 --filter=pandoc-crossref -o {}
         """.format(m['header'], m['include'], m['name'])
         os.system(code)
 

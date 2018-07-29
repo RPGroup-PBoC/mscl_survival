@@ -14,6 +14,7 @@ header-includes:
   \usepackage{microtype}
   \usepackage{mathpazo}
   \usepackage{palatino}
+  \usepackage{lineno}
   \usepackage{sectsty}
   \usepackage{tikz}
   \sectionfont{\normalfont\sffamily}
@@ -24,5 +25,6 @@ header-includes:
   \captionsetup[table]{name={\bf \fontfamily{phv} \selectfont TABLE}}
   \captionsetup[figure]{labelsep=space}
   \captionsetup[table]{labelsep=space}
+  \linenumbers
   \linespread{1.5}  
 ---

@@ -31,7 +31,7 @@ magnitude larger than a single aquaporin channel (BNID 100479)
 per cell could be sufficient to relieve even large changes in membrane
 tension. Electrophysiological experiments have suggested a small number 
 of channels per cell [@booth2005; @hase1997], however, more recent approaches
-using quantitative western blotting, fluorescence microscopy, and proteomics
+using quantitative Western blotting, fluorescence microscopy, and proteomics
 have measured several hundred MscL per cell [@bialecka-fornal2012;
 @schmidt2016; @soufi2015]. To further complicate matters, the expression
 profile of MscL appears to depend on growth phase, available carbon source,

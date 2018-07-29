@@ -23,23 +23,23 @@ segments generates an extraordinarily diverse antibody repertoire
 DNA replication is intrinsically tied to cell senescence [@herbig2004;
 @victorelli2017], to name just a few of many such examples.
 
-&nbsp;&nbsp;&nbsp;&nbsp; By no means are we  ``finished” with any of
-these topics. Rather, it's quite the opposite in the sense that having a
-handle on the biophysical knobs that tune the behavior opens the door to a
-litany of new scientific questions. In the case of mechanosenstaion and
-osmoregulation, we have only recently been able to determine some of the
-basic facts that allow us to approach this fascinating biological phenomenon
-biophysically. The dependence of survival on mechanosensitive
-channel abundance is a key quantity that is missing from our collection of critical
-facts. To our knowledge, this work represents the first attempt to
-quantitatively control the abundance of a single species of mechanosensitive
-channel and examine the physiological consequences in terms of survival
-probability at single-cell resolution. Our results reveal two notable
-quantities. First, out of the several hundred single-cell measurements, we
-never observed a cell which had less than approximately 100 channels per cell and 
-survived an osmotic shock, irrespective of the shock rate. The second is that
-between 500 and 700 channels per cell are needed to provide $\geq 80\%$
-survival, depending on the shock rate.
+&nbsp;&nbsp;&nbsp;&nbsp; By no means are we ``finished” with any of these
+topics. Rather, it's quite the opposite in the sense that having a handle on
+the biophysical knobs that tune the behavior opens the door to a litany of
+new scientific questions. In the case of mechanosenstaion and osmoregulation,
+we have only recently been able to determine some of the basic facts that
+allow us to approach this fascinating biological phenomenon biophysically.
+The dependence of survival on mechanosensitive channel abundance is a key
+quantity that is missing from our collection of critical facts. To our
+knowledge, this work represents the first attempt to quantitatively control
+the abundance of a single species of mechanosensitive channel and examine the
+physiological consequences in terms of survival probability at single-cell
+resolution. Our results reveal two notable quantities. First, out of the
+several hundred single-cell measurements, we never observed a cell which had
+less than approximately 100 channels per cell and survived an osmotic shock,
+irrespective of the shock rate. The second is that between 500 and 700
+channels per cell are needed to provide $\geq 80\%$ survival, depending on
+the shock rate.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Only recently has the relationship between the MscL
 copy number and the probability of survival been approached experimentally.
@@ -52,31 +52,59 @@ abundance through super-resolution microscopy and queried survival through
 bulk assays. They report a nearly linear relationship between survival and
 copy number, with approximately 100 channels per cell conveying 100%
 survival. This number is significantly smaller than our observation of
-approximately 100 channels as the *minimum* number needed to convey any
+approximately 100 channels as the *minimum* number needed to convey an  y
 observable degree of survival.
 
 &nbsp;&nbsp;&nbsp;&nbsp; The disagreement between the numbers reported in
 this work and in van den Berg et al. may partially arise from subtle
 differences in the experimental approach. The primary practical difference is
-the rate and magnitude of the osmotic shock. van den Berg et al. applied an
-approximately 600 mOsm downshock in bulk at an undetermined rate whereas we
-applied a 1 Osm downshock at controlled rates varying from 0.02 Hz to 2.2 Hz.
-In their work, survival was measured through plating assays which
-represent the population average rather than the distribution of survival
-probability. While this approach provides valuable information regarding the
-response of a population to an osmotic shock, the high survival rate may
-stem from a wide distribution of channel copies per cell in the
-population coupled with bulk-scale measurement of survival. As has been shown
-in this work, the expression of MscL from a chromosomal integration is noisy
-with a single strain exhibiting MscL copy numbers spanning an order of
-magnitude or more. In van den Berg et al., this variance is exacerbated by
-expression of MscL from an inducible plasmid as fluctuations in the gene copy
-number from plasmid replication and segregation influence the expression
-level. Connecting such a wide and complex distribution of copy numbers to
-single-cell physiology requires the consideration of moments beyond the mean
-which is a nontrivial task. Rather than trying to make such a connection, we
-queried survival at single-cell resolution at the expense of a lower
-experimental throughput.
+the magnitude of the osmotic shock. van den Berg et al. applied an
+approximately 600 mOsm downshock in bulk whereas we applied a 1 Osm
+downshock, which would lead to lower survival. In their work, the uncertainty
+in both the MscL channel count and survival probability is roughly 30% (Fig.
+S14). Given this uncertainty, it is reasonable to interpret that the number of
+channels needed for complete protection from osmotic downshock is between 100
+and 250 per cell. The error in determining the number of channels per cell is
+consistent with the observed width of the channel number distribution of the
+Shine-Dalgarno sequence mutants used in this work ([@Fig:boxplot]B). A unique
+property of the single-cell measurements performed in this work allow is the
+direct observation of survival or death of individual cells. We find that morphological classification and classification through a propidium iodide staining agree within 1%. The bulk plating assays, as are used in van den Berg et
+al., rely on colony formation and outgrowth to determine survival
+probability. As is reported in their supplemental information, the precision
+in this measurement is around 30% (Fig. S14). Accounting for this uncertainty
+brings both measurements within a few fold where we still consistently
+observe lower survival for a given channel number. This remaining
+disagreement may be accounted for by to systematic errors in both
+experimental methods.
+
+&nbsp;&nbsp;&nbsp;&nbsp;For example, variation in the length of outgrowth,
+variable shock rate, and counting statistics could bias towards higher
+observed survival rates in ensemble plating assays. During the outgrowth
+phase, the control sample not exposed to an osmotic shock is allowed to grow
+for approximately 30 minutes in a high-salt medium before plating. The
+shocked cells, however, are allowed to grow in a low-salt medium. We have
+found that the difference between the growth rates in these two conditions
+can be appreciable (approximately 35 minutes versus 20 minutes, respectively)
+as can be seen in Fig S2. Cells that survived an osmotic shock may have a
+growth advantage relative to the control sample if the shock-induced lag
+phase is less than the outgrowth, leading to higher observed survival rates [@levina1999].
+It's been shown that there is a strong inverse relationship between the rate
+of osmotic shock and survival probability [@bialecka-fornal2015]. Any
+experiment in which the shock was applied more slowly or quickly than another
+would bias toward higher or lower survivability, respectively. The shocks
+applied in bulk assays are often performed manually through serological
+pipetting which can be highly variable. We note that in our experiments, we
+frequently observe cells which do not separate and form clusters of two or
+more cells (Fig. S9 and S10). In plating assays, it is assumed that colonies
+arise from a single founding cell. However, a colony formed by a cluster of
+living and dead cells would be interpreted as a single surviving cell,
+effectively masking the death of the others in the cluster. This too could
+bias the measurement toward higher survival rates. Single-cell shock
+experiments can also have systematic errors which can bias the results
+towards lower survival rates. Such errors are associated with handling of the
+cells such as shear damage from loading into the flow cell, adhering the
+cells to the coverslip, and any chemical perturbations introduced by the dye
+used to measure the shock rate.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Despite these experimental differences, the results
 of this work and van den Berg et al., are in agreement that MscL must be

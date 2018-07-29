@@ -19,11 +19,11 @@ header-includes:
   \subsectionfont{\normalfont\sffamily}
   \subsubsectionfont{\normalfont\sffamily\itshape}
   \linespread{1.5}
-  \renewcommand{\thesection}{\Alph{section}}
+  \renewcommand{\thesection}{\arabic{section}}
   \usepackage{lineno}
-  \renewcommand{\theequation}{S\arabic{equation}}
+  \renewcommand{\thetable}{S\arabic{table}}
   \renewcommand{\thefigure}{S\arabic{figure}}
-   \usepackage{caption}
+  \usepackage{caption}
   \captionsetup[figure]{name={\bf \fontfamily{phv} \selectfont FIG}}
   \captionsetup[table]{name={\bf \fontfamily{phv} \selectfont TABLE}}
   \captionsetup[figure]{labelsep=space}

@@ -2,41 +2,43 @@
 
 ### Bacterial strains and growth conditions
 
-The bacterial strains are described in Table S1. The parent strain for the
-mutants used in this study was MJF641 [@edwards2012] (generously provided by Drs. Samantha Miller and Ian Booth), a strain which had all seven
+The bacterial strains are described in Table S3. The parent strain for the
+mutants used in this study was MJF641 [@edwards2012] (generously provided by
+Drs. Samantha Miller and Ian Booth), a strain which had all seven
 mechanosensitive channels deleted. The MscL-sfGFP coding region from MLG910
-[@bialecka-fornal2012] was integrated into MJF641 by P1 transduction, creating the strain
-D6LG-Tn10. Selection pressure for MscL integration was created by
-incorporating an osmotic shock into the transduction protocol, which favored
-the survival of MscL-expressing stains relative to MJF641 by ~100-fold.
-Screening for integration candidates was based on fluorescence expression of
-plated colonies. Successful integration was verified by sequencing. Attempts
-to transduce RBS-modified MscL-sfGFP coding regions became increasingly
-inefficient as the targeted expression level of MscL was reduced. This was
-due to the decreasing fluorescence levels and survival rates of the
-integration candidates. Consequently, Shine-Dalgarno sequence modifications were made by
-inserting DNA oligos with lambda Red-mediated homologous recombination, i.e.,
-recombineering [@sharan2009]. The oligos had a designed mutation ([@Fig:boxplot])
-flanked by ~25 base pairs that matched the targeted MscL region (Table S2). A
-two-step recombineering process of selection followed by counter selection
-using a *tetA-sacB* gene fusion cassette [@li2013] was chosen because of its
-capabilities to integrate with efficiencies comparable to P1 transduction and
-not leave antibiotic resistance markers or scar sequences in the final
-strain. To prepare the strain D6LG-Tn10 for this scheme, the Tn10 transposon
-containing the *tetA* gene needed to be removed to avoid interference with the
+[@bialecka-fornal2012] was integrated into MJF641 by P1 transduction,
+creating the strain D6LG-Tn10. Selection pressure for MscL integration was
+created by incorporating an osmotic shock into the transduction protocol,
+which favored the survival of MscL-expressing stains relative to MJF641 by
+~100-fold. Screening for integration candidates was based on fluorescence
+expression of plated colonies. Successful integration was verified by
+sequencing. Attempts to transduce RBS-modified MscL-sfGFP coding regions
+became increasingly inefficient as the targeted expression level of MscL was
+reduced. This was due to the decreasing fluorescence levels and survival
+rates of the integration candidates. Consequently, Shine-Dalgarno sequence
+modifications were made by inserting DNA oligos with lambda Red-mediated
+homologous recombination, i.e., recombineering [@sharan2009]. The oligos had
+a designed mutation ([@Fig:boxplot]) flanked by ~25 base pairs that matched
+the targeted MscL region (Table S4). A two-step recombineering process of
+selection followed by counter selection using a *tetA-sacB* gene fusion
+cassette [@li2013] was chosen because of its capabilities to integrate with
+efficiencies comparable to P1 transduction and not leave antibiotic
+resistance markers or scar sequences in the final strain. To prepare the
+strain D6LG-Tn10 for this scheme, the Tn10 transposon containing the *tetA*
+gene needed to be removed to avoid interference with the
 *tetA-sacB* cassette. Tn10 was removed from the middle of the *ycjM* gene with
 the primer Tn10delR (Table S2) by recombineering, creating the strain D6LG
 (SD0). Counter selection against the *tetA* gene was promoted by using agar
 media with fusaric acid [@bochner1980; @li2013]. The *tetA-sacB* cassette was
 PCR amplified out of the strain XTL298 using primers MscLSPSac and MscLSPSacR
-(Table S2). The cassette was integrated in place of the spacer region in front
-of the MscL start codon of D6LG (SD0) by recombineering, creating the
+(Table S2). The cassette was integrated in place of the spacer region in
+front of the MscL start codon of D6LG (SD0) by recombineering, creating the
 intermediate strain D6LTetSac. Positive selection for cassette integration
 was provided by agar media with tetracycline. Finally, the RBS modifying
 oligos were integrated into place by replacing the *tetA-sacB* cassette by
-recombineering. Counter selection against both *tetA* and *sacB* was ensured by
-using agar media with fusaric acid and sucrose [@li2013], creating the Shine-Dalgarno
-mutant strains used in this work.
+recombineering. Counter selection against both *tetA* and *sacB* was ensured
+by using agar media with fusaric acid and sucrose [@li2013], creating the
+Shine-Dalgarno mutant strains used in this work.
 
 Strain cultures were grown in 5 mL of LB-Lennox media with antibiotic
 (apramycin) overnight at 37°C. The next day, 50 µL of overnight culture was
@@ -76,7 +78,7 @@ efficiency). The microscope was equipped with a 488 nm laser excitation
 source (CrystaLaser) and a 520/35 laser optimized filter set (Semrock). The
 images were collected on an Andor Xion +897 EMCCD camera and all microscope
 and acquisition operations were controlled via the open source $\mu$Manager
-microscope control software (27). Once cells were securely mounted onto the
+microscope control software [@edelstein2014]. Once cells were securely mounted onto the
 surface of the glass coverslip, between 15 and 20 positions containing 5 to
 10 cells were marked and the coordinates recorded. At each position, a phase
 contrast and GFP fluorescence image was acquired for segmentation and
@@ -85,7 +87,7 @@ LB media containing no NaCl was pulled into the flow cell through a syringe
 pump. To monitor the media exchange, both the high salt and no salt LB media
 were supplemented with a low-affinity version of the calcium-sensitive dye
 Rhod-2 (250 nM; TEF Labs) which fluoresces when bound to Ca^2+^. The no salt
-medium was also supplemented with 1$\mu$M CaCl~2~ to make the media mildly
+medium was also supplemented with 1$\mu$M CaCl$_2$ to make the media mildly
 fluorescent and the exchange rate was calculated by measuring the
 fluorescence increase across an illuminated section of one of the positions.
 These images were collected in real time for the duration of the shock. The
@@ -108,13 +110,22 @@ illumination of the excitation wavelength.
 &nbsp; &nbsp; &nbsp; &nbsp;Survival or death classification was performed
 manually using the CellProfiler plugin for ImageJ software (NIH). A survivor
 was defined as a cell which was able to undergo two division events after the
-osmotic down shock. Cells which detached from the surface during the
-post-shock growth phase or those which became indistinguishable from other
-cells due to clustering were not counted as survival or death and were
-removed from the dataset completely. A region of the cell was manually marked
-with 1.0 (survival) or 0.0 (death) by clicking on the image. The `xy`
-coordinates of the click as well as the assigned value were saved as an `.xml`
-file for that position.
+osmotic down shock. Cell death was recognized by stark changes in cell
+morphology including loss of phase contrast through ejection of cytoplasmic
+material, structural decomposition of the cell wall and membrane, and the
+inability to divide. To confirm that these morphological cues corresponded
+with cell death, we probed cell viability on a subset of our strains after
+osmotic shock through staining with Propidium Iodide, a DNA intercalating dye
+commonly used to identifying dead cells (LIVE/DEAD BacLight Bacterial Cell Viability Assay, Thermo Fisher). We found that our
+classification based on morphology agreed with that based off of staining
+within 1%. More information regarding these experiments can be found in the
+Supplement C. Cells which detached
+from the surface during the post-shock growth phase or those which became
+indistinguishable from other cells due to clustering were not counted as
+survival or death and were removed from the dataset completely. A region of
+the cell was manually marked with 1.0 (survival) or 0.0 (death) by clicking
+on the image. The `xy` coordinates of the click as well as the assigned value
+were saved as an `.xml` file for that position.
 
 &nbsp; &nbsp; &nbsp; &nbsp;The connection between the segmented cells and
 their corresponding manual markers was automated. As the manual markings were

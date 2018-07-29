@@ -1,12 +1,15 @@
 ---
 include:
   appendix_header.md
-  supplemental_information_A_standard_candle.md
-  supplemental_information_B_shock_classification.md
-  supplemental_information_C_logistic_regression.md
-  supplemental_information_D_strains.md
+  supplemental_information_A_comparison.md
+  supplemental_information_B_standard_candle.md
+  supplemental_information_C_survival_classification.md
+  supplemental_information_E_shock_classification.md
+  supplemental_information_D_logistic_regression.md
+  supplemental_information_F_comparison.md
+  supplemental_information_G_strains.md
   section_7_references.md
 header:
   default_supplement.yaml
-name: Chure2018a_supplement.pdf
+name: mscl_supplement.pdf
 ---
