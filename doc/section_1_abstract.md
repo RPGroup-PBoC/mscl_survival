@@ -39,7 +39,7 @@ that between 500 and 700 channels per cell are needed to convey upwards of
 80% survival. This number agrees with the average MscL copy number measured
 in wild-type *E. coli* cells through proteomic studies and quantitative
 Western blotting. Furthermore, we observe zero survival events in cells with
-less than 100 channels per cell. This work opens new questions concerning the
+less than ~100 channels per cell. This work opens new questions concerning the
 contribution of other mechanosensitive channels to survival as well as
 regulation of their activity.
 
@@ -50,7 +50,7 @@ shock. Despite extensive biophysical characterization, the contribution of
 these channels to cell survival remains largely unknown. In this work, we use
 quantitative video microscopy to measure the abundance of a single species of
 MS channel in single cells followed by their survival after a large osmotic
-shock. We observe total death of the population with less than 100 channels
+shock. We observe total death of the population with less than ~100 channels
 per cell and determine that approximately 500 - 700 channels are needed for 80% survival.
 The number of channels we find to confer nearly full survival is consistent
 with the counts of the number of channels in wild type cells in several

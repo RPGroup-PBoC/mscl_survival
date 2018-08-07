@@ -60,45 +60,58 @@ this work and in van den Berg et al. may partially arise from subtle
 differences in the experimental approach. The primary practical difference is
 the magnitude of the osmotic shock. van den Berg et al. applied an
 approximately 600 mOsm downshock in bulk whereas we applied a 1 Osm
-downshock, which would lead to lower survival. In their work, the uncertainty
+downshock, which would lead to lower survival [@levina1999]. In their work, the uncertainty
 in both the MscL channel count and survival probability is roughly 30% (Fig.
 S14). Given this uncertainty, it is reasonable to interpret that the number of
 channels needed for complete protection from osmotic downshock is between 100
-and 250 per cell. The error in determining the number of channels per cell is
+and 250 per cell. The uncertainty in determining the number of channels per cell is
 consistent with the observed width of the channel number distribution of the
 Shine-Dalgarno sequence mutants used in this work ([@Fig:boxplot]B). A unique
 property of the single-cell measurements performed in this work allow is the
-direct observation of survival or death of individual cells. We find that morphological classification and classification through a propidium iodide staining agree within 1%. The bulk plating assays, as are used in van den Berg et
+direct observation of survival or death of individual cells. We find that morphological classification and classification through a propidium iodide staining agree within 1% (Supplement C). The bulk plating assays, as are used in van den Berg et
 al., rely on colony formation and outgrowth to determine survival
 probability. As is reported in their supplemental information, the precision
 in this measurement is around 30% (Fig. S14). Accounting for this uncertainty
 brings both measurements within a few fold where we still consistently
 observe lower survival for a given channel number. This remaining
-disagreement may be accounted for by to systematic errors in both
+disagreement may be accounted for by systematic uncertainty in both
 experimental methods.
 
-&nbsp;&nbsp;&nbsp;&nbsp;For example, variation in the length of outgrowth,
-variable shock rate, and counting statistics could bias towards higher
-observed survival rates in ensemble plating assays. During the outgrowth
-phase, the control sample not exposed to an osmotic shock is allowed to grow
-for approximately 30 minutes in a high-salt medium before plating. The
-shocked cells, however, are allowed to grow in a low-salt medium. We have
-found that the difference between the growth rates in these two conditions
-can be appreciable (approximately 35 minutes versus 20 minutes, respectively)
-as can be seen in Fig S2. Cells that survived an osmotic shock may have a
-growth advantage relative to the control sample if the shock-induced lag
-phase is less than the outgrowth, leading to higher observed survival rates [@levina1999].
-It's been shown that there is a strong inverse relationship between the rate
+&nbsp;&nbsp;&nbsp;&nbsp;For example, variation in the length
+of outgrowth, variable shock rate, and counting statistics could bias towards
+higher observed survival rates in ensemble plating assays. During the
+outgrowth phase, the control sample not exposed to an osmotic shock is
+allowed to grow for approximately 30 minutes in a high-salt medium before
+plating. The shocked cells, however, are allowed to grow in a low-salt
+medium. We have found that the difference between the growth rates in these
+two conditions can be appreciable (approximately 35 minutes versus 20
+minutes, respectively) as can be seen in Fig S2. Cells that survived an
+osmotic shock may have a growth advantage relative to the control sample if
+the shock-induced lag phase is less than the outgrowth, leading to higher
+observed survival rates [@levina1999]. This is one possible explanation for
+the survival rates which are reported in excess of 100%. Cells that survived
+an osmotic shock may have a growth advantage relative to the normalization
+sample if the shock-induced lag phase is less than the outgrowth, leading to
+higher observed survival rates, even surpassing 100%.  We have performed these 
+assays ourselves and have observed survival rates 
+above of 100% (ranging from 110% to 125%) with an approximate 30% error (see Fig. S3 in Bialecka-Fornal
+et al. 2012 [@bialecka-fornal2012]) which we concluded to arise from
+differences in growth rate. We also note that survival rates greater than
+100% are observed in van den Berg et al. (Fig. S14). For strains that have
+survival rates between 80% and 100% the uncertainty is typically large,
+making it difficult to make precise statements regarding when full survival
+is achieved.
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;It has been shown that there is a strong inverse relationship between the rate
 of osmotic shock and survival probability [@bialecka-fornal2015]. Any
 experiment in which the shock was applied more slowly or quickly than another
 would bias toward higher or lower survivability, respectively. The shocks
-applied in bulk assays are often performed manually through serological
-pipetting which can be highly variable. We note that in our experiments, we
-frequently observe cells which do not separate and form clusters of two or
+applied in bulk assays are often performed manually which can be highly variable. We note that in our experiments, we
+frequently observe cells which do not separate and form chains of two or
 more cells (Fig. S9 and S10). In plating assays, it is assumed that colonies
-arise from a single founding cell. However, a colony formed by a cluster of
+arise from a single founding cell however a colony formed by a cluster of
 living and dead cells would be interpreted as a single surviving cell,
-effectively masking the death of the others in the cluster. This too could
+effectively masking the death of the others in the colony forming unit. This too could
 bias the measurement toward higher survival rates. Single-cell shock
 experiments can also have systematic errors which can bias the results
 towards lower survival rates. Such errors are associated with handling of the
@@ -154,7 +167,7 @@ channels per cell [@blount1999; @stokes2003a, @booth2005]. These
 measurements, however, measure the active number of channels. The
 factors regulating channel activity in these experiments could be due to
 perturbations during the sample preparation or reflect some unknown mechanism
-of regulation, such as the presence or absence of interacting cofactors [@schumann2010]. The work described here, on the other hand, measures the *maximum* number of channels that could be active and may be able to explain why the channel abundance is higher than estimated by theoretical means. There remains much more to be leared about the regulation of activity in these systems. As
+of regulation, such as the presence or absence of interacting cofactors [@schumann2010]. The work described here, on the other hand, measures the *maximum* number of channels that could be active and may be able to explain why the channel abundance is higher than estimated by theoretical means. There remains much more to be learned about the regulation of activity in these systems. As
 the *in vivo* measurement of protein copy number becomes accessible through
 novel single-cell and single-molecule methods, we will continue to collect
 more facts about this fascinating system and hopefully connect the molecular

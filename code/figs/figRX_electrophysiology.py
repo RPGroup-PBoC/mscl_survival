@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # %%
+import sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import  matplotlib.gridspec as gridspec
-import sys
 sys.path.insert(0, '../../')
 import mscl.plotting
 colors = mscl.plotting.set_plotting_style()
@@ -55,3 +55,12 @@ _ = ax2.vlines(21.7, 4, -350, lw=100, color=colors['pale_yellow'], zorder=-1)
 plt.savefig('../../figs/figRX_electrophysiology_trace.pdf', bbox_inches='tight')
 plt.savefig('../../figs/figRX_electrophysiology_trace.png', bbox_inches='tight', 
             dpi=300)
+# %% Compute the conductance
+R = 20 # in mV
+slc = data[(data['time'] > 20.5) & (data['time'] < 22.8)]
+plt.plot(slc['time'], slc['pa'], lw=0.3)
+I_open = np.mean(slc[slc['pa'] > 260]['pa'])
+I_closed = np.mean(slc[slc['pa'] < 200]['pa'])
+conductance = (I_open - I_closed) / R
+conductance
+I_open - I_closed

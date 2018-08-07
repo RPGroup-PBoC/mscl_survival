@@ -16,6 +16,7 @@ header-includes:
   \usepackage{palatino}
   \usepackage{lineno}
   \usepackage{sectsty}
+  \usepackage{color}
   \usepackage{tikz}
   \sectionfont{\normalfont\sffamily}
   \subsectionfont{\normalfont\sffamily}

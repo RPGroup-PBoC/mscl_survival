@@ -4,7 +4,8 @@ Griffin Chure$^{a, \dagger}$, Heun Jin Lee$^{b, \dagger}$, Akiko Rasmussen$^c$, 
 
 $^a$Department of Biology and Biological Engineering, California Institute of Technology, Pasadena, CA, USA
 
-$^b$Department of Physics, California Institute of Technology, Pasadena, CA, USA 
+$^b$Department of Applied Physics, California Institute of Technology, Pasadena, CA, USA 
+
 $^c$School of Medicine, Medical Sciences and Nutrition, Institute of Medical Sciences, University of Aberdeen, Foresterhill, Aberdeen AB25 2ZD United Kingdom
 
 $\dagger$ contributed equally

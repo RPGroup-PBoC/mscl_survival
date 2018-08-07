@@ -67,7 +67,7 @@ coli* strain in which all seven mechanosensitive channels had been deleted
 from the chromosome followed by a chromosomal integration of a single gene
 encoding an MscL-super-folder GFP (sfGFP) fusion protein. To explore copy
 number regimes beyond those of the wild-type expression level, we modified
-the Shine-Dalgarno sequence of this integrated construct allowing us to
+the Shine-Dalgarno sequence of this integrated construct, allowing us to
 cover nearly three decades of MscL copy number. To probe survivability, we
 exposed cells to a large hypo-osmotic shock at controlled rates in a flow
 cell under a microscope, allowing the observation of the single-cell channel

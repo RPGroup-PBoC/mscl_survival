@@ -16,7 +16,7 @@ sequencing. Attempts to transduce RBS-modified MscL-sfGFP coding regions
 became increasingly inefficient as the targeted expression level of MscL was
 reduced. This was due to the decreasing fluorescence levels and survival
 rates of the integration candidates. Consequently, Shine-Dalgarno sequence
-modifications were made by inserting DNA oligos with lambda Red-mediated
+modifications were made by inserting DNA oligos with lambda red-mediated
 homologous recombination, i.e., recombineering [@sharan2009]. The oligos had
 a designed mutation ([@Fig:boxplot]) flanked by ~25 base pairs that matched
 the targeted MscL region (Table S4). A two-step recombineering process of
@@ -55,13 +55,13 @@ media of different osmolarity to be exchanged over the course of the
 experiment. The imaging region is approximately 10 mm wide and 100 $\mu$m in
 depth. All imaging took place within 1 – 2 cm of the outlet to avoid imaging
 cells within a non-uniform gradient of osmolarity. The interior of the flow
-cell was functionalized with a 1:400 dilution of polyethylamine prior to
+cell was functionalized with a 1:400 dilution of polyethylenimine prior to
 addition of cells with the excess washed away with water. A dilute cell
 suspension in LB Lennox with 500 mM NaCl was loaded into one inlet while the
 other was connected to a vial of LB medium with no NaCl. This hypotonic
 medium was clamped during the loading of the cells.
 
-&nbsp; &nbsp; &nbsp; &nbsp;Once the cells had adhered to the polyethylamine
+&nbsp; &nbsp; &nbsp; &nbsp;Once the cells had adhered to the polyethylenimine
 coated surface, the excess cells were washed away with the 500 mM NaCl growth
 medium followed by a small (\~20 $\mu$L) air bubble. This air bubble forced
 the cells to lay flat against the imaging surface, improving the time-lapse
@@ -76,7 +76,7 @@ directly impede cell growth.
 enclosed in a Haison environmental chamber (approximately 1°C regulation
 efficiency). The microscope was equipped with a 488 nm laser excitation
 source (CrystaLaser) and a 520/35 laser optimized filter set (Semrock). The
-images were collected on an Andor Xion +897 EMCCD camera and all microscope
+images were collected on an Andor iXon EM+ 897 EMCCD camera and all microscope
 and acquisition operations were controlled via the open source $\mu$Manager
 microscope control software [@edelstein2014]. Once cells were securely mounted onto the
 surface of the glass coverslip, between 15 and 20 positions containing 5 to
@@ -94,8 +94,7 @@ These images were collected in real time for the duration of the shock. The
 difference in measured fluorescence between the pre-shock images and those at
 the end of the shock set the scale of a 500 mM NaCl down shock. The rate was
 calculated by fitting a line to the middle region of this trace. Further
-details regarding this procedure can be found in Bialecka-Fornal, Lee, and
-Phillips, 2015 [@bialecka-fornal2015].
+details regarding this procedure can be found in Bialecka-Fornal et al. 2015 [@bialecka-fornal2015].
 
 ### Image Processing
 
@@ -109,13 +108,13 @@ illumination of the excitation wavelength.
 
 &nbsp; &nbsp; &nbsp; &nbsp;Survival or death classification was performed
 manually using the CellProfiler plugin for ImageJ software (NIH). A survivor
-was defined as a cell which was able to undergo two division events after the
+was defined as a cell which was able to undergo at least two division events after the
 osmotic down shock. Cell death was recognized by stark changes in cell
 morphology including loss of phase contrast through ejection of cytoplasmic
 material, structural decomposition of the cell wall and membrane, and the
 inability to divide. To confirm that these morphological cues corresponded
 with cell death, we probed cell viability on a subset of our strains after
-osmotic shock through staining with Propidium Iodide, a DNA intercalating dye
+osmotic shock through staining with propidium iodide, a DNA intercalating dye
 commonly used to identifying dead cells (LIVE/DEAD BacLight Bacterial Cell Viability Assay, Thermo Fisher). We found that our
 classification based on morphology agreed with that based off of staining
 within 1%. More information regarding these experiments can be found in the

@@ -24,3 +24,4 @@ data/csv/pooled_complete_mcmc_traces.csv
 data/csv/*traces.csv
 *.txt
 *.vscode/
+*.pages

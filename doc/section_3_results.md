@@ -9,8 +9,7 @@ species of channel, we chose MscL as it is the most well characterized and
 one of the most abundant species in *E. coli*. To probe the contribution of
 MscL alone, we integrated an *mscL* gene encoding an MscL super-folder GFP
 (sfGFP) fusion into a strain in which all seven known mechanosensitive
-channel genes were deleted from the chromosome [@edwards2012] (strain MJF641
-generously provided by Samantha Miller and Ian Booth). Chromosomal
+channel genes were deleted from the chromosome [@edwards2012]. Chromosomal
 integration imposes strict control on the gene copy number compared to
 plasmid borne expression systems, which is important to minimize variation in
 channel expression across the population and provide conditions more
@@ -18,7 +17,7 @@ representative of native cell physiology. Abrogation of activity, mislocalizatio
 creating chimeric reporter constructs. In Supplement A, we carefully dissect
 the functionality of this protein through electrophysiology (Fig. S1),
 measure the rate of fluorophore maturation (Fig. S2), and quantify
-mislocaliztion (Figs. S3 and S4). To the best of our knowledge, the
+potential aggregates (Figs. S3 and S4). To the best of our knowledge, the
 MscL-sfGFP fusion protein functions identically to the wild-type, allowing us
 to confidently draw conclusions about the physiological role this channel
 plays in wild-type cells.
@@ -56,7 +55,7 @@ MscL copy number, resulting in a measure of arbitrary fluorescence units per
 MscL channel. Details regarding this calculation and appropriate propagation
 of error as well as its sensitivity to varying growth media can be found in the Materials & Methods as well as Supplement B (Fig. S5 - S8).
 
-&nbsp;&nbsp;&nbsp;&nbsp;While it is seemingly trivial to use this calibration
+&nbsp;&nbsp;&nbsp;&nbsp;While it is seemingly straightforward to use this calibration
 factor to determine the total number of channels per cell for wild-type or
 highly expressing strains, the calculation for the lowest expressing strains
 is complicated by distorted cell morphology. We observed that as the channel
@@ -121,15 +120,11 @@ highlighted in yellow. ](../figs/fig2.pdf){#fig:boxplot}
  rates while under observation. After the application of the osmotic shock,
  the cells were imaged every sixty seconds for four to six hours. Each cell
  was monitored over the outgrowth period and was manually scored as either a
- survivor, fatality, or inconclusive observation. Cells which died often
- underwent extreme morphological changes such as loss of contrast and
- distortion of the cell wall. Survivors were defined as cells which underwent
- at least two divisions post-shock. More information regarding this
- classification can be found in the Materials and Methods as well as Supplement C (Fig. S9 - S10 and Table S1 - S2). The brief experimental protocol can be seen in  [@Fig:flow_cell]B.
+ survivor, fatality, or inconclusive observation. The criteria used for scoring death were the same as those previously described in Bialecka-Fornal et al. 2015 [@bialecka-fornal2015]. Survivors were defined as cells that underwent multiple divisions  post-shock. To qualify as survivors, cells must undergo at least two divisions, although more typically,  four to eight divisions are observed without any signs of slowing down. Imaging is stopped when the survivors cells begin to go out of focus or overlap each other.  Survivors do not show any sign of ceasing division. More information regarding this  classification can be found in the Materials and Methods as well as Supplement C (Fig. S9 - S10 and Table S1 - S2). The brief experimental protocol can be seen in  [@Fig:flow_cell]B.
 
 ![Experimental approach to measuring survival probability. (A) Layout of
 a home-made flow cell for subjecting cells to osmotic shock. Cells are
-attached to a polyethylamine functionalized surface of a glass coverslip
+attached to a polyethylenimine functionalized surface of a glass coverslip
 within the flow chamber by loading a dilute cell suspension through one of
 the inlets. (B) The typical experimental procedure. Cells are loaded into a
 flow chamber as shown in (A) and mounted to the glass coverslip surface.
@@ -202,7 +197,7 @@ experimentally queried range.
 maintaining single-cell resolution, we chose to use a logistic regression
 model which does not require grouping data into arbitrary bins and treats
 each cell measurement as an independent experiment. Logistic regression is
-an inferential method to model the probability of a boolean or categorical
+an inferential method to model the probability of a Boolean or categorical
 event (such as survival or death) given one or several predictor variables
 and is commonly used in medical statistics to compute survival rates and
 dose response curves [@anderson2003; @mishra2016]. The primary assumption of
