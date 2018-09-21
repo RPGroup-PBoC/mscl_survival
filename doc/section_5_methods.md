@@ -192,45 +192,63 @@ found on the GitHub repository (`http://github.com/rpgroup-pboc/mscl_survival`).
 
 ### Calculation of survival probability error
 &nbsp;&nbsp;&nbsp;&nbsp;The vertical error bars for the points shown in [@Fig:survival] represent our uncertainty in the survival probability given our measurement of $n$ survivors out of a total $N$ single-cell measurements. The probability distribution of the survival probability $p_s$ given these measurements can be written using Bayes' theorem as
+
 $$
 g(p_s\,\vert\, n, N) = {f(n\,\vert\,p_s, N)g(p_s) \over f(n\,\vert\, N)},
 $${#eq:probability_bayes}
+
 where $g$ and $f$ represent probability density functions over parameters and data, respectively. The likelihood $f(n\,\vert p_s, N)$ represents the probability of measuring $n$ survival events, given a total of $N$ measurements each with a probability of survival $p_s$. This matches the story for the Binomial distribution and can be written as
+
 $$
 f(n\,\vert\,p_s, N) = {N! \over n!(N - n)!}p_s^n(1 - p_s)^{N - n}.
 $${#eq:binomial}
+
 To maintain maximal ignorance we can assume that any value for $p_s$ is valid, such that is in the range [0, 1]. This prior knowledge, represented by $g(p_s)$, can be written as
+
 $$
 g(p_s) = \begin{cases}1 & 0\leq p_s\leq 1 \\
 0 & \text{otherwise} \end{cases}.
 $${#eq:uniform_prob}
+
 We can also assume maximal ignorance for the total number of survival events we could measure given $N$ observations, $f(n\, \vert\, N)$. Assuming all observations are equally likely, this can be written as
+
 $$
 f(n\,\vert\, N) = {1 \over N + 1}
 $${#eq:evidence}
+
 where the addition of one comes from the possibility of observing zero survival events. Combining [@Eq:binomial;@Eq:uniform_prob;@Eq:evidence], the posterior distribution $g(p_s\,\vert\, n, N)$ is
+
 $$
 g(p_s\,\vert\, n, N) = {(N+1)! \over n!(N - n)!}p_s^{n}(1 - p_s)^{N - n}.
 $${#eq:probability_posterior}
 
 &nbsp;&nbsp;&nbsp;&nbsp; The most probable value of $p_s$, where the  posterior probability distribution given by [@Eq:probability_posterior] is maximized, can be found by computing the point at which derivative of the log posterior with respect to $p_s$ goes to zero,
+
 $$
 {d\log g(p_s\,\vert\,n, N) \over d p_s} = {n \over p_s} - {N - n  \over 1 - p_s} = 0.
 $${#eq:deriv_ps}
+
 Solving [@Eq:deriv_ps] for $p_s$ gives the most likely value for the probability,
+
 $$
 p_s^* = {n \over N}.
 $${#eq:most_prob_prob}
+
 So long as $N >> np_s^*$, [@Eq:probability_posterior] can be approximated as a Gaussian distribution with a mean $p_s^*$ and a variance $\sigma_{p_s}^2$. By definition, the variance
 of a Gaussian distribution is computed as the negative reciprocal of the second derivative of the log posterior evaluated at $p_s = p_s^*$,
+
 $$
 \sigma_{p_s}^2 = - \left({d^2 \log g(p_s\,\vert\, n, N) \over dp_s^2}\Bigg\vert_{p_s=p_s^*}\right)^{-1}.
 $${#eq:variance_def}
+
 Evaluating [@Eq:variance_def] yields
+
 $$
 \sigma_{p_s}^2 = {n(N-n)\over N^3}.
 $${#eq:prob_variance}
+
 Given [@Eq:most_prob_prob] and [@Eq:prob_variance], the most-likely survival probability and estimate of the uncertainty can be expressed as
+
 $$
 p_s = p_s^* \pm \sigma_{p_s}.
 $${#eq:}
