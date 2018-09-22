@@ -26,6 +26,9 @@ header-includes:
   \captionsetup[table]{name={\bf \fontfamily{phv} \selectfont TABLE}}
   \captionsetup[figure]{labelsep=space}
   \captionsetup[table]{labelsep=space}
+<<<<<<< HEAD
   \linenumbers
+=======
+>>>>>>> a7f1f48764c67f8af548b5f30711258794088eba
   \linespread{1.5}  
 ---

@@ -6,8 +6,17 @@ include:
   section_4_discussion.md
   section_5_methods.md
   section_6_acknowledgements.md
+  appendix_header.md
+  supplemental_information_A_standard_candle.md
+  supplemental_information_B_shock_classification.md
+  supplemental_information_C_logistic_regression.md
+  supplemental_information_D_strains.md
   section_7_references.md
 header:
   default_main.yaml
+<<<<<<< HEAD
 name: Chure2018a.docx
+=======
+name: Chure2018a_combined.pdf
+>>>>>>> a7f1f48764c67f8af548b5f30711258794088eba
 ---
