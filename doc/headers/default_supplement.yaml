@@ -1,7 +1,7 @@
 ---
 geometry: top=0.85in, left=1in, footskip=0.85in
-eqnos-cleveref: On
-fignos-cleveref: On
+eqnos-cleveref: true
+fignos-cleveref: true
 eqnos-plus-name: "Eq."
 fignos-plus-name: "Fig."
 number-sections: True
@@ -20,7 +20,6 @@ header-includes:
   \subsubsectionfont{\normalfont\sffamily\itshape}
   \linespread{1.5}
   \renewcommand{\thesection}{\arabic{section}}
-  \usepackage{lineno}
   \renewcommand{\thetable}{S\arabic{table}}
   \renewcommand{\thefigure}{S\arabic{figure}}
   \usepackage{caption}
@@ -29,5 +28,4 @@ header-includes:
   \captionsetup[figure]{labelsep=space}
   \captionsetup[table]{labelsep=space}
   \linespread{1.5}  
-  \linenumbers
 ---
